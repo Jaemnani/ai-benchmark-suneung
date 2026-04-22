@@ -23,13 +23,12 @@ import time
 from pathlib import Path
 
 import fitz  # PyMuPDF
+from dotenv import load_dotenv
 from google import genai
 
 # ─── 설정 ────────────────────────────────────────────────────────────────────
-GEMINI_API_KEY = os.environ.get(
-    "GEMINI_API_KEY",
-    "AIzaSyB5seDl6Zn6L3SkjnATTfq6ZDX3G4eTSpg",
-)
+load_dotenv(Path(__file__).resolve().parents[1] / ".env")
+GEMINI_API_KEY = os.environ["GEMINI_API_KEY"]
 MODEL = "gemini-2.5-flash"
 ROOT = Path(__file__).resolve().parents[1]
 RAW = ROOT / "raw_datas" / "2025"

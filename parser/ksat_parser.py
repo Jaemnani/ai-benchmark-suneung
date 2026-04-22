@@ -374,7 +374,7 @@ def parse_paper(pdf_path: Path, out_dir: Path, subject: str, render_dpi: int = 2
         crop_y1 = min(content_y1 + 15, max_y1)
 
         pad = 4
-        top_pad = 10  # 수식 분자·지수가 bbox 위로 튀어나오므로 상단 여백 확보
+        top_pad = 8  # 수식 분자·지수가 bbox 위로 튀어나오므로 상단 여백 확보
         clip = fitz.Rect(
             max(0, content_x0 - pad), max(0, crop_y0 - top_pad),
             min(page.rect.width, col_x1 + pad),
@@ -382,7 +382,9 @@ def parse_paper(pdf_path: Path, out_dir: Path, subject: str, render_dpi: int = 2
         )
         mat = fitz.Matrix(render_dpi / 72, render_dpi / 72)
         pix = page.get_pixmap(clip=clip, matrix=mat)
-        img_name = f"q{num:02d}.png"
+        # 선택과목별로 같은 번호를 공유하므로 section 접미사로 파일명 분리
+        sec_suffix = "" if sec == DEFAULT_SECTION else f"_{sec.replace(' ', '_')}"
+        img_name = f"q{num:02d}{sec_suffix}.png"
         img_path = img_dir / img_name
         pix.save(img_path)
 
