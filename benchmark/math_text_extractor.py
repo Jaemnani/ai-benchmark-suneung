@@ -1,15 +1,16 @@
 """
-수학 문항 텍스트를 Gemini Vision으로 재추출.
-PyMuPDF 가 CID 폰트를 못 읽는 수학 과목 전용.
-
-각 문항 이미지(q01.png~)를 Gemini 에 보내
-LaTeX 수식 포함 텍스트로 교체합니다.
+문항 텍스트를 Gemini Vision으로 재추출.
+PyMuPDF 가 CID 폰트(수식·화학식·그리스 문자·도표 라벨 등)를 PUA 영역으로
+잘못 추출하는 모든 과목에 사용 가능합니다.
 
 사용법:
-  python math_text_extractor.py
+  python math_text_extractor.py                     # 수학
+  python math_text_extractor.py --subject 과학탐구_물리학Ⅰ
+  python math_text_extractor.py --subject all       # outputs/2025 전체
 """
 from __future__ import annotations
 
+import argparse
 import json
 import os
 import re
@@ -28,12 +29,22 @@ OUTPUTS = ROOT / "outputs" / "2025"
 
 client = genai.Client(api_key=GEMINI_API_KEY)
 
-PROMPT = """\
-이 이미지는 수능 수학 문항입니다.
+
+def _subject_label(subject: str) -> str:
+    if "_" in subject:
+        category, name = subject.split("_", 1)
+        return f"{category} {name}"
+    return subject
+
+
+def _build_prompt(subject: str) -> str:
+    return f"""\
+이 이미지는 수능 {_subject_label(subject)} 문항입니다.
 문제 본문과 선택지를 **정확하게** 추출해 JSON 으로 반환하세요.
 
 규칙:
 - 수식은 LaTeX 인라인 ($...$) 으로 표기
+- 화학식·그리스 문자·아래첨자/위첨자·단위·화살표 등 특수 기호도 원문 그대로 정확히
 - 문제 번호("N.")와 배점("[N점]")은 제외
 - 조건, 보기(<보기>), 그래프/도표 설명은 question 에 포함
 - 원문 그대로, 요약하지 말 것
@@ -41,7 +52,7 @@ PROMPT = """\
 - 선택지가 없는 단답형(주관식)이면 choices 는 빈 배열 []
 
 반환 형식 (JSON only, 다른 텍스트 금지):
-{"question": "...", "choices": ["...", "...", "...", "...", "..."]}
+{{"question": "...", "choices": ["...", "...", "...", "...", "..."]}}
 """
 
 _JSON_FENCE_RE = re.compile(r"^```(?:json)?\s*|\s*```$", re.MULTILINE)
@@ -88,11 +99,11 @@ def _parse_response(text: str) -> tuple[str, list[str]] | None:
     return q.strip(), [str(c).strip() for c in ch]
 
 
-def extract_question_text(img_path: Path) -> tuple[str, list[str]] | None:
+def extract_question_text(img_path: Path, prompt: str) -> tuple[str, list[str]] | None:
     img_bytes = img_path.read_bytes()
     contents = [
         types.Part.from_bytes(data=img_bytes, mime_type="image/png"),
-        PROMPT,
+        prompt,
     ]
     config = types.GenerateContentConfig(response_mime_type="application/json")
     for attempt in range(3):
@@ -114,13 +125,17 @@ def extract_question_text(img_path: Path) -> tuple[str, list[str]] | None:
     return None
 
 
-def main():
-    json_path = OUTPUTS / "수학.json"
+def process_subject(subject: str) -> None:
+    json_path = OUTPUTS / f"{subject}.json"
+    if not json_path.exists():
+        print(f"[{subject}] JSON 없음 — skip")
+        return
     data = json.loads(json_path.read_text())
     questions = data["questions"]
+    prompt = _build_prompt(subject)
 
     print(f"\n{'━'*55}")
-    print(f" 수학 문항 텍스트 재추출 ({MODEL})")
+    print(f" {subject} 문항 텍스트 재추출 ({MODEL})")
     print(f" 문항: {len(questions)}개")
     print(f"{'━'*55}")
 
@@ -135,7 +150,7 @@ def main():
             continue
 
         print(f"  Q{num:>2} ({sec})...", end=" ", flush=True)
-        result = extract_question_text(img_path)
+        result = extract_question_text(img_path, prompt)
         if result is not None:
             new_text, new_choices = result
             q["question"] = new_text
@@ -151,6 +166,21 @@ def main():
     print(f"\n  → {updated}/{len(questions)} 업데이트")
     print(f"  → {json_path}")
     print(f"{'━'*55}\n")
+
+
+def _all_subjects() -> list[str]:
+    return sorted(p.stem for p in OUTPUTS.glob("*.json") if not p.stem.startswith("_"))
+
+
+def main():
+    ap = argparse.ArgumentParser(description="문항 텍스트 Vision 재추출")
+    ap.add_argument("--subject", default="수학",
+                    help="과목명 또는 'all' (outputs/2025 전체)")
+    args = ap.parse_args()
+
+    subjects = _all_subjects() if args.subject == "all" else [args.subject]
+    for subj in subjects:
+        process_subject(subj)
 
 
 if __name__ == "__main__":

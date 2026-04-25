@@ -35,7 +35,7 @@ def _build_prompt(question: dict, passage_text: str = "") -> str:
     return "\n".join(parts)
 
 
-def solve_text(question: dict, paper: dict, model: str) -> dict:
+def solve_text(question: dict, paper: dict, model: str, subject: str = "") -> dict:
     t0 = time.time()
     try:
         passage_text = ""

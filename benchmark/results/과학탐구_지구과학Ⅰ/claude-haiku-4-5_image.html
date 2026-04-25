@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>AI 수능 — claude-haiku-4-5 / 과학탐구_지구과학Ⅰ / image</title>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<style>
+*{box-sizing:border-box}
+body{font-family:'Noto Sans KR',sans-serif;max-width:960px;margin:0 auto;padding:20px;background:#f5f5f5;font-size:14px;line-height:1.6}
+h1{font-size:1.3rem;border-bottom:2px solid #222;padding-bottom:8px}
+.meta{font-size:.8rem;color:#666;margin-bottom:16px}
+.summary{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+.stat{background:#fff;border:1px solid #ddd;border-radius:6px;padding:12px 20px;text-align:center;min-width:100px}
+.stat b{font-size:1.4rem;display:block}
+.stat.good b{color:#1e7e34}
+.stat.bad b{color:#c5221f}
+.stat.info b{color:#1a56db}
+.filters{margin-bottom:16px;display:flex;gap:6px}
+.fbtn{padding:5px 14px;border:1px solid #aaa;border-radius:4px;cursor:pointer;background:#e8e8e8;font-size:.82rem;font-weight:600}
+.fbtn.active{background:#fff;color:#1a56db;border-color:#1a56db}
+.item{background:#fff;border:1px solid #e0e0e0;border-radius:6px;padding:16px 18px;margin-bottom:12px}
+.item.correct{border-left:4px solid #1e7e34}
+.item.wrong{border-left:4px solid #c5221f}
+.item-header{display:flex;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.qnum{font-weight:700;color:#1a56db;min-width:40px}
+.badge{font-size:.7rem;padding:2px 8px;border-radius:10px;font-weight:600}
+.badge-sec{background:#f0f0f0;color:#555}
+.mark{margin-left:auto;font-size:1.1rem;font-weight:700}
+.mark.ok{color:#1e7e34}
+.mark.ng{color:#c5221f}
+.time{font-size:.75rem;color:#888}
+.question-text{margin:8px 0;color:#333;white-space:pre-wrap;font-size:.9rem;max-height:80px;overflow:hidden;cursor:pointer}
+.question-text.expanded{max-height:none}
+.choices{list-style:none;padding:0;margin:8px 0}
+.choices li{padding:6px 10px;margin:3px 0;border-radius:4px;display:grid;grid-template-columns:1fr 160px;align-items:center;gap:10px;border:1px solid transparent}
+.choices li.correct-choice{background:#e6f4ea;border-color:#81c995}
+.choices li.ai-pick{outline:2px solid #1a56db}
+.choices li.ai-pick.wrong-pick{outline-color:#c5221f}
+.conf-bar{height:12px;background:#f0f0f0;border-radius:3px;overflow:hidden}
+.conf-fill{height:100%;background:linear-gradient(90deg,#9cc7ff,#1a56db);border-radius:3px}
+.conf-fill.top{background:linear-gradient(90deg,#86e29b,#1e7e34)}
+.conf-label{font-size:.7rem;color:#555;text-align:right;font-family:monospace}
+.reasoning{background:#fafafa;border:1px solid #eee;border-radius:4px;padding:10px 14px;margin-top:8px;font-size:.82rem;color:#444;white-space:pre-wrap;max-height:120px;overflow:auto}
+.ans-row{display:flex;gap:14px;font-size:.85rem;margin-top:8px;padding-top:6px;border-top:1px solid #f0f0f0}
+.ans-row b{color:#444}
+.short-conf{font-size:.78rem;color:#666;font-family:monospace}
+.choices.no-conf li{grid-template-columns:1fr}
+.ai-pick-tag{font-size:.72rem;background:#1a56db;color:#fff;padding:2px 10px;border-radius:10px;font-weight:600;justify-self:end}
+.item.skipped{border-left:4px solid #aaa;background:#fafafa;opacity:.85}
+.skipped-msg{color:#666;font-size:.8rem;margin-top:6px;font-style:italic}
+.mark.skip{color:#888}
+</style>
+</head>
+<body>
+<h1>AI 수능 — claude-haiku-4-5 / 과학탐구_지구과학Ⅰ / image</h1>
+<p class="meta">모델: claude-haiku-4-5 · 모드: image · 2026-04-25T20:33:17</p>
+<div class="summary"><div class="stat info"><b>10.0%</b>정답률</div><div class="stat good"><b>2</b>정답</div><div class="stat bad"><b>18</b>오답</div><div class="stat info"><b>5/50</b>원점수</div><div class="stat"><b>130.5s</b>총 시간</div><div class="stat"><b>6.5s</b>문항 평균</div></div>
+<div class="filters">
+  <button class="fbtn active" onclick="filterAll()">전체</button>
+  <button class="fbtn" onclick="filterWrong()">오답만</button>
+  <button class="fbtn" onclick="filterCorrect()">정답만</button>
+</div>
+<div id="items"><div class="item wrong"><div class="item-header"><span class="qnum">1번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">4.8s</span><span class="mark ng">✗</span></div><div class="question-text">그림은 대서양의 해수 순환을 모식적으로 나타낸 것이다. A와 B는 심층 해류와 표층 해류를 순서 없이 나타낸 것이고, ㉠과 ㉡은 표층 해수가 침강하는 해역이다.
+이 자료에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?
+&lt;보기&gt;
+ㄱ. A는 표층 해류이다.
+ㄴ. ㉠에서 침강한 해수는 주로 북쪽으로 이동한다.
+ㄷ. ㉡에서 해수가 침강하여 심해층에 산소를 공급한다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class="correct-choice"><div>③ ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:12%"></div></div><div class="conf-label">12.0%</div></div></li><li class=""><div>④ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="ai-pick wrong-pick"><div>⑤ ㄱ, ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:60%"></div></div><div class="conf-label">60.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ③</span><span><b>AI:</b> ⑤</span></div><div class="reasoning">문제 분석: 대서양의 해수 순환을 모식적으로 나타낸 그림이다. A는 표층 해류(따뜻함), B는 심층 해류(차가움)를 나타낸다. ①과 ⓛ는 표층 해수가 침강하는 해역이다.\n\n보기 검토:\n- ㄱ. A는 표층 해류이다: 맞음\n- ㄴ. ①에서 침강한 해수는 주로 북쪽으로 이동한다: 틀림. ①은 북대서양 표층 해수가 침강하는 지역으로, 심층에서는 남쪽으로 이동한다.\n- ㄷ. ⓛ에서 해수가 침강하여 심층중에 산소를 공급한다: 맞음. ⓛ는 남극 주변으로 표층 해수가 침강하는 지역이므로, 산소가 풍부한 표층수가 심층으로 이동하여 산소를 공급한다.\n\n따라서 옳은 것은 ㄱ과 ㄷ이다.</div></div>
+<div class="item correct"><div class="item-header"><span class="qnum">2번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">4.4s</span><span class="mark ok">✓</span></div><div class="question-text">그림은 어느 뇌우의 생성과 소멸 과정에서 나타나는 공기의 흐름을 나타낸 것이다. (가), (나), (다)는 성숙 단계, 소멸 단계, 적운 단계를 순서 없이 나타낸 것이다.
+이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?
+&lt;보기&gt;
+ㄱ. (가)는 적운 단계이다.
+ㄴ. 번개 발생 빈도는 대체로 (가)가 (나)보다 낮다.
+ㄷ. 강수량은 (나)가 (다)보다 많다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>③ ㄱ, ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:12%"></div></div><div class="conf-label">12.0%</div></div></li><li class="correct-choice ai-pick"><div>④ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill top" style="width:70%"></div></div><div class="conf-label">70.0%</div></div></li><li class=""><div>⑤ ㄱ, ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ④</span><span><b>AI:</b> ④</span></div><div class="reasoning">세 가지 대기 순환 모형을 분석하면: (가)는 지표면에서 상승기류가 강하고 0°C 고도에서 중심이 있으며, 적운단계의 강한 대류를 나타낸다. (나)는 상층에서 분산되는 기류 패턴으로 성숙단계를 보여주며, (다)는 약해진 기류로 쇠퇴단계를 나타낸다. 보기 검토: ㄱ. (가)는 적운단계이다 - 맞음. ㄴ. 번개 발생 빈도는 (가)가 (나)보다 높다 - 맞음(적운단계가 성숙단계보다 더 활발). ㄷ. 강수량은 (나)가 (다)보다 많다 - 맞음(성숙단계가 쇠퇴단계보다 강수가 강함). 따라서 ㄱ, ㄴ, ㄷ 모두 옳으므로 정답은 ④번이다.</div></div>
+<div class="item correct"><div class="item-header"><span class="qnum">3번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">5.1s</span><span class="mark ok">✓</span></div><div class="question-text">그림은 위도에 따른 연평균 강수량과 증발량을 순서 없이 나타낸 것이다.
+이 자료에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?
+&lt;보기&gt;
+ㄱ. (증발량 – 강수량) 값은 A가 B보다 작다.
+ㄴ. A의 해역에 남극 순환류가 흐른다.
+ㄷ. C에서는 대기 대순환의 직접 순환이 나타난다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>③ ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="correct-choice ai-pick"><div>④ ㄱ, ㄴ</div><div><div class="conf-bar"><div class="conf-fill top" style="width:70%"></div></div><div class="conf-label">70.0%</div></div></li><li class=""><div>⑤ ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ④</span><span><b>AI:</b> ④</span></div><div class="reasoning">그래프는 위도에 따른 강수량(실선)과 증발량(점선)을 나타낸다. 각 보기를 검토하면:\n\n기준 분석: &lt;보기&gt;의 조건은 (증발량 - 강수량) 값이 &lt;보기&gt;에서 있는 대로 고르는 것이다.\n\n기. (증발량 - 강수량) 값이 A가 B보다 작다: 60°S 근처에서 A는 약 (100-200)=-100, B는 약 (100-150)=-50이므로 A가 더 작다. (참)\n\n나. A의 해역에 남극 순환류가 흐른다: 남극 순환류는 60°S 근처를 흐르므로 A 지역(60°S)에서 맞다. (참)\n\n드. C에서는 대기 대순환의 직접 순환이 나타난다: C 위치(약 30°N)는 고기압대로, 하강기류가 우세하며 대기 대순환의 직접 순환(해들리 순환의 하강지점)이 나타난다. (참)\n\n따라서 기, 나, 드 모두 옳다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">4번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">4.8s</span><span class="mark ng">✗</span></div><div class="question-text">다음은 어느 지질 구조의 형성 과정을 알아보기 위한 탐구이다.
+[탐구 목표]
+ㅇ ( ㉠ )의 형성 과정을 설명할 수 있다.
+[탐구 과정]
+(가) I과 같이 지점토 판 세 개를 수평으로 쌓는다.
+(나) II와 같이 중심부가 위로 볼록하게 구부러지도록 변형시킨다.
+(다) III과 같이 구부러진 지점토 판의 위쪽을 지점토 칼로 수평으로 자른다.
+(라) 잘린 지점토 판 위에 IV와 같이 새로운 지점토 판을 수평으로 쌓는다.
+이 자료에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?
+&lt;보기&gt;
+ㄱ. ‘경사 부정합’은 ㉠에 해당한다.
+ㄴ. II에서 배사 구조의 형태가 나타난다.
+ㄷ. (다)는 지층의 침식 과정에 해당한다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>③ ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="ai-pick wrong-pick"><div>④ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:65%"></div></div><div class="conf-label">65.0%</div></div></li><li class="correct-choice"><div>⑤ ㄱ, ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> ④</span></div><div class="reasoning">지질 구조의 형성 과정을 분석하는 문제입니다.\n\n(탐구 과정 분석)\n- I: 평탄한 지층 (초기 상태)\n- II: 지층이 구부러짐 (압축력)\n- III: 지층이 더 구부러지고 끊어짐 (계속된 압축)\n- IV: 지층이 위아래로 어긋남 (단층 형성)\n\n(선택지 검토)\n- '경사 부정합'은 ①에 해당 (평탄한 지층 위에 경사진 지층이 쌓이는 것) → 이미지에 나타나지 않음\n- II에서 배사 구조의 형태가 나타남 (반원형으로 올라가는 구조) → 나 정답\n- (다)는 지층이 끊어져서 어긋나는 단층으로, 지중의 칠실 과정에 해당 → 다 정답\n\n(최종 판단)\n나(II의 배사 구조)와 다(단층 형성)가 모두 옳으므로 답은 '④ 나, 다'</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">5번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">6.0s</span><span class="mark ng">✗</span></div><div class="question-text">그림 (가)는 깊이에 따른 지하 온도 분포와 암석의 용융 곡선을, (나)는 (가)의 ㉠과 ㉡ 과정에 의해 생성된 마그마의 특성을 나타낸 것이다. A와 B는 유문암질 마그마와 현무암질 마그마를 순서 없이 나타낸 것이다.
+이 자료에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?
+&lt;보기&gt;
+ㄱ. 마그마가 생성되기 시작하는 온도는 ㉠이 ㉡보다 낮다.
+ㄴ. B가 분출하여 굳으면 주로 현무암이 된다.
+ㄷ. 섭입대에서 A는 주로 ㉠에 의해 생성된다.</div><ul class="choices"><li class="correct-choice"><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>③ ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>④ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="ai-pick wrong-pick"><div>⑤ ㄱ, ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:65%"></div></div><div class="conf-label">65.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ①</span><span><b>AI:</b> ⑤</span></div><div class="reasoning">그림(가)는 깊이에 따른 온도 분포를 나타내며, ⓛ과 ⓟ 과정이 마그마 형성 과정을 보여줍니다. 지하 운도 분포(破선)를 따라 냉각하는 ⓛ과정과 가열되는 ⓟ과정이 표시되어 있습니다.\n\n분석:\n- 그(ㄱ): 마그마가 생성되기 시작하는 온도는 ⓛ이 ⓟ보다 낮으므로 참\n- 나(ㄴ): 그래프에서 B가 분출하여 현무암이 된다는 정보는 직접 나타나지 않으므로 확인 필요\n- 다(ㄷ): 섭입대에서 A는 주로 ⓛ과정(냉각)에 의해 생성되므로 참\n\n지열 기울기의 차이를 보면:\n- ⓛ(고결정 물질의 지열 기울기): 낮음\n- ⓟ(상승하는 마그마의 지열 기울기): 높음\n\nㄱ, ㄴ, ㄷ을 모두 검토하면, ㄱ은 확실히 참이고, ㄷ도 섭입대의 냉각 작용을 고려하면 참입니다. ㄴ도 현무암질 마그마 분출의 특성상 참입니다. 따라서 세 명제 모두 옳습니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">6번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">5.9s</span><span class="mark ng">✗</span></div><div class="question-text">그림 (가)는 태평양 어느 지역에서 판 경계를 가로지르는 A-B 구간의 지점 P$_1$ ~ P$_4$를 나타낸 것이고, (나)는 A-B 구간의 해수면상에서 연직 방향으로 음파를 발사하여 해저면에 반사되어 되돌아오는 데 걸리는 시간을 거리에 따라 나타낸 것이다.
+이 자료에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? (단, 해수에서 음파의 속력은 $1500\,m/s$이다.)
+&lt;보기&gt;
+ㄱ. 수심은 P$_2$가 P$_3$보다 깊다.
+ㄴ. A-B 구간에 수렴형 경계가 있다.
+ㄷ. 판의 밀도는 P$_1$이 속한 판이 P$_4$가 속한 판보다 작다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>③ ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class="ai-pick wrong-pick"><div>④ ㄱ, ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:72%"></div></div><div class="conf-label">72.0%</div></div></li><li class="correct-choice"><div>⑤ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> ④</span></div><div class="reasoning">그래프 분석:\n- (가)는 A-B 구간을 가로지르는 판 경계(화산선)를 표시\n- (나)는 A-B 구간의 해수면상 표고 프로파일\n\n각 보기 검토:\n\n가. P₂가 P₃보다 높다 → 그래프(나)에서 P₂(약 12km)와 P₃(약 10km)를 비교하면 P₂ &gt; P₃이므로 참\n\n나. A-B 구간에 습곡형 경계가 있다 → 지도에서 A-B 구간 경계는 주로 사주 경계(화산선)로 보이며, 습곡형 경계의 명확한 증거 없음. 거짓\n\n다. 판의 밀도 비교 → P₁이 속한 판(좌측)이 P₄가 속한 판(우측)보다 밀도가 크면, 침강대 형성(판경계). 지도의 판 배치와 해수면상 표고 변화(A에서 B로 갈수록 높아짐)를 고려하면, P₁ 판이 더 진한 색(밀도 큼)으로 표시되어 있으므로 P₁ 판의 밀도가 P₄ 판보다 크다. 참\n\n가와 다가 모두 참이므로 답은 ④</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">7번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">5.3s</span><span class="mark ng">✗</span></div><div class="question-text">그림 (가)와 (나)는 어느 날 같은 시각의 지상 일기도와 적외 영상을 각각 나타낸 것이다.
+이 자료에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?
+&lt;보기&gt;
+ㄱ. (가)에서 폐색 전선이 나타난다.
+ㄴ. 구름 최상부의 온도는 ㉠ 영역이 ㉡ 영역보다 높다.
+ㄷ. A 지점의 지상에서는 주로 북풍 계열의 바람이 분다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="correct-choice"><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>③ ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="ai-pick wrong-pick"><div>④ ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:65%"></div></div><div class="conf-label">65.0%</div></div></li><li class=""><div>⑤ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ②</span><span><b>AI:</b> ④</span></div><div class="reasoning">그림 (가)는 등압선도로 검은점들이 저기압 중심을 나타내는 전선(한반도 동해상의 한파 전선)이고, 그림 (나)는 위성사진이다. 보기를 분석하면: 그. (가)에서 폐곡선 등압선이 뚜렷하게 나타나 저기압을 나타낸다(○). 나. 그림 최상부의 원(㉱)이 있는 영역이 ㉲ 영역보다 위도상 높으므로 온도가 낮다(○). 다. A 지점 근처의 지표면에는 주로 북풍 계열의 바람이 분다는 것이 기압배치상 확인되고, 북풍은 한랭건조한 대륙고기압의 영향을 받는 계절풍이다(○). 따라서 그, 다 모두 참인 ④번이 정답이다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">8번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">7.7s</span><span class="mark ng">✗</span></div><div class="question-text">그림은 지질 시대에 일어난 주요 사건을 시간 순서대로 나타낸 것이다.
+A, B, C 기간에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?
+&lt;보기&gt;
+ㄱ. A에 생성된 지층에서 에디아카라 동물군 화석이 발견된다.
+ㄴ. B에 팔레오기와 네오기 사이의 지질 시대 경계가 포함된다.
+ㄷ. C에 대서양이 형성되기 시작하였다.</div><ul class="choices"><li class="correct-choice"><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="ai-pick wrong-pick"><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:78%"></div></div><div class="conf-label">78.0%</div></div></li><li class=""><div>③ ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>④ ㄱ, ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>⑤ ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:4%"></div></div><div class="conf-label">4.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ①</span><span><b>AI:</b> ②</span></div><div class="reasoning">A 기간은 다세포 생물 출현(선캄브리아기)으로 에디아카라 동물군 화석 발견 가능(ㄱ 참). B 기간은 약 4억7천만년 전부터 약 1억4천만년 전이므로, 팔레오기(6500만년 전)와 네오기(2300만년 전) 경계를 포함(ㄴ 참). C는 속씨식물 출현 이후로, 대서양 형성은 B 기간에 주로 진행(ㄷ 거짓). 따라서 ㄴ만 옳다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">9번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">8.0s</span><span class="mark ng">✗</span></div><div class="question-text">그림 (가)는 서로 다른 해에 우리나라에 영향을 준 태풍 A와 B의 이동 경로를, (나)는 A와 B 중 어느 태풍의 영향을 받는 동안 관측소 P에서 36시간 동안 관측한 기압, 풍속, 풍향의 변화를 나타낸 것이다.
+이 자료에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?
+&lt;보기&gt;
+ㄱ. (나)는 A의 관측 자료이다.
+ㄴ. P에서의 풍속은 $t_1$일 때가 $t_4$일 때보다 빠르다.
+ㄷ. 태풍의 중심과 P 사이의 거리는 $t_1$일 때가 $t_3$일 때보다 멀다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="correct-choice"><div>③ ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class=""><div>④ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:20%"></div></div><div class="conf-label">20.0%</div></div></li><li class="ai-pick wrong-pick"><div>⑤ ㄱ, ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:50%"></div></div><div class="conf-label">50.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ③</span><span><b>AI:</b> ⑤</span></div><div class="reasoning">지도 (가)에서 A는 우리나라 서쪽의 대기압이 낮은 저기압, B는 남동쪽의 고기압을 나타낸다. 그래프 (나)는 36시간 동안 P지점에서 관측한 자료이다.\n\n보기 검토:\n- 그: (나)는 A의 관측자료이다 - 그래프의 기압 변화(1008→998→1008 hPa)와 풍향변화를 보면 저기압이 통과하는 특성을 보여주므로 A의 자료가 맞다. (O)\n\n- 나: P에서의 풍속은 t₁일 때가 t₄일 때보다 빠르다 - 그래프에서 t₁ 시점의 풍속은 약 5 m/s, t₄ 시점의 풍속은 약 10-15 m/s로 t₄가 더 빠르다. (X)\n\n- 다: 태풍의 중심과 P 사이의 거리는 t₁일 때가 t₃일 때보다 멀다 - 기압이 낮을수록 태풍 중심에 가깝다. t₁의 기압(약 1008 hPa)이 t₃의 기압(약 998 hPa)보다 높으므로, t₁일 때가 더 멀다는 것이 맞다. (O)\n\n따라서 그, 다가 참이므로 정답은 ⑤번이다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">10번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">6.6s</span><span class="mark ng">✗</span></div><div class="question-text">그림은 은하 A와 B를 구성하는 주계열성의 평균 나이와 평균 광도를 나타낸 것이다. A와 B는 나선 은하와 타원 은하를 순서 없이 나타낸 것이다. 은하를 구성하는 주계열성의 총광도는 A와 B가 같다. 이 자료에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?
+
+&lt;보기&gt;
+ㄱ. 주계열성의 평균 표면 온도는 A가 B보다 높다.
+ㄴ. 주계열성의 총개수는 A가 B보다 많다.
+ㄷ. 태양보다 질량이 큰 주계열성의 총광도는 A가 B보다 작다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class="ai-pick wrong-pick"><div>③ ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:82%"></div></div><div class="conf-label">82.0%</div></div></li><li class=""><div>④ ㄱ, ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:3%"></div></div><div class="conf-label">3.0%</div></div></li><li class="correct-choice"><div>⑤ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> ③</span></div><div class="reasoning">A(100억 년)는 나이가 많아 질량이 큰 별들이 이미 주계열을 떠났고, B(60억 년)는 나이가 적어 질량이 큰 별들이 아직 주계열에 남아있다. 따라서 태양보다 질량이 큰 주계열성의 총광도는 A가 B보다 작다. ㄷ만 참이므로 정답은 ③이다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">11번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">10.7s</span><span class="mark ng">✗</span></div><div class="question-text">표는 주계열성 X가 중심별인 어느 외계 행성계에 속한 행성 ㉠, ㉡, ㉢이 X로부터 단위 시간당 단위 면적에서 받는 복사 에너지양 S와 각 행성의 공전 궤도 반지름을 나타낸 것이다. ㉠, ㉡, ㉢은 모두 생명 가능 지대에 위치한다. (표: 행성, S (지구 = 1), 공전 궤도 반지름 (AU) - ㉠: 0.73, 0.7 - ㉡: 1, ( ) - ㉢: ( ), 0.75). 이 자료에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? &lt;보기&gt; ㄱ. 주계열 단계에 머무는 시간은 X가 태양보다 짧다. ㄴ. 공전 궤도 반지름은 ㉡이 ㉢보다 작다. ㄷ. X의 광도가 계속 증가할 경우, 생명 가능 지대를 가장 먼저 벗어나는 것은 ㉢이다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="correct-choice"><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>③ ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="ai-pick wrong-pick"><div>④ ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:65%"></div></div><div class="conf-label">65.0%</div></div></li><li class=""><div>⑤ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ②</span><span><b>AI:</b> ④</span></div><div class="reasoning">케플러 제3법칙과 태양상수의 역제곱 법칙을 적용. ㄱ은 궤도반지름 0.7 &lt; 1 &gt; 0.75이므로 ㉮가 태양에 가장 가깝고 주기가 가장 짧아 참. ㄴ은 공전궤도 반지름이 ㉯(1) &gt; ㉰(0.75)이므로 거짓. ㄷ은 X의 광도 증가 시 생명가능지대가 외측으로 이동하므로 ㉰이 생명가능지대에 진입하게 되어 참. 따라서 ㄱ, ㄷ이 옳다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">12번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">4.2s</span><span class="mark ng">✗</span></div><div class="question-text">표는 중심핵에서 핵융합 반응이 일어나고 있는 별 (가), (나), (다)의 질량과 광도 계급을 나타낸 것이다.
+
+| 별 | 질량 (태양 = 1) | 광도 계급 |
+|---|---|---|
+| (가) | 1 | V |
+| (나) | 5 | V |
+| (다) | 1 | III |
+
+이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?
+
+&lt;보기&gt;
+ㄱ. 대류가 일어나는 영역의 평균 깊이는 (가)가 (나)보다 얕다.
+ㄴ. 단위 시간당 에너지 생성량은 (가)가 (다)보다 많다.
+ㄷ. 중심핵의 온도는 (나)가 (다)보다 낮다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class="correct-choice"><div>③ ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:12%"></div></div><div class="conf-label">12.0%</div></div></li><li class=""><div>④ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="ai-pick wrong-pick"><div>⑤ ㄱ, ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:65%"></div></div><div class="conf-label">65.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ③</span><span><b>AI:</b> ⑤</span></div><div class="reasoning">표에서 (가) 질량=1, 광도=V / (나) 질량=5, 광도=V / (다) 질량=1, 광도=Ⅲ\n\n보기 검토:\n그(ㄱ). 대류가 일어나는 영역의 평균 깊이는 (가)가 (나)보다 알다 → 질량이 작을수록 대류층이 얕으므로 참\n\n나(ㄴ). 단위 시간당 에너지 생성량은 (가)가 (다)보다 많다 → 같은 질량이지만 광도가 V &lt; Ⅲ이므로 (다)가 더 에너지를 많이 생성. 거짓\n\n다(ㄷ). 중심핵의 운도는 (나)가 (다)보다 낫다 → 질량이 크고 광도가 같으면 중심부 조건이 더 극단적이어서 (나)의 운도가 높음. 참\n\n참인 명제는 ㄱ, ㄷ이므로 답은 ⑤번</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">13번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">6.1s</span><span class="mark ng">✗</span></div><div class="question-text">그림은 빅뱅 우주론에 따라 우주가 팽창하는 동안 우주 초기에 헬륨 원자핵이 생성될 때 A, B, C의 상대적 질량비(%)를 일정한 시간 간격에 따라 나타낸 것이다. A, B, C는 양성자, 중성자, 헬륨 원자핵을 순서 없이 나타낸 것이다. 이 자료에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? &lt;보기&gt; ㄱ. B는 중성자이다. ㄴ. 우주 배경 복사는 $T$ 시기에 방출된 빛이다. ㄷ. $T$ 시기 후 수소 원자핵과 헬륨 원자핵의 개수비는 약 3:1이다.</div><ul class="choices"><li class="correct-choice"><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>③ ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="ai-pick wrong-pick"><div>④ ㄱ, ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:65%"></div></div><div class="conf-label">65.0%</div></div></li><li class=""><div>⑤ ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ①</span><span><b>AI:</b> ④</span></div><div class="reasoning">그래프 분석: A는 약 80~90%에서 시작하여 감소(암흑물질 후보). B는 0%에서 시작하여 증가하다가 감소(헬륨 원자핵). C는 0%에서 시작하여 계속 증가(수소 원자핵).\n\n보기 검토:\n- 가. B는 중성자이다 → 거짓. 그래프상 B는 0%부터 시작하여 증가하므로 처음에는 생성되지 않음. 중성자는 초기부터 존재. B는 헬륨 원자핵이 맞음.\n- 나. 우주 배경 복사는 T 시기에 방출됨 → 참. 그래프의 T 시기는 우주 배경 복사가 방출되는 시점을 나타냄.\n- 다. T 시기 후 수소 원자핵과 헬륨 원자핵의 개수비는 약 3:1 → 참. 그래프에서 T 시기 이후 C(수소)가 약 75%, B(헬륨)가 약 25%이므로 3:1 비율.\n\n따라서 나, 다가 참이고 가는 거짓이므로 답은 ④(가, 나)가 아니라 ④(가, 나)... 재검토하면 정정되는 선택지는 ④번(가, 나)인데, 실제로는 ④번이 '가, 나'를 의미하므로 재평가 결과 ④(가, 나)가 정답.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">14번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">6.8s</span><span class="mark ng">✗</span></div><div class="question-text">그림은 지구의 자전축 경사각과 세차 운동에 의한 자전축 경사 방향을 일정한 시간 간격에 따라 나타낸 것이다. 세차 운동의 방향은 지구 공전 방향과 반대이다.
+이 자료에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? (단, 지구의 자전축 경사각과 세차 운동 이외의 요인은 변하지 않는다고 가정한다.)
+&lt;보기&gt;
+ㄱ. $30^{\circ}N$에서 기온의 연교차는 A 시기가 B 시기보다 크다.
+ㄴ. 지구가 원일점에 위치할 때, $30^{\circ}S$에서 낮의 길이는 B 시기가 현재보다 길다.
+ㄷ. C 시기에 근일점에서 $30^{\circ}S$의 계절은 가을이다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="correct-choice"><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>③ ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="ai-pick wrong-pick"><div>④ ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:65%"></div></div><div class="conf-label">65.0%</div></div></li><li class=""><div>⑤ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ②</span><span><b>AI:</b> ④</span></div><div class="reasoning">그래프 분석: 실선은 자전축 경사각 고정 시 자전축 경사 방향을 나타내고, 점선은 현재와 반대 방향을 나타낸다. A시기에서 B시기로 갈수록 온도가 상승하고, B시기가 최고 온도이며, C시기에서 온도가 하강한다. 이는 자전축 경사의 영향을 보여준다. 보기 검토: ㄱ. 30°N에서 기온의 연교차는 A시기가 B시기보다 크다는 것은 자전축 경사가 클 때(현재 반대 방향)의 계절 변화를 의미한다. 그래프에서 A는 23°에서 시작하므로 현재와 유사한 상태이고, 이때 30°N의 연교차는 B시기(최대 경사)보다 작다. 따라서 ㄱ은 거짓. ㄴ. 지구가 원일점에 위치할 때(자전축 경사 반대 방향), 30°S에서 낮의 길이는 B시기보다 길다. 자전축이 반대로 기울어지면 남반구 겨울이 되어 낮의 길이가 짧아진다. 따라서 ㄴ은 참. ㄷ. C시기에 근일점에서 30°S의 계절은 가을이다. 점선(반대 경사)에서 C시기는 온도가 낮으므로 남반구는 겨울에 해당한다. 따라서 ㄷ은 거짓. 정답: ㄴ 만 참이므로 ②번인 것으로 보이나, 그래프 재검토 결과 ㄱ과 ㄷ의 조합이 가장 합리적이다. ④번(ㄱ, ㄷ)이 정답.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">15번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">8.4s</span><span class="mark ng">✗</span></div><div class="question-text">그림 (가)는 동태평양 적도 부근 해역에서 관측한 표층 수온 편차를, (나)는 A와 B 중 한 시기에 관측한 태평양 적도 부근 해역의 표층에 도달하는 태양 복사 에너지 편차를 나타낸 것이다. A와 B는 각각 엘니뇨와 라니냐 시기 중 하나이고, 편차는 (관측값 - 평년값)이다.
+이 자료에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?
+&lt;보기&gt;
+ㄱ. (나)는 B에 해당한다.
+ㄴ. 동태평양 적도 부근 해역에서 수온 약층이 나타나기 시작하는 깊이는 A가 B보다 깊다.
+ㄷ. 적도 부근 해역에서 $\frac{\text{서태평양 해면 기압}}{\text{동태평양 해면 기압}}$은 A가 B보다 작다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="ai-pick wrong-pick"><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:75%"></div></div><div class="conf-label">75.0%</div></div></li><li class=""><div>③ ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>④ ㄱ, ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="correct-choice"><div>⑤ ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> ②</span></div><div class="reasoning">A는 엘니뇨 시기(기온 편차 양수), B는 라니냐 시기입니다. (나) 지도의 고에너지 편차는 엘니뇨의 특징이므로 B 해당이 아닙니다(ㄱ 거짓). ㄴ은 엘니뇨(A)에서 동태평양이 따뜻하므로 수온 약증이 약해서 A가 B보다 작으므로 참입니다. ㄷ은 라니냐(B)에서 서태평양 기압이 강하므로 비율이 더 크므로 거짓입니다. 따라서 ㄴ만 참입니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">16번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">5.7s</span><span class="mark ng">✗</span></div><div class="question-text">그림은 표준 우주 모형에 따라 팽창하는 우주에서 우주의 팽창 속도를, 표는 A, B, C 시기의 물리량을 나타낸 것이다.
+
+이 자료에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?</div><ul class="choices"><li class="correct-choice"><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>③ ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>④ ㄱ, ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:12%"></div></div><div class="conf-label">12.0%</div></div></li><li class="ai-pick wrong-pick"><div>⑤ ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:65%"></div></div><div class="conf-label">65.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ①</span><span><b>AI:</b> ⑤</span></div><div class="reasoning">표의 데이터를 분석하면:\n\n1. 압축 에너지 밀도/물질 밀도: A(0.96) &lt; B(0.93이 아니라 재계산 필요) &lt; C(0.90)\n   실제로는 A &gt; B &gt; C 순서\n\n2. 우주 배경 복사 온도(상댓값):\n   A: 1.0, B: 2.1, C: (  )\n   \n3. 우주 구성 요소 암흑 에너지 비율(%): A(  ), B(15), C(48)\n\n보기 검토:\n- 그(ㄱ): 암흑 에너지 밀도/물질 밀도는 A가 C보다 크다 → A의 압축 속도가 0.96으로 더 낮으므로 암흑 에너지 비율이 높음 (참)\n- 나(ㄴ): A, B, C 중 우주 배경 복사의 온도 차이는 C가 가장 낮다 → B가 2.1로 가장 높고, C는 상대적으로 낮을 것으로 예상되므로 거짓\n- 드(ㄷ): A에 우주는 감속 팽창한다 → 압축 속도 0.96은 가속 팽창을 시사 (거짓)\n\n따라서 그(ㄱ)만 참이므로 ⑤(ㄱ, ㄷ)은 아니고, ①(ㄱ)이 정답</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">17번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">7.6s</span><span class="mark ng">✗</span></div><div class="question-text">그림은 지괴 A와 B의 시기별 고지자기극 위치와 이로부터 추정한 100 Ma의 A와 B의 위치를 나타낸 것이다. A와 B는 각각 동일 경도를 따라 이동하였다.
+&lt;그림 설명&gt;
+지리상 북극이 표시된 구형 지도에 경도선과 0°, 30°, 60° 위도선이 표시되어 있다.
+점선으로 연결된 두 개의 이동 경로가 표시되어 있다.
+A의 경로: 200 Ma (●, 약 60° 위도), 150 Ma (●, 약 60° 위도), 100 Ma (●, 약 70° 위도)의 고지자기극 위치가 표시되어 있다. 또한 100 Ma의 A 위치가 30° 위도에 표시되어 있다.
+B의 경로: 200 Ma (○, 약 45° 위도), 150 Ma (○, 약 30° 위도), 100 Ma (○, 약 20° 위도)의 고지자기극 위치가 표시되어 있다. 또한 100 Ma의 B 위치가 30° 위도에 표시되어 있다.
+&lt;범례&gt;
+● A에서 구한 고지자기극
+○ B에서 구한 고지자기극
+단위: Ma(백만 년 전)
+&lt;/그림 설명&gt;
+이 자료에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? (단, 고지자기극은 고지자기 방향으로 추정한 지리상 북극이고, 지리상 북극은 변하지 않았다.)
+&lt;보기&gt;
+ㄱ. 현재 A는 B보다 고위도에 위치한다.
+ㄴ. 150 Ma ~ 100 Ma 동안 평균 이동 속도는 A가 B보다 느리다.
+ㄷ. 200 Ma부터 100 Ma까지 A의 이동 방향은 남쪽이다.</div><ul class="choices"><li class="ai-pick wrong-pick"><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:45%"></div></div><div class="conf-label">45.0%</div></div></li><li class=""><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class=""><div>③ ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="correct-choice"><div>④ ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class=""><div>⑤ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ④</span><span><b>AI:</b> ①</span></div><div class="reasoning">그래프 분석: ㄱ-A와 B의 현재 위치는 유사한 고위도(참이 아님), ㄴ-150Ma~100Ma 동안 A와 B의 이동거리와 속도가 유사(참이 아님), ㄷ-200Ma~100Ma 동안 A는 60°S에서 30°S로 이동하여 북쪽(적도 방향) 이동(참이 아님). 따라서 참인 보기가 없으므로 ①</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">18번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">6.8s</span><span class="mark ng">✗</span></div><div class="question-text">그림 (가)는 어느 외계 행성계에서 중심별과 행성이 공통 질량 중심에 대하여 원 궤도로 공전할 때, 식 현상을 일으키는 행성에 의한 중심별의 상대적 밝기 변화를 일정한 시간 간격($\Delta t$)에 따라 나타낸 것이다. (나)는 $t_2$일 때 중심별의 위치를 공전 궤도에 나타낸 것이다. 이 자료에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? (단, 중심별의 시선 속도 변화는 행성과의 공통 질량 중심에 대한 공전에 의해서만 나타나며, 행성의 공전 궤도면은 관측자의 시선 방향과 나란하다.)</div><ul class="choices"><li class="correct-choice"><div>① ㄱ. 중심별의 시선 속도는 $t_2$일 때가 $t_4$일 때보다 크다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄴ. $t_2$ 이후 처음으로 식 현상이 끝난 직후의 시간은 $t_2+20\Delta t$이다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>③ ㄷ. 행성의 공전 주기는 $360\Delta t$이다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ①</span><span><b>AI:</b> ④</span></div><div class="reasoning">외계행성 행성 통과법(transit method)에 관한 문제입니다.\n\n주어진 조건 분석:\n- 그래프(가): 항성의 밝기가 t₁부터 t₂까지 Δt 동안 감소, t₂부터 t₃까지 0.9975 유지, t₃부터 t₄까지 회복\n- 행성의 공전주기는 360Δt\n- 보기: ㄱ. 행성의 시선속도는 t₂일 때가 t₄일 때보다 크다\n        ㄴ. t₂ 이후 처음으로 식 현상이 끝나는 직후의 시간은 t₂ + 20Δt\n        ㄷ. 행성의 공전 주기는 360Δt\n\nㄱ 검토: t₂에서 t₃ 사이에 행성이 항성 앞을 통과 중(접선 속도 최대). t₄는 통과 완료 후이므로 t₂일 때 시선속도가 더 크다. ㄱ은 참.\n\nㄴ 검토: 처음 식이 끝나는 시각은 t₃입니다. 공전주기가 360Δt이므로 다음 식은 t₃ + 360Δt에 시작하여 t₃ + 360Δt + (t₃-t₁)에 끝남. 조건 해석상 t₂ 이후 다음 식이 끝나는 시간이 t₂ + 20Δt라는 것은 통과폭이 20Δt임을 의미. 이는 그래프에서 (t₃-t₁)을 나타내며, 첫 식의 끝 t₃ = t₂ + 20Δt일 때 성립. ㄴ은 참.\n\nㄷ 검토: 공전주기는 360Δt. ㄷ은 참.\n\n따라서 ㄴ, ㄷ이 참이므로 정답은 ④번입니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">19번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">8.7s</span><span class="mark ng">✗</span></div><div class="question-text">표는 별 (가), (나), (다)의 물리량을 나타낸 것이다. (가), (나), (다) 중 백색 왜성은 2개, 주계열성은 1개이다.
+
+| 별 | 표면 온도 (상댓값) | 겉보기 등급 | 지구로부터의 거리 (상댓값) |
+|---|---|---|---|
+| (가) | 4 | 10 | 1 |
+| (나) | 2 | 15 | 4 |
+| (다) | 1 | 5 | 0.4 |
+
+이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?
+
+&lt;보기&gt;
+ㄱ. (가)는 주계열성이다.
+ㄴ. 반지름은 (나)가 (가)의 1.5배보다 크다.
+ㄷ. $\frac{\text{(가)의 절대 등급} - \text{(다)의 절대 등급}}{\text{(나)의 절대 등급} - \text{(다)의 절대 등급}}$은 $\frac{1}{2}$보다 작다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="correct-choice"><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>③ ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="ai-pick wrong-pick"><div>④ ㄱ, ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:80%"></div></div><div class="conf-label">80.0%</div></div></li><li class=""><div>⑤ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ②</span><span><b>AI:</b> ④</span></div><div class="reasoning">ㄱ. (가)는 표면온도 4(낮음), 절대등급 10(어두움)으로 주계열성 특징 - 참 / ㄴ. Stefan-Boltzmann 법칙으로 반지름 계산 시 R(나)/R(가)=1.6&gt;1.5 - 참 / ㄷ. (10-5)/(15-5)=5/10=0.5로 1/2과 같음(작지 않음) - 거짓. 따라서 ㄱ, ㄴ</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">20번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">6.9s</span><span class="mark ng">✗</span></div><div class="question-text">그림 (가)는 어느 지역의 지질 단면을, (나)는 시간에 따른 방사성 원소 X와 Y의 $\frac{자원소 함량}{방사성 원소 함량}$을 나타낸 것이다. 화성암 A와 B는 X와 Y 중 서로 다른 한 종류만 포함하고, 현재 A와 B에 포함된 방사성 원소의 함량은 각각 처음 양의 76%와 38% 중 서로 다른 하나이다. 화성암 C의 절대 연령은 1억 년이다.
+이 자료에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? (단, X의 자원소는 $X_{T}$, Y의 자원소는 $Y_{T}$가 붕괴하여 생성되었고, 자원소 함량은 붕괴한 방사성 원소 함량과 같다.)
+&lt;보기&gt;
+ㄱ. A에 포함되어 있는 방사성 원소는 Y이다.
+ㄴ. A와 B의 절대 연령 차는 0.25억 년보다 크다.
+ㄷ. 현재로부터 1억 년이 지났을 때, $\frac{B에 포함된 방사성 원소 함량}{A에 포함된 방사성 원소 함량}$은 4이다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>③ ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="ai-pick wrong-pick"><div>④ ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:65%"></div></div><div class="conf-label">65.0%</div></div></li><li class="correct-choice"><div>⑤ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> ④</span></div><div class="reasoning">문제 분석: A와 B는 X와 Y 중 서로 다른 한 종류의 방사성 원소를 포함하고, A와 B의 방사성 원소 합량은 각각 76%와 38%이다. C의 절대 연령은 1억 년이다.\n\n조건 검토:\n- 보기 가: A에 포함된 방사성 원소는 Y이다 → 그래프에서 X는 1억 년일 때 약 2.5, Y는 약 1.5이다. A(76%)와 B(38%)의 관계를 보면, A의 함량이 더 높으므로 더 빠르게 감소하는 원소를 함유. X가 더 빠르게 감소하므로 A는 X를 함유 → 거짓\n\n- 보기 나: A와 B의 절대 연령 차는 0.25억 년보다 크다 → C가 1억 년이고 같은 지층이면 동일 연령이어야 함. A, B, C의 상대적 위치와 방사성 원소 함량으로부터 A와 B의 연령차를 계산하면 0.25억 년보다 크다 → 참\n\n- 보기 다: 현재로부터 1억 년이 지났을 때, B에 포함된 방사성 원소 함량/A에 포함된 방사성 원소 함량 = 4 → 지수감소 식을 적용하면 이 비율이 4가 되는지 확인 필요. 방사성 원소의 감소 곡선 기울기와 초기값을 고려하면 이 값은 성립 → 참\n\n따라서 나와 다가 모두 참이다.</div></div></div>
+<script>
+function filterAll(){setFilter('all')}
+function filterWrong(){setFilter('wrong')}
+function filterCorrect(){setFilter('correct')}
+function setFilter(f){
+  document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
+  document.querySelectorAll('.item').forEach(el=>{
+    const ok=el.classList.contains('correct');
+    el.style.display=(f==='all'||(f==='correct'&&ok)||(f==='wrong'&&!ok))?'':'none';
+  });
+}
+document.querySelectorAll('.question-text').forEach(el=>{
+  el.addEventListener('click',()=>el.classList.toggle('expanded'));
+});
+</script>
+</body>
+</html>

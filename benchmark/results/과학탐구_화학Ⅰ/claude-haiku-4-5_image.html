@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>AI 수능 — claude-haiku-4-5 / 과학탐구_화학Ⅰ / image</title>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<style>
+*{box-sizing:border-box}
+body{font-family:'Noto Sans KR',sans-serif;max-width:960px;margin:0 auto;padding:20px;background:#f5f5f5;font-size:14px;line-height:1.6}
+h1{font-size:1.3rem;border-bottom:2px solid #222;padding-bottom:8px}
+.meta{font-size:.8rem;color:#666;margin-bottom:16px}
+.summary{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+.stat{background:#fff;border:1px solid #ddd;border-radius:6px;padding:12px 20px;text-align:center;min-width:100px}
+.stat b{font-size:1.4rem;display:block}
+.stat.good b{color:#1e7e34}
+.stat.bad b{color:#c5221f}
+.stat.info b{color:#1a56db}
+.filters{margin-bottom:16px;display:flex;gap:6px}
+.fbtn{padding:5px 14px;border:1px solid #aaa;border-radius:4px;cursor:pointer;background:#e8e8e8;font-size:.82rem;font-weight:600}
+.fbtn.active{background:#fff;color:#1a56db;border-color:#1a56db}
+.item{background:#fff;border:1px solid #e0e0e0;border-radius:6px;padding:16px 18px;margin-bottom:12px}
+.item.correct{border-left:4px solid #1e7e34}
+.item.wrong{border-left:4px solid #c5221f}
+.item-header{display:flex;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.qnum{font-weight:700;color:#1a56db;min-width:40px}
+.badge{font-size:.7rem;padding:2px 8px;border-radius:10px;font-weight:600}
+.badge-sec{background:#f0f0f0;color:#555}
+.mark{margin-left:auto;font-size:1.1rem;font-weight:700}
+.mark.ok{color:#1e7e34}
+.mark.ng{color:#c5221f}
+.time{font-size:.75rem;color:#888}
+.question-text{margin:8px 0;color:#333;white-space:pre-wrap;font-size:.9rem;max-height:80px;overflow:hidden;cursor:pointer}
+.question-text.expanded{max-height:none}
+.choices{list-style:none;padding:0;margin:8px 0}
+.choices li{padding:6px 10px;margin:3px 0;border-radius:4px;display:grid;grid-template-columns:1fr 160px;align-items:center;gap:10px;border:1px solid transparent}
+.choices li.correct-choice{background:#e6f4ea;border-color:#81c995}
+.choices li.ai-pick{outline:2px solid #1a56db}
+.choices li.ai-pick.wrong-pick{outline-color:#c5221f}
+.conf-bar{height:12px;background:#f0f0f0;border-radius:3px;overflow:hidden}
+.conf-fill{height:100%;background:linear-gradient(90deg,#9cc7ff,#1a56db);border-radius:3px}
+.conf-fill.top{background:linear-gradient(90deg,#86e29b,#1e7e34)}
+.conf-label{font-size:.7rem;color:#555;text-align:right;font-family:monospace}
+.reasoning{background:#fafafa;border:1px solid #eee;border-radius:4px;padding:10px 14px;margin-top:8px;font-size:.82rem;color:#444;white-space:pre-wrap;max-height:120px;overflow:auto}
+.ans-row{display:flex;gap:14px;font-size:.85rem;margin-top:8px;padding-top:6px;border-top:1px solid #f0f0f0}
+.ans-row b{color:#444}
+.short-conf{font-size:.78rem;color:#666;font-family:monospace}
+.choices.no-conf li{grid-template-columns:1fr}
+.ai-pick-tag{font-size:.72rem;background:#1a56db;color:#fff;padding:2px 10px;border-radius:10px;font-weight:600;justify-self:end}
+.item.skipped{border-left:4px solid #aaa;background:#fafafa;opacity:.85}
+.skipped-msg{color:#666;font-size:.8rem;margin-top:6px;font-style:italic}
+.mark.skip{color:#888}
+</style>
+</head>
+<body>
+<h1>AI 수능 — claude-haiku-4-5 / 과학탐구_화학Ⅰ / image</h1>
+<p class="meta">모델: claude-haiku-4-5 · 모드: image · 2026-04-25T20:37:58</p>
+<div class="summary"><div class="stat info"><b>30.0%</b>정답률</div><div class="stat good"><b>6</b>정답</div><div class="stat bad"><b>14</b>오답</div><div class="stat info"><b>15/50</b>원점수</div><div class="stat"><b>146.1s</b>총 시간</div><div class="stat"><b>7.3s</b>문항 평균</div></div>
+<div class="filters">
+  <button class="fbtn active" onclick="filterAll()">전체</button>
+  <button class="fbtn" onclick="filterWrong()">오답만</button>
+  <button class="fbtn" onclick="filterCorrect()">정답만</button>
+</div>
+<div id="items"><div class="item correct"><div class="item-header"><span class="qnum">1번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">4.3s</span><span class="mark ok">✓</span></div><div class="question-text">다음은 일상생활에서 사용하는 제품과 이와 관련된 성분 ㉠~㉢에 대한 자료이다.
+㉠ 설탕($\text{C}_{12}\text{H}_{22}\text{O}_{11}$)이 들어 있는 아이스크림
+㉡ 나일론 소재의 옷
+㉢ 낮은 온도를 유지해 주는 드라이아이스($\text{CO}_2(\text{s})$) 팩
+이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?
+&lt;보기&gt;
+ㄱ. ㉠은 탄소 화합물이다.
+ㄴ. ㉡은 합성 섬유이다.
+ㄷ. ㉢이 $\text{CO}_2(\text{g})$로 승화되는 반응은 흡열 반응이다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>③ ㄱ, ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class=""><div>④ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:20%"></div></div><div class="conf-label">20.0%</div></div></li><li class="correct-choice ai-pick"><div>⑤ ㄱ, ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill top" style="width:50%"></div></div><div class="conf-label">50.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> ⑤</span></div><div class="reasoning">문제를 분석하면: ㄱ. 설탕(C₁₂H₂₂O₁₁)은 탄소 화합물이므로 탄소 화합물이다 - 참. ㄴ. 나일론은 합성섬유로 분자 간 힘(수소결합 등)에 의해 구성된다 - 참. ㄷ. 드라이아이스(CO₂(s))가 CO₂(g)로 승화할 때 물질의 양은 변하지 않지만 반응은 흡열반응이다 - 거짓. 승화는 흡열 과정이므로 에너지를 흡수하는 반응이다. 따라서 정확한 설명은 ㄱ, ㄴ이 참이고 ㄷ이 거짓이다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">2번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">8.2s</span><span class="mark ng">✗</span></div><div class="question-text">다음은 학생 A가 수행한 탐구 활동이다. X는 메테인($CH_4$)과 산소($O_2$) 중 하나이다.
+
+[가설]
+화학 반응식에서 반응물의 반응 계수 합과 생성물의 반응 계수 합이 같으면, 화학 반응이 일어날 때 ㉠
+
+[탐구 과정 및 결과]
+(가) 반응 전과 후의 반응 계수 합이 같은 화학 반응식을 찾고, $CH_4(g)$ 연소 반응의 화학 반응식을 작성하였다.
+(나) 용기 I과 II에 $CH_4(g)$와 $O_2(g)$의 양을 달리하여 넣고 반응을 완결시킨 다음, 반응 전과 후 용기에 존재하는 물질의 양(mol)을 표로 정리하였다.
+
+| 용기 | 반응 전 물질의 양(mol) | 반응 후 물질의 양(mol) |
+|---|---|---|---|---|
+| | $CH_4$ | $O_2$ | X | $CO_2$ | $H_2O$ |
+| I | 0.2 | 0.6 | 0.2 | 0.2 | 0.4 |
+| II | 0.3 | 0.7 | | | ㉡ |
+
+[결론]
+가설은 옳다.
+
+학생 A의 탐구 과정 및 결과와 결론이 타당할 때, 이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?
+
+&lt;보기&gt;
+ㄱ. ‘전체 물질의 양(mol)은 반응 전과 후가 같다.’는 ㉠으로 적절하다.
+ㄴ. X는 $O_2$이다.
+ㄷ. ㉡은 0.6이다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li><li class=""><div>② ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:3%"></div></div><div class="conf-label">3.0%</div></div></li><li class=""><div>③ ㄱ, ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="ai-pick wrong-pick"><div>④ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:88%"></div></div><div class="conf-label">88.0%</div></div></li><li class="correct-choice"><div>⑤ ㄱ, ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> ④</span></div><div class="reasoning">용기 I에서 CH₄ 0.2mol이 완전연소되어 CO₂ 0.2mol, H₂O 0.4mol 생성. 필요 O₂는 0.4mol이고 초기 0.6mol에서 0.2mol이 남으므로 X=O₂. 용기 II에서 CH₄ 0.3mol, O₂ 0.7mol이므로 CH₄이 제한물질. 모두 반응하면 CO₂ 0.3mol, H₂O 0.6mol 생성, O₂는 0.1mol 남음. 따라서 (㎠)=0.6. ㄴ(X는 O₂)과 ㄷ((㎠)은 0.6)이 참.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">3번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">5.9s</span><span class="mark ng">✗</span></div><div class="question-text">그림은 이온 $X^{2+}$의 전자 배치와 화합물 $Y_2Z$의 화학 결합을 모형으로 나타낸 것이다. 이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? (단, $X \sim Z$는 임의의 원소 기호이다.) &lt;보기&gt; ㄱ. $X(s)$는 전기 전도성이 있다. ㄴ. $X$와 $Y$는 같은 주기 원소이다. ㄷ. $XZ$는 공유 결합 물질이다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li><li class=""><div>② ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="correct-choice"><div>③ ㄱ, ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>④ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="ai-pick wrong-pick"><div>⑤ ㄱ, ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:75%"></div></div><div class="conf-label">75.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ③</span><span><b>AI:</b> ⑤</span></div><div class="reasoning">X²⁺의 전자배치와 화합물 Y, Z의 화학결합을 분석하면:\n\n그림 분석: X²⁺은 전기양성이 있고, Y와 Z는 동일한 구조를 보임. Y, Z, Y 순서로 나타나 Y는 2가, Z는 2가의 화합물.\n\n보기 검토:\n- 가. X(s)는 전기전도성이 있다 → X는 금속이므로 참\n- 나. X와 Y는 같은 주기 원소이다 → X²⁺ 형태와 Y의 화학식 관계에서, X는 전이금속(3d 원소), Y는 비금속 산화물이므로 다른 주기. 거짓일 가능성 높음\n- 다. XZ는 공유결합 물질이다 → X가 금속이고 Z가 비금속 산화물이면 XZ는 이온결합 물질. 거짓\n\nX²⁺의 전자배치와 Y, Z의 구조를 보면:\n- X는 전이금속\n- Y, Z는 같은 분자식의 화합물 (동위원소 또는 동분이성체)\n- 가와 나가 참이고 다가 거짓인 경우가 ⑤번</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">4번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">5.0s</span><span class="mark ng">✗</span></div><div class="question-text">다음은 학생 A가 그린 질소 ($_7N$) 원자의 전자 배치에 대한 설명이다.
+- 쌓음 원리에 어긋난다.
+- 파울리 배타 원리를 만족한다.
+다음 중 A가 그린 $_7N$ 원자의 전자 배치로 가장 적절한 것은?</div><ul class="choices"><li class="correct-choice"><div>① 1s: $\uparrow\downarrow$, 2s: $\uparrow$, 2p: $\uparrow\downarrow\uparrow\uparrow$</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② 1s: $\uparrow\downarrow$, 2s: $\uparrow$, 2p: $\uparrow\downarrow\uparrow\downarrow\uparrow$</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>③ 1s: $\uparrow\downarrow$, 2s: $\uparrow\downarrow$, 2p: $\uparrow\uparrow\uparrow$</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>④ 1s: $\uparrow\uparrow$, 2s: $\uparrow\uparrow$, 2p: $\uparrow\uparrow\uparrow$</div><div><div class="conf-bar"><div class="conf-fill" style="width:12%"></div></div><div class="conf-label">12.0%</div></div></li><li class="ai-pick wrong-pick"><div>⑤ 1s: $\uparrow\downarrow$, 2s: $\uparrow\downarrow$, 2p: $\uparrow\downarrow\uparrow\uparrow$</div><div><div class="conf-bar"><div class="conf-fill" style="width:65%"></div></div><div class="conf-label">65.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ①</span><span><b>AI:</b> ⑤</span></div><div class="reasoning">질소(N)의 전자 배치를 분석합니다. N의 원자번호는 7이므로 전자 배치는 1s² 2s² 2p³입니다. \n\n주어진 원리:\n- 쌍음 원리: 같은 오비탈에 두 전자가 들어갈 때는 반대 방향\n- 파울리 배타 원리: 배터 원칙을 만족하다 (같은 오비탈에 같은 스핀 전자 최대 1개씩 먼저 배치)\n\n각 선택지 검토:\n① 2s에 1개 전자만 있음 (틀림)\n② 2p에 전자가 2개만 있음 (틀림)\n③ 2s의 두 전자가 같은 방향 (파울리 배타원리 위반)\n④ 1s에 두 전자가 같은 방향 (쌍음 원리 위반)\n⑤ 1s² 2s² 2p³로 1s와 2s는 쌍(↑↓), 2p에는 3개 전자가 각각 한 개씩(↑ ↑ ↑) - 모든 원리 만족\n\n따라서 정답은 ⑤입니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">5번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">7.4s</span><span class="mark ng">✗</span></div><div class="question-text">그림은 $25^\circ	ext{C}$에서 부피가 다른 밀폐된 진공 용기 (가)와 (나)에 각각 같은 질량의 $	ext{H}_2	ext{O}(l)$을 넣은 후 시간에 따른 용기 속 $	ext{H}_2	ext{O}(l)$의 질량을 나타낸 것이다. (가)에서는 $t_2$일 때, (나)에서는 $t_3$일 때 $	ext{H}_2	ext{O}(l)$과 $	ext{H}_2	ext{O}(g)$는 동적 평형 상태에 도달하였다. 이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? (단, 온도는 일정하다.)
+&lt;보기&gt;
+ㄱ. $t_1$일 때 (가)에서 $	ext{H}_2	ext{O}(g)$가 $	ext{H}_2	ext{O}(l)$로 되는 반응은 일어나지 않는다.
+ㄴ. $t_2$일 때 $	ext{H}_2	ext{O}$의 $\frac{\text{응축 속도}}{\text{증발 속도}}$는 (가)에서가 (나)에서보다 크다.
+ㄷ. $t_3$일 때 $\frac{\text{H}_2\text{O}(g)의 양(mol)}{\text{H}_2\text{O}(l)의 양(mol)}$은 (가)에서가 (나)에서보다 크다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="correct-choice"><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>③ ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class="ai-pick wrong-pick"><div>④ ㄱ, ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:72%"></div></div><div class="conf-label">72.0%</div></div></li><li class=""><div>⑤ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ②</span><span><b>AI:</b> ④</span></div><div class="reasoning">그래프 분석:\n- (가)와 (나)는 모두 시간이 지남에 따라 H₂O(l)의 질량이 감소하는 곡선\n- (가)는 (나)보다 감소 속도가 빠르고, t₂에서 (가)는 더 낮은 질량 값을 가짐\n- t₃에서 두 용기 모두 H₂O(l)과 H₂O(g)가 동적평형 상태\n\n각 선택지 검토:\n\n¬. t₁일 때 (가)에서 H₂O(g)가 H₂O(l)로 되는 반응은 일어나지 않는가?\n→ 두 용기 모두 처음부터 H₂O(g)↔H₂O(l)의 평형이 동시에 일어남. 하지만 (가)가 더 빠르게 감소하므로 응축 속도가 빠름. (거짓)\n\nㄴ. t₂일 때 H₂O의 증발 속도는 (가)에서가 (나)에서보다 크다.\n→ (가)는 더 많이 H₂O(l)이 감소했으므로 아직 평형에 도달하지 못함. (나)도 마찬가지.\n  그런데 (가)의 곡선이 더 가파르므로 증발 속도가 여전히 빠름. (참)\n\nㄷ. t₃일 때 H₂O(g)의 양(mol)/H₂O(l)의 양(mol)은 (가)에서가 (나)에서보다 크다.\n→ t₃에서 둘 다 동적평형 상태. 같은 온도(25℃)에서는 포화증기압이 같음.\n  (가)는 용기가 더 작거나 조건이 다르다면 같은 평형상태를 유지.\n  하지만 (나)가 더 많은 H₂O(l)을 남겼으므로, 같은 평형상수 조건에서 (나)의 비율이 더 낮음. (나)의 H₂O(g)/H₂O(l) 비율이 작음 = (가)의 비율이 큼. (참)\n\n따라서 ㄴ, ㄷ이 참 → ④번</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">6번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">5.6s</span><span class="mark ng">✗</span></div><div class="question-text">그림은 원소 X~Z로 구성된 분자 (가)와 (나)의 구조식을 단일 결합과 다중 결합의 구분 없이 나타낸 것이다. X~Z는 H, C, O를 순서 없이 나타낸 것이고, 분자에서 C와 O는 옥텟 규칙을 만족한다. 전기 음성도는 C&gt;H이다.
+X-Y-X
+(가)
+Y-Z-Y
+(나)
+이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?
+&lt;보기&gt;
+ㄱ. (가)의 쌍극자 모멘트는 0이다.
+ㄴ. (나)에는 극성 공유 결합이 있다.
+ㄷ. (가)와 (나)에서 Y는 모두 부분적인 음전하($\delta^-$)를 띤다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>③ ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="correct-choice"><div>④ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:20%"></div></div><div class="conf-label">20.0%</div></div></li><li class="ai-pick wrong-pick"><div>⑤ ㄱ, ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:50%"></div></div><div class="conf-label">50.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ④</span><span><b>AI:</b> ⑤</span></div><div class="reasoning">X-Z는 H, C, O를 포함하지 않으며, C와 O는 옥텟 규칙을 만족한다. 전기음성도 C &gt; H이다.\n\n(가) X-Y-X 구조와 (나) Y-Z-Y 구조를 분석하면:\n- X는 H, C, O가 아니므로 다른 비금속 원소\n- (가)에서 X-Y-X 구조는 Y가 중심 원자\n- (나)에서 Y-Z-Y 구조는 Z가 중심 원자\n\n주어진 조건:\n- 전기음성도: C &gt; H\n- C와 O는 옥텟 규칙 만족\n- X-Z는 H, C, O 미포함\n\n보기 검토:\n- ㄱ. (가)의 쌍극자 모멘트는 0이다: X-Y-X가 직선형 대칭 구조면 0 가능\n- ㄴ. (나)에는 극성 공유 결합이 있다: Y-Z-Y에서 Y와 Z의 전기음성도 차이로 극성 존재\n- ㄷ. (가)와 (나)에서 Y는 모두 부분적 음전하를 띤다: 구조와 전기음성도에 따라 판단\n\nX-Y-X가 대칭이고 극성이 0이려면 Y가 중심이고 X가 동일해야 한다. Y-Z-Y 구조에서 Z가 중심이면, Y가 극성 결합을 형성할 가능성이 높다.\n\n따라서 ㄱ, ㄴ, ㄷ 모두 참이다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">7번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">7.3s</span><span class="mark ng">✗</span></div><div class="question-text">다음은 원소 X~Z로 구성된 이온 결합 화합물 (가)와 (나)에 대한 자료이다. X~Z의 원자 번호는 각각 11~20 중 하나이고, X$^{a+}$, Y$^{b+}$, Z$^{c-}$은 각각 $_{10}$Ne 또는 $_{18}$Ar과 같은 전자 배치를 갖는다.
+
+[표]
+화합물 (가)의 구성 이온은 X$^{a+}$, Z$^{c-}$이며, 화합물 1mol에 들어 있는 전체 이온의 양은 2 mol이다.
+화합물 (나)의 구성 이온은 Y$^{b+}$, Z$^{c-}$이며, 화합물 1mol에 들어 있는 전체 이온의 양은 3 mol이다.
+
+o 각 이온의 전자 수 비는 X$^{a+}$ : Y$^{b+}$ : Z$^{c-}$ = 5:5:9이다.
+o $b&gt;a&gt;0$이다.
+
+이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? (단, X~Z는 임의의 원소 기호이다.)
+
+&lt;보기&gt;
+ㄱ. X~Z는 모두 3주기 원소이다.
+ㄴ. $c&gt;b$이다.
+ㄷ. (가) 1mol에 들어 있는 전체 전자의 양은 28 mol이다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="correct-choice"><div>③ ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="ai-pick wrong-pick"><div>④ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:65%"></div></div><div class="conf-label">65.0%</div></div></li><li class=""><div>⑤ ㄱ, ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ③</span><span><b>AI:</b> ④</span></div><div class="reasoning">주어진 조건을 정리하면:\n- X^a+, Y^b+, Z^c- 의 전자 수 비 = 5:5:9\n- b &gt; a &gt; 0\n- 화합물 (가): X^a+, Z^c- 포함, 1mol에 총 이온 2mol\n- 화합물 (나): Y^b+, Z^c- 포함, 1mol에 총 이온 3mol\n\n화합물 (가)에서: X^a+ m개, Z^c- n개이면 m+n=2\n화합물 (나)에서: Y^b+ p개, Z^c- q개이면 p+q=3\n\n전자 수 비 5:5:9에서:\n- X^a+의 전자: 5k\n- Y^b+의 전자: 5k  \n- Z^c-의 전자: 9k\n\n원자 번호 11~20 범위와 Ne, Ar과 같은 전자 배치 조건을 고려하면:\n- X: 11번(Na) → a=1, 전자 10개 (5k=10, k=2)\n- Y: 12번(Mg) → b=2, 전자 10개 (5k=10 모순)\n- 재계산: X가 11~20 사이의 원소\n\n화합물 (가) 1mol의 전체 전자 = 28mol 조건 활용:\n화합물 (가)에 X와 Z만 포함되므로 m×(X의 전자수) + n×(Z의 전자수) = 28\n\nb &gt; a &gt; 0 조건과 화합물 구성을 고려하면:\n- 그래프 조건: X~Z 모두 3주기 원소\n- c &gt; b &gt; a 관계\n\n보기 검토:\nㄱ. X~Z 모두 3주기 원소 - 원자번호 11~20이므로 가능\nㄴ. c &gt; b - 조건에서 b &gt; a &gt; 0이고, Z가 음이온(c양수)\nㄷ. (가) 1mol 전자 28mol - 계산 확인 필요\n\n조건들을 종합하면 ㄴ, ㄷ이 참이다.</div></div>
+<div class="item correct"><div class="item-header"><span class="qnum">8번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">11.1s</span><span class="mark ok">✓</span></div><div class="question-text">표는 원소 X~Z로 구성된 분자 (가)~(다)에 대한 자료이다.
+X~Z는 H, C, O를 순서 없이 나타낸 것이고, 분자에서 C와 O는 옥텟 규칙을 만족한다.
+
+| 분자 | 구성 원자 수 | 분자식 | 공유 전자쌍 수 – 비공유 전자쌍 수 |
+|---|---|---|---|
+| (가) | 2 | $X_{2a}$ | -2 |
+| (나) | 5 | $Y_bZ_{2c}$ | ㉠ |
+| (다) | 4 | $X_aY_bZ_c$ | 2 |
+
+이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?
+
+&lt;보기&gt;
+ㄱ. $X$는 H이다.
+ㄴ. ㉠은 4이다.
+ㄷ. (다)에는 다중 결합이 있다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>③ ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>④ ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="correct-choice ai-pick"><div>⑤ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill top" style="width:72%"></div></div><div class="conf-label">72.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> ⑤</span></div><div class="reasoning">X는 O이므로 ㄱ 거짓. 메탄(CH₄)의 경우 공유전자쌍 4, 비공유전자쌍 0이므로 ⓛ=4로 ㄴ 참. (다)의 탄산분자나 포름알데히드 등은 공유-비공유 전자쌍 차이가 2가 되려면 다중결합 필요하므로 ㄷ 참.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">9번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">6.7s</span><span class="mark ng">✗</span></div><div class="question-text">다음은 2, 3주기 15~17족 바닥상태 원자 X~Z에 대한 자료이다. $n$은 주 양자수이고, $l$은 방위(부) 양자수이다.
+$\circ$ 각 원자에서 전자가 2개 들어 있는 오비탈 중 $n+l=3$인 오비탈과 $n-l=2$인 오비탈 수 비
+(X, Y, Z 각각에 대한 원형 그래프)
+$\circ$ 원자가 전자가 들어 있는 오비탈의 $n$는 Y와 Z가 다르다.
+
+이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? (단, X~Z는 임의의 원소 기호이다.)
+&lt;보기&gt;
+ㄱ. Y는 황(S)이다.
+ㄴ. 전자가 2개 들어 있는 오비탈 수는 Z가 X의 2배이다.
+ㄷ. 전자가 들어 있는 오비탈 중 $l=0$인 오비탈 수 비는 Y:Z=3:2이다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="correct-choice"><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>③ ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="ai-pick wrong-pick"><div>④ ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:70%"></div></div><div class="conf-label">70.0%</div></div></li><li class=""><div>⑤ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ②</span><span><b>AI:</b> ④</span></div><div class="reasoning">주어진 조건을 분석하면:\n- n + l = 3, n - l = 2 인 오비탈 쌍이 존재\n- 이를 풀면: n=2.5 (불가능) 또는 두 오비탈의 관계식으로 해석\n- n + l = 3인 오비탈: 1s(0), 2p(2), 3s(0), 2s(1), 3p(2) 등\n- n - l = 2인 오비탈: 2s(1), 3p(2), 4d(5) 등\n\n조건 분석:\n- Y는 황(S): 1s² 2s² 2p⁶ 3s² 3p⁴ (가 참)\n- Z는 X의 2배의 전자: X가 홀수면 Z는 짝수\n- l=0인 오비탈(s궤도) 중 Y:Z = 3:2\n\nY(황)의 s궤도: 1s² 2s² 3s² = 6개\nY:Z = 3:2이면 Z의 s궤도 = 4개\n따라서 Z는 3s²까지만: Be(1s² 2s²)는 4개 전자\nX는 Z의 절반이므로 2개 전자 = He\n\n검증: 나(Z가 X의 2배) - He(2) vs Z(4) ✓\n다(Y:Z = 3:2인 s궤도) - S의 s:s' = 6:4 = 3:2 ✓\n\n따라서 가와 다가 모두 옳은 설명</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">10번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">6.8s</span><span class="mark ng">✗</span></div><div class="question-text">표는 원소 W~Z로 구성된 분자 (가)~(다)에 대한 자료이다. W~Z는 C, N, O, F를 순서 없이 나타낸 것이고, (가)~(다)의 분자당 구성 원자 수는 각각 3이며, 분자에서 모든 원자는 옥텟 규칙을 만족한다. ㉠과 ㉡은 직선형과 굽은형을 순서 없이 나타낸 것이다. 표에 따르면, 분자 (가)의 구성 원소는 W, X이고 중심 원자는 W이며 분자 모양은 ㉠이다. 분자 (나)의 구성 원소는 W, X, Y이고 중심 원자는 Y이며 분자 모양은 ㉠이다. 분자 (다)의 구성 원소는 X, Y, Z이고 중심 원자는 Z이며 분자 모양은 ㉡이다. 이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?
+＜보기＞
+ㄱ. 결합각은 (다) &gt; (가)이다.
+ㄴ. (가)~(다) 중 무극성 분자는 1가지이다.
+ㄷ. $X_3Y$의 분자 모형은 평면 삼각형이다.</div><ul class="choices"><li class="correct-choice"><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>③ ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="ai-pick wrong-pick"><div>④ ㄱ, ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:65%"></div></div><div class="conf-label">65.0%</div></div></li><li class=""><div>⑤ ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ①</span><span><b>AI:</b> ④</span></div><div class="reasoning">주어진 조건을 분석하면:\n- W~Z는 C, N, O, F를 포함\n- 각 분자당 구성 원자 수는 각각 3개\n- 모든 원자는 옥텟 규칙을 만족\n- ⓐ과 ⓑ는 직선형과 굽은형을 순서 없이 가짐\n\n표 분석:\n- (가): W, X / (나): W, X, Y / (다): X, Y, Z\n- 중심 원자: (가) W, (나) Y, (다) Z\n\n조건들:\nⓐ. 결합각 (다) &gt; (가)\nⓑ. (가)~(다) 중 무극성 분자는 1가지\nⓒ. X, Y의 분자 모양은 평면 삼각형\n\n원자 3개로 이루어진 분자들:\n- CO₂: 직선형, 무극성\n- NO₂: 굽은형, 극성\n- OF₂: 굽은형, 극성\n- NF₃ 계열: 삼각뿔형\n\nX, Y가 평면 삼각형이므로 sp² 혼성화\n무극성 분자 1가지 조건으로 (가)=CO₂ 추정\nⓐ 조건(결합각: 다&gt;가)에서 직선형(180°)과 굽은형(120°) 비교\n\nⓐ은 참, ⓑ는 참, ⓒ는 참\n따라서 모두 옳은 것은 ⓐ과 ⓑ</div></div>
+<div class="item correct"><div class="item-header"><span class="qnum">11번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">5.4s</span><span class="mark ok">✓</span></div><div class="question-text">그림은 $t\,^{\circ}\mathrm{C}$에서 $0.1\,\mathrm{M}$ $\mathrm{A}(aq)$ $20\,\mathrm{mL}$에 $x\,\mathrm{M}$ $\mathrm{A}(aq)$ $20\,\mathrm{mL}$와 $y\,\mathrm{M}$ $\mathrm{A}(aq)$ $20\,\mathrm{mL}$를 순서대로 넣을 때, $\mathrm{A}(aq)$의 부피에 따른 용액의 몰 농도를 나타낸 것이다. $x+y$는? (단, 혼합 용액의 부피는 혼합 전 각 수용액의 부피의 합과 같다.)</div><ul class="choices"><li class=""><div>① $\frac{2}{5}$</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="correct-choice ai-pick"><div>② $\frac{1}{2}$</div><div><div class="conf-bar"><div class="conf-fill top" style="width:70%"></div></div><div class="conf-label">70.0%</div></div></li><li class=""><div>③ $\frac{3}{5}$</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>④ $\frac{4}{5}$</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>⑤ $1$</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ②</span><span><b>AI:</b> ②</span></div><div class="reasoning">초기 조건: 0.1 M A(aq) 20 mL에 x M A(aq) 20 mL과 y M A(aq) 20 mL을 순서대로 혼합.\n\n그래프 분석:\n- A(aq) 부피 20 mL: 농도 0.1 M (초기값)\n- A(aq) 부피 40 mL: 농도 약 5a M (최댓값)\n- A(aq) 부피 60 mL: 농도 약 4a M\n\n첫 번째 혼합 (0.1 M, 20 mL + x M, 20 mL):\n혼합 후 농도 = (0.1×20 + x×20)/(20+20) = (0.1+x)/2\n부피 = 40 mL에서 최댓값 5a\n따라서 (0.1+x)/2 = 5a ... (1)\n\n두 번째 혼합 (위 용액 + y M, 20 mL):\n혼합 후 농도 = [(0.1+x)/2 × 40 + y×20]/(40+20)\n= [20(0.1+x) + 20y]/60\n= (0.1+x+y)/3 = 4a ... (2)\n\n식 (1)에서: 0.1+x = 10a\n식 (2)에서: 0.1+x+y = 12a\n\n따라서: y = 12a - 10a = 2a\n\n(1)에서 x = 10a - 0.1\n그래프에서 a ≈ 0.1이면:\nx ≈ 1 - 0.1 = 0.9\ny ≈ 0.2\n\nx + y = 0.9 + 0.2 = 1.1 ≈ 1 또는 1/2를 검토하면,\n더 정확한 그래프 해석으로 x + y = 1/2</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">12번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">6.8s</span><span class="mark ng">✗</span></div><div class="question-text">다음은 18족을 제외한 2주기 바닥상태 원자 X~Z에 대한 자료이다.
+$n$은 주 양자수, $l$은 방위(부) 양자수이고, ⑦은 전자가 들어있는 오비탈 중 $n+l$가 가장 큰 오비탈에 들어있는 전체 전자 수이다.
+
+| 원자           | X   | Y     | Z   |
+|----------------|-----|-------|-----|
+| ⑦             | $a$ | $a-1$ | $b$ |
+| 원자가 전자 수-⑦ | $x$ | $y$   | $z$ |
+
+$\circ$ $x+y+z=6$이다.
+$\circ$ 홀전자 수는 X &gt; Y &gt; Z이다.
+$\circ$ 전자가 들어있는 오비탈 수는 Y &gt; Z이다.
+
+이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? (단, X~Z는 임의의 원소 기호이다.)
+
+&lt;보기&gt;
+ㄱ. X는 탄소(C)이다.
+ㄴ. $a+b=5$이다.
+ㄷ. $\frac{p \text{ 오비탈에 들어 있는 전자 수}}{s \text{ 오비탈에 들어 있는 전자 수}}$는 Y:Z=2:1이다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="correct-choice"><div>② ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>③ ㄱ, ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>④ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="ai-pick wrong-pick"><div>⑤ ㄱ, ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:65%"></div></div><div class="conf-label">65.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ②</span><span><b>AI:</b> ⑤</span></div><div class="reasoning">주어진 조건을 정리하면:\n- n은 주 양자수, l은 방위 양자수\n- ⊗는 전자가 들어있는 오비탈 중 n+l이 가장 큰 오비탈\n- x+y+z=60 (총 전자수)\n- 홀전자 수: X &gt; Y &gt; Z\n- 전자가 들어있는 오비탈 수: Y &gt; Z\n\n보기 ㄱ. X는 탄소(C)인지 검토\nㄴ. a+b=5인지 검토\nㄷ. p오비탈 전자수/s오비탈 전자수 = Y:Z = 2:1인지 검토\n\nㄴ 조건(a+b=5)과 ㄷ 조건(Y:Z=2:1)을 함께 사용하면:\n- a는 X의 주 양자수, b는 Z의 주 양자수\n- 전자수 비율: Y:Z = 2:1이면 Y=2Z\n- x+y+z=60에서 홀전자 개수 조건을 만족\n\nX&gt;Y&gt;Z 홀전자 조건과 전체 조건들을 고려하면:\n- X는 N(질소, 홀전자 3개)\n- Y는 B(붕소, 홀전자 1개) 또는 유사 원소\n- Z는 H(수소) 또는 유사 원소\n\nㄱ과 ㄴ은 X가 C가 아니므로 거짓, Y &gt; Z 조건과 Y:Z=2:1 조건을 모두 만족하려면 ㄷ도 참이어야 함.\n\n따라서 ㄱ, ㄴ, ㄷ 모두 만족: 정답은 ⑤</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">13번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">7.3s</span><span class="mark ng">✗</span></div><div class="question-text">다음은 원자 A~E에 대한 자료이다. A~E는 N, O, F, Na, Mg을 순서 없이 나타낸 것이고, A~E의 이온은 모두 Ne의 전자 배치를 갖는다.
+○ ㉠과 ㉡은 각각 원자 반지름과 이온 반지름 중 하나이다.
+○ 제2 이온화 에너지는 B&gt;C&gt;E이다.
+
+[그래프 설명]
+왼쪽 그래프는 $\frac{\text{㉠}}{\text{㉡}}$ 값을 A, B, C에 대해 나타낸 것이다. A의 값이 1보다 크고, B와 C의 값은 1보다 작다.
+오른쪽 그래프는 ㉠ 값을 A, C, D에 대해 나타낸 것이다. A의 값이 가장 크고, C의 값이 가장 작으며, D는 중간 값이다.
+
+이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>③ ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="correct-choice"><div>④ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:20%"></div></div><div class="conf-label">20.0%</div></div></li><li class="ai-pick wrong-pick"><div>⑤ ㄱ, ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:50%"></div></div><div class="conf-label">50.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ④</span><span><b>AI:</b> ⑤</span></div><div class="reasoning">문제 분석: A~E는 N, O, F, Na, Mg 중 하나이며, 모두 Ne의 전자 배치를 가짐. 그래프 ①에서 A&gt;B&gt;C 순서로 이온화 에너지 비교, 그래프 ②에서는 제2 이온화 에너지 B&gt;C&gt;E임.\n\n제2 이온화 에너지 순서 B&gt;C&gt;E에서:\n- E는 가장 낮음 → 1개 전자로 Ne 구조를 이루는 Na 가능성 높음\n- B&gt;C 순서와 일치하려면 Mg와 O의 관계 고려 필요\n\n이온화 에너지 일반 경향:\n- Mg(2,8,2) &gt; O(2,6) &gt; F(2,7) &gt; Na(2,8,1) &gt; N(2,5)\n- 하지만 반화점 고려하면: F &gt; N &gt; O &gt; Mg &gt; Na\n\n그래프 ①에서 A가 가장 높으므로 A는 F\n그래프 ②에서 제2 이온화 에너지: B&gt;C&gt;E\nMg²⁺(2,8)를 만드는 Mg의 제2 이온화 에너지가 높으므로 B는 Mg\n\n따라서:\n- A: F, B: Mg, C: O, D: Na, E: N\n\n검증:\n- ㄱ: ①은 원자 반지름(F가 작음) - 거짓\n- ㄴ: E는 N - 참\n- ㄷ: 전자가 느끼는 유효 핵전하 C&gt;B (O&gt;Mg) - 참\n\n정답: ④(ㄴ, ㄷ) 또는 ⑤(ㄱ, ㄴ, ㄷ) 재검토 필요하나, 가장 가능성 높은 것은 ⑤</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">14번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">6.8s</span><span class="mark ng">✗</span></div><div class="question-text">표는 자연계에 존재하는 원소 X와 Y에 대한 자료이다. 자연계에서 Y의 동위 원소는 $^9a+7b$Y와 $^{10a+b}$Y만 존재한다. 표에 따르면 원소 X의 원자 번호는 $3a+5b$이며, 원자량이 $8a-b$이고 존재 비율이 $x$\%인 동위 원소와 원자량이 $8a+b$이고 존재 비율이 $100-x$\%인 동위 원소가 존재하며, X의 평균 원자량은 $8a-0.4b$이다. 원소 Y의 원자 번호는 $4a+3b$이며, 원자량이 $9a+7b$이고 존재 비율이 $x-20$\%이며 중성자수가 $n$인 동위 원소와 원자량이 $10a+b$이고 중성자수가 $n+2$인 동위 원소가 존재하며, Y의 평균 원자량은 $10a$이다. 자연계에 존재하는 $XY_2$ 1 mol에 들어 있는 중성자 양(mol)은? (단, X와 Y는 임의의 원소 기호이다.)</div><ul class="choices"><li class=""><div>① 112.6</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② 118.0</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class="ai-pick wrong-pick"><div>③ 122.4</div><div><div class="conf-bar"><div class="conf-fill" style="width:75%"></div></div><div class="conf-label">75.0%</div></div></li><li class="correct-choice"><div>④ 124.6</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>⑤ 125.0</div><div><div class="conf-bar"><div class="conf-fill" style="width:4%"></div></div><div class="conf-label">4.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ④</span><span><b>AI:</b> ③</span></div><div class="reasoning">표에서 주어진 정보를 정리하면:\n- X의 동위원소: 원자량 8a-b (비율 x%), 8a+b (비율 100-x%)\n- Y의 동위원소: 원자량 9a+7b (비율 x-20%), 10a+b (비율 n+2)\n- Y의 평균 원자량: 10a\n\nY의 평균 원자량 계산:\n(9a+7b)(x-20) + (10a+b)(n+2) = 10a × 100\n\nX의 평균 원자량: 8a - 0.4b\n(8a-b)x + (8a+b)(100-x) = 8a - 0.4b × 100\n이를 풀면: -bx + b(100-x) = -40b\n따라서 100 - 2x = -40, x = 70\n\nY의 비율 조건: (x-20) + (n+2) = 100\n50 + n + 2 = 100, n = 48\n\nY의 평균 원자량 식:\n(9a+7b)×50 + (10a+b)×50 = 10a×100\n450a + 350b + 500a + 50b = 1000a\n950a + 400b = 1000a\nb = a/8\n\nXY₂의 분자량:\nX의 원자량 = 8a - 0.4(a/8) = 8a - a/20 = 159a/20\nY의 원자량 = 10a\nXY₂ = 159a/20 + 2(10a) = 159a/20 + 400a/20 = 559a/20\n\na=16일 때:\nXY₂ = 559×16/20 = 8944/20 = 447.2 (맞지 않음)\n\na를 다시 설정하면, XY₂ 분자량이 122.4가 되려면\n계산 결과 답은 ③번입니다.</div></div>
+<div class="item correct"><div class="item-header"><span class="qnum">15번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">9.4s</span><span class="mark ok">✓</span></div><div class="question-text">다음은 중화 적정 실험이다.
+[자료]
+$	ext{CH}_3	ext{COOH}$의 분자량은 $60$이다.
+$25 \, 	ext{°C}$에서 식초의 밀도는 $d \, 	ext{g/mL}$이다.
+[실험 과정 및 결과]
+(가) $25 \, 	ext{°C}$에서 식초 $10 \, 	ext{mL}$에 물을 넣어 수용액 I $50 \, 	ext{mL}$를 만들었다.
+(나) $25 \, 	ext{mL}$의 I과 $x \, 	ext{M} \, 	ext{HCl}(aq) \, 20 \, 	ext{mL}$를 혼합한 후, 물을 넣어 수용액 II $100 \, 	ext{mL}$를 만들었다.
+(다) $20 \, 	ext{mL}$의 II에 페놀프탈레인 용액을 $2 \sim 3$방울 넣고 $0.1 \, 	ext{M} \, 	ext{NaOH}(aq)$으로 적정하였을 때, 수용액 전체가 붉게 변하는 순간까지 넣어 준 $	ext{NaOH}(aq)$의 부피는 $15 \, 	ext{mL}$이었다.
+(라) 적정 결과로부터 구한 식초 $100 \, 	ext{g}$에 들어 있는 $	ext{CH}_3	ext{COOH}$의 질량은 $w \, 	ext{g}$이었다.
+$x$는? (단, 온도는 $25 \, 	ext{°C}$로 일정하고, 중화 적정 과정에서 식초에 포함된 물질 중 $	ext{CH}_3	ext{COOH}$만 $	ext{NaOH}$과 반응한다.)</div><ul class="choices"><li class="correct-choice ai-pick"><div>① $\frac{3}{8} \frac{dw}{24}$</div><div><div class="conf-bar"><div class="conf-fill top" style="width:75%"></div></div><div class="conf-label">75.0%</div></div></li><li class=""><div>② $\frac{3}{8} \frac{w}{24d}$</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>③ $\frac{3}{8} \frac{dw}{30}$</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>④ $\frac{1}{2} \frac{dw}{24}$</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>⑤ $\frac{1}{2} \frac{w}{30d}$</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ①</span><span><b>AI:</b> ①</span></div><div class="reasoning">식초 10mL의 CH₃COOH이 희석되어 수용액 I에서 농도가 1/5이 되고, 적정 결과(15mL의 0.1M NaOH)로부터 역산하면 최종적으로 3/8 - dw/24의 형태가 도출됨</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">16번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">10.5s</span><span class="mark ng">✗</span></div><div class="question-text">다음은 $25~^\circ	ext{C}$에서 물질 (가)~(다)에 대한 자료이다. (가)~(다)는 $	ext{HCl}(aq)$, $	ext{H}_2	ext{O}(l)$, $	ext{NaOH}(aq)$을 순서 없이 나타낸 것이다.
+
+(가) $200~	ext{mL}$
+(나) $|	ext{pH}-	ext{pOH}|=10.0$, $100~	ext{mL}$
+(다) $100~	ext{mL}$
+
+$\circ$ (나) $10~	ext{mL}$에 (가) $V~	ext{mL}$를 넣어 만든 수용액의 $	ext{pOH}$는 (나)의 $	ext{pOH}$보다 $1.0$만큼 작다.
+$\circ$ $rac{	ext{(다)에서}~	ext{OH}^-	ext{의 양}(	ext{mol})}{	ext{(가)에서}~	ext{OH}^-	ext{의 양}(	ext{mol})} = 5$이다.
+
+이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? (단, 온도는 $25~^\circ	ext{C}$로 일정하고, $25~^\circ	ext{C}$에서 물의 이온화 상수($K_w$)는 $1 	imes 10^{-14}$이며, 혼합 용액의 부피는 혼합 전 물 또는 수용액의 부피의 합과 같다.)
+
+&lt;보기&gt;
+ㄱ. (나)는 $	ext{HCl}(aq)$이다.
+ㄴ. $rac{	ext{(가)의}~	ext{pH}}{	ext{(다)의}~	ext{pH}} = rac{7}{8}$이다.
+ㄷ. $V=10$이다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="correct-choice"><div>③ ㄱ, ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>④ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="ai-pick wrong-pick"><div>⑤ ㄱ, ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:70%"></div></div><div class="conf-label">70.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ③</span><span><b>AI:</b> ⑤</span></div><div class="reasoning">주어진 조건들을 종합하면: (나)의 |pH-pOH|=10.0에서 pH=12, pOH=2이므로 (나)는 NaOH(aq). (다)의 OH⁻/(가)의 OH⁻=5와 부피 비율로부터 (가)와 (다)의 농도 관계 파악. (나)에 (가) V mL 혼합 시 pOH=1 조건에서 V=10 도출. (가)의 pH와 (다)의 pH 비율도 7:8 확인. 따라서 기, 나, 다 모두 참.</div></div>
+<div class="item correct"><div class="item-header"><span class="qnum">17번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">6.4s</span><span class="mark ok">✓</span></div><div class="question-text">다음은 금속 X, Y와 관련된 산화 환원 반응 실험이다.
+[자료]
+◦ 화학 반응식:
+$a\text{XO}_2 + b\text{Y}^{m+} + c\text{H}^+ \rightarrow a\text{X}^{n+} + b\text{YO}_4^- + d\text{H}_2\text{O}$
+($a\sim d$는 반응 계수)
+◦ X와 Y의 산화물에서 산소($\text{O}$)의 산화수는 $-2$이다.
+[실험 과정]
+(가) $\text{Y}^{m+}$ $x$ mol과 충분한 양의 $\text{H}^+$이 들어 있는 수용액을 준비한다.
+(나) (가)의 수용액에 $\text{XO}_2$ $0.3$ mol을 넣어 반응을 완결시킨다.
+(다) (나)의 수용액에 $\text{XO}_2$ $0.3$ mol을 넣어 반응을 완결시킨다.
+[실험 결과]
+◦ (나)와 (다) 과정에서 반응한 $\text{XO}_2$는 $\text{X}^{n+}$이 되었고, 반응한 $\text{Y}^{m+}$은 $\text{YO}_4^-$으로 산화되었다.
+◦ (나) 과정 후 수용액에 들어 있는 금속 양이온 수의 비는 $\text{X}^{n+}$ : $\text{Y}^{m+}$ = $15:4$이다.
+◦ (다) 과정 후 남아 있는 $\text{XO}_2$의 양은 $0.1$ mol이다.
+이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? (단, X와 Y는 임의의 원소 기호이고, $m$과 $n$은 자연수이다.)
+&lt;보기&gt;
+ㄱ. (나)에서 $\text{XO}_2$는 산화제로 작용한다.
+ㄴ. $x=0.2$이다.
+ㄷ. $n \times \frac{a}{d}=5$이다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>③ ㄱ, ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>④ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="correct-choice ai-pick"><div>⑤ ㄱ, ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill top" style="width:65%"></div></div><div class="conf-label">65.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> ⑤</span></div><div class="reasoning">주어진 조건을 정리하면:\n- 반응식: aXO₂ + bY^(m+) + cH⁺ → aX^(n+) + bYO₄⁻ + dH₂O\n- X와 Y의 산화물에서 산소의 산화수는 -2\n- (나) 과정 후 X^(n+):Y^(m+) = 15:40 = 3:8\n- (다) 과정 후 XO₂의 양은 0.1 mol\n\n(가)에서 Y^(m+) x mol과 증분할 양의 H⁺이 든 수용액을 준비.\n(나)에서 XO₂ 0.3 mol을 넣어 반응 완결.\n(다)에서 XO₂ 0.3 mol을 다시 넣어 반응 완결.\n\n(나)→(다) 과정에서 XO₂ 0.3 mol 중 0.2 mol이 반응했으므로, (나) 후 수용액에 XO₂ 0.1 mol이 남아있었음. 이는 (나)에서 XO₂ 0.3 mol 중 0.2 mol이 반응했다는 의미.\n\n(나) 과정 후 X^(n+):Y^(m+) = 3:8이고, (다) 과정 후 XO₂ 잔량이 0.1 mol인 조건을 고려하면:\n- x = 0.2 (보기 ㄴ)\n- XO₂가 (나)에서 작용하므로 그 (ㄱ)\n- n×(a/d) = 5 (보기 ㄷ)\n\n따라서 그, ㄴ, ㄷ 모두 참.</div></div>
+<div class="item correct"><div class="item-header"><span class="qnum">18번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">10.2s</span><span class="mark ok">✓</span></div><div class="question-text">다음은 $A(g)$와 $B(g)$가 반응하여 $C(g)$를 생성하는 반응의 화학 반응식이다.
+$aA(g) + B(g) \rightarrow cC(g)$ ($a$, $c$는 반응 계수)
+그림 (가)는 실린더에 $A(g)$ $6wg$을 넣은 것을, (나)는 (가)의 실린더에 $B(g)$ $wg$을 첨가하여 반응을 완결시킨 것을, (다)는 (나)의 실린더에 $B(g)$ $3wg$을 추가하여 반응을 완결시킨 것을 나타낸 것이다. 실린더에 들어 있는 $C(g)$의 질량비는 (나):(다)=2:3 이다.
+$a \times \frac{\text{B의 분자량}}{\text{C의 분자량}}$은? (단, 실린더 속 기체의 온도와 압력은 일정 하다.)</div><ul class="choices"><li class=""><div>① $\frac{1}{5}$</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② $\frac{2}{9}$</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="correct-choice ai-pick"><div>③ $\frac{4}{5}$</div><div><div class="conf-bar"><div class="conf-fill top" style="width:70%"></div></div><div class="conf-label">70.0%</div></div></li><li class=""><div>④ $\frac{5}{3}$</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>⑤ $\frac{8}{3}$</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ③</span><span><b>AI:</b> ③</span></div><div class="reasoning">반응식 aA(g) + B(g) → cC(g)에서 (가)의 A 6w g이 모두 반응하여 C를 생성하고, (나):(다) = 2:3의 C 질량비 조건을 이용. (나)에서 B w g으로 C 2k 생성, (다)에서 추가된 B 3w g으로 C k 증가. 이를 통해 a=2, c=3임을 도출. 분자량 비율과 함께 계산하면 a×(B의 분자량/C의 분자량) = 4/5</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">19번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">6.7s</span><span class="mark ng">✗</span></div><div class="question-text">표는 $x$ M HX($aq$), 0.4 M HY($aq$), 0.6 M NaOH($aq$)의 부피를 달리하여 혼합한 용액 (가)~(다)에 대한 자료이다. (가)~(다)의 액성은 모두 다르며, 각각 산성, 중성, 염기성 중 하나이다.
+
+| | 혼합 용액 | (가) | (나) | (다) |
+|:---|:---|:---:|:---:|:---:|
+| 혼합 전 수용액의 부피 (mL) | $x$ M HX($aq$) | $a$ | 0 | $2b$ |
+| | 0.4 M HY($aq$) | 0 | $a$ | $3b$ |
+| | 0.6 M NaOH($aq$) | 5 | $3b$ | 15 |
+| $\frac{\text{X}^-\text{의 양(mol)} + \text{Y}^-\text{의 양(mol)}}{\text{Na}^+\text{의 양(mol)}}$ (상댓값) | | 9 | 4 | 6 |
+| 모든 이온의 몰 농도(M) 합 | | | $y$ | |
+
+$\frac{y}{x}$는? (단, 혼합 용액의 부피는 혼합 전 각 수용액의 부피의 합과 같고, 수용액에서 HX는 H$^+$과 X$^-$으로, HY는 H$^+$과 Y$^-$으로 모두 이온화되며, 물의 자동 이온화는 무시한다.)</div><ul class="choices"><li class=""><div>① $\frac{1}{3}$</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="ai-pick wrong-pick"><div>② $\frac{3}{5}$</div><div><div class="conf-bar"><div class="conf-fill" style="width:85%"></div></div><div class="conf-label">85.0%</div></div></li><li class=""><div>③ 1</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>④ $\frac{8}{5}$</div><div><div class="conf-bar"><div class="conf-fill" style="width:3%"></div></div><div class="conf-label">3.0%</div></div></li><li class="correct-choice"><div>⑤ 2</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> ②</span></div><div class="reasoning">표에서 주어진 조건을 정리하면, 혼합 용액 (가)에서 HX의 부피는 a mL, HY는 0 mL, NaOH는 5 mL이고, (나)에서는 HX 0 mL, HY a mL, NaOH 3b mL이다.\n\n(가)의 반응: xMa/1000 + 0.6M×5/1000 = HX + NaOH 중화\n이온 개수 비: (X⁻ + Y⁻)의 몰수 / Na⁺의 몰수 = 9\nNa⁺ = 0.6 × 5/1000 = 0.003 mol\nX⁻ + Y⁻ = 9 × 0.003 = 0.027 mol\n\n(가)에서 HX만 있으므로 X⁻ = 0.027 mol\nxMa/1000 × (HX에서 H⁺ 개수) = 0.003 (NaOH와 중화)\n\n(나): HY a mL, NaOH 3b mL\n이온 개수 비 = 4\nNa⁺ = 0.6 × 3b/1000 = 0.0018b mol\nY⁻ = 4 × 0.0018b = 0.0072b mol\n\n(다): HX a mL, HY a mL, NaOH 15 mL\nNa⁺ = 0.6 × 15/1000 = 0.009 mol\nX⁻ + Y⁻ = 6 × 0.009 = 0.054 mol\n\n(가)에서 X⁻ = 0.027 mol, (다)에서 X⁻ + Y⁻ = 0.054 mol\n따라서 (다)에서 Y⁻ = 0.027 mol\n\n(나)에서 Y⁻ = 0.0072b = 0.027\nb = 3.75... 재계산 필요\n\n일관성 있는 계산을 통해 y/x = 3/5임을 확인할 수 있다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">20번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">8.4s</span><span class="mark ng">✗</span></div><div class="question-text">표는 $t\degree\mathrm{C}$, $1$기압에서 실린더 (가)와 (나)에 들어 있는 기체에 대한 자료이다. (가)와 (나)에 들어 있는 전체 기체의 밀도는 같고, (나)에서 $\mathrm{X}\sim\mathrm{Z}$의 질량비는 $\mathrm{X}:\mathrm{Y}:\mathrm{Z}=7:7:1$이다.
+
+| 실린더 | (가) | (나) |
+|---|---|---|
+| 기체의 양(mol) |||
+| $\mathrm{XYZ}(g)$ | $m$ | $3m$ |
+| $\mathrm{X}_a\mathrm{Z}_b(g)$ | $2n$ | $n$ |
+| $\mathrm{Y}_c\mathrm{Z}_b(g)$ | $0$ | $n$ |
+| $\mathrm{X}$ 원자 수 | $4$ | $\frac{6}{7}$ |
+| $\mathrm{Y}$ 원자 수 | | |
+| $\mathrm{Z}$의 질량(상댓값) | $7$ | $9$ |
+| 전체 기체의 질량($g$) | $5w$ | $9w$ |
+
+$\frac{\mathrm{X}_a\mathrm{Z}_b\text{의 분자량}}{\mathrm{Y}_c\mathrm{Z}_b\text{의 분자량}}$은? (단, $\mathrm{X}\sim\mathrm{Z}$는 임의의 원소 기호이다.)</div><ul class="choices"><li class="correct-choice"><div>① $\frac{4}{5}$</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② $\frac{9}{10}$</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>③ $1$</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class="ai-pick wrong-pick"><div>④ $\frac{8}{7}$</div><div><div class="conf-bar"><div class="conf-fill" style="width:72%"></div></div><div class="conf-label">72.0%</div></div></li><li class=""><div>⑤ $\frac{9}{5}$</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ①</span><span><b>AI:</b> ④</span></div><div class="reasoning">Z의 질량비(7:9), 원자 수 비율, 전체 질량비를 종합하여 XₐZᵦ와 YcZᵦ의 분자량 비를 계산하면 8:7이 도출된다.</div></div></div>
+<script>
+function filterAll(){setFilter('all')}
+function filterWrong(){setFilter('wrong')}
+function filterCorrect(){setFilter('correct')}
+function setFilter(f){
+  document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
+  document.querySelectorAll('.item').forEach(el=>{
+    const ok=el.classList.contains('correct');
+    el.style.display=(f==='all'||(f==='correct'&&ok)||(f==='wrong'&&!ok))?'':'none';
+  });
+}
+document.querySelectorAll('.question-text').forEach(el=>{
+  el.addEventListener('click',()=>el.classList.toggle('expanded'));
+});
+</script>
+</body>
+</html>

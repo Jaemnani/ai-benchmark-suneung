@@ -45,17 +45,17 @@ CHOICE_MARKS = ["①", "②", "③", "④", "⑤"]
 
 SYSTEM_PROMPT = """\
 당신은 한국 수능 시험을 풀고 있습니다.
-문제를 주의 깊게 읽고, 단계별로 풀이한 뒤 최종 답을 JSON으로 반환하세요.
+문제를 주의 깊게 읽고, 최종 답을 먼저 결정한 뒤 JSON 한 객체로 반환하세요.
 
-■ 5지선다형 반환 형식:
-{"reasoning": "풀이과정", "answer": "②", "confidence": {"①": 0.05, "②": 0.80, "③": 0.10, "④": 0.03, "⑤": 0.02}}
+■ 5지선다형 반환 형식 (키 순서 반드시 준수: answer → confidence → reasoning):
+{"answer": "②", "confidence": {"①": 0.05, "②": 0.80, "③": 0.10, "④": 0.03, "⑤": 0.02}, "reasoning": "풀이과정"}
 
 ■ 단답형 반환 형식:
-{"reasoning": "풀이과정", "answer": 14, "confidence": 0.85}
+{"answer": 14, "confidence": 0.85, "reasoning": "풀이과정"}
 
 규칙:
-- confidence 합은 약 1.0
-- answer 는 가장 높은 confidence 의 선택지
+- answer 를 맨 앞에, reasoning 은 맨 뒤에 배치 (응답이 잘려도 핵심 필드는 보존)
+- 5지선다 confidence 합은 약 1.0, answer 는 가장 높은 confidence 의 선택지
 - reasoning 에 풀이과정을 한국어로 간결하게 작성
 - JSON 만 반환, 다른 텍스트 없이
 """
@@ -114,7 +114,33 @@ def parse_response(text: str) -> dict:
             "confidence": obj.get("confidence"),
             "reasoning": obj.get("reasoning", ""),
         }
-    return {"answer": None, "confidence": None, "reasoning": text}
+
+    # Fallback: 응답이 잘려 JSON 파싱 실패 시 answer/confidence 만 별도 추출
+    result = {"answer": None, "confidence": None, "reasoning": text}
+    m = re.search(r'"answer"\s*:\s*"([①②③④⑤])"', cleaned)
+    if m:
+        result["answer"] = m.group(1)
+    else:
+        m = re.search(r'"answer"\s*:\s*"?(-?\d+)"?', cleaned)
+        if m:
+            try:
+                result["answer"] = int(m.group(1))
+            except ValueError:
+                pass
+    m = re.search(r'"confidence"\s*:\s*(\{[^{}]*\})', cleaned)
+    if m:
+        try:
+            result["confidence"] = json.loads(m.group(1))
+        except json.JSONDecodeError:
+            pass
+    else:
+        m = re.search(r'"confidence"\s*:\s*([01](?:\.\d+)?)', cleaned)
+        if m:
+            try:
+                result["confidence"] = float(m.group(1))
+            except ValueError:
+                pass
+    return result
 
 
 def grade(ai_answer, correct_entry: dict | None) -> dict:
@@ -136,7 +162,7 @@ def grade(ai_answer, correct_entry: dict | None) -> dict:
 
 def run_benchmark(subject: str, mode: str, model_id: str,
                   solve_fn, limit: int | None = None) -> None:
-    """solve_fn(question, paper, model_id) -> dict with answer/confidence/reasoning/elapsed_sec/...
+    """solve_fn(question, paper, model_id, subject) -> dict with answer/confidence/reasoning/elapsed_sec/...
     mode: "text" | "image" (결과 파일명에 사용)
     """
     paper, ans_map = load_subject(subject)
@@ -154,7 +180,9 @@ def run_benchmark(subject: str, mode: str, model_id: str,
     total_score = 0
     max_score = 0
     total_time = 0.0
+    skipped_count = 0
     n_total = len(questions)
+    n_graded = 0  # 채점 대상 (skipped 제외)
     run_t0 = time.time()
 
     for i, q in enumerate(questions):
@@ -162,17 +190,24 @@ def run_benchmark(subject: str, mode: str, model_id: str,
         sec = q.get("section", "공통")
         print(f"  [{i+1:>2}/{n_total}] {sec:<10} {num}번...", end=" ", flush=True)
 
-        result = solve_fn(q, paper, model_id)
+        result = solve_fn(q, paper, model_id, subject)
         correct_entry = ans_map.get((num, sec))
-        grading = grade(result["answer"], correct_entry)
+        is_skipped = bool(result.get("skipped"))
 
-        if grading["is_correct"]:
-            correct_count += 1
-            total_score += grading["points"]
-        max_score += grading["points"]
-        total_time += result["elapsed_sec"]
+        if is_skipped:
+            grading = {"correct_answer": correct_entry["answer"] if correct_entry else None,
+                       "points": correct_entry.get("points", 2) if correct_entry else 0,
+                       "is_correct": False}
+            skipped_count += 1
+        else:
+            grading = grade(result["answer"], correct_entry)
+            n_graded += 1
+            if grading["is_correct"]:
+                correct_count += 1
+                total_score += grading["points"]
+            max_score += grading["points"]
+            total_time += result["elapsed_sec"]
 
-        mark = "✓" if grading["is_correct"] else "✗"
         done = i + 1
         elapsed_total = time.time() - run_t0
         avg = elapsed_total / done
@@ -180,12 +215,20 @@ def run_benchmark(subject: str, mode: str, model_id: str,
         eta_sec = int(avg * remaining)
         eta_str = f"{eta_sec // 60}m{eta_sec % 60:02d}s" if eta_sec >= 60 else f"{eta_sec}s"
         pct = done / n_total * 100
-        acc = correct_count / done * 100
-        print(
-            f"{mark} {result['elapsed_sec']:.1f}s  정답:{grading['correct_answer']}  AI:{result['answer']}"
-            f"  | {pct:5.1f}% acc:{acc:4.1f}% ETA:{eta_str}",
-            flush=True,
-        )
+        acc = correct_count / max(n_graded, 1) * 100
+        if is_skipped:
+            print(
+                f"⊘ skip                정답:{grading['correct_answer']}  AI:-"
+                f"  | {pct:5.1f}% acc:{acc:4.1f}% ETA:{eta_str}",
+                flush=True,
+            )
+        else:
+            mark = "✓" if grading["is_correct"] else "✗"
+            print(
+                f"{mark} {result['elapsed_sec']:.1f}s  정답:{grading['correct_answer']}  AI:{result['answer']}"
+                f"  | {pct:5.1f}% acc:{acc:4.1f}% ETA:{eta_str}",
+                flush=True,
+            )
 
         items.append({
             "number": num,
@@ -201,12 +244,14 @@ def run_benchmark(subject: str, mode: str, model_id: str,
 
     summary = {
         "total_questions": n_total,
+        "graded_questions": n_graded,
+        "skipped": skipped_count,
         "correct": correct_count,
         "score": total_score,
         "max_score": max_score,
-        "accuracy": round(correct_count / max(n_total, 1) * 100, 1),
+        "accuracy": round(correct_count / max(n_graded, 1) * 100, 1),
         "total_time_sec": round(total_time, 1),
-        "avg_time_sec": round(total_time / max(n_total, 1), 1),
+        "avg_time_sec": round(total_time / max(n_graded, 1), 1),
     }
 
     output = {
@@ -218,8 +263,9 @@ def run_benchmark(subject: str, mode: str, model_id: str,
         "items": items,
     }
 
-    RESULTS_DIR.mkdir(parents=True, exist_ok=True)
-    out_path = RESULTS_DIR / f"{model_id}_{subject}_{mode}.json"
+    subject_dir = RESULTS_DIR / subject
+    subject_dir.mkdir(parents=True, exist_ok=True)
+    out_path = subject_dir / f"{model_id}_{mode}.json"
     out_path.write_text(json.dumps(output, ensure_ascii=False, indent=2))
 
     from solver_viewer import generate_html
@@ -227,8 +273,9 @@ def run_benchmark(subject: str, mode: str, model_id: str,
     generate_html(output, html_path)
 
     total_min = summary["total_time_sec"] / 60
+    skipped_str = f" (skip {summary['skipped']})" if summary['skipped'] else ""
     print(f"\n{'═'*60}")
-    print(f"  정답률: {summary['accuracy']}% ({summary['correct']}/{summary['total_questions']})")
+    print(f"  정답률: {summary['accuracy']}% ({summary['correct']}/{summary['graded_questions']}){skipped_str}")
     print(f"  원점수: {summary['score']}/{summary['max_score']}")
     print(f"  총 시간: {total_min:.1f}분 ({summary['total_time_sec']}s, 평균 {summary['avg_time_sec']}s/문항)")
     print(f"  JSON: {out_path}")

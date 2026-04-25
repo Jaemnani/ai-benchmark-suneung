@@ -56,6 +56,11 @@ h1{font-size:1.3rem;border-bottom:2px solid #222;padding-bottom:8px}
 .ans-row{display:flex;gap:14px;font-size:.85rem;margin-top:8px;padding-top:6px;border-top:1px solid #f0f0f0}
 .ans-row b{color:#444}
 .short-conf{font-size:.78rem;color:#666;font-family:monospace}
+.choices.no-conf li{grid-template-columns:1fr}
+.ai-pick-tag{font-size:.72rem;background:#1a56db;color:#fff;padding:2px 10px;border-radius:10px;font-weight:600;justify-self:end}
+.item.skipped{border-left:4px solid #aaa;background:#fafafa;opacity:.85}
+.skipped-msg{color:#666;font-size:.8rem;margin-top:6px;font-style:italic}
+.mark.skip{color:#888}
 </style>
 </head>
 <body>
@@ -96,9 +101,13 @@ def _esc(s):
 
 
 def _render_item(item: dict) -> str:
+    is_skipped = bool(item.get("skipped"))
     is_correct = item.get("is_correct", False)
     is_short = not item.get("choices")
-    cls = "correct" if is_correct else "wrong"
+    if is_skipped:
+        cls = "skipped"
+    else:
+        cls = "correct" if is_correct else "wrong"
 
     html = f'<div class="item {cls}">'
     html += '<div class="item-header">'
@@ -109,18 +118,24 @@ def _render_item(item: dict) -> str:
     pts = item.get("points", 0)
     html += f'<span class="badge" style="background:#f0f4ff;color:#1a56db">{pts}점</span>'
     html += f'<span class="time">{item.get("elapsed_sec", 0):.1f}s</span>'
-    mark_cls = "ok" if is_correct else "ng"
-    mark_txt = "✓" if is_correct else "✗"
-    html += f'<span class="mark {mark_cls}">{mark_txt}</span>'
+    if is_skipped:
+        html += '<span class="mark skip">⊘</span>'
+    else:
+        mark_cls = "ok" if is_correct else "ng"
+        mark_txt = "✓" if is_correct else "✗"
+        html += f'<span class="mark {mark_cls}">{mark_txt}</span>'
     html += '</div>'
 
     html += f'<div class="question-text">{_esc(item.get("question", ""))}</div>'
 
     if not is_short and item.get("choices"):
-        conf = item.get("confidence") or {}
+        conf_raw = item.get("confidence")
+        conf = conf_raw if isinstance(conf_raw, dict) else {}
+        has_conf = bool(conf)
         ai_ans = item.get("answer")
         correct_ans = item.get("correct_answer")
-        html += '<ul class="choices">'
+        ul_cls = "choices" if has_conf else "choices no-conf"
+        html += f'<ul class="{ul_cls}">'
         for i, c in enumerate(item["choices"]):
             mark = CHOICE_MARKS[i] if i < 5 else str(i + 1)
             li_cls = []
@@ -130,13 +145,16 @@ def _render_item(item: dict) -> str:
                 li_cls.append("ai-pick")
                 if not is_correct:
                     li_cls.append("wrong-pick")
-            v = conf.get(mark, 0) if isinstance(conf, dict) else 0
-            pct = max(0, min(100, round(float(v) * 100)))
-            fill_cls = "conf-fill top" if mark == ai_ans and is_correct else "conf-fill"
             html += f'<li class="{" ".join(li_cls)}">'
             html += f'<div>{_esc(mark)} {_esc(c)}</div>'
-            html += f'<div><div class="conf-bar"><div class="{fill_cls}" style="width:{pct}%"></div></div>'
-            html += f'<div class="conf-label">{v*100:.1f}%</div></div>'
+            if has_conf:
+                v = conf.get(mark, 0)
+                pct = max(0, min(100, round(float(v) * 100)))
+                fill_cls = "conf-fill top" if mark == ai_ans and is_correct else "conf-fill"
+                html += f'<div><div class="conf-bar"><div class="{fill_cls}" style="width:{pct}%"></div></div>'
+                html += f'<div class="conf-label">{v*100:.1f}%</div></div>'
+            elif mark == ai_ans:
+                html += '<span class="ai-pick-tag">AI 선택</span>'
             html += '</li>'
         html += '</ul>'
 
@@ -151,7 +169,9 @@ def _render_item(item: dict) -> str:
     if reasoning:
         html += f'<div class="reasoning">{_esc(reasoning)}</div>'
 
-    if item.get("error"):
+    if is_skipped:
+        html += f'<div class="skipped-msg">⊘ 풀이 제외: {_esc(item.get("error", "skipped"))}</div>'
+    elif item.get("error"):
         html += f'<div style="color:#c5221f;font-size:.8rem;margin-top:6px">⚠ {_esc(item["error"])}</div>'
 
     html += '</div>'
@@ -163,10 +183,17 @@ def generate_html(data: dict, out_path: Path) -> None:
     title = f"AI 수능 — {data.get('model', '?')} / {data.get('subject', '?')} / {data.get('mode', '?')}"
     meta = f"모델: {data.get('model')} · 모드: {data.get('mode')} · {data.get('timestamp', '')}"
 
+    graded = summary.get("graded_questions", summary.get("total_questions", 0))
+    skipped = summary.get("skipped", 0)
+    wrong = max(graded - summary.get("correct", 0), 0)
     summary_html = (
         f'<div class="stat info"><b>{summary.get("accuracy", 0)}%</b>정답률</div>'
         f'<div class="stat good"><b>{summary.get("correct", 0)}</b>정답</div>'
-        f'<div class="stat bad"><b>{summary.get("total_questions", 0) - summary.get("correct", 0)}</b>오답</div>'
+        f'<div class="stat bad"><b>{wrong}</b>오답</div>'
+    )
+    if skipped:
+        summary_html += f'<div class="stat"><b>{skipped}</b>제외</div>'
+    summary_html += (
         f'<div class="stat info"><b>{summary.get("score", 0)}/{summary.get("max_score", 0)}</b>원점수</div>'
         f'<div class="stat"><b>{summary.get("total_time_sec", 0)}s</b>총 시간</div>'
         f'<div class="stat"><b>{summary.get("avg_time_sec", 0)}s</b>문항 평균</div>'
