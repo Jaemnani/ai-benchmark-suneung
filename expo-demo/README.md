@@ -20,11 +20,18 @@ node -v   # v20+ 확인
 
 ## 실행
 
+처음이면 레포를 자기 컴퓨터에 받습니다 (원하는 디렉터리 어디서나):
+
 ```bash
-cd /home/user/AI-benchmark-suneung/expo-demo
+git clone https://github.com/Jaemnani/AI-benchmark-suneung.git
+cd AI-benchmark-suneung
+git checkout claude/nextjs-to-mobile-app-iNQ5J
+cd expo-demo
 npm install            # 1-2분
 npx expo start         # Metro 서버 실행 + QR 코드 출력
 ```
+
+이미 clone 받았으면 `AI-benchmark-suneung/expo-demo`에서 `npm install && npx expo start`만.
 
 터미널에 큰 QR 코드가 표시됩니다.
 
