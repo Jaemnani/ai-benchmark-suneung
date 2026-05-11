@@ -1,0 +1,10 @@
+{
+  "src/**/*.{ts,tsx}": "eslint --fix --max-warnings=0",
+  "src/**/*.{ts,tsx,json,md,css}": "prettier --write",
+  "mobile/src/**/*.{ts,tsx}": [
+    "bash -c 'cd mobile && eslint --fix --max-warnings=0 $0'"
+  ],
+  "mobile/src/**/*.{ts,tsx,json,md}": [
+    "bash -c 'cd mobile && prettier --write $0'"
+  ]
+}

@@ -1,0 +1,18 @@
+# Mobile workspace — Vercel(웹)에서는 빌드 무시
+mobile/
+
+# 모바일 빌드 산출물 (혹시 루트에 흘러들어왔을 경우 방어)
+ios/
+android/
+**/*.xcworkspace
+**/*.xcodeproj
+**/Pods/
+**/*.gradle
+**/build/
+**/.cxx/
+
+# Fastlane 산출물
+**/fastlane/report.xml
+**/fastlane/Preview.html
+**/fastlane/screenshots
+**/fastlane/test_output

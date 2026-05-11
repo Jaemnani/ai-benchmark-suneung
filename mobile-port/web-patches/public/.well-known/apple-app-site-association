@@ -1,0 +1,36 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "TEAMID.vote.aib.app",
+        "paths": [
+          "NOT /api/*",
+          "NOT /.well-known/*",
+          "NOT /admin/*",
+          "NOT /auth/*",
+          "/",
+          "/ko",
+          "/ko/*",
+          "/ja",
+          "/ja/*",
+          "/en",
+          "/en/*",
+          "/news/*",
+          "/class/*",
+          "/workshop/*",
+          "/plans",
+          "/plans/*",
+          "/mypage",
+          "/mypage/*",
+          "/login"
+        ]
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": [
+      "TEAMID.vote.aib.app"
+    ]
+  }
+}

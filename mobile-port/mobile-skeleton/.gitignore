@@ -1,0 +1,39 @@
+# React Native / Metro
+node_modules/
+.metro-health-check*
+*.log
+.expo/
+.expo-shared/
+
+# iOS
+ios/Pods/
+ios/build/
+ios/DerivedData/
+ios/*.xcworkspace/xcuserdata/
+ios/*.xcodeproj/xcuserdata/
+ios/*.xcodeproj/project.xcworkspace/xcuserdata/
+
+# Android
+android/.gradle/
+android/.idea/
+android/app/build/
+android/build/
+android/local.properties
+*.keystore
+!debug.keystore
+
+# Env
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test
+coverage/
