@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>AI 수능 — claude-haiku-4-5 / 과학탐구_물리학Ⅰ / image</title>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<style>
+*{box-sizing:border-box}
+body{font-family:'Noto Sans KR',sans-serif;max-width:960px;margin:0 auto;padding:20px;background:#f5f5f5;font-size:14px;line-height:1.6}
+h1{font-size:1.3rem;border-bottom:2px solid #222;padding-bottom:8px}
+.meta{font-size:.8rem;color:#666;margin-bottom:16px}
+.summary{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+.stat{background:#fff;border:1px solid #ddd;border-radius:6px;padding:12px 20px;text-align:center;min-width:100px}
+.stat b{font-size:1.4rem;display:block}
+.stat.good b{color:#1e7e34}
+.stat.bad b{color:#c5221f}
+.stat.info b{color:#1a56db}
+.filters{margin-bottom:16px;display:flex;gap:6px}
+.fbtn{padding:5px 14px;border:1px solid #aaa;border-radius:4px;cursor:pointer;background:#e8e8e8;font-size:.82rem;font-weight:600}
+.fbtn.active{background:#fff;color:#1a56db;border-color:#1a56db}
+.item{background:#fff;border:1px solid #e0e0e0;border-radius:6px;padding:16px 18px;margin-bottom:12px}
+.item.correct{border-left:4px solid #1e7e34}
+.item.wrong{border-left:4px solid #c5221f}
+.item-header{display:flex;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.qnum{font-weight:700;color:#1a56db;min-width:40px}
+.badge{font-size:.7rem;padding:2px 8px;border-radius:10px;font-weight:600}
+.badge-sec{background:#f0f0f0;color:#555}
+.mark{margin-left:auto;font-size:1.1rem;font-weight:700}
+.mark.ok{color:#1e7e34}
+.mark.ng{color:#c5221f}
+.time{font-size:.75rem;color:#888}
+.question-text{margin:8px 0;color:#333;white-space:pre-wrap;font-size:.9rem;max-height:80px;overflow:hidden;cursor:pointer}
+.question-text.expanded{max-height:none}
+.choices{list-style:none;padding:0;margin:8px 0}
+.choices li{padding:6px 10px;margin:3px 0;border-radius:4px;display:grid;grid-template-columns:1fr 160px;align-items:center;gap:10px;border:1px solid transparent}
+.choices li.correct-choice{background:#e6f4ea;border-color:#81c995}
+.choices li.ai-pick{outline:2px solid #1a56db}
+.choices li.ai-pick.wrong-pick{outline-color:#c5221f}
+.conf-bar{height:12px;background:#f0f0f0;border-radius:3px;overflow:hidden}
+.conf-fill{height:100%;background:linear-gradient(90deg,#9cc7ff,#1a56db);border-radius:3px}
+.conf-fill.top{background:linear-gradient(90deg,#86e29b,#1e7e34)}
+.conf-label{font-size:.7rem;color:#555;text-align:right;font-family:monospace}
+.reasoning{background:#fafafa;border:1px solid #eee;border-radius:4px;padding:10px 14px;margin-top:8px;font-size:.82rem;color:#444;white-space:pre-wrap;max-height:120px;overflow:auto}
+.ans-row{display:flex;gap:14px;font-size:.85rem;margin-top:8px;padding-top:6px;border-top:1px solid #f0f0f0}
+.ans-row b{color:#444}
+.short-conf{font-size:.78rem;color:#666;font-family:monospace}
+.choices.no-conf li{grid-template-columns:1fr}
+.ai-pick-tag{font-size:.72rem;background:#1a56db;color:#fff;padding:2px 10px;border-radius:10px;font-weight:600;justify-self:end}
+.item.skipped{border-left:4px solid #aaa;background:#fafafa;opacity:.85}
+.skipped-msg{color:#666;font-size:.8rem;margin-top:6px;font-style:italic}
+.mark.skip{color:#888}
+</style>
+</head>
+<body>
+<h1>AI 수능 — claude-haiku-4-5 / 과학탐구_물리학Ⅰ / image</h1>
+<p class="meta">모델: claude-haiku-4-5 · 모드: image · 2026-04-25T20:23:27</p>
+<div class="summary"><div class="stat info"><b>40.0%</b>정답률</div><div class="stat good"><b>8</b>정답</div><div class="stat bad"><b>12</b>오답</div><div class="stat info"><b>19/50</b>원점수</div><div class="stat"><b>136.7s</b>총 시간</div><div class="stat"><b>6.8s</b>문항 평균</div></div>
+<div class="filters">
+  <button class="fbtn active" onclick="filterAll()">전체</button>
+  <button class="fbtn" onclick="filterWrong()">오답만</button>
+  <button class="fbtn" onclick="filterCorrect()">정답만</button>
+</div>
+<div id="items"><div class="item wrong"><div class="item-header"><span class="qnum">1번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">5.0s</span><span class="mark ng">✗</span></div><div class="question-text">그림은 태양에서 일어나는 핵반응에 대해 학생 A, B, C가 대화하는 모습을 나타낸 것이다.
+$\langle$태양에서 일어나는 핵반응$angle$
+$^1_1$H + $^1_1$H $\to$ $^2_1$H + 질량이 매우 작은 입자와 에너지
+$^1_1$H + $^2_1$H $\to$ $^3_2$He + 에너지
+$^3_2$He + $^3_2$He $\to$ $^4_2$He + $^1_1$H 2개와 에너지
+학생 A: $^1_1$H 2개의 질량은 $^2_1$H 1개의 질량보다 작아.
+학생 B: 질량수는 $^3_2$He이 $^4_2$He보다 커.
+학생 C: 태양에서 일어나는 핵반응은 핵융합 반응이야.
+제시한 내용이 옳은 학생만을 있는 대로 고른 것은?</div><ul class="choices"><li class=""><div>① A</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="ai-pick wrong-pick"><div>② B</div><div><div class="conf-bar"><div class="conf-fill" style="width:75%"></div></div><div class="conf-label">75.0%</div></div></li><li class="correct-choice"><div>③ C</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>④ A, C</div><div><div class="conf-bar"><div class="conf-fill" style="width:3%"></div></div><div class="conf-label">3.0%</div></div></li><li class=""><div>⑤ B, C</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ③</span><span><b>AI:</b> ②</span></div><div class="reasoning">태양에서 일어나는 핵반응을 분석하면: ¹H → ²H → ³He → ⁴He 과정에서 학생 A는 '¹H 2개의 질량은 ²H 1개의 질량보다 작다'고 말하고, 학생 B는 '질량수는 ³He이 ⁴He보다 크다'고 말하고, 학생 C는 '태양에서 일어나는 핵반응은 핵융합 반응이다'라고 말했다. 학생 A의 진술은 질량결손(mass defect)으로 인해 정확하다. 학생 B의 진술은 거짓이다(³He의 질량수는 3, ⁴He의 질량수는 4이므로 ⁴He가 더 크다). 학생 C의 진술은 정확하다(태양의 핵반응은 핵융합). 따라서 제시한 내용이 옳은 학생은 B이다.</div></div>
+<div class="item correct"><div class="item-header"><span class="qnum">2번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">5.8s</span><span class="mark ok">✓</span></div><div class="question-text">그림과 같이 균일한 자기장에 의해 자화된 상태에 있는 크기와 모양이 같은 물체 A, B, C 중 2개를 꺼내어 하나는 수평면에 놓고 다른 하나는 높이 $h_0$에서 가만히 놓아 떨어뜨린다. 표는 두 물체가 닿을 때까지 걸린 시간 $T$를 나타낸 것이다. A, B, C는 강자성체, 상자성체, 반자성체를 순서 없이 나타낸 것이고, 균일한 자기장 영역에서 B와 C가 자화된 방향은 서로 같다.
+A, B, C로 옳은 것은?</div><ul class="choices"><li class=""><div>① A: 강자성체 B: 상자성체 C: 반자성체</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② A: 강자성체 B: 반자성체 C: 상자성체</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>③ A: 상자성체 B: 강자성체 C: 반자성체</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class="correct-choice ai-pick"><div>④ A: 반자성체 B: 강자성체 C: 상자성체</div><div><div class="conf-bar"><div class="conf-fill top" style="width:70%"></div></div><div class="conf-label">70.0%</div></div></li><li class=""><div>⑤ A: 반자성체 B: 상자성체 C: 강자성체</div><div><div class="conf-bar"><div class="conf-fill" style="width:7%"></div></div><div class="conf-label">7.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ④</span><span><b>AI:</b> ④</span></div><div class="reasoning">균일한 자기장에서 자기화된 상태의 물질에 대한 문제입니다.\n\n주어진 조건:\n- B와 A가 떨어지는 시간: 0.230s\n- C와 A가 떨어지는 시간: 0.203s\n- B와 C가 자기화되는 방향은 반대 방향\n\n분석:\n1) A는 기준점으로, B와 C는 각각 자기화되어 상하로 움직입니다.\n2) 시간 데이터로부터 C가 B보다 빠르게 떨어집니다 (0.203 &lt; 0.230).\n3) 따라서 C의 자기력이 더 큽니다.\n4) B와 C의 자기화 방향이 반대이고, 둘 다 A와 상호작용합니다.\n\n자기성의 판단:\n- A는 두 물질 모두와 상호작용하므로 자성체(강자성체, 상자성체, 반자성체 중 하나)\n- B와 C의 자기화 방향이 반대라는 것은 서로 다른 자성을 가짐을 의미\n- 강자성체는 항상 자기화되고, 반자성체는 자기장에 반발, 상자성체는 자기장에 흡수\n\n균일한 자기장에서 B와 C가 반대 방향으로 자기화되므로:\n- B: 상자성체 (자기장 방향으로 자기화)\n- C: 반자성체 (자기장 반대 방향으로 자기화)\n- A: 강자성체 (항상 자기화되어 둘 다와 상호작용)</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">3번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">5.5s</span><span class="mark ng">✗</span></div><div class="question-text">다음은 어느 자율 주행 자동차에 이용되는 파동에 대한 설명이다.
+ⓐ 파장이 $1550\, \mathrm{nm}$인 적외선은 자동차 주변의 $3$차원 공간 정보를 얻는 데 이용된다.
+ⓑ 진동수가 $52\, \mathrm{kHz}$인 초음파는 가까이 있는 물체와의 거리를 측정하는 데 이용된다.
+ⓒ 파장이 $400 \sim 700\, \mathrm{nm}$인 가시광선은 신호등이나 표지판, 차선 등을 인식하는 데 이용된다.
+이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?
+&lt;보기&gt;
+ㄱ. 공기 중에서의 속력은 ⓐ가 ⓑ보다 크다.
+ㄴ. ⓑ는 진공에서도 진행한다.
+ㄷ. 진동수는 ⓒ가 ⓐ보다 크다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="correct-choice"><div>③ ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="ai-pick wrong-pick"><div>④ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:70%"></div></div><div class="conf-label">70.0%</div></div></li><li class=""><div>⑤ ㄱ, ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ③</span><span><b>AI:</b> ④</span></div><div class="reasoning">자동차 주행 자동차에 이용되는 파동에 대한 문제이다.\n\n(a) 파장 1550 nm: 적외선 → 3차원 공간 정보를 얻는 데 이용 (라이더)\n(b) 진동수 52 kHz: 초음파 → 물체와의 거리 측정 (초음파 센서)\n(c) 파장 400~700 nm: 가시광선 → 신호등이나 표지판, 차선 등을 인식\n\n보기 검토:\n- 그: "공기 중에서의 속력은 (a)가 (b)보다 크다" → 전자기파(a)는 진공/공기에서 약 3×10⁸ m/s, 음파(b)는 공기에서 약 340 m/s이므로 참\n- 나: "(b)는 진공에서도 진행한다" → 초음파는 매질이 필요하므로 거짓\n- 다: "진동수는 (c)가 (a)보다 크다" → 파장이 작을수록 진동수가 크므로, c(400~700 nm)가 a(1550 nm)보다 크다. 참\n\n참인 명제: 그, 다\n→ 답: ④(나, 다)는 틀렸고, 그와 다가 참이므로 ④번이 정답</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">4번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">5.2s</span><span class="mark ng">✗</span></div><div class="question-text">그림은 보어의 수소 원자 모형에서 양자수 $n$에 따른 전자의 궤도 일부와 전자의 전이 a~d를, 표는 $n$에 따른 에너지 준위를 나타낸 것이다. b, c에서 방출되는 빛의 진동수는 각각 $f_b$, $f_c$이다.
+
+양자수 | 에너지(eV)
+--- | ---
+$n=1$ | $-13.6$
+$n=2$ | $-3.40$
+$n=3$ | $-1.51$
+$n=4$ | $-0.85$
+
+이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?
+
+&lt;보기&gt;
+ㄱ. 방출되는 빛의 파장은 a에서가 b에서보다 길다.
+ㄴ. $f_b &gt; f_c$이다.
+ㄷ. d에서 방출되는 광자 1개의 에너지는 $10.2\text{eV}$이다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="ai-pick wrong-pick"><div>③ ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:75%"></div></div><div class="conf-label">75.0%</div></div></li><li class="correct-choice"><div>④ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>⑤ ㄱ, ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ④</span><span><b>AI:</b> ③</span></div><div class="reasoning">수소 원자의 에너지 준위에서 전자의 궤도 전이를 분석하는 문제입니다.\n\n주어진 에너지 값:\n- n=1: -13.6 eV\n- n=2: -3.40 eV\n- n=3: -1.51 eV\n- n=4: -0.85 eV\n\n각 보기 검토:\n\n가. 방출되는 빛의 파장은 a에서가 b에서보다 길다.\n- a는 n=4→n=1 (ΔE = -0.85-(-13.6) = 12.75 eV)\n- b는 n=3→n=2 (ΔE = -1.51-(-3.40) = 1.89 eV)\n- 에너지가 클수록 파장은 짧으므로, a의 파장이 b보다 짧다.\n- 따라서 가는 거짓.\n\n나. f_b &gt; f_c이다.\n- f_b: n=3→n=2 전이의 빛 진동수 (ΔE = 1.89 eV)\n- f_c: n=2→n=1 전이의 빛 진동수 (ΔE = -3.40-(-13.6) = 10.2 eV)\n- f_c &gt; f_b이므로 나는 거짓.\n\n다. d에서 방출되는 광자 1개의 에너지는 10.2 eV이다.\n- d는 n=2→n=1 전이 (ΔE = 10.2 eV)\n- 다는 참.\n\n따라서 참인 것은 다뿐이므로 ③번(가, 다)이 정답입니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">5번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">5.8s</span><span class="mark ng">✗</span></div><div class="question-text">그림은 매질 A에서 주기가 $T_0$인 물결파가 A에서 매질 B로 굴절하여 진행하는 모습을 나타낸 것이다. 실선은 물결파의 마루이고, A에서 실선과 경계면이 이루는 각은 $60^\circ$이다.
+이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?
+&lt;보기&gt;
+ㄱ. 물결파의 진행 속력은 A에서가 B에서보다 크다.
+ㄴ. 물결파의 입사각은 $30^\circ$이다.
+ㄷ. B에서 물결파의 주기는 $T_0$보다 작다.</div><ul class="choices"><li class="correct-choice"><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>③ ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:12%"></div></div><div class="conf-label">12.0%</div></div></li><li class=""><div>④ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="ai-pick wrong-pick"><div>⑤ ㄱ, ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:60%"></div></div><div class="conf-label">60.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ①</span><span><b>AI:</b> ⑤</span></div><div class="reasoning">매질 A에서 출발한 주기가 T₀인 물결파가 매질 B로 굴절하는 상황입니다. 입사각과 굴절각이 모두 60°라는 조건을 분석하겠습니다.\n\n주어진 조건:\n- 입사각 = 굴절각 = 60°\n- 매질 A의 너비 = 3cm, 4cm 거리\n- A에서 B로 도향할 때 진행 속력은 A에서가 B에서보다 크다\n\n스넬의 법칙: n₁sin(θ₁) = n₂sin(θ₂)\n입사각과 굴절각이 같으면 두 매질의 굴절률이 같다는 뜻입니다.\n그러나 문제에서 '실선은 물결파의 마루'이고 '굴절파의 진행속력이 A에서가 B에서보다 크다'고 했으므로, 입사각 = 굴절각 = 60°일 때의 파동 거동을 검토해야 합니다.\n\n파동의 주기 T는 두 매질에서 같고(T = T₀), 파장은 속력에 비례합니다.\n- 그(그래프): 물결파의 진행 속력이 A에서가 B에서보다 크다 ✓\n- 나(나): 물결파의 입사각은 30°이다 ✗ (주어진 조건은 60°)\n- 다(다): B에서 물결파의 주기는 T₀보다 작다 ✗ (주기는 매질과 무관하게 같음)\n\n따라서 그만 옳습니다.</div></div>
+<div class="item correct"><div class="item-header"><span class="qnum">6번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">3.6s</span><span class="mark ok">✓</span></div><div class="question-text">그림은 평면에 고정된 두 지점 $S_1$, $S_2$에서 진동수와 진폭이 같고 서로 반대의 위상으로 발생시킨 두 물결파의 어느 순간의 모습을 나타낸 것이다. 점 P, Q는 평면상에 고정된 두 지점이다. $\overline{\text{PQ}}$에서 보강 간섭이 일어나는 지점의 개수는?</div><ul class="choices"><li class=""><div>① 3</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="correct-choice ai-pick"><div>② 4</div><div><div class="conf-bar"><div class="conf-fill top" style="width:75%"></div></div><div class="conf-label">75.0%</div></div></li><li class=""><div>③ 5</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class=""><div>④ 6</div><div><div class="conf-bar"><div class="conf-fill" style="width:3%"></div></div><div class="conf-label">3.0%</div></div></li><li class=""><div>⑤ 7</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ②</span><span><b>AI:</b> ②</span></div><div class="reasoning">두 지점 S₁, S₂에서 발생한 음파가 간섭을 일으키는 문제입니다. P와 Q는 평면상의 두 지점으로, 진동수와 진폭이 같은 음파가 반대 위상으로 발생하여 보강간섭과 소멸간섭이 나타납니다. 그림에서 실선은 마루, 점선은 골을 나타내고 있습니다. PQ 구간에서 보강 간섭이 일어나는 지점의 개수를 구해야 합니다. 두 음원이 반대 위상이므로, 보강간섭은 경로차가 λ/2, 3λ/2, 5λ/2... 일 때 발생합니다. 그림을 분석하면 P와 Q 사이에서 보강간섭이 일어나는 지점은 4개입니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">7번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">5.3s</span><span class="mark ng">✗</span></div><div class="question-text">그림 (가)와 같이 높이가 각각 $4h$, $h$인 지점에 가만히 놓은 물체 A, B가 빗면을 내려와 시간 $t=0$일 때 벽과 충돌을 시작하였다. 그림 (나)는 물체가 벽과 충돌하는 동안 A, B의 속력을 시간에 따라 나타낸 것이다. A, B의 질량은 각각 $2m$, $m$이다.
+이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? (단, 물체의 크기, 모든 마찰과 공기 저항은 무시한다.)
+&lt;보기&gt;
+ㄱ. $0 \sim t_0$ 동안 물체가 받은 충격량의 크기는 A가 B의 2배이다.
+ㄴ. $t_0 \sim 2t_0$ 동안 A의 운동량 변화량의 크기는 $mv_0$이다.
+ㄷ. 벽과 충돌하는 동안 물체가 받은 평균 힘의 크기는 A가 B의 2배이다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="correct-choice"><div>③ ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>④ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="ai-pick wrong-pick"><div>⑤ ㄱ, ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:65%"></div></div><div class="conf-label">65.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ③</span><span><b>AI:</b> ⑤</span></div><div class="reasoning">그림 (가)에서 A는 높이 4h, B는 높이 h에서 출발한다. 그림 (나)의 속력-시간 그래프를 분석하면:\n\n[보기 검토]\n\n가. 0~t₀ 동안 물체가 받은 충격량의 크기는 A가 B의 2배\n→ 중력 가속도 g로 낙하하는 동안 A와 B가 받는 충격량 비교. A의 낙하 시간이 더 길고 속도가 더 크므로 (v²=2gh에서 A는 √(8gh), B는 √(2gh)), A가 받는 충격량이 더 크다. 맞음.\n\n나. t₀~2t₀ 동안 A의 운동량 변화량의 크기는 mv₀\n→ t₀에서 A의 속도는 v₀이고, 2t₀에서 0이 된다. 운동량 변화는 m·v₀이다. 맞음.\n\n다. 벽과 충돌하는 동안 물체가 받은 평균 힘의 크기는 A가 B의 2배\n→ 충돌 시간이 같다면, F=Δp/Δt에서 A의 운동량 변화가 B의 2배이므로 평균력도 2배이다. 맞음.\n\n따라서 가, 나, 다 모두 참이다.</div></div>
+<div class="item correct"><div class="item-header"><span class="qnum">8번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">7.7s</span><span class="mark ok">✓</span></div><div class="question-text">그림과 같이 관찰자 A에 대해 관찰자 B, C가 탄 우주선이 각각 속력 $0.7c$, $0.9c$로 우주 정거장 P, Q를 잇는 직선과 나란하게 등속도 운동을 한다. A의 관성계에서, 정지해 있는 P와 Q 사이의 거리는 $d$이고 B, C가 탄 우주선의 길이는 같다. C의 관성계에서, C가 탄 우주선의 길이는 $L$이다. 이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? (단, $c$는 빛의 속력이다.)
+&lt;보기&gt;
+ㄱ. B의 관성계에서, B가 탄 우주선의 길이는 $L$보다 크다.
+ㄴ. C의 관성계에서, Q가 C를 지나는 순간부터 P가 C를 지나는 순간까지 걸리는 시간은 $\frac{d}{0.9c}$보다 작다.
+ㄷ. P와 Q 사이의 거리는 B의 관성계에서가 C의 관성계에서보다 크다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li><li class=""><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:3%"></div></div><div class="conf-label">3.0%</div></div></li><li class=""><div>③ ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>④ ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="correct-choice ai-pick"><div>⑤ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill top" style="width:80%"></div></div><div class="conf-label">80.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> ⑤</span></div><div class="reasoning">B의 우주선이 B의 관성계에서 덜 수축되므로 L보다 크고(ㄱ참), C의 관성계에서 PQ 거리가 수축되어 d/0.9c보다 작은 시간이 걸리고(ㄴ참), B의 관성계에서 PQ 거리가 C의 관성계보다 크다(ㄷ참). 따라서 ㄴ,ㄷ 선택지가 정답이다.</div></div>
+<div class="item correct"><div class="item-header"><span class="qnum">9번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">8.0s</span><span class="mark ok">✓</span></div><div class="question-text">그림은 받침대 위에 있는 사람이 도르래를 통해 받침대와 연결되어 있는 줄 p를 연직 아래 방향으로 잡아당겨 정지해 있는 모습을 나타낸 것이다. 사람이 p를 당기는 힘의 크기는 $350\,N$이고, 받침대의 무게는 $100\,N$이다.
+이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? (단, 줄의 질량과 모든 마찰은 무시한다.)
+&lt;보기&gt;
+ㄱ. 사람의 무게는 $600\,N$이다.
+ㄴ. 받침대가 사람을 떠받치는 힘의 크기는 $200\,N$이다.
+ㄷ. 사람이 p에 작용하는 힘과 p가 사람에게 작용하는 힘은 작용 반작용 관계이다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="correct-choice ai-pick"><div>③ ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill top" style="width:80%"></div></div><div class="conf-label">80.0%</div></div></li><li class=""><div>④ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:3%"></div></div><div class="conf-label">3.0%</div></div></li><li class=""><div>⑤ ㄱ, ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ③</span><span><b>AI:</b> ③</span></div><div class="reasoning">사람의 무게를 W, 반침대가 사람을 받치는 힘을 R이라 하면, 사람의 평형: R + 350 = W, 반침대의 평형: F + 350 = 100 + R. 이를 풀면 ㄱ은 W=600N으로 참, ㄴ은 R=250N으로 거짓, ㄷ은 작용-반작용 관계로 참. 따라서 정답은 ㄱ, ㄷ</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">10번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">8.5s</span><span class="mark ng">✗</span></div><div class="question-text">그림과 같이 마찰이 없는 수평면에서 운동량의 크기가 $p$ 로 같고 질량이 각각 $4m$, $2m$, $3m$ 인 물체 A, B, C가 $x$ 축을 따라 등속도 운동을 하고 있다. A와 B가 충돌한 후, B와 C가 충돌한다. B가 A, C로부터 받은 충격량의 크기는 각각 $rac{3}{5}p$, $rac{1}{5}p$ 이다. B와 C가 충돌한 후, B의 운동량의 크기와 방향은? (단, A, B, C는 동일 직선상에서 운동한다.)</div><ul class="choices"><li class=""><div>① $rac{1}{5}p$ $+x$방향</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="ai-pick wrong-pick"><div>② $rac{1}{5}p$ $-x$방향</div><div><div class="conf-bar"><div class="conf-fill" style="width:75%"></div></div><div class="conf-label">75.0%</div></div></li><li class=""><div>③ $rac{2}{5}p$ $+x$방향</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>④ $rac{2}{5}p$ $-x$방향</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="correct-choice"><div>⑤ $rac{3}{5}p$ $-x$방향</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> ②</span></div><div class="reasoning">A와 B의 충돌에서 B는 (3/5)p의 충격량을 받아 오른쪽으로 이동. B와 C의 충돌에서 B는 왼쪽 방향으로 (1/5)p의 충격량을 받음. 이는 C가 B에게 -x방향의 힘을 작용하므로, 충돌 후 B의 운동량의 크기는 (1/5)p이고 방향은 -x방향</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">11번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">5.8s</span><span class="mark ng">✗</span></div><div class="question-text">그림과 같이 단색광 P가 공기에서 매질 A에 입사각 $\theta_1$로 입사한다. 매질 B와 공기의 경계면에서 P의 일부는 굴절각 $\theta_2$로 굴절하여 진행하고 일부는 반사한 후 매질 C와 공기의 경계면에서 전반사한다. $\theta_2 &gt; \theta_1$이다.
+이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?
+&lt;보기&gt;
+ㄱ. 굴절률은 A가 B보다 크다.
+ㄴ. P의 속력은 B에서가 C에서보다 크다.
+ㄷ. P가 B와 공기의 경계면에서 전반사하게 하려면 $\theta_1$을 증가시켜야 한다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="correct-choice"><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>③ ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>④ ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:12%"></div></div><div class="conf-label">12.0%</div></div></li><li class="ai-pick wrong-pick"><div>⑤ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:65%"></div></div><div class="conf-label">65.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ②</span><span><b>AI:</b> ⑤</span></div><div class="reasoning">정삼각형 공기에서 P가 매질 A에 입사각 θ₁로 입사하고, B와의 경계에서 굴절각 θ₂로 굴절한 후, C와의 경계에서 전반사된다. θ₂ &gt; θ₁이므로 n_A &gt; n_B이다.\n\n보기 검토:\n- 그: 입사각 θ₁ &lt; 굴절각 θ₂이므로 매질 A의 굴절률이 더 크다. 따라서 곡절률은 A가 B보다 크다. (참)\n- 나: P가 B에서 C로 진행할 때, 정삼각형 기하학상 B-공기 경계에서의 입사각은 θ₂와 관련된 각이다. 전반사가 일어나려면 입사각이 임계각보다 커야 한다. θ₂ &gt; θ₁이고 전반사 조건을 고려하면, P의 속력은 B에서가 C에서보다 크다. (참)\n- 디: P가 B와 공기의 경계면에서 전반사하려면 입사각이 임계각보다 커야 한다. 전반사 조건: sin(θ_c) = n_공기/n_B = 1/n_B. 정삼각형 기하에서 B-공기 경계의 입사각이 임계각보다 크므로, 이 조건이 만족되려면 θ₁을 증가시켜야 전반사 조건을 계속 만족한다. (참)\n\n그, 나, 디 모두 참이므로 정답은 ⑤이다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">12번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">5.7s</span><span class="mark ng">✗</span></div><div class="question-text">표는 입자 A, B, C의 질량과 운동 에너지를 나타낸 것이다.
+
+| 입자 | 질량 | 운동 에너지 |
+|---|---|---|
+| A | $m$ | $E_0$ |
+| B | $2m$ | $8E_0$ |
+| C | $3m$ | $3E_0$ |
+
+이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?
+
+&lt;보기&gt;
+ㄱ. 속력은 A가 B보다 작다.
+ㄴ. 운동량의 크기는 B가 C보다 작다.
+ㄷ. 물질파 파장은 A가 C보다 짧다.</div><ul class="choices"><li class="correct-choice"><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>③ ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>④ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="ai-pick wrong-pick"><div>⑤ ㄱ, ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:65%"></div></div><div class="conf-label">65.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ①</span><span><b>AI:</b> ⑤</span></div><div class="reasoning">주어진 표에서 질량과 운동에너지를 분석하면:\n- A: 질량 m, 운동에너지 E₀\n- B: 질량 2m, 운동에너지 8E₀\n- C: 질량 3m, 운동에너지 3E₀\n\nE = ½mv²이므로 각 물체의 속도를 구하면:\n- A: v²_A = 2E₀/m\n- B: v²_B = 16E₀/(2m) = 8E₀/m\n- C: v²_C = 6E₀/(3m) = 2E₀/m\n\n따라서 v_B &gt; v_A = v_C\n\n보기 검토:\n- ㄱ. 속력은 A &lt; B (A가 B보다 작다) - 참\n- ㄴ. 운동에너지 크기: B(8E₀) &gt; C(3E₀) - 참\n- ㄷ. 물질과 파장: 드브로이 파장 λ = h/(mv)이므로\n  A의 파장: λ_A = h/(m·√(2E₀/m))\n  C의 파장: λ_C = h/(3m·√(2E₀/(3m))) = h/(√(6mE₀))\n  계산하면 A &gt; C이다 - 거짓\n\n따라서 ㄱ과 ㄴ이 참이므로 답은 ⑤</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">13번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">10.1s</span><span class="mark ng">✗</span></div><div class="question-text">다음은 p-n 접합 발광 다이오드(LED)의 특성을 알아보는 실험이다.
+[실험 과정]
+(가) 그림과 같이 전압이 같은 직류 전원 3개, 동일한 저항 2개, 동일한 LED D$_{1}$~D$_{4}$, 스위치 S$_{1}$, S$_{2}$를 이용하여 회로를 구성한다. X는 p형 반도체와 n형 반도체 중 하나이다.
+(나) S$_{1}$과 S$_{2}$의 연결 상태를 바꾸어 가며 D$_{1}$~D$_{4}$에서 빛의 방출 여부를 관찰한다.
+[실험 결과]
+S$_{1}$이 닫힘, S$_{2}$가 열림일 때 빛이 방출되는 LED는 D$_{2}$, D$_{4}$이다.
+S$_{1}$이 열림, S$_{2}$가 a에 연결일 때 빛이 방출되는 LED는 없다.
+S$_{1}$이 열림, S$_{2}$가 b에 연결일 때 빛이 방출되는 LED는 ㄱ이다.
+이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?
+&lt;보기&gt;
+ㄱ. X는 p형 반도체이다.
+ㄴ. S$_{1}$이 닫혀 있고 S$_{2}$가 열려 있을 때, D$_{3}$에는 역방향 전압이 걸린다.
+ㄷ. ㄱ은 D$_{3}$, D$_{4}$이다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>② ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class=""><div>③ ㄱ, ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="ai-pick wrong-pick"><div>④ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:50%"></div></div><div class="conf-label">50.0%</div></div></li><li class="correct-choice"><div>⑤ ㄱ, ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> ④</span></div><div class="reasoning">S₁ 닫힘/S₂ 열림에서 D₂, D₄ 점등 → p형 반도체 X 확인. S₁ 열림/S₂ a연결에서 점등 안 됨 → X가 역방향. S₁ 열림/S₂ b연결에서는 전류 경로 변경으로 D₃에 역방향 전입되어 D₃, D₄가 빛남. ㄴ(S₁ 닫힘 시 D₃에 역방향)과 ㄷ(ⓒ는 D₃, D₄)이 모두 참.</div></div>
+<div class="item correct"><div class="item-header"><span class="qnum">14번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">4.8s</span><span class="mark ok">✓</span></div><div class="question-text">그림은 동일 직선상에서 같은 가속도로 등가속도 운동을 하는 물체 A, B의 위치를 시간에 따라 나타낸 것이다. A, B의 속력은 각각 시간이 $t_0$, $2t_0$일 때 0이다. A와 B가 만나는 순간 A, B의 속력은 각각 $v_A$, $v_B$이다.
+$rac{v_A}{v_B}$는?</div><ul class="choices"><li class=""><div>① $rac{3}{2}$</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class="correct-choice ai-pick"><div>② $rac{5}{3}$</div><div><div class="conf-bar"><div class="conf-fill top" style="width:75%"></div></div><div class="conf-label">75.0%</div></div></li><li class=""><div>③ $rac{7}{4}$</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>④ $rac{9}{5}$</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>⑤ $2$</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ②</span><span><b>AI:</b> ②</span></div><div class="reasoning">그래프에서 물체 A와 B의 위치-시간 관계를 분석합니다.\n\n시간 t₀에서:\n- A의 위치: 4d, B의 위치: 2d\n\n시간 2t₀에서:\n- A의 위치: 약 4d (최고점 근처)\n- B의 위치: 약 2d (최고점)\n\n속도는 위치-시간 그래프의 기울기입니다.\n\nA의 속도(t₀에서): 그래프의 기울기가 B보다 완만함\nB의 속도(t₀에서): 그래프의 기울기가 A보다 가파름\n\n그래프를 자세히 보면:\n- A는 t₀에서 여전히 상승 중이지만 기울기가 감소\n- B는 t₀에서 상승하다가 2t₀ 근처에서 최고점\n\n시간 t₀일 때의 순간 기울기(속도)를 비교하면:\n- A의 기울기: 약 2d/t₀\n- B의 기울기: 약 2d/t₀보다 크지만, 곡선의 형태를 보면\n\n더 정확한 분석:\nA의 최고점이 4d이고 B의 최고점이 2d일 때,\nt₀ 시점에서 A의 기울기/B의 기울기 ≈ 5/3\n\nv_A/v_B = 5/3</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">15번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">9.3s</span><span class="mark ng">✗</span></div><div class="question-text">그림과 같이 $xy$ 평면에 가늘고 무한히 긴 직선 도선 A, B, C가 고정되어 있다. B에는 세기 $I_0$ 전류가 화살표 방향으로 흐르고, A와 C에는 각각 세기 $I$ 인 전류가 흐른다. 표는 $xy$평면의 점 p, q, r에서 A, B, C의 전류에 의한 자기장의 세기를 나타낸 것이다. 이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?
+&lt;보기&gt;
+ㄱ. C에 흐르는 전류의 방향은 $+x$방향이다.
+ㄴ. $I=4\sqrt{2}I_0$이다.
+ㄷ. ㉠은 $B_0$이다.</div><ul class="choices"><li class="correct-choice"><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>③ ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="ai-pick wrong-pick"><div>④ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:65%"></div></div><div class="conf-label">65.0%</div></div></li><li class=""><div>⑤ ㄱ, ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ①</span><span><b>AI:</b> ④</span></div><div class="reasoning">q점에서 자기장이 0이 되려면 A와 C의 전류에 의한 자기장이 정확히 상쇄되어야 함. 기하학적 관계와 자기장 중첩을 고려하면 I = 4√2I₀의 관계가 성립하며, r점에서는 B의 기여도가 p점과 같아 자기장이 B₀가 됨. 따라서 나와 다가 모두 참.</div></div>
+<div class="item correct"><div class="item-header"><span class="qnum">16번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">8.6s</span><span class="mark ok">✓</span></div><div class="question-text">그림은 열기관에서 일정량의 이상 기체가 상태 $A \rightarrow B \rightarrow C \rightarrow D \rightarrow A$를 따라 순환하는 동안 기체의 부피와 절대 온도를 나타낸 것이다. $A \rightarrow B$ 과정과 $C \rightarrow D$ 과정은 부피가 일정한 과정이고, $B \rightarrow C$ 과정과 $D \rightarrow A$ 과정은 등온 과정이다. 표는 각 과정에서 기체가 흡수 또는 방출하는 열량을 나타낸 것이다.
+
+| 과정 | 흡수 또는 방출하는 열량 |
+| :---: | :---: |
+| $A \rightarrow B$ | $2Q_0$ |
+| $B \rightarrow C$ | $3Q_0$ |
+| $C \rightarrow D$ | ⑦ |
+| $D \rightarrow A$ | $Q_0$ |
+
+이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?
+
+&lt;보기&gt;
+ㄱ. ⑦은 $2Q_0$이다.
+ㄴ. 기체의 압력은 B에서가 D에서보다 크다.
+ㄷ. 열기관의 열효율은 $0.4$이다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>③ ㄱ, ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class=""><div>④ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="correct-choice ai-pick"><div>⑤ ㄱ, ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill top" style="width:60%"></div></div><div class="conf-label">60.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> ⑤</span></div><div class="reasoning">순환 과정에서 열 보존과 열역학 제1법칙을 적용하면 ⊡=2Q₀(ㄱ 참). 각 상태점의 압력 관계를 분석하면 B에서의 압력이 D에서보다 작으므로 ㄴ은 거짓. 열효율이 0.4라는 조건(ㄷ)은 주어진 열량 값들로 검증 가능. 따라서 ㄱ, ㄴ, ㄷ 중 ㄱ과 ㄷ이 참이므로 답은 ⑤.</div></div>
+<div class="item correct"><div class="item-header"><span class="qnum">17번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">5.1s</span><span class="mark ok">✓</span></div><div class="question-text">그림과 같이 두 변의 길이가 각각 $2d$, $3d$인 직사각형 금속 고리가 $xy$평면에서 $+x$ 방향으로 등속도 운동을 하며 세기가 각각 균일하고 방향이 $xy$평면에 수직인 자기장 영역 I ~ IV를 지난다. 표는 금속 고리의 점 $p$에 흐르는 유도 전류 $I_p$의 세기와 방향을 $p$의 위치에 따라 나타낸 것이다. I에서 자기장의 방향은 $xy$평면에서 수직으로 나오는 방향이다. 자기장의 세기는 I에서 $B_0$이고, IV에서가 II에서의 $1.5$배이다.
+• $xy$평면에서 수직으로 나오는 방향
+
+$p$의 위치에 따른 $I_p$ 정보:
+$x=1.5d$: 세기 $0$, 방향 없음
+$x=2.5d$: 세기 $2I_0$, 방향 $-y$
+$x=3.5d$: 세기 $I_0$, 방향 $-y$
+
+이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?
+
+&lt;보기&gt;
+ㄱ. 자기장의 세기는 I에서가 II에서보다 작다.
+ㄴ. 자기장의 방향은 III에서와 IV에서가 서로 같다.
+ㄷ. $p$의 위치가 $x=5.5d$일 때, $I_p$의 세기는 $I_0$이다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>③ ㄱ, ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:12%"></div></div><div class="conf-label">12.0%</div></div></li><li class=""><div>④ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="correct-choice ai-pick"><div>⑤ ㄱ, ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill top" style="width:65%"></div></div><div class="conf-label">65.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> ⑤</span></div><div class="reasoning">주어진 조건을 분석하면:\n\n1. 자기장 세기 비교 (ㄱ):\n- 구역 I에서 자기장 세기는 B₀\n- 구역 II에서 자기장 세기는 1.5B₀ (표에서 x=2.5d일 때 세기가 2I₀로 증가)\n- 구역 III, IV에서의 세기 정보 필요\n- 표에서 x=2.5d(구역 II), x=3.5d(구역 III)의 세기를 보면 I에서 II로 증가하므로 ㄱ은 참\n\n2. 자기장 방향 (ㄴ):\n- 표에서 x=2.5d(구역 II): 방향 -y\n- x=3.5d(구역 III): 방향 -y\n- 구역 III과 IV에서 방향이 같다는 것은 거짓\n- ㄴ은 거짓\n\n3. p의 위치 (ㄷ):\n- x=1.5d일 때: 세기 0, 방향 없음 → 이것은 경계선\n- p가 x=1.5d 위치에서 세기가 0이 되는 특수점\n- x=5.5d일 때 I_p = I₀라는 것은 추가 정보\n- 이를 통해 p의 위치를 특정할 수 있고, ㄷ은 참\n\n따라서 참인 것은 ㄱ과 ㄷ</div></div>
+<div class="item correct"><div class="item-header"><span class="qnum">18번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">8.3s</span><span class="mark ok">✓</span></div><div class="question-text">그림 (가)와 같이 실로 연결된 물체 A~D가 등가속도 운동을 하고 있다. 그림 (나)는 (가)에서 빗면과 나란한 실 p가 끊어진 후 B, C가 각각 등가속도 운동을 하는 모습을 나타낸 것이다. (나)에서 B, C의 가속도의 크기는 각각 $\frac{2}{5}g$, $\frac{1}{3}g$이다. A, D의 질량은 각각 $5m$, $m$이고, B와 C의 질량은 같다. (가)에서 p가 C를 당기는 힘의 크기는? (단, 중력 가속도는 $g$이고, 실의 질량, 모든 마찰과 공기 저항은 무시한다.)</div><ul class="choices"><li class=""><div>① $\frac{5}{2}mg$</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="correct-choice ai-pick"><div>② $\frac{11}{4}mg$</div><div><div class="conf-bar"><div class="conf-fill top" style="width:70%"></div></div><div class="conf-label">70.0%</div></div></li><li class=""><div>③ $3mg$</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>④ $\frac{13}{4}mg$</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>⑤ $\frac{7}{2}mg$</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ②</span><span><b>AI:</b> ②</span></div><div class="reasoning">그림 (가)와 (나)에서 도르래 시스템의 가속도를 구한 후, B와 C의 위치 변경에 따른 C의 장력을 계산. B의 질량을 2m/5, C의 질량을 m/3으로 설정하고 뉴턴의 제2법칙을 적용하면 C를 당기는 힘이 11mg/4가 됨.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">19번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">9.0s</span><span class="mark ng">✗</span></div><div class="question-text">그림과 같이 빗면의 높이가 $15h$인 지점에 질량이 $m$인 물체 A를 가만히 놓는다. A는 빗면의 마찰 구간 I을 등속도로 지난 후, 높이가 $9h$인 평면 위에 정지해 있던 질량이 $2m$인 물체 B와 충돌한 후 정지한다. B는 충돌 후 빗면의 마찰 구간 II를 등속도로 지난다. 점 p와 q, r와 s는 각각 I, II의 양 끝점이다. p, s의 높이는 각각 $2H$, $H$이고, q와 r의 높이는 서로 같다. II에서 손실되는 B의 역학적 에너지는 I에서 손실되는 A의 역학적 에너지의 2배이다. p에서 A의 운동 에너지와 s에서 B의 운동 에너지는 서로 같다. $H$는? (단, 물체의 크기, 공기 저항, 마찰 구간 외의 모든 마찰은 무시한다.)</div><ul class="choices"><li class=""><div>① $\frac{23}{5}h$</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② $\frac{14}{3}h$</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class="ai-pick wrong-pick"><div>③ $\frac{19}{4}h$</div><div><div class="conf-bar"><div class="conf-fill" style="width:75%"></div></div><div class="conf-label">75.0%</div></div></li><li class="correct-choice"><div>④ $\frac{24}{5}h$</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>⑤ $5h$</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ④</span><span><b>AI:</b> ③</span></div><div class="reasoning">물체 A의 초기 에너지(15mgh)와 충돌 후 물체 B의 운동, 마찰 구간을 통한 에너지 손실을 종합 분석. 주어진 조건 '구간 I과 II의 마찰에너지가 같다'는 조건과 높이 관계(p와 s의 차이 2H, q와 r의 차이 H)를 이용하여 에너지 보존 방정식을 세우면 H = 19h/4를 얻습니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">20번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">9.8s</span><span class="mark ng">✗</span></div><div class="question-text">그림 (가)와 같이 $x$ 축상에서 점전하 A, B, C가 각각 $x=-d, x=d, x=x_C$ 에 고정되어 있다. 그림 (나)는 (가)에서 C의 위치를 $x=-x_C$ 로 옮겨 고정한 것이다. A와 B는 전하량의 크기가 같다. 그림 (다)는 (가), (나)에서 양$(+)$전하 P의 위치를 $x$ 축상에서 옮기며 고정할 때, $0 \le x &lt; d$ 인 구간에서 P에 작용하는 전기력 $F_P$ 를 각각 나타낸 것이다. 전기력의 방향은 $+x$ 방향이 양$(+)$이다.
+이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?
+&lt;보기&gt;
+ㄱ. 전하량의 크기는 A가 C보다 작다.
+ㄴ. (다)의 ⑦은 (나)에서 P에 작용하는 전기력이다.
+ㄷ. P가 $x=x_0$ 에 있을 때, A와 B로부터 받는 전기력의 크기는 $6$N보다 작다.</div><ul class="choices"><li class="correct-choice"><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>③ ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="ai-pick wrong-pick"><div>④ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:72%"></div></div><div class="conf-label">72.0%</div></div></li><li class=""><div>⑤ ㄱ, ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ①</span><span><b>AI:</b> ④</span></div><div class="reasoning">그래프 분석: (가)에서 x=0 근처에서 전기력이 거의 0이므로 A와 B의 영향이 상쇄 → A의 크기 &lt; C의 크기(ㄱ 참). (나)의 배치에서 점선 ⓐ는 P를 0≤x&lt;d 범위에서 이동시킬 때의 전기력 변화 → ㄴ 참. x=x₀에서 Fp≈8N이고 C의 영향을 고려하면 A,B로부터의 전기력은 6N보다 큼 → ㄷ 거짓. 따라서 ㄴ, ㄷ이 맞는 답</div></div></div>
+<script>
+function filterAll(){setFilter('all')}
+function filterWrong(){setFilter('wrong')}
+function filterCorrect(){setFilter('correct')}
+function setFilter(f){
+  document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
+  document.querySelectorAll('.item').forEach(el=>{
+    const ok=el.classList.contains('correct');
+    el.style.display=(f==='all'||(f==='correct'&&ok)||(f==='wrong'&&!ok))?'':'none';
+  });
+}
+document.querySelectorAll('.question-text').forEach(el=>{
+  el.addEventListener('click',()=>el.classList.toggle('expanded'));
+});
+</script>
+</body>
+</html>

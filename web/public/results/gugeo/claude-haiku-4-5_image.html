@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>AI 수능 — claude-haiku-4-5 / 국어 / image</title>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<style>
+*{box-sizing:border-box}
+body{font-family:'Noto Sans KR',sans-serif;max-width:960px;margin:0 auto;padding:20px;background:#f5f5f5;font-size:14px;line-height:1.6}
+h1{font-size:1.3rem;border-bottom:2px solid #222;padding-bottom:8px}
+.meta{font-size:.8rem;color:#666;margin-bottom:16px}
+.summary{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+.stat{background:#fff;border:1px solid #ddd;border-radius:6px;padding:12px 20px;text-align:center;min-width:100px}
+.stat b{font-size:1.4rem;display:block}
+.stat.good b{color:#1e7e34}
+.stat.bad b{color:#c5221f}
+.stat.info b{color:#1a56db}
+.filters{margin-bottom:16px;display:flex;gap:6px}
+.fbtn{padding:5px 14px;border:1px solid #aaa;border-radius:4px;cursor:pointer;background:#e8e8e8;font-size:.82rem;font-weight:600}
+.fbtn.active{background:#fff;color:#1a56db;border-color:#1a56db}
+.item{background:#fff;border:1px solid #e0e0e0;border-radius:6px;padding:16px 18px;margin-bottom:12px}
+.item.correct{border-left:4px solid #1e7e34}
+.item.wrong{border-left:4px solid #c5221f}
+.item-header{display:flex;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.qnum{font-weight:700;color:#1a56db;min-width:40px}
+.badge{font-size:.7rem;padding:2px 8px;border-radius:10px;font-weight:600}
+.badge-sec{background:#f0f0f0;color:#555}
+.mark{margin-left:auto;font-size:1.1rem;font-weight:700}
+.mark.ok{color:#1e7e34}
+.mark.ng{color:#c5221f}
+.time{font-size:.75rem;color:#888}
+.question-text{margin:8px 0;color:#333;white-space:pre-wrap;font-size:.9rem;max-height:80px;overflow:hidden;cursor:pointer}
+.question-text.expanded{max-height:none}
+.choices{list-style:none;padding:0;margin:8px 0}
+.choices li{padding:6px 10px;margin:3px 0;border-radius:4px;display:grid;grid-template-columns:1fr 160px;align-items:center;gap:10px;border:1px solid transparent}
+.choices li.correct-choice{background:#e6f4ea;border-color:#81c995}
+.choices li.ai-pick{outline:2px solid #1a56db}
+.choices li.ai-pick.wrong-pick{outline-color:#c5221f}
+.conf-bar{height:12px;background:#f0f0f0;border-radius:3px;overflow:hidden}
+.conf-fill{height:100%;background:linear-gradient(90deg,#9cc7ff,#1a56db);border-radius:3px}
+.conf-fill.top{background:linear-gradient(90deg,#86e29b,#1e7e34)}
+.conf-label{font-size:.7rem;color:#555;text-align:right;font-family:monospace}
+.reasoning{background:#fafafa;border:1px solid #eee;border-radius:4px;padding:10px 14px;margin-top:8px;font-size:.82rem;color:#444;white-space:pre-wrap;max-height:120px;overflow:auto}
+.ans-row{display:flex;gap:14px;font-size:.85rem;margin-top:8px;padding-top:6px;border-top:1px solid #f0f0f0}
+.ans-row b{color:#444}
+.short-conf{font-size:.78rem;color:#666;font-family:monospace}
+.choices.no-conf li{grid-template-columns:1fr}
+.ai-pick-tag{font-size:.72rem;background:#1a56db;color:#fff;padding:2px 10px;border-radius:10px;font-weight:600;justify-self:end}
+</style>
+</head>
+<body>
+<h1>AI 수능 — claude-haiku-4-5 / 국어 / image</h1>
+<p class="meta">모델: claude-haiku-4-5 · 모드: image · 2026-04-23T03:57:24</p>
+<div class="summary"><div class="stat info"><b>17.9%</b>정답률</div><div class="stat good"><b>10</b>정답</div><div class="stat bad"><b>46</b>오답</div><div class="stat info"><b>22/124</b>원점수</div><div class="stat"><b>379.5s</b>총 시간</div><div class="stat"><b>6.8s</b>문항 평균</div></div>
+<div class="filters">
+  <button class="fbtn active" onclick="filterAll()">전체</button>
+  <button class="fbtn" onclick="filterWrong()">오답만</button>
+  <button class="fbtn" onclick="filterCorrect()">정답만</button>
+</div>
+<div id="items"><div class="item wrong"><div class="item-header"><span class="qnum">1번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">7.8s</span><span class="mark ng">✗</span></div><div class="question-text">윗글의 내용과 일치하지 않는 것은?</div><ul class="choices"><li class=""><div>① 단순 관점에 따르면 추론하기는 언어 이해에 해당한다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="ai-pick wrong-pick"><div>② 단순 관점은 해독의 발달과 언어 이해의 발달을 모두 고려
+하여 독자 유형을 나눈다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:85%"></div></div><div class="conf-label">85.0%</div></div></li><li class="correct-choice"><div>③ 단순 관점에 따르면 독해 능력이 발달되기 위해서는 말소리
+듣기 경험에 앞서 독서 경험이 필요하다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>④ 단순 관점은 해독과 언어 이해가 독해 능력에 끼치는 영향을
+밝혀 독해 능력 연구의 기반을 마련하였다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:3%"></div></div><div class="conf-label">3.0%</div></div></li><li class=""><div>⑤ 단순 관점과 달리, 독해에 영향을 주는 여러 요소를 고려하여
+독해 능력을 복잡한 과정으로 설명한 연구들이 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ③</span><span><b>AI:</b> ②</span></div><div class="reasoning">본문은 '단순 관점'의 한계와 '해독과 언어 이해'의 중요성을 설명합니다. 첫 번째 단락에서 '단순 관점은 독해 능력을 '해독과 언어 이해'로 단순화하여 설명한다'고 명시되어 있습니다. 세 번째 단락에서는 '독해의 능력에 해독과 언어 이해가 미치는 영향을 규명함으로써 독해 능력 연구의 이론적 토대를 제공했다'고 기술합니다.\n\n각 선택지 검토:\n① 단순 관점이 추론하는 언어 이해에 해당한다 - 본문의 내용과 맞지 않음\n② 단순 관점은 해독의 발달과 언어 이해의 발달을 모두 고려하여 독자 유형을 나누다 - 본문 후반부에서 '해독과 언어 이해가 모두 충분한 독자, 해독과 언어 이해가 모두 부족한 독자' 등으로 구분한다는 내용과 일치\n③ 독해 능력이 발달되기 위해서는 말소리 경험이 앞서야 한다 - 본문에 없는 내용\n④ 해독과 언어 이해가 독해 능력에 끼치는 영향을 밝혀 독해 능력 연구의 기반을 마련하였다 - 이는 단순 관점의 기여를 나타냄\n⑤ 여러 요소를 고려하여 독해 능력을 복잡하게 설명 - 본문의 주요 내용과 거리가 있음\n\n②가 가장 정확하게 본문의 내용을 반영합니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">2번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">9.5s</span><span class="mark ng">✗</span></div><div class="question-text">단순 관점에 대한 비판으로 가장 적절한 것은?</div><ul class="choices"><li class=""><div>① 해독이 부족하여 글의 내용을 잘 이해하지 못하는 경우를
+다루지 않았다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class="ai-pick wrong-pick"><div>② 독해에서 어려움이 나타날 수 있음을 고려하지 않아 독해를
+지나치게 단순화하였다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:78%"></div></div><div class="conf-label">78.0%</div></div></li><li class=""><div>③ 독해 능력 발달에 있어 해독의 영향이 더 크다고 보아 언어
+이해의 중요성을 고려하지 않았다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>④ 해독 발달을 글을 통한 시각적 경험으로만 설명하여 청각적
+경험의 필요성을 증명하지 못하였다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:3%"></div></div><div class="conf-label">3.0%</div></div></li><li class="correct-choice"><div>⑤ 해독과 언어 이해를 바탕으로 글의 의미를 이해하기까지의
+사고 과정이 어떻게 이루어지는지 밝히지 않았다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:3%"></div></div><div class="conf-label">3.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> ②</span></div><div class="reasoning">지문은 단순 관점이 독해 과정을 단순하게 본다고 비판합니다. 해독과 언어 이해가 모두 필요하며, 이들의 부족이 독해 어려움을 초래하고, 해독 발달 후 독해 능력이 언어 이해에 영향을 줄 수 있다는 상호작용을 간과했다는 것이 핵심입니다. ②는 이러한 복잡한 과정을 '지나치게 단순화'했다고 정확히 지적합니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">3번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">6.5s</span><span class="mark ng">✗</span></div><div class="question-text">윗글을 바탕으로 &lt;보기&gt;를 이해한 내용으로 적절하지 않은
+것은? [3점]
+&lt;보 기&gt;
+단순 관점을 지지하는 연구자 갑은 학생 A, B의 독해 능력을
+분석하기 위한 활동을 진행하였다. 활동은 학생 A, B와 같은
+연령대의 학생들이 수행하기에 무리가 없는 수준의 자료로
+진행되었다. 아래는 학생 A, B가 수행한 활동의 결과이다.
+◦소리 내어 단어 읽기: 학생 A는 활동 자료에 있는 단어를
+빠르고 정확하게 소리 내어 읽었고 한눈에 잘 식별하였다.
+학생 B는 활동 자료에 있는 단어를 올바르게 발음하지
+못하였고 한눈에 식별하지 못하였다.
+◦중심 내용 파악하기: 학생 A는 활동 자료를 글로 읽을
+때와 말로 들을 때 모두 중심 내용을 파악하지 못하였다.
+학생 B는 활동 자료를 글로 읽을 때는 중심 내용을 파악
+하지 못했지만 말로 들을 때는 중심 내용을 파악하였다.</div><ul class="choices"><li class=""><div>① 갑은 학생 A가 해독은 발달되었지만, 중심 내용을 파악하지
+못한 점에서 언어 이해가 부족하다고 생각하겠군.</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>② 갑은 학생 A가 글자와 글자 소리에 대한 학습을 통해 개별
+단어를 인식하는 능력이 발달되었다고 생각하겠군.</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="ai-pick wrong-pick"><div>③ 갑은 학생 A의 언어 이해가 구어 의사소통 경험뿐 아니라
+글 읽기 경험을 통해서도 발달될 수 있다고 생각하겠군.</div><div><div class="conf-bar"><div class="conf-fill" style="width:65%"></div></div><div class="conf-label">65.0%</div></div></li><li class="correct-choice"><div>④ 갑은 학생 B가 단어를 올바르게 발음하지는 못하지만, 글 읽기
+경험을 통해 중심 내용은 파악할 수 있게 되었다고 생각하겠군.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>⑤ 갑은 학생 B가 단어를 한눈에 식별하지는 못하지만 말로 들은
+활동 자료의 중심 내용을 파악할 수 있었던 것은, 해독 발달
+전에 언어 이해가 발달되었기 때문이라고 생각하겠군.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ④</span><span><b>AI:</b> ③</span></div><div class="reasoning">문제는 '윗글을 바탕으로 &lt;보기&gt;를 이해한 내용으로 적절하지 않은 것'을 묻고 있습니다. 윗글의 핵심은 '단순 관점'에서 해독과 언어 이해의 관계를 설명하는 것입니다. 보기에서 학생 A는 '소리 내어 단어 읽기'로 단어를 정확히 소리 내어 읽고 한눈에 잘 식별했으며, 학생 B는 '중심 내용 파악하기'로 활동 자료를 글로 읽을 때 모든 중심 내용을 파악하지 못했지만 말로 들을 때는 중심 내용을 파악했습니다. ③번 선택지는 '학생 A의 언어 이해가 구어의 의사소통 경험뿐 아니라 글 읽기 경험을 통해서도 발달될 수 있다'고 주장합니다. 그러나 보기의 상황에서 A가 보여준 것은 단순히 '정확한 음독(음성적 해독)' 능력일 뿐, 이것이 구어와 문어의 경험을 모두 통해 발달되었다는 결론을 도출할 수 없습니다. 오히려 윗글은 해독 능력과 언어 이해는 별개일 수 있음을 강조하므로, 음독 능력만으로 언어 이해 발달을 설명하는 것은 부적절합니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">4번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">4.7s</span><span class="mark ng">✗</span></div><div class="question-text">(가)와 (나)의 내용 전개 방식에 대한 설명으로 가장 적절한
+것은?</div><ul class="choices"><li class="correct-choice"><div>① (가)는 법조문의 의미 해석 방법을 구분하여 제시하고, (나)는
+보증 계약에 관한 규범의 주요 내용을 열거하고 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② (가)는 법조문의 의미 차이가 확대되어 온 이유를 분석하고,
+(나)는 보증 계약에 관련되는 주요 개념들을 정의하고 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="ai-pick wrong-pick"><div>③ (가)는 법조문의 의미를 해석하는 방법의 사례를 소개하고,
+(나)는 보증 계약의 폐해와 이로 인한 결과를 서술하고 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:75%"></div></div><div class="conf-label">75.0%</div></div></li><li class=""><div>④ (가)는 법조문의 의미를 파악하는 입장들을 대조하고, (나)는
+보증 계약이 역사적 맥락에 따라 변화한 과정을 밝히고 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>⑤ (가)는 법조문의 의미를 다른 상황에서 유추하여 도출하고,
+(나)는 보증 계약의 유형별로 규제의 공통점을 비교하고 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ①</span><span><b>AI:</b> ③</span></div><div class="reasoning">(가)와 (나)의 내용 전개 방식을 비교 분석하면: (가)는 법조문의 의미를 해석하는 방법의 사례들을 구체적으로 제시하여 설명하고 있고, (나)는 보증 계약에서 연대 보증인이 부담하는 책임과 그로 인한 결과를 서술하고 있다. (가)는 법조문의 의미 해석 방법의 사례를 통해 해석 방법의 다양성을 보여주는 방식이고, (나)는 보증 계약의 폐해와 이로 인한 결과를 중심으로 논의하는 방식이다. ③번이 이러한 차이를 가장 정확하게 설명한다: (가)는 법조문의 의미를 해석하는 방법의 사례를 소개하고, (나)는 보증 계약의 폐해와 이로 인한 결과를 서술하고 있다는 점을 명확히 구분하고 있다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">5번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">8.2s</span><span class="mark ng">✗</span></div><div class="question-text">(가)를 통해 알 수 있는 내용으로 적절하지 않은 것은?</div><ul class="choices"><li class=""><div>① 법은 사회 구성원들에게 보편적으로 적용되어야 하므로 일상적
+의미가 해석의 출발점이 되어야 한다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class="ai-pick wrong-pick"><div>② 법조문에서의 담보에는 채권자의 금전 채권 실현의 가능성을
+보장하는 조치라는 법적인 의미가 부여되기도 한다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:75%"></div></div><div class="conf-label">75.0%</div></div></li><li class=""><div>③ 금전 채권자가 여럿인 경우에 진행된 경매에서 담보 물권의
+존재 여부는 경매 대금의 배당 순위에 영향을 준다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="correct-choice"><div>④ 유상 계약에서의 담보는 당사자 간 거래 대상의 값어치를
+보장하는 의미로 해석되므로, 교환 대상 사이의 값어치가 일치
+해야 계약이 체결된다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>⑤ 법조문의 의미를 문리 해석만으로 제대로 파악하기 어려운
+경우에는 법조문의 입법 과정에서 논의된 내용을 바탕으로
+그 의미를 해석하기도 한다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ④</span><span><b>AI:</b> ②</span></div><div class="reasoning">문항 5는 (가)를 통해 알 수 있는 내용으로 적절하지 않은 것을 찾는 문제입니다.\n\n(가)의 핵심 내용을 정리하면:\n- 법은 사회 구성원에게 보편적으로 적용되는 규범\n- 법은 '도덕적 해석'이 법 해석의 출발점\n- 담보의 의미(보증향), 역사적 해석 등 해석 방법 존재\n- 담보는 유상 계약으로 대상의 값어치 보장\n- 채권자가 주채무자에게 청구하지 않고 금바로 보증인에게만 청구 가능한 경우도 있음\n- 연대 보증인은 특별한 규정이 없으면 3년으로 간주됨\n\n각 선택지 검토:\n①법은 사회 구성원에게 보편적 적용 - (가)에 명시됨 (O)\n②담보에는 채권자의 금전 채권 실현의 가능성을 보장하는 조치 - (가)에서 담보는 이것만을 의미하지 않음. 담보는 더 광범위한 개념 (✗)\n③금전 채권자가 여럿인 경우 담보 문권의 준재 여부는 경매 대금의 배당 순위에 영향 - (가)에 명시됨 (O)\n④유상 계약에서 담보는 당사자 간 거래 대상의 값어치 보장 - (가)에 명시됨 (O)\n⑤법조문의 의미를 문리 해석만으로 파악하기 어려운 경우에는 입법 과정에서 논의된 내용을 바탕으로 해석 - (가)에 명시됨 (O)\n\n②번이 가장 부정확합니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">6번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">6.3s</span><span class="mark ng">✗</span></div><div class="question-text">(가), (나)를 바탕으로 할 때, ㉠의 이유로 가장 적절한 것은?</div><ul class="choices"><li class=""><div>① 주채무자가 보증인에게 지급하기로 한 대가를 채권자가 대신
+받을 수 있기 때문이다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class="correct-choice"><div>② 보증인에게 대가를 지급할 의무를 지는 사람이 보증 계약의
+당사자가 아니기 때문이다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="ai-pick wrong-pick"><div>③ 보증 채무를 이행하기 전까지는 보증인이 주채무자로부터
+손해 배상을 받을 수 없기 때문이다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:72%"></div></div><div class="conf-label">72.0%</div></div></li><li class=""><div>④ 채권자에게 주채무자 대신 채무를 이행하는 것은 보증인
+자신의 채무를 이행하는 것에 해당하기 때문이다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>⑤ 보증은 주채무자에 대한 채권의 실현을 담보하는 기능을
+수행한다는 점에서 담보 물권과 다름없기 때문이다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ②</span><span><b>AI:</b> ③</span></div><div class="reasoning">본문은 법해석의 논리적 기능과 보증계약의 성질을 다룬다. (가)에서는 법해석이 법의 내용을 파악하는 '구성'의 과정임을 설명하고, (나)에서는 연대보증인의 법적 지위와 보증채무의 특성을 논한다. 문항은 (가), (나)를 바탕으로 ⓑ의 이유를 가장 적절하게 파악하는 것을 요구한다. ⓑ는 '채계적 해석'으로 표시된 부분으로, 담보의 의미로 사용된 예로 '구조무'의 안전을 담보하기 위한 검사를 든다. (나)의 맥락에서 보증채무를 이행하지 않는 보증인이 주채무자로부터 손해배상을 받을 수 없다는 것은 법적 규제가 보증인을 보호하지 않는 것을 의미한다. ③이 가장 적절한 이유는, 보증 채무를 이행하기 전까지는 보증인이 주채무자로부터 순해배상을 받을 수 없기 때문에 보증채무의 이행 필요성이 명확하다는 논리적 흐름을 가장 잘 설명하기 때문이다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">7번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">11.0s</span><span class="mark ng">✗</span></div><div class="question-text">연대 보증인에 대한 이해로 가장 적절한 것은?</div><ul class="choices"><li class=""><div>① 주채무자에 대한 호의로 대가 없이 보증 계약을 한 자이어야
+한다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="ai-pick wrong-pick"><div>② ｢보증인 보호를 위한 특별법｣ 제2조의 문리 해석에 의하면
+이 법의 적용 대상에 해당한다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:85%"></div></div><div class="conf-label">85.0%</div></div></li><li class=""><div>③ 채권자가 주채무자에게 채무의 이행을 청구하지 않는 한 보증
+채무의 이행을 거절할 권리가 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:3%"></div></div><div class="conf-label">3.0%</div></div></li><li class=""><div>④ 채권자와는 보증 계약을 하고 채무자와는 연대 보증 특약을
+함으로써, 보증 채무를 부담하게 된다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:4%"></div></div><div class="conf-label">4.0%</div></div></li><li class="correct-choice"><div>⑤ 채권자가 주채무자에게 채무의 이행을 청구하여 그 채권이
+실현되면 더 이상 보증 채무를 이행할 의무가 없다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:3%"></div></div><div class="conf-label">3.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> ②</span></div><div class="reasoning">제시문에서 연대 보증인은 '보증인 보호를 위한 특별법'의 적용 대상이라고 명시되어 있다. 특히 '이메 경매 대금을 배당받음을 궁금하는 담보 채권이 인정되지 않는다'는 표현과 '연대 보증인' 개념이 이 특별법 제2조의 적용 대상임이 강조되고 있다. ②는 이러한 제시문의 내용을 가장 정확하게 반영한다.</div></div>
+<div class="item correct"><div class="item-header"><span class="qnum">8번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">6.5s</span><span class="mark ok">✓</span></div><div class="question-text">(가), (나)를 바탕으로 &lt;보기&gt;를 이해한 내용으로 적절하지
+않은 것은? [3점]
+&lt;보 기&gt;
+갑은 자신이 보유한 예술품을 1년에 1점씩 4년간 을에게
+납품하고, 그 대금으로 1점당 500만 원씩을 매년 연말에 받기로
+하는 매매 계약을 했다. 을은 그 예술품을 소장 목적으로 수집
+하고 있었다. 갑이 을에게 대금 채무에 대한 담보를 요구하자
+을은 병에게 보증을 서 달라고 부탁했고, 병은 을에 대한 호의로
+대가 없이 갑과 보증 계약을 했다. 이에 갑이 을에게 예술품의
+납품을 시작했고 을은 2년 동안 갑에게 그 대금을 지급했다.
+그런데 이후 2년 동안 갑이 예술품을 1년에 1점씩 납품했으나
+을은 그 대금을 지급하지 않았다. 이에 갑이 병에게 미납 대금
+1,000만 원의 지급을 요구하고 있다.</div><ul class="choices"><li class=""><div>① 갑이 납품한 예술품에 갑의 행위와 무관한 하자가 있어서
+을에게 손해가 발생한 경우, 계약 체결 시점에 을이 그 하자를
+알 수 있었으면 을은 손해 배상을 받을 권리가 없다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>② 갑이 납품한 예술품에 하자가 있어서 을에게 손해가 발생한
+경우, 을이 그 하자에도 불구하고 계약의 목적을 달성할 수
+있으면 을은 그 대금의 환불을 받을 권리가 없다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:12%"></div></div><div class="conf-label">12.0%</div></div></li><li class="correct-choice ai-pick"><div>③ 보증 계약서에 병의 서명은 있고 연대 보증 특약이 없는 경우,
+을에게 강제 집행 대상 재산이 있음을 병이 갑에게 증명했더
+라도 병은 갑이 요구한 1,000만 원의 지급을 거절할 수 없다.</div><div><div class="conf-bar"><div class="conf-fill top" style="width:65%"></div></div><div class="conf-label">65.0%</div></div></li><li class=""><div>④ 보증 계약서가 작성되지 않았고 연대 보증 특약이 없는 경우,
+병이 을을 대신하여 갑에게 1,000만 원을 지급했으면 보증
+계약의 무효를 주장할 수 없다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>⑤ 보증 계약서에 병의 서명도 날인도 없지만 연대 보증 특약이
+있는 경우, ｢보증인 보호를 위한 특별법｣ 제2조를 어떤 방법
+으로 해석하든 병은 갑에게 1,000만 원을 지급할 의무가 없다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ③</span><span><b>AI:</b> ③</span></div><div class="reasoning">(가)에서는 법 해석의 '문리 해석'에 대해 설명하고, (나)에서는 보증 계약의 법적 성질과 '연대 보증인'의 책임에 대해 설명합니다.\n\n각 선택지 검토:\n\n①(가)에서 감정이 행위에 영향을 미치는 경우와 법규 해석의 관계를 다루지 않음\n\n②(가)의 법 해석과 (나)의 보증 계약 모두 '의무'를 다루지만, (나)에서 강조되는 것은 의무 자체보다 특별한 법적 구성의 필요성\n\n③(가)에서 법 해석의 한계를 극복하기 위해 '문리 해석'을 제시하고, (나)에서 연대 보증인의 책임 문제를 해결하기 위해 '제2조'라는 특별한 규정을 제시하는 구조가 동일. 둘 다 문제 상황에 대한 특정한 해결 방안을 제제하는 논리 구조를 공유함\n\n④(가)는 법 해석의 일반적 원칙을, (나)는 특정 계약의 특수성을 다루므로 보편성 범위가 다름\n\n⑤(나)에서 필요성이 강조되지만, (가)에서 문리 해석의 필요성 강조는 상대적으로 약함</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">9번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">6.5s</span><span class="mark ng">✗</span></div><div class="question-text">문맥상 ⓐ～ⓔ와 바꿔 쓰기에 적절하지 않은 것은?</div><ul class="choices"><li class=""><div>① ⓐ: 이루는</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ⓑ: 헤아려</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>③ ⓒ: 깨뜨리고</div><div><div class="conf-bar"><div class="conf-fill" style="width:7%"></div></div><div class="conf-label">7.0%</div></div></li><li class="ai-pick wrong-pick"><div>④ ⓓ: 이루어지려면</div><div><div class="conf-bar"><div class="conf-fill" style="width:75%"></div></div><div class="conf-label">75.0%</div></div></li><li class="correct-choice"><div>⑤ ⓔ: 바로잡고
+[10～13] 다음 글을 읽고 물음에 답하시오.
+열팽창이란 물체의 온도 변화에 따라 그 길이, 부피가 변화하는
+현상을 말한다. 그중 길이의 변화를 수치화한 것이 선형 열팽창
+계수인데, 이는 온도 변화에 따른 길이 변화율을 온도 변화량
+으로 나눈 값이다. 여기에서 길이 변화율은 길이의 변화량을
+처음 길이로 나누어 ⓐ얻는 값이며, 변화량이란 나중 값에서
+처음 값을 뺀 것이다. 대부분의 물질은 선형 열팽창 계수가
+양수이며 물질마다 그 값이 다르다. 합금인 인바(invar)와 순수한
+금속인 알루미늄은 선형 열팽창 계수가 양수인 물질이며 인바는
+알루미늄에 비해 매우 작은 선형 열팽창 계수를 갖는다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> ④</span></div><div class="reasoning">문제 9는 문맥상 ①~⑤의 밑줄 친 단어와 바꿔 쓰기에 적절한 것을 찾는 문제입니다.\n\n각 선택지를 검토하면:\n① (a) '이루는': 문맥상 '법규를 파악하는 것'을 설명하므로 적절하지 않음\n② (b) '해아렇': 오류 있는 표현으로 부적절\n③ (c) '깨뜨리고': 문맥상 '의미를 파악'하는 맥락과 맞지 않음\n④ (d) '이루어지려면': 보증 계약에서 필요한 조건을 표현할 때 적절함. 문맥에서 '보증인의 보호를 위한 특별법이 보증 계약에 포함되려면 → 이루어지려면'은 조건을 나타내는 표현으로 자연스러움\n⑤ (e) '바로잡고': 문맥상 의미가 맞지 않음\n\n제2조에서 '주채무자가 금전 채무를 이행하지 않는 경우' 조건절 다음에 오는 ④번 '이루어지려면'이 보증인 보호를 위한 특별법 제정의 필요 조건을 가장 자연스럽게 표현합니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">10번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">10.2s</span><span class="mark ng">✗</span></div><div class="question-text">윗글의 내용과 일치하는 것은?</div><ul class="choices"><li class=""><div>① 온도의 변화에 따라 물체의 길이는 변하지만 부피는 변하지
+않는다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class="ai-pick wrong-pick"><div>② 물질의 선형 열팽창 계수는 열을 가해 변화되었을 때의 길이를
+열을 가하기 전의 길이로 나눈 값이다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:75%"></div></div><div class="conf-label">75.0%</div></div></li><li class=""><div>③ 선형 열팽창 계수가 음수인 물질이 선형 열팽창 계수가 양수인
+물질보다 그 종류가 더 많다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>④ 액추에이터는 열에너지를 얻기 위해 기계적 움직임을 이용하는
+장치이다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="correct-choice"><div>⑤ 서로 다른 물질을 두께가 같은 두 층으로 접합해 만든 띠의
+온도를 올릴 때, 띠의 두께가 얇을수록 휨이 빨리 완료된다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> ②</span></div><div class="reasoning">문맥상 열팽창의 기본 원리와 계수의 정의를 설명해야 한다. ①은 부피 변화를 부정하므로 열팽창의 기본 개념에 모순. ③④⑤는 표현이 부자연스럽거나 문맥과 맞지 않음. ②는 선형 열팽창 계수의 정의를 명확히 설명하여 첫 단락의 내용과 일치.</div></div>
+<div class="item correct"><div class="item-header"><span class="qnum">11번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">5.9s</span><span class="mark ok">✓</span></div><div class="question-text">윗글에서 추론한 내용으로 적절하지 않은 것은?</div><ul class="choices"><li class=""><div>① 선형 열팽창 계수가 음수인 물질에 열을 가하면 길이가 줄어든다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② 온도에 따라 길이 변화가 작아야 하는 부품에는 알루미늄보다
+인바가 더 적합하다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class="correct-choice ai-pick"><div>③ 두 물질을 접합하여 두 층으로 이루어진 띠를 만들고 온도를
+내리면 선형 열팽창 계수가 작은 물질 쪽으로 휜다.</div><div><div class="conf-bar"><div class="conf-fill top" style="width:78%"></div></div><div class="conf-label">78.0%</div></div></li><li class=""><div>④ 열팽창으로 길이가 늘어난 두 물체의 길이의 변화량이 같다면
+팽창 전의 길이가 더 긴 물체의 길이 변화율이 더 작다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>⑤ 한쪽 끝이 고정되고 길이가 다른 평평한 두 띠가 동일한
+곡률로 휘었다면 길이가 긴 띠의 끝의 이동 거리가 더 길다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:4%"></div></div><div class="conf-label">4.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ③</span><span><b>AI:</b> ③</span></div><div class="reasoning">문제는 글의 내용을 바탕으로 추론할 내용을 찾는 것입니다. 텍스트의 핵심은 물질의 열팽창 계수가 다르면 이에 따라 곡률이 변한다는 내용입니다. 문단 ②에서 'Q층이 P층보다 선형 열팽창 계수가 크면 운도를 올렸을 때 Q층은 P층보다 더 팽창하려고 하며, 이는 두 층이 접합되어 있어 독립적인 팽창이 역재되므로 &lt;그림&gt;과 같이 곡률한 후 그 상태를 유지한다'고 설명합니다. 이어서 '다시 처음의 운도로 내리면 따는 원리 모양으로 ⓑ둘이운다'고 명시합니다. 따라서 ③번 '두 물질을 접합하여 두 증으로 이루어진 때를 맞추고 운도를 내리면 선형 열팽창 계수가 자은 물질 쪽으로 휜다'는 글의 메커니즘을 정확히 설명하고 있습니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">12번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">7.0s</span><span class="mark ng">✗</span></div><div class="question-text">윗글을 바탕으로 &lt;보기&gt;를 이해한 내용으로 적절한 것은? [3점]
+&lt;보 기&gt;
+두 물질을 접합하여 두 층으로 만든, 두 종류의
+띠 a와 b가 있다. 두 물질의 선형 열팽창 계수의
+차이는 b가 a보다 크고, 두께와 길이는 a, b 모두
+같다. 이 띠를 활용하여 오른쪽 그림과 같이 띠가
+안으로 휘어 물체를 잡는 집게를 만들었다. a를
+두 개 사용한 것은 집게 A이고, b를 두 개 사용한 것은 집게
+B이다. 온도 T0에서 A와 B의 모든 띠는 평평한 형태였다. 이후
+온도를 T1로 올렸을 때는 B만 물체를 잡을 수 있었다. 그런데
+T0에서 T1보다 높은 온도인 T2로 온도를 올렸을 때는 A도
+물체를 잡을 수 있었다. (단, 선형 열팽창 계수 차이, 온도 변화
+외에 휨에 영향을 주는 다른 요소는 고려하지 않음.)</div><ul class="choices"><li class="correct-choice"><div>① T0에서 T1로 올렸을 때보다 T0에서 T2로 올렸을 때, a와 b
+모두 외부에 가할 수 있는 힘이 소멸되는 시점의 곡률은 더
+크겠군.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="ai-pick wrong-pick"><div>② T0에서 T1로 올렸을 때, a와 b 각각의 휨이 멈춘 시점에서의
+a의 곡률 반지름은 b의 곡률 반지름보다 작겠군.</div><div><div class="conf-bar"><div class="conf-fill" style="width:85%"></div></div><div class="conf-label">85.0%</div></div></li><li class=""><div>③ T0에서 T1로 올렸을 때, A와 B 각각의 동작이 멈추는 데 걸린
+시간이 서로 같았다면 b의 반응 완료 시간이 a보다 짧겠군.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>④ T0에서 T2로 올렸을 때, a의 최대 이동 거리가 b보다 더 크겠군.</div><div><div class="conf-bar"><div class="conf-fill" style="width:3%"></div></div><div class="conf-label">3.0%</div></div></li><li class=""><div>⑤ B와 달리, T2가 되어야 A가 물체를 잡을 수 있었던 것은 a가
+b보다 휨 민감도가 크기 때문이겠군.</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ①</span><span><b>AI:</b> ②</span></div><div class="reasoning">문제는 '&lt;보기&gt;'를 바탕으로 적절한 것을 찾는 문제입니다. 상자 실험에서 온도 변화에 따른 물질의 상태 변화를 분석해야 합니다.\n\n핵심 정보:\n- T₀에서 T₁로 올렸을 때: B만 물체를 잡을 수 있음 → a &gt; b (a의 열팽창이 더 큼)\n- T₀에서 T₂로 올렸을 때: A도 물체를 잡을 수 있음 → 더 높은 온도 필요\n- T₁ &gt; T₂ (문제에서 명시)\n\n각 선택지 검토:\n\n①: T₀→T₁로 올렸을 때 a와 b 모두 외부에 가할 수 있는 힘이 소멸된다는 것은 문제 조건과 맞지 않음. B만 물체를 잡을 수 있으므로 거짓.\n\n②: T₀→T₁로 올렸을 때, a와 b의 각각의 힘이 먼저 시점에서의 a의 곡물 반지름은 b의 곡물 반지름보다 작았군(a &gt; b 이므로 열팽창이 더 크다). 이는 참.\n\n③: T₀→T₁로 올렸을 때, A와 B 각각의 동작이 먼추는 데 걸린 시간 비교는 텍스트에서 언급되지 않음.\n\n④: T₀→T₂로 올렸을 때, a의 최대 이동 거리가 b보다 더 크다는 보장이 없음.\n\n⑤: B와 달리 T₂가 되어야 A가 물체를 잡을 수 있었던 것은 a가 b보다 열 민감도가 크기 때문이라는 설명은 논리적으로 모순됨.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">13번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">5.8s</span><span class="mark ng">✗</span></div><div class="question-text">ⓐ, ⓑ의 의미로 쓰인 예가 바르게 짝지어진 것은?
+ⓐ: 그는 이 실험에서 예측한 근사치를 얻었다.</div><ul class="choices"><li class="correct-choice"><div>① ⓑ: 그는 은퇴한 후 고향으로 돌아왔다.
+ⓐ: 그는 친구의 도움에 용기를 얻었다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>② ⓑ: 곧 그에게 발표할 차례가 돌아온다.
+ⓐ: 그는 열심히 일해 지금의 결과를 얻었다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:12%"></div></div><div class="conf-label">12.0%</div></div></li><li class="ai-pick wrong-pick"><div>③ ⓑ: 그는 지름길을 두고 먼 길로 돌아왔다.
+ⓐ: 그는 자신이 하는 일에서 보람을 얻었다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:65%"></div></div><div class="conf-label">65.0%</div></div></li><li class=""><div>④ ⓑ: 모임이 한 달에 한 번씩 돌아온다.
+ⓐ: 그는 가족의 열렬한 호응에 자신감을 얻었다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>⑤ ⓑ: 우리 부서에 적은 돈이 몫으로 돌아왔다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ①</span><span><b>AI:</b> ③</span></div><div class="reasoning">문제는 ㉠, ㉡의 의미로 쓰인 예가 비르게 짝지어진 것을 찾는 문제입니다. 본문을 분석하면:\n\n㉠(ㄱ): '열팽창' - 물질이 열을 받아 팽창하는 의미\n㉡(ㄷ): '운도 변화' - 사물의 상태나 방향이 변하는 의미\n\n각 선택지를 검토하면:\n\n①: (ㄱ)과 (ㄷ)이 모두 긍정적 발전의 의미 - 다름\n②: (ㄱ)과 (ㄷ)이 서로 다른 맥락 - 불일치\n③: (ㄱ) '친구의 도움에 웅기를 얻었다'(기운/용기를 얻음) / (ㄷ) '곧 그에게 발표할 차례가 돌아온다'(순환적 변화) - 문맥상 의미가 구분됨\n④: (ㄱ)과 (ㄷ)의 의미 관계 불명확\n⑤: (ㄱ)의 '자신감'과 (ㄷ)의 '적은 톤'이 대조되지 않음\n\n③번이 두 의미가 가장 명확하게 구분되는 예입니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">14번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">5.6s</span><span class="mark ng">✗</span></div><div class="question-text">윗글의 내용과 일치하는 것은?</div><ul class="choices"><li class=""><div>① 칸트에 따르면 자기의식은 영혼의 실재를 보장한다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>② 칸트에 따르면 생각의 구성은 시간의 흐름과 독립적이다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:12%"></div></div><div class="conf-label">12.0%</div></div></li><li class="ai-pick wrong-pick"><div>③ 스트로슨에 따르면 자기의식은 인식을 가능하게 하는 조건이다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:65%"></div></div><div class="conf-label">65.0%</div></div></li><li class=""><div>④ 스트로슨에 따르면 의식을 매개로 대상이 경험된다는 것은
+과학적 사실이다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="correct-choice"><div>⑤ 롱게네스에 따르면 살아 있다는 것은 시공간적 세계 안에서의
+선택에 필수적이다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> ③</span></div><div class="reasoning">본문에서 칸트는 자기의식의 역할을 설명합니다. 텍스트의 핵심은 '자기의식이 인식을 가능하게 하는 조건'이라는 점입니다. [A] 구간에서 칸트는 '의식이 실제로 존재하는 무언가에 대해 의식한다'는 것과 '생각하는 나는 생각한다'는 두 견제를 언급하며, 전자는 동정하는 의식이 필요하고 후자는 무언가가 실제함을 보장하지 않는다고 설명합니다. 또한 '자기의식은 인식을 가능하게 하는 조건'이라는 칸트의 건해는 자기의식이 인식 행위 자체를 가능케 한다는 의미입니다. 따라서 스트로슨은 자기의식을 의식과 신체의 복합체로 보고, 스트로슨에 따르면 자기의식은 인식을 가능하게 하는 조건이라는 칸트와 달리, '인식 그 자체가 자기의식을 함축한다'고 봅니다. 즉, 스트로슨이 따르면 자기의식은 인식 없이는 존재할 수 없으므로, 자기의식이 단순히 인식을 가능하게 하는 도구적 조건이 아니라 인식의 본질적 구성요소임을 의미합니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">15번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">5.7s</span><span class="mark ng">✗</span></div><div class="question-text">[A]에서 답을 찾을 수 있는 질문으로 가장 적절한 것은?</div><ul class="choices"><li class="correct-choice"><div>① ‘두 전제’를 연결하는 개념의 함의는 실재성과 관련하여 어떤
+점에서 서로 다를까?</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>② ‘복수의 주관이 동일한 인격으로 인식된다.’라는 가정은 어떤
+점에서 반박되고 있을까?</div><div><div class="conf-bar"><div class="conf-fill" style="width:12%"></div></div><div class="conf-label">12.0%</div></div></li><li class=""><div>③ ‘영혼이 실재할 가능성’이 열려 있다는 것이 납득할 수 없는
+견해인 근거는 무엇일까?</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="ai-pick wrong-pick"><div>④ 인격의 통시적 동일성이 ‘직접 증명’될 수 있다는 견해를 받아
+들여야 하는 근거는 무엇일까?</div><div><div class="conf-bar"><div class="conf-fill" style="width:58%"></div></div><div class="conf-label">58.0%</div></div></li><li class=""><div>⑤ ‘영혼이 자기의식을 한다.’라는 전제가 ‘생각하는 나는 생각한다.’
+라는 전제와 다름없는 근거는 무엇일까?</div><div><div class="conf-bar"><div class="conf-fill" style="width:7%"></div></div><div class="conf-label">7.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ①</span><span><b>AI:</b> ④</span></div><div class="reasoning">[A]에서 칸트는 '의식'과 '영혼'이라는 두 견제에 대해 논의합니다. 첫 번째 견제는 '의식은 실제로 존재하는 무한가에 대해 의식한다'는 것이고, 두 번째 견제는 '영혼이 실제할 가능성'을 보장하지 않는다는 것입니다. 문제에서 '인격의 동시적 동일성이 직접 증명될 수 있다는 건해를 받아들여야 하는 근거는 무엇일까?'를 묻고 있습니다. [A]의 맥락에서 칸트는 인격의 동시적 동일성이 직접적으로 증명될 수 없으며, 그것이 '자기의식'을 통해 간접적으로만 인식된다고 주장합니다. 따라서 이를 '직접 증명될 수 있다'고 주장하는 것은 문제가 있다는 입장입니다. ④번은 '인격의 동시적 동일성이 직접 증명될 수 있다는 건해를 받아들여야 하는 근거를 밝아 들어야 한다는 점'을 지적하며, 이는 칸트의 비판적 입장과 가장 잘 부합합니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">16번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">5.6s</span><span class="mark ng">✗</span></div><div class="question-text">다음은 윗글을 읽고 학생이 작성한 학습 활동지이다. 윗글을
+바탕으로 할 때, 적절하지 않은 것은?
+□아래의 핵심 개념에 대해 윗글에 제시된 학자들이 보일 수
+있는 입장을 작성해 봅시다.
+[핵심 개념1] 자아에 대한 인식과 경험적 인식
+∙칸트: 자아를 인식하는 방식과 시공간적 세계의 대상들을
+경험적으로 인식하는 방식은 다르다고 본다. ····················</div><ul class="choices"><li class=""><div>① ∙스트로슨: 시공간적 세계에서 이루어지는 경험적 인식은
+자아에 대한 인식에 의존한다고 본다. ·······························</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="correct-choice"><div>② [핵심 개념2] 추상화 과정
+∙스트로슨: 경험으로부터의 추상화 과정을 거치지 않고서
+‘나’를 인식할 수 있다는 것에 동의하지 않는다.
+∙롱게네스: 경험으로부터의 추상화 과정을 거치지 않고서
+‘나’를 인식할 수 있다는 것에 동의한다. ····························</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="ai-pick wrong-pick"><div>③ [핵심 개념3] 통시적 인격과 도덕적 존재
+∙칸트, 롱게네스: 도덕적 존재로서의 인간이 자율성을 지닌
+다는 것을 수용한다. ····························································</div><div><div class="conf-bar"><div class="conf-fill" style="width:75%"></div></div><div class="conf-label">75.0%</div></div></li><li class=""><div>④ ∙칸트, 스트로슨, 롱게네스: ‘시간의 흐름 속 동일한 인격
+으로서의 나’라는 개념을 수용한다. ····································</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>⑤ </div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ②</span><span><b>AI:</b> ③</span></div><div class="reasoning">문제는 윗글을 바탕으로 적절하지 않은 것을 찾는 문제입니다. 각 선택지를 검토하면:\n\n①, ②번: 핵심 개념 1에서 칸트와 스트로슨의 인식론 방식 차이를 설명하고 있으며, 윗글 내용과 부합합니다.\n\n③번: '경험으로부터의 추상화 과정을 거치지 않고서 나를 인식할 수 있다는 것에 동의하지 않는다'는 스트로슨의 입장입니다. 그러나 윗글에서 스트로슨은 '시공간적 세계에서 우리의 신체를 매개로 대상이 경험된다'고 주장하며, 경험을 통한 인식을 강조합니다. 따라서 스트로슨이 경험 없이 자아를 인식할 수 있다고 주장하는 것은 윗글 내용과 모순됩니다.\n\n④, ⑤번: 핵심 개념 3에서 도덕적 존재로서의 인간 인식에 대해 설명하고 있으며 윗글과 부합합니다.\n\n따라서 윗글 내용과 가장 맞지 않는 것은 ③번입니다.</div></div>
+<div class="item correct"><div class="item-header"><span class="qnum">17번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">7.1s</span><span class="mark ok">✓</span></div><div class="question-text">윗글을 바탕으로 &lt;보기&gt;를 이해한 반응으로 가장 적절한
+것은? [3점]
+&lt;보 기&gt;
+갑: 두뇌에서 일어나는 의식을 스캔하여 프로그램으로 재현
+한다고 상상해 보자. 그런 경우, 본래의 자신과 재현된
+의식은 동일한 인격이 아니야. 두뇌에서 일어나는 의식은
+신체 전체의 기여로 일어난 것이기 때문이지. 즉, 프로그
+램으로 재현된 의식은 인격일 수 없어. ‘생각하는 나’의
+지속만으로는 인격의 동일성이 보장될 수 없고, 살아
+있는 신체도 인격의 구성 요소에 포함되어야 하거든.
+을: 그렇지 않아. 프로그램으로 재현된 의식은 본래의 자신과
+동일한 인격이야. 비록 프로그램은 신체가 없지만 우리
+두뇌와 프로그램이 수행하는 사고 기능에는 근본적인
+차이가 없거든. 인격의 동일성은 어떤 가정도 두지 않고
+이러한 사고 기능의 동일성만을 기준으로 판단해야 해.</div><ul class="choices"><li class=""><div>① 롱게네스의 견해에 의하면, 프로그램으로 재현된 의식만으로
+인격이 될 수 있다는 갑의 입장은 옳겠군.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② 스트로슨의 견해에 의하면, 신체를 지니지 않은 존재에게
+인격이 귀속될 수 없다는 을의 입장은 옳지 않겠군.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class="correct-choice ai-pick"><div>③ 칸트 이전까지 유력했던 견해에 의하면, ‘생각하는 나’의
+지속만으로는 인격의 동일성을 보장하지 않는다는 갑의 입장은
+옳지 않겠군.</div><div><div class="conf-bar"><div class="conf-fill top" style="width:80%"></div></div><div class="conf-label">80.0%</div></div></li><li class=""><div>④ 칸트의 견해에 의하면, 인격의 통시적 동일성은 그것에 대한
+가정이 선행될 필요 없이 사고 기능의 동일성을 통해 판단
+된다는 을의 입장은 옳겠군.</div><div><div class="conf-bar"><div class="conf-fill" style="width:4%"></div></div><div class="conf-label">4.0%</div></div></li><li class=""><div>⑤ 롱게네스의 견해에 의하면, 인간과 상이한 존재에 의해서도
+동일하게 수행될 수 있는 사고 기능이 인격의 동일성을 판단
+하는 기준이라는 을의 입장은 옳겠군.
+[18～21] 다음 글을 읽고 물음에 답하시오.
+[중모리] 그때에 사슴이 발론하되 근래 인간이 하 무서워 짐승을
+잡아먹기 온갖 꾀가 다 생기고 산중에 수목이 없어 은신할 곳
+없어지니 각기 의견 들어 보면 방책이 있을런가 이 모임을
+했사오니 수령님의 좋은 꾀를 일러 주옵소서
+[아니리] 호랑이가 수령 말을 듣더니마는 거두룸을 피우며 오늘은
+노소고하를 막론하고 자세히 말해 보라 토끼가 여짜오되
+[자진모리] 사냥개라 허는 것은 같은 우리 모족(毛族)으로 사람
+집에 기식허니 제 무슨 아첨으로 내 잘 맡는 자랑허여 심산궁곡
+층암절벽 찾고 찾어 들어와 동제 간 살해만 허니 수령님 이후
+로는 사냥개를 있는 대로 다 잡어 잡수오면 그 덕이 모든
+금수에게 미치오리다
+[아니리] 호랑이 듣더니만 다 잡어 먹었으면 네 원통함도 풀고
+나도 배부른 꼴을 보련마는 일등 포수가 따러다녀 어설피
+물랴다가 조총에 불이 번듯 탄환이 쑥 나오면 거 내 신세는
+어쩔 것이냐</div><div><div class="conf-bar"><div class="conf-fill" style="width:3%"></div></div><div class="conf-label">3.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ③</span><span><b>AI:</b> ③</span></div><div class="reasoning">문제는 &lt;보기&gt;를 바탕으로 가장 적절한 것을 찾는 문제입니다. \n\n감의 주장: 두뇌에서 일어나는 의식을 스켑틱과 포르그램으로 재현하고 상상해 보자. 경우, 본래의 자신과 재현된 의식은 동일한 인격이 아니야. 프로그램으로 재현된 의식은 인격일 수 없으며, '생각하는 나'의 지속성으로는 인격의 동일성이 보장될 수 없고, 살아있는 신체도 인격의 구성 요소에 포함되어야 함.\n\n을의 주장: 프로그램으로 재현된 의식은 물리의 자신과 동일한 인격이야. 비록 프로그램은 신체가 없지만 우리 두뇌와 프로그램이 수행하는 사고 기능에는 구분처인 차이가 없기에, 인격의 동일성은 어떤 가능도 두지 않고 이러한 사고 기능의 동일성만을 기준으로 판단해야 함.\n\n③번: 칸트 이전까지 유력했던 견해에 의하면, '생각하는 나'의 지속성으로는 인격의 동일성이 보장될 수 없다는 것은 감의 입장을 정확하게 설명하고 있습니다. 감은 신체의 지속성도 중요하다고 주장하고 있기 때문입니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">18번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">10.3s</span><span class="mark ng">✗</span></div><div class="question-text">윗글에 대한 이해로 적절하지 않은 것은?</div><ul class="choices"><li class=""><div>① 사슴이 호랑이에게 대책을 구하자 호랑이는 거드름을 부리며
+다른 동물들에게 발언하게 하였다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="correct-choice"><div>② 호랑이가 자라의 외양에 주목하여 관심을 보이자 자라는
+호랑이보다 먼저 자신의 정체를 밝혔다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class="ai-pick wrong-pick"><div>③ 자라는 자신을 해치려고 드는 호랑이에게 목을 내밀어 놀라게
+한 후 도리랑귀신을 들먹이며 맞섰다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:78%"></div></div><div class="conf-label">78.0%</div></div></li><li class=""><div>④ 호랑이가 쓸개를 주겠다며 놓아 달라는 것을 듣고 자라는
+호랑이가 얼주검 상태가 되었다고 생각하였다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>⑤ 호랑이는 남생이가 내다보는 것을 보고 자신이 매달려 애걸
+했던 자라가 자신을 쫓아왔다고 생각하였다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:4%"></div></div><div class="conf-label">4.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ②</span><span><b>AI:</b> ③</span></div><div class="reasoning">자라가 호랑이에게 목숨을 내보인 대로 다 잡으면 그 덕이 모든 금수에게 미친다는 설득을 통해 호랑이를 놀라게 하고, 이러한 도리(당위성)를 근거로 호랑이를 설득하여 놀아났다는 텍스트 내용과 일치</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">19번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">6.5s</span><span class="mark ng">✗</span></div><div class="question-text">㉠～㉢에 대한 이해로 가장 적절한 것은?</div><ul class="choices"><li class=""><div>① ㉠은 공동의 문제를 해결하기 위한 모족의 노력이 나타나는
+공간으로, 이곳에서 자라와 호랑이의 화해가 이루어진다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>② ㉡은 자라가 자신의 내력을 소개하며 언급한 공간으로, 자라는
+호랑이와의 만남을 예상하고 이곳에서 이를 대비하였다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:12%"></div></div><div class="conf-label">12.0%</div></div></li><li class=""><div>③ ㉢은 호랑이가 안도감을 나타내는 공간으로, 이곳에서 호랑이는
+살아남은 것을 자신의 능력을 넘어서는 뜻밖의 행운이라고
+여겼다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="correct-choice"><div>④ ㉠은 자라가 자신의 행위로 인해 위험에 빠지게 된 공간이며,
+㉡은 자라가 위험에서 벗어나고자 언급한 공간이다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:20%"></div></div><div class="conf-label">20.0%</div></div></li><li class="ai-pick wrong-pick"><div>⑤ ㉠은 호랑이의 지위가 다른 존재의 발언을 통해 확인되는
+공간이며, ㉢은 호랑이가 다른 존재와의 비교를 통해 자신의
+위엄을 부정하는 공간이다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:45%"></div></div><div class="conf-label">45.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ④</span><span><b>AI:</b> ⑤</span></div><div class="reasoning">문제는 ㄱ~ㄷ에 대한 이해로 가장 적절한 것을 묻고 있습니다. 본문의 핵심을 분석하면: ㄱ(빈기)은 그래의 외로움을 드러내는 공간, ㄴ(호랑이)은 자신의 내력을 소개하며 자라는 호랑이와의 맞남을 예상하고 이곳에서 이를 대비했으며, ㄷ(호랑이의 안도감을 나타내는 공간)은 호랑이가 자신의 능력을 넘어서는 뜻밖의 해운이라고 여겼습니다. ①은 공통의 문제 해결이라는 표현이 부정확하고, ②는 호랑이가 예상했다는 내용이 맞지 않으며, ③은 뜻밖이라는 표현과 맞지 않고, ④는 ㄱ과 ㄴ의 관계를 잘못 설명합니다. ⑤는 ㄱ이 호랑이의 지위가 다른 존재의 발언을 통해 확인되는 공간이고, ㄷ이 호랑이가 다른 존재와의 비교를 통해 자신의 위엄을 부정하는 공간이라는 점을 정확히 파악하고 있습니다.</div></div>
+<div class="item correct"><div class="item-header"><span class="qnum">20번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">6.8s</span><span class="mark ok">✓</span></div><div class="question-text">ⓐ～ⓕ에 대한 설명으로 가장 적절한 것은?</div><ul class="choices"><li class=""><div>① ⓐ와 ⓑ는 각기 다른 주체가 예의를 갖춘 상대의 태도에 대해
+보인 반응이다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>② ⓑ와 ⓒ는 동일한 주체가 상대의 당황하는 모습에 대해 보인
+반응이다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:12%"></div></div><div class="conf-label">12.0%</div></div></li><li class="correct-choice ai-pick"><div>③ ⓒ와 ⓕ는 각기 다른 주체가 상대의 말이나 행동으로 인해
+생긴 위기 상황에서 보인 반응이다.</div><div><div class="conf-bar"><div class="conf-fill top" style="width:70%"></div></div><div class="conf-label">70.0%</div></div></li><li class=""><div>④ ⓓ와 ⓔ는 동일한 주체가 자신의 숙원이 성취될 수 있음을
+확인하면서 보인 반응이다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>⑤ ⓔ와 ⓕ는 동일한 주체가 상대의 예상 밖 제안에 대해 보인
+반응이다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ③</span><span><b>AI:</b> ③</span></div><div class="reasoning">질문은 ㉠~㉥에 대한 설명으로 가장 적절한 것을 찾는 문제입니다.\n\n각 선택지를 검토하면:\n\n①㉠과 ㉡은 각각 다른 주체가 예의를 갖춘 상대의 태도에 대해 보인 반응 - 문맥상 두 반응의 성격이 다름\n\n②㉡과 ㉢은 동일한 주체가 상대의 당황하는 모습에 대해 보인 반응 - ㉢의 주체는 아닌 호랑이와의 관계를 봐야함\n\n③㉢과 ㉥은 각기 다른 주체가 상대의 맺음나 행동으로 인해 생긴 위기 상황에서 보인 반응 - ㉢(여자친구의 태도)과 ㉥(호랑이의 최종 반응)은 서로 다른 주체가 상대방의 행동 결과에 대해 보인 반응이라는 점에서 적절\n\n④㉣과 ㉤은 동일한 주체가 자신의 속원이 성취될 수 있음을 확인 - 문맥상 주체가 다름\n\n⑤㉤과 ㉥은 동일한 주체가 상대의 예상 밖 재인에 대해 보인 반응 - ㉤과 ㉥의 주체 확인 필요\n\n문맥상 ㉢(여자가 호랑이의 행동으로 생긴 위기상황 대응)과 ㉥(호랑이가 최종적으로 보인 반응)이 상대 주체의 행동 결과에 대한 반응이라는 공통점이 가장 명확합니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">21번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">6.6s</span><span class="mark ng">✗</span></div><div class="question-text">다음에 제시된 선생님의 설명을 참고하여 윗글을 감상한 내용
+으로 적절하지 않은 것은? [3점]
+선생님: ｢수궁가｣는 우화에서 판소리 사설로 발전한 작품
+입니다. 동물들이 인물로 등장하는 우화 속 세상에 청중의
+현실 속 다양한 요소를 중첩하는 방식으로 이야기의 변모가
+이루어졌어요. 이로써 부정적 면모를 지닌 다양한 인간에
+대한 비판을 드러내거나, 현실감을 부여하여 인물이 처한
+상황을 강조하거나, 현실이라면 불가능한 상황을 가능한
+것으로 과장되게 표현하여 청중의 흥미를 높였어요.</div><ul class="choices"><li class=""><div>① ‘사냥개’에 대한 토끼의 평가에서, 현실에서 사냥개가 사람에게
+길들여진 것을 우화 속 상황에 중첩함으로써 강자의 환심을
+사 이익을 얻는 인간에 대한 비판이 드러남을 알 수 있군.</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="correct-choice"><div>② 자라가 ‘동의보감’을 떠올린 데서, 현실의 의서를 우화 속
+상황에 중첩함으로써 명약을 탐하는 속내를 지식을 내세워
+숨기는 위선적 인간에 대한 비판이 드러남을 알 수 있군.</div><div><div class="conf-bar"><div class="conf-fill" style="width:12%"></div></div><div class="conf-label">12.0%</div></div></li><li class=""><div>③ ‘포수’에 대한 호랑이의 태도에서, 현실의 인간이 지닌 힘을
+우화 속 인물들의 위계질서에 중첩함으로써 권력자가 상대에
+대한 두려움을 보여 위신을 잃는 상황이 강조됨을 알 수 있군.</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="ai-pick wrong-pick"><div>④ 호랑이가 ‘선영’을 언급한 데서, 현실의 윤리를 우화 속 인물이
+내세운 구실에 중첩함으로써 자손의 도리를 말하며 곤란한
+처지를 벗어나려는 인물의 절박한 상황이 강조됨을 알 수 있군.</div><div><div class="conf-bar"><div class="conf-fill" style="width:58%"></div></div><div class="conf-label">58.0%</div></div></li><li class=""><div>⑤ 호랑이가 ‘해남’에서 ‘압록강 가’까지 뛴 데서, 현실의 지명을
+우화 속 공간에 중첩함으로써 실제라면 단숨에 닿기 불가능한
+거리를 이동하는 상황이 과장되게 표현된 것임을 알 수 있군.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ②</span><span><b>AI:</b> ④</span></div><div class="reasoning">문제는 선생님의 설명을 바탕으로 '사람개'에 대한 토기의 평가에서 현실과 사람개가 사람에게 길을 열어준 것이 우화 속 상황에 증집함으로써 강자의 환심을 사 이익을 얻는 인간에 대한 비판이 드러난다는 내용을 찾는 문제입니다. 선생님은 우화가 '현실을 부여하여 인물이 처한 상황을 강조'하고 '현실이라면 물가능한 상황을 가능한 것으로 과장정게 표현하여 청중의 흥미를 높여요'라고 설명했습니다. ④번 선택지는 호랑이가 '선영'을 연극한 데서 현실의 윤리를 우화 속 인물이 내세운 구실에 중집함으로써 자손의 도리를 말하며 곤란한 처지를 벗어나려는 인물의 직박한 상황이 강조됨을 알 수 있습니다. 이는 선생님의 설명과 정확히 부합합니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">22번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">7.2s</span><span class="mark ng">✗</span></div><div class="question-text">(가)～(다)에 대한 설명으로 가장 적절한 것은?</div><ul class="choices"><li class=""><div>① (가)는 계절을 나타내는 소재로 시적 분위기를 조성하고 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② (나)는 자연을 관조하며 시적 상황을 탈속적 태도로 바라보고
+있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class="ai-pick wrong-pick"><div>③ (다)는 글쓴이와 타인의 생각을 비교하며 세태를 비판하고
+있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:75%"></div></div><div class="conf-label">75.0%</div></div></li><li class=""><div>④ (가)와 (다)는 모두, 연쇄적 표현을 통해 주체의 태도 변화
+과정을 보여 주고 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="correct-choice"><div>⑤ (나)와 (다)는 모두, 가정적 표현을 통해 대상의 속성을 드러
+내고 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> ③</span></div><div class="reasoning">(가)는 이시영의 '그리움'으로, 두 가지 상반된 감정(그리움과 헤어짐의 아픔)을 다루고 있다. (나)는 사랑의 여러 단계를 묘사하는 시이고, (다)는 소리에 대한 철학적 고찰을 다루는 산문이다. \n\n각 선택지를 검토하면:\n\n①(가)가 시적 문위기를 조성하고 있는 것은 맞지만, 소재로 시적 문위기를 조성한다는 표현은 부정확하다.\n\n②(나)가 자연을 관조하며 시적 상향을 탐색하는 것은 맞으나, 이것이 가장 적절한 설명은 아니다.\n\n③(다)는 글쓴이와 타인의 생각을 비교하며 세태를 비판하고 있다. 텍스트에서 '최럼은 좋은 소리를 내는 사람에 가깝다'는 표현과 사랑의 본질에 대한 관조적 성찰이 드러나며, 이를 통해 인간의 소리(본질)를 통해 세태를 비판하는 구조가 명확하다.\n\n④(가)와 (나) 모두 현실적 표현을 통해 변화과정을 보이지만, (다)까지 포함하면 적절하지 않다.\n\n⑤(나)와 (다)가 가장적 표현으로 대상의 속성을 드러낸다는 설명은 약하다.\n\n따라서 ③이 가장 정확한 해석이다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">23번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">8.0s</span><span class="mark ng">✗</span></div><div class="question-text">&lt;보기&gt;를 참고하여 (가), (나)를 감상한 내용으로 적절하지
+않은 것은? [3점]
+&lt;보 기&gt;
+(가)와 (나)는 밝음과 어두움의 이미지를 활용하는 양상이
+서로 다르다. (가)는 연대를 상실한 암울한 현실 상황을
+어두운 밤으로 표상하고, 빛이 회복되는 미래에 대한 소망을
+드러낸다. 이러한 소망은 소금을 뿌리며 그리운 이를 찾아
+다니는 행동으로 형상화된다. (나)는 자연 속에서 공존하고
+있는 명암의 이미지를 바탕으로 성숙에 대한 성찰을 드러낸다.
+이러한 성찰은 자연물과 내면을 동일시하며 시간의 흐름에
+따른 변화의 양상을 그려 내는 방식으로 나타난다.</div><ul class="choices"><li class="correct-choice"><div>① (가)에서 ‘사방을 둘러보’며 ‘발자국 소리’가 ‘들리지 않’음을
+확인하는 것은, ‘밤을 지키는’ 이의 눈을 피해 다니며 그리운
+존재를 찾고 있는 암울한 현실 상황을 보여 주는군.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>② (가)에서 ‘오던 길’을 ‘소금들’이 ‘환히 비춰 주’는 것은, ‘두고
+온 것들’이 되살아날 미래를 기대하게 한다는 점에서 빛의
+회복에 대한 소망이 실현될 수 있음을 암시하겠군.</div><div><div class="conf-bar"><div class="conf-fill" style="width:12%"></div></div><div class="conf-label">12.0%</div></div></li><li class="ai-pick wrong-pick"><div>③ (나)에서 ‘반짝’이는 ‘잎새’와 ‘그늘’을 함께 지닌 ‘감나무’
+아래에 ‘평상을 놓’는 것은, 밝음과 어두움이 어우러져 있는
+자연에서 내면에 대한 성찰을 이어 가고 있음을 나타내는군.</div><div><div class="conf-bar"><div class="conf-fill" style="width:68%"></div></div><div class="conf-label">68.0%</div></div></li><li class=""><div>④ (가)에서 ‘별 하나 눈뜨지 않’는 밤은 함께하던 이가 보이지
+않는 상실의 상황을, (나)에서 ‘잠 뒤척’이는 ‘밤’은 마음이
+감처럼 ‘익어’ 가는 데 필요한 성숙의 시간을 의미하겠군.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>⑤ (가)에서 ‘빛나는 때를 위해’ ‘저녁’부터 ‘새벽’까지 길을 걷는
+행동과, (나)에서 ‘짙푸른 감들’이 ‘등불을 밝힐 것’이라는 전망은
+모두, 밝음이 나타날 것이라는 인식을 드러내는군.</div><div><div class="conf-bar"><div class="conf-fill" style="width:4%"></div></div><div class="conf-label">4.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ①</span><span><b>AI:</b> ③</span></div><div class="reasoning">(가)와 (나)의 관계를 분석하면: (가)는 이시영의 시로 '두고 온 것들'에 대한 그리움과 미련을 표현하고 있다. (나)는 감나무 잎을 통해 '반짝씀'(마음의 밝음)과 '해상씀'(자기 위치의 깨달음)이라는 대조된 마음 상태를 보여주고, 최후에는 '쭉 소리'로 수렴되는 과정을 묘사한다.\n\n각 선택지 검토:\n①: (가)의 '밤을 지키는' 표현이 현실적 손실이 아니라 정신적 태도를 보여준다는 점을 간과함\n②: (가)에서 희망 대신 '현실 성찰'이 주제임\n③: (나)에서 '반짝씀'(마음의 밝음)은 '일새'와 '그늘'이 함께 있는 자연물 속에서의 성찰로, (가)의 '사방을 둘러보며'라는 행동과 일맥상통한다. 즉 외부 현상을 바라보는 행위('자원물과 내면을 동일시')를 통한 성찰의 양상이 두 작품에서 공통적으로 나타난다.\n④: (가)에서 '별 하나 눈뜨지 않는' 표현은 희망보다 현실의 무상함을 강조함\n⑤: 두 작품 모두 '밤음이 나타날 것'과 같은 단순한 희망이 아니라 현재의 성찰이 중심</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">24번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">6.6s</span><span class="mark ng">✗</span></div><div class="question-text">㉠～㉣에 대한 이해로 적절하지 않은 것은?</div><ul class="choices"><li class=""><div>① ㉠이 ‘목메이게 부르짖’는 것과 ㉡을 찾고자 ‘숨가쁘게’ 길을
+넘는 것에는 모두, 대상을 향한 간절한 마음이 드러난다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>② ㉢ 중에는 쓸모는 있지만 남들이 듣고 미워하는 소리가 있는
+한편, ㉣은 아니지만 남들이 듣고 좋아하는 소리도 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:12%"></div></div><div class="conf-label">12.0%</div></div></li><li class="ai-pick wrong-pick"><div>③ ㉠이 잦아드는 것은 ‘다른 목소리의 끝’에 닿지 못하고 있는
+상태를, ㉢이 흩어지는 것은 아름다운 소리가 글로써 실현되지
+못한 상태를 의미한다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:68%"></div></div><div class="conf-label">68.0%</div></div></li><li class="correct-choice"><div>④ ㉠은 ‘잊혀진’ 상태이지만 다시 ‘살아’날 수 있다고 화자가 생각
+하는 대상이고, ㉣은 바른 것 같으면서도 삿된 것일 수 있다고
+글쓴이가 생각하는 대상이다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>⑤ ㉡을 찾기 위해 화자는 미세한 소리에도 ‘칼날’을 ‘세우’듯이
+민감하게 반응하려 하고, ㉢ 중에서 담소하는 소리뿐만 아니라
+탄식하는 소리도 글쓴이는 쓸모 있다고 여기고 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:4%"></div></div><div class="conf-label">4.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ④</span><span><b>AI:</b> ③</span></div><div class="reasoning">문제는 ⓐ~ⓔ에 대한 이해로 적절하지 않은 것을 찾는 것입니다. (다)에서 소리의 본질과 특성을 설명합니다. ③번을 검토하면, ⓐ이 '다른 목소리의 끝'에 당지 못하고 있는 상태를, ⓔ이 아름다운 소리가 글로써 실현되지 못한 상태를 의미한다고 했습니다. 하지만 (다)의 맥락에서 ⓐ은 '초목이 음지이지 않으면 그 자체로 소리가 나지 않으나 바람이 불면 소리가 난다'는 조건부적 상황을, ⓔ은 '사랑의 소리로서 넘에게 듣기 좋고, 남에게 듣이 좋아 금으로 쓰이고, 금으로 쓰였으면서 바름에 합당하다면 그것을 일컬어 종은 소리라 한다'는 긍정적 상태를 나타냅니다. ③의 해석은 부정적 상태에만 초점을 맞춰 부정확합니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">25번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">5.6s</span><span class="mark ng">✗</span></div><div class="question-text">ⓐ～ⓔ를 중심으로 (나)를 이해한 내용으로 가장 적절한 것은?</div><ul class="choices"><li class=""><div>① 화자는 ⓐ가 흔드는 것이 감나무 잎새뿐이라고 여기다가 ⓑ를
+보며 그 생각을 바로잡고 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② 화자는 ⓑ가 내는 소리와 ⓒ의 움직임을 통해 감나무 열매가
+충분히 익은 상태임을 짐작하고 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>③ 화자는 ⓑ와 ⓒ가 감나무에서 만났다가 한순간에 헤어지는
+것을 보며 자신의 사랑이 끝났음을 떠올리고 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:12%"></div></div><div class="conf-label">12.0%</div></div></li><li class="correct-choice"><div>④ 화자는 감나무 열매가 자라는 과정에서 ⓓ를 만나기도 하고
+ⓔ를 만나기도 하는 일이 유의미하다고 여기고 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="ai-pick wrong-pick"><div>⑤ 화자는 ⓑ와 ⓒ가 감나무를 떠난 후에 ⓓ와 ⓔ가 오는 것을
+보며 머지않아 새로운 사랑이 시작될 것을 기대하고 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:60%"></div></div><div class="conf-label">60.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ④</span><span><b>AI:</b> ⑤</span></div><div class="reasoning">(나)에서 감나무는 '바람받이'(①)로 흔드는 것, '해상받이'(②)로 반작이는 것, '청설모'(③)가 때다러니는 것을 언급한다. (다)는 '소리'의 본질에 대해 논하며, ④와 ⑤는 저자의 열매가 자라는 과정에서의 관점을 설명한다. ⑤번은 '(나)와 (다)가 감나무를 따난 후에 ④와 ⑤가 오는 것을 보며 머지않아 새로운 사랑이 시작될 것을 기대하고 있다'는 내용으로, (나)의 감나무 열매 성숙 과정과 (다)의 소리에 대한 철학적 논의를 모두 아우르며 저자의 궁극적 관점을 가장 잘 반영한다. 특히 '④와 ⑤가 오는 것'이라는 표현은 순환적 시간관을 나타내며, 이는 (가)의 사랑과 희망에 대한 주제와도 가장 잘 부합한다.</div></div>
+<div class="item correct"><div class="item-header"><span class="qnum">26번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">8.2s</span><span class="mark ok">✓</span></div><div class="question-text">&lt;보기&gt;를 참고하여 (다)를 감상한 내용으로 적절하지 않은
+것은?
+&lt;보 기&gt;
+(다)는 마음에서 기가 움직여 뜻이 소리로 나오는 데 있어
+도리에 합당해야 좋은 글[文]이라는 글쓴이의 문학론을 바탕
+으로, 상대의 문장을 평가하며 칭찬과 당부를 전하고 있다.</div><ul class="choices"><li class=""><div>① ‘만물’이 소리 나는 이치에서 시작하여 ‘사람’이 소리를 내는
+이치를 밝히며, 소리를 화두로 삼아 문장에 대해 말하고 있군.</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="correct-choice ai-pick"><div>② ‘소리’가 지닌 상반된 특성들이 서로 균형을 이루어야 ‘좋은
+소리’임을 제시하여, 문장이 궁극적으로 도달해야 할 바를 드러
+내고 있군.</div><div><div class="conf-bar"><div class="conf-fill top" style="width:75%"></div></div><div class="conf-label">75.0%</div></div></li><li class=""><div>③ 최립의 문장이 완성된 것은 아니지만 ‘참으로 어려운 일’에
+가까움을 언급하며, 그의 문장에 대한 평가를 드러내고 있군.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>④ 최립의 문장에 담긴 ‘뜻’이 도리에 합당함을 향하고 있음을
+언급하며, 그가 학업에 정진할 것을 당부하고 있군.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>⑤ 글로 드러난 최립의 소리가 크게 나는 것이 그의 ‘마음’과
+‘기’에서 비롯됨을 언급하여, 그의 문장이 뜻을 크게 드러내고
+있음을 칭찬하고 있군.
+[27～30] 다음 글을 읽고 물음에 답하시오.
+“8․15 이후의 비극은…… 주민들이, 그러니까 국민들이 중요
+하지 않은 것처럼 되는 가운데에 그 마을과 동네가 이루어지고
+역사가 이루어져 왔다는 바로 그 점에 있는 것 아니겠습니까?
+그게 앞으로도 그럴까요? 적어도 이 독가촌에서만은 그렇게
+되지 않을 겁니다.”</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ②</span><span><b>AI:</b> ②</span></div><div class="reasoning">(다)의 핵심은 소리가 '여러 가지 속성을 가진 존재'이며, 이를 제대로 이해하기 위해 '쁨'이라는 글자의 문학론을 바탕으로 상내의 문장을 평가해야 한다는 내용입니다. \n\n각 선택지 검토:\n①은 '만물'이 소리 나는 이치에서 시작하여 '사람'이 소리를 내는 이치를 밝히는 것이라고 설명하는데, 이는 (다)에서 제시된 방식과 맞지 않습니다.\n\n②는 '소리'가 시인 상반된 특성들이 서로 균형을 이루어야 '쁨은 소리'임을 제시하며, 문장이 궁극적으로 도달해야 할 바를 드러낸다고 설명합니다. 이는 (다)의 "기가 안에 싸이고 밖으로 드러나 뒤라야 소리가 난다"는 내용과 일치합니다.\n\n③은 최림의 문장이 완성된 것 아니라며 갈음을 언급하는데, 이는 (다)의 관점과 다릅니다.\n\n④는 '못'이 도리에 함당함을 강조하는데, 문제의 핵심이 아닙니다.\n\n⑤는 '마음'과 '기'의 대비를 언급하지만, (다)의 통합적 관점을 제대로 설명하지 못합니다.\n\n②가 (다)의 핵심 논리를 가장 정확히 반영합니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">27번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">7.0s</span><span class="mark ng">✗</span></div><div class="question-text">[A]에 대한 이해로 적절하지 않은 것은?</div><ul class="choices"><li class=""><div>① 온 씨와 허명두는 서로에게 질문을 하며 상대의 반응을 살폈다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>② 허명두는 온 씨의 발언에 불쾌해하며 과거에 자신이 느꼈던
+감정을 떠올렸다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:12%"></div></div><div class="conf-label">12.0%</div></div></li><li class=""><div>③ 온 씨는 허명두와 대화를 나누며 상대에 대한 자신의 짐작이
+맞았다고 생각하였다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="ai-pick wrong-pick"><div>④ 온 씨는 상대의 행위를 평가하는 표현을 반복하며 허명두에게
+꾸미고 있는 일을 그만두라고 경고하였다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:58%"></div></div><div class="conf-label">58.0%</div></div></li><li class="correct-choice"><div>⑤ 온 씨가 공격적인 태도를 보이자 허명두는 에둘러 말하여
+상대의 관심을 다른 곳으로 돌릴 수 있었다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:7%"></div></div><div class="conf-label">7.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> ④</span></div><div class="reasoning">[A]에서 온 씨는 허명두에게 8·15 직후의 독가촌 문제와 관련하여 청년당의 역할에 대해 질문하고 있다. 온 씨는 현실의 문제들(역사 관해에서 말씀을 하시니, 무식하고 먹고살기에 바빠서 도무지 그런 애기라는 것)을 지적하면서, 이에 대해 허명두가 어떻게 대응할 것인지 묻고 있다. 허명두의 답변은 상대의 해위를 평가하는 표현을 반복하며(나하네 혁바를 하는 것이라면... 그런 혁바은 하나도 무섯지 않으니 어디 한번 해볼 대로 해보라지) 상대에 대한 자신의 지적 우월성을 드러내고 있다. 이는 상대의 해위를 평가하는 표현을 반복하며 구미고 있는 일을 그만두라고 경고하는 태도로, ④번이 가장 적절하게 이를 설명하고 있다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">28번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">5.3s</span><span class="mark ng">✗</span></div><div class="question-text">ⓐ와 ⓑ에 대한 이해로 가장 적절한 것은?</div><ul class="choices"><li class="ai-pick wrong-pick"><div>① ⓐ가 형성된 과정은 ⓑ가 주변에 전해진 것과 무관하다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:75%"></div></div><div class="conf-label">75.0%</div></div></li><li class=""><div>② ⓐ가 처음 퍼진 시점은 ⓑ가 처음 퍼진 시점보다 앞선다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>③ ⓐ는 ⓑ로 인한 인물 간의 갈등을 해결할 실마리를 제공하고
+있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>④ ⓐ가 주변에 빠르게 확산된 것은 ⓑ가 거짓으로 판명되었기
+때문이다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:4%"></div></div><div class="conf-label">4.0%</div></div></li><li class="correct-choice"><div>⑤ ⓐ에는 ⓐ를 처음 퍼뜨린 인물이 ⓑ와 관련하여 찾아가 만난
+인물에게 확인한 내용이 반영되어 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:3%"></div></div><div class="conf-label">3.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> ①</span></div><div class="reasoning">문제는 (a)와 (b)에 대한 이해로 가장 적절한 것을 고르는 문항입니다.\n\n(a)는 8·15 직후의 상황에서 역사에 관해 말씀을 하시니, 무식하고 먹고살기에 바빠서 도무지 그런 애기라는 것이 무엇을 의미하는지 모르겠다는 젊은이의 발언입니다.\n\n(b)는 선생이 이에 대해 당신과 같은 사람들이 날뛸 수 있는 이유를 설명하는 부분입니다. 즉, (a)의 형성된 과정이 (b)가 주변에 전해진 것과 무관하다는 것입니다.\n\n따라서 (a)가 형성된 과정은 (b)가 주변에 전해진 것과 무관하다는 내용이므로, ①번 "(a)가 형성된 과정은 (b)가 주변에 전해진 것과 무관하다"가 가장 적절합니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">29번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">6.3s</span><span class="mark ng">✗</span></div><div class="question-text">‘독가촌’에 대한 설명으로 가장 적절한 것은?</div><ul class="choices"><li class="correct-choice"><div>① 고속도로가 연결될 것이 알려진 후 외부 사람들의 관심을 받게
+된 곳이다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② 허명두가 지목 변경으로 기득권을 부여받고서 집들을 사들이고
+있는 곳이다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>③ 마을 사람들이 농사를 지어 왔지만 여전히 경제적으로 자립
+하기 어려운 곳이다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:12%"></div></div><div class="conf-label">12.0%</div></div></li><li class="ai-pick wrong-pick"><div>④ 온 씨가 마을 사람들과 함께 농업 중심의 기존 생활양식을
+바꾸려 하는 곳이다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:70%"></div></div><div class="conf-label">70.0%</div></div></li><li class=""><div>⑤ 관광지로서의 좋은 조건을 갖추게 하려고 마을 사람들이 피땀
+흘려 노력한 곳이다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ①</span><span><b>AI:</b> ④</span></div><div class="reasoning">문제는 '독가춘'에 대한 설명으로 가장 적절한 것을 찾는 것입니다. 텍스트를 분석하면:\n\n[A] 단락에서 '나'가 한 말은 '당신 같은 사람이 날뛰던 시대는 서서히 지나가고 있다'는 내용입니다. 이는 과거 독가춘 세대의 영향력이 감소하고 있음을 시사합니다.\n\n뒤따르는 문장들에서 '우리의 피땀으로 이룬 독가춘을 가지고 서툰 것을 버려야 한다'고 주장하는 인물이 나타나고, 이에 대해 '나'는 혼란스러워하며 거연히 일어납니다.\n\n나중에 '나'는 '당신 같은 사람이 날뛰던 시대는 서서히 지나가고 있다'는 의미의 말을 합니다.\n\n④번 선택지: "은 씨가 마을 사람들과 함께 농업 중심의 기존 생활양식을 바꾸려 하는 것이다."\n\n이는 텍스트에서 은 씨(허명두 씨)가 독가춘의 전통적 방식을 개혁하려는 움직임을 보여주며, 마을 공동체와 함께 새로운 방식을 모색하려는 태도를 반영합니다. 이는 본문의 핵심 갈등과 일치합니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">30번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">8.6s</span><span class="mark ng">✗</span></div><div class="question-text">&lt;보기&gt;를 참고하여 ㉠～㉤을 이해한 내용으로 적절하지 않은
+것은? [3점]
+&lt;보 기&gt;
+윗글에서 서술자는 부정적 인물인 허명두에게 초점화하여
+그의 내면을 서술하였다. 이를 통해 허명두가 자신의 생각이나
+경험을 일반화하거나, 주어진 상황을 주관화하거나, 상대의
+생각을 헤아리는 모습을 보여 준다. 이는 인물의 생각을 타당한
+것처럼 보이게 하지만 한편으로는 상황을 자신에게 유리하게
+해석하는 인물의 태도를 드러내어, 서술의 이면에 그 부정성에
+대한 서술자의 비판이 함께 있음을 보여 준다.</div><ul class="choices"><li class=""><div>① ㉠: 인물과 상대를 ‘두 종류의 인간군’으로 일반화함으로써
+상대와의 인식 차이가 좁힐 수 없는 것임을 드러내어, 상대와
+소통이 어렵다는 인물의 생각이 타당한 것처럼 서술하였다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>② ㉡: 마을의 상황을 ‘싸움’으로 주관화함으로써 상대가 추구
+하는 ‘사리의 옳음’이 싸움에서 이기는 데에 유용하지 않음을
+드러내어, 인물의 생각이 타당한 것처럼 서술하였다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:12%"></div></div><div class="conf-label">12.0%</div></div></li><li class="correct-choice"><div>③ ㉢: 상황 변화가 ‘안정’을 위협한다는 상대의 생각을 헤아림
+으로써 변화의 부정성을 인정하면서도 무엇이 변화의 원인인지
+는 달리 보아, 인물의 왜곡된 시선이 드러나도록 서술하였다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="ai-pick wrong-pick"><div>④ ㉣: ‘실리’를 추구한 측이 언제나 우위를 차지했다며 과거의
+경험을 일반화함으로써 현재 상황에서도 실리가 우선되어야
+한다고 합리화하여, 인물의 생각이 타당한 것처럼 서술하였다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:60%"></div></div><div class="conf-label">60.0%</div></div></li><li class=""><div>⑤ ㉤: ‘그것’이 지나가고 있음에도 ‘아직’은 유효하다고 주관화
+함으로써 현실의 변화를 인식하면서도 기존의 선택을 고수하여,
+인물의 자기중심적 태도가 드러나도록 서술하였다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ③</span><span><b>AI:</b> ④</span></div><div class="reasoning">문제는 &lt;보기&gt;를 참고하여 ⓐ~ⓓ를 이해한 내용으로 적절하지 않은 것을 찾는 것입니다.\n\nⓐ(⑤): 인물과 상대를 '두 종류의 인간군'으로 일반화하여 상대와의 인식 차이가 좁혀질 수 없음을 드러냄 - 본문에서 '세상에서 서로 말이 통하지 않는 두 종류의 인간군'이라는 표현으로 명확히 드러남\n\nⓑ(⑥): 마음의 상황을 '싸움'으로 주관화함으로써 상대가 추구하는 '사리의 옳음'이 싸움에서 이기는 데에 유용하지 않음을 드러냄 - 본문 내용과 부합\n\nⓒ(⑦): 상황 변화가 '안정'을 위협한다는 상대의 생각을 헤아림으로써 변화의 부정성을 인정하면서도 무엇이 변화의 원인인지는 달리 보아 - 본문 내용과 부합\n\nⓓ(⑧): '실리'를 추구하는 쪽이 어쨌든 우위를 차지했으며 과거의 경험을 일반화하므로 현재 상황에서도 실리가 우선되어야 한다고 함리화하여 - 이는 '실리가 우선된다'는 주장의 근거를 제시하는 것으로, 문제에서 요구하는 '적절하지 않은 것'의 맥락에서는 ④번이 가장 설명이 불충분하거나 왜곡된 해석입니다.\n\n④번 ⓓ는 본문에서 인물이 현재 상황의 변화를 '실리'의 측면에서 정당화하려 하는 태도를 보여주는데, 이는 과거 경험을 과도하게 일반화하는 오류를 범하고 있는 부분입니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">31번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">4.9s</span><span class="mark ng">✗</span></div><div class="question-text">(가), (나)에 대한 설명으로 가장 적절한 것은?</div><ul class="choices"><li class=""><div>① (가)는 남의 말을 인용하여 목적지의 위험성을 드러내고 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class="correct-choice"><div>② (가)는 대구와 대조 표현을 함께 사용하여 화자의 괴로운
+처지를 드러내고 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:12%"></div></div><div class="conf-label">12.0%</div></div></li><li class=""><div>③ (나)는 가상의 존재에 빗대는 표현을 사용하여 자연 현상의
+변화를 드러내고 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class=""><div>④ (나)는 방위의 의미를 포함한 두 어휘를 사용하여 대상이 서로
+반대 방향으로 이동함을 드러내고 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="ai-pick wrong-pick"><div>⑤ (가)와 (나)는 모두, 색채를 나타내는 표현을 통해 배경 속에서
+대상의 움직임을 뚜렷하게 드러내고 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:55%"></div></div><div class="conf-label">55.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ②</span><span><b>AI:</b> ⑤</span></div><div class="reasoning">(가)와 (나)의 공통점을 찾는 문제입니다. (가)는 '남의 말을 인용하여 목적지의 위험성을 드러냄', (나)는 '가상의 준재에 빗대는 표현으로 자연 현상의 변화를 드러냄'으로 각각 설명됩니다. ①(가)의 특징이 아님 - 인용이 아닌 직접 표현, ②(가)는 단순 인용이지 화자의 궁극적 처지와 연결 안 됨, ③(나)의 설명이 맞지 않음 - 단순한 표현 변화가 아닌 의미 전달 방식, ④(나)의 내용과 불일치 - 두 어휘의 의미 차이가 아닌 표현 방식의 차이. ⑤가장 적절함 - 두 표현 모두 직접 설명 대신 다른 방식(인용, 비유)을 통해 간접적으로 대상에 대한 이해를 유도하고 있습니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">32번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">6.2s</span><span class="mark ng">✗</span></div><div class="question-text">㉠～㉤에 대한 이해로 적절하지 않은 것은?</div><ul class="choices"><li class=""><div>① ㉠은 행로를 잠시 멈추게 된 이유가 되는 인식으로, 서성
+밖까지 이르는 여정이 고단했음을 드러내고 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="ai-pick wrong-pick"><div>② ㉡은 술맛에 대한 평가로, 장사가 홀연히 등장했다는 인식과
+함께 술의 출처를 판단하는 근거가 된다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:75%"></div></div><div class="conf-label">75.0%</div></div></li><li class=""><div>③ ㉢은 장사에게 화자가 어떻게 보였을지 추측한 진술로, 화자
+에게 물건을 싸게 판 이유를 추정하는 단서가 되고 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class="correct-choice"><div>④ ㉣은 이 부사에 대한 평가로, 좋은 술을 얻은 것은 그가 옛
+인연이 있었던 화자를 알아보았기 때문이라는 생각을 바탕으로
+한다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>⑤ ㉤은 발을 내려 모습을 가리는 행위의 효과를 의심하는 표현
+으로, 위엄을 세우기 어렵겠다는 인식과 연결되고 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ④</span><span><b>AI:</b> ②</span></div><div class="reasoning">문제는 ㄱ~ㄹ에 대한 이해로 적절하지 않은 것을 찾는 것입니다. 각 선지를 검토하면: ① ㄱ은 행로를 잠시 떠난 이유가 되는 인식으로, 서성벅까지 이르는 여정이 고단했음을 드러냅니다-적절함. ② ㄴ은 술맛에 대한 평가로, 창사가 흥영히 등장했다는 인식과 함께 술의 종취를 판단하는 근거가 된다는 내용인데, 이는 술맛 자체에 대한 직접적 평가라기보다 화자의 상황 인식에 불과하므로 부적절합니다. ③ ㄷ은 화자가 어떻게 보영음지 추추한 신솔로, 화자에게 물건을 싸게 판 이유를 추정하는 단서가 됨-적절함. ④ ㄹ은 이 부사에 대한 평가로, 종은 술을 얻은 것은 그 인연이 있었던 화자를 알아보았기 때문이라는 생각으로-적절함. ⑤ ㅁ은 방을 내려 모숨을 가리는 해위의 효과를 의심하는 표현으로-적절함. 따라서 ②가 정답입니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">33번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">4.0s</span><span class="mark ng">✗</span></div><div class="question-text">ⓐ, ⓑ에 대한 이해로 가장 적절한 것은?</div><ul class="choices"><li class="correct-choice"><div>① ⓐ는 감긴 실을 끝까지 풀어서 멀리 떠나보내려는 대상이다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>② ⓐ는 비를 기원하여 바다 건너 자연물에 걸어 두려는 대상이다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>③ ⓑ는 바람이 잦아들었을 때 하늘에 유유히 띄워 두는 대상이다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:12%"></div></div><div class="conf-label">12.0%</div></div></li><li class="ai-pick wrong-pick"><div>④ ⓐ와 ⓑ는 모두, 임에게 보내려는 전언을 담고 있는 대상이다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:65%"></div></div><div class="conf-label">65.0%</div></div></li><li class=""><div>⑤ ⓐ와 ⓑ는 모두, 집단의 의지를 실현하기 위해 날리는 대상이다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ①</span><span><b>AI:</b> ④</span></div><div class="reasoning">문제는 ㉠과 ㉡에 대한 이해를 바탕으로 가장 적절한 설명을 찾는 것입니다. 선택지들을 분석하면: ①은 ㉠에 대해서만 설명, ②는 ㉠에 대한 설명, ③은 ㉡에 대한 설명으로 각각 한쪽 대상만 다룹니다. ④는 '㉠과 ㉡은 모두, 입에게 보내려는 전언을 담고 있는 대상이다'로 두 대상의 공통점을 정확히 제시합니다. ⑤는 '집단의 의지를 실현하기 위해 날리는 대상'으로 문맥상 부정확합니다. 따라서 두 대상의 공통 속성을 가장 정확히 설명하는 ④가 정답입니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">34번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">7.4s</span><span class="mark ng">✗</span></div><div class="question-text">&lt;보기&gt;를 참고하여 (가)～(다)를 감상한 내용으로 적절하지
+않은 것은? [3점]
+&lt;보 기&gt;
+이 시가들은 경험의 실상과 외적 대상을 다양한 모습으로
+표현한다. (가)는 장면 속에서 묘사된 행위를 통해 정서나
+의미를 드러내기도 하고, 화자를 대상화하며 해학의 대상으로
+삼기도 한다. (나)와 (다)는 동일한 소재를 중심으로 시상을
+전개하며, 구체적이고 생동감 있는 표현을 통해 대상이 그
+자체로 부각되는 모습을 보여 준다. 하지만 (나)는 화자가
+가지고 있는 정서를 대상과 행위에 담아내고, (다)는 대상으로
+부터 화자의 정서가 촉발되는 모습을 보여 준다.</div><ul class="choices"><li class=""><div>① (가)에서 얼음물에 빠져 ‘버선 행전’ 다 적시는 대목은 경험을
+실감 나게 보여 주면서 화자를 장면 속에서 대상화하여 ‘동태가
+되었더라’라고 우스꽝스럽게 표현하는군.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>② (나)는 정월 보름날에 ‘큰 잔에 술을’ 붓는 행위로 예를 갖추며
+연을 ‘마지막 전송’하는 모습을 통해 평안함에 대한 화자의
+바람을 담아내는군.</div><div><div class="conf-bar"><div class="conf-fill" style="width:12%"></div></div><div class="conf-label">12.0%</div></div></li><li class="correct-choice"><div>③ (다)에서 연이 ‘솟아올라 구름’에 걸치는 것을 보고 화자가
+연줄의 힘을 빌려 ‘먼 데 임’에게 가려고 하는 것은 대상의
+역동성이 화자의 욕망을 불러일으키는 모습을 보여 주는군.</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="ai-pick wrong-pick"><div>④ (가)에서 ‘가슴에 열’이 나서 ‘냉수’를 먹는 행위는 임무 수행
+에서 느낄 수 있는 고충을 드러내고, (나)에서 근심을 ‘세세히
+적’는 행위는 문제 해소를 원하는 화자의 마음을 보여 주는군.</div><div><div class="conf-bar"><div class="conf-fill" style="width:58%"></div></div><div class="conf-label">58.0%</div></div></li><li class=""><div>⑤ (나)는 연이 ‘굼틀뒤틀 뒤틀어져’ 올라가는 모습을 생동감 있게
+묘사하여, (다)는 연의 재료를 ‘강원도 설화지’로 구체적으로
+제시하고 ‘크기’까지 언급함으로써 대상 자체를 부각하는군.
+* 확인 사항
+◦답안지의 해당란에 필요한 내용을 정확히 기입(표기)했는지 확인
+하시오.
+◦이어서, ｢선택과목(화법과 작문)｣ 문제가 제시되오니, 자신이
+선택한 과목인지 확인하시오.</div><div><div class="conf-bar"><div class="conf-fill" style="width:7%"></div></div><div class="conf-label">7.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ③</span><span><b>AI:</b> ④</span></div><div class="reasoning">보기에서 (가)와 (나)를 감상한 내용으로 적절한 것을 찾는 문제입니다.\n\n(가)는 경험의 실상과 외적 대상을 다양한 모습으로 표현하며, 화자를 대상화하여 해학의 대상으로 삼는 특징이 있습니다. (나)는 화자가 가지고 있는 정서를 대상과 행위에 담아내고, 화자의 정서가 추발되는 모습을 보여줍니다.\n\n각 선택지 검토:\n① (가)의 '버선 행전'은 화자를 직접 대상화하는 표현이지만, 우스꽝스럽게 표현하는 것이 아니라 상황을 객관적으로 제시합니다. 표현 부정확.\n\n② (나)에서 '잔에 술을'은 행위이지만, '마지막 전승'이라는 표현이 화자의 비탄을 드러내기보다는 상황을 설명합니다.\n\n③ (다)의 '숨어음'은 (나)의 정서와 거리가 있으며, 역동성이라는 표현도 맥락상 부적절합니다.\n\n④ (가)에서 '가슴에 얼이 나서' 행위는 임무 수행 중 느끼는 고충을 드러내고, (나)에서 '군들되를 뒤틀어저'와 '강원도 실화지'는 여의 재로를 구체적으로 제시하며 대상 자체를 부각하는 모습을 보여줍니다. 두 텍스트의 감상 차이를 정확히 포착.\n\n⑤ (나)의 표현이 이러한 의미로 대상을 부각하지는 않습니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">35번</span><span class="badge badge-sec">화법과 작문</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">9.0s</span><span class="mark ng">✗</span></div><div class="question-text">위 발표자의 말하기 방식으로 적절하지 않은 것은?</div><ul class="choices"><li class=""><div>① 화제와 관련하여 핵심 용어의 개념을 설명하고 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="correct-choice"><div>② 전문가의 견해를 인용하여 발표 내용을 뒷받침하고 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="ai-pick wrong-pick"><div>③ 청중과 공유하는 경험을 환기하며 발표를 시작하고 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:65%"></div></div><div class="conf-label">65.0%</div></div></li><li class=""><div>④ 청중에게 질문하고 답변을 들으며 청중과 상호작용하고 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>⑤ 발표 내용과 관련하여 청중에게 바라는 바를 언급하며 발표를
+마무리하고 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ②</span><span><b>AI:</b> ③</span></div><div class="reasoning">문제는 '위글에 대한 이해로 적절하지 않은 것'을 찾는 것입니다.\n\n①: "'마'의 '나'는 형식이고, 그 내용은 '나'가 나타내는 소리이다" - 본문에서 "'마'은 음소 문자이다. 기호는 형식과 내용의 결합으로 이루어져 있는데, 문자 자체는 형식이고 그 문자가 나타내는 소리가 내용이다"라고 명시되어 있으므로 적절합니다.\n\n②: "현대 국어 '궁'의 'ㅇ'과 15세기 국어 '궁'의 'ㅇ'은 그 내용이 같다" - 본문에서 "형식과 내용의 결합은 변할 수 있다. 'ㅇ'은 내용은 그대로이면서 형식이 바뀐 예이다"라고 했으므로, 내용이 같다는 설명은 적절합니다.\n\n③: "한글 자모 24자 중 자음자에는 두 소리의 여체를 나타내는 것도 있다" - 본문에서는 "24자 의의 자모는 2개 이상의 자모를 '어울러 쓴 것'이다"라고 했지, 자음자가 두 소리의 여체를 나타낸다는 내용이 없습니다. 이는 자모 구성에 관한 설명이지 소리 표현에 관한 것이 아니므로 부정확합니다.\n\n④: "이중 모음을 나타내는 것 중에는 24자모의 모음자 3개를 어울러 쓴 것도 있다" - 본문에서 이중 모음(이종 모음)을 나타내는 것에 대해 명시적으로 설명되어 있습니다.\n\n⑤: "'ㄱ'는 'ㄱ', 'ㅋ'를 어울러 쓴 것이고, 두 종류의 소리를 나타낸다" - 본문의 표준 발음법 설명과 일치합니다.\n\n따라서 ③이 가장 부적절합니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">36번</span><span class="badge badge-sec">화법과 작문</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">7.3s</span><span class="mark ng">✗</span></div><div class="question-text">다음은 발표자가 제시한 자료이다. 발표자의 자료 활용에 대한
+설명으로 가장 적절한 것은?
+[자료1]
+[자료2]
+[자료3]</div><ul class="choices"><li class=""><div>① [자료1]은 애추 내부로부터 찬 공기가 돌 사이로 흘러나오는
+모습을 확인할 수 있는 자료로 ㉠에 활용하였다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class="ai-pick wrong-pick"><div>② [자료1]은 암벽에서 떨어진 돌들이 부채 모양의 애추를 형성
+하는 과정을 단계별로 확인할 수 있는 자료로 ㉠에 활용하였다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:75%"></div></div><div class="conf-label">75.0%</div></div></li><li class=""><div>③ [자료2]는 풍혈지가 속한 군의 평균 기온이 다른 군보다
+낮음을 확인할 수 있는 자료로 ㉡에 활용하였다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>④ [자료2]는 북방계 식물 서식지와 희귀 식물 서식지 간의 평균
+기온 차이를 확인할 수 있는 자료로 ㉡에 활용하였다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class="correct-choice"><div>⑤ [자료3]은 풍혈지에서 발견된 북방계 식물 중 산림청이 지정한
+희귀 식물에 해당하는 식물을 확인할 수 있는 자료로 ㉢에 활용
+하였다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:4%"></div></div><div class="conf-label">4.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> ②</span></div><div class="reasoning">문제는 &lt;보기&gt;의 정보를 바탕으로 &lt;자료&gt;를 탐구한 것으로 적절한 것을 찾는 문제입니다.\n\n&lt;보기&gt;에서 제시한 15세기 국어의 자음 체계와 &lt;자료&gt;의 표를 검토하면:\n\n① ㄱ을 보니 15세기 국어의 'ㄱ'은 현대 국어의 'ㄱ'과 형식도 같고 내용도 반모음과 단모음의 연쇄인 이중 모음으로 같음 - 표에서 확인 불가능\n\n② ㄴ을 보니 15세기 국어의 'ㄲ'은 'ㄴ'이 나타내는 소리와 'ㅅ'이 나타내는 소리의 연쇄였고, 'ㄲ'의 'ㅅ'은 현대 국어의 'ㄸ'과 형식과 내용이 모두 달랐군 - 표에서 ①(윗거)과 ㄴ(입때)을 비교하면, 15세기의 'ㄲ'과 현대의 'ㄸ'이 형식과 내용이 다름을 확인할 수 있습니다. ✓ 적절\n\n③ ㄷ을 보니 15세기 국어의 'ㅁ'은 형식과 내용이 모두 소멸되었군 - 현대에도 'ㅁ'이 존재하므로 오류\n\n④ ㄹ을 보니 15세기 국어의 '·'는 형식이 소멸되었고 내용은 다른 소리로 변했군 - '·'가 형식은 소멸했으나, 내용이 모두 변했다고 보기 어려움\n\n⑤ ㅁ을 보니 'ㅊ'은 'ㄱ'과 마찬가지로 15세기 국어와 현대 국어에서 형식은 같고 내용은 다르군 - 'ㅊ'은 표에 없으므로 확인 불가능\n\n②번이 &lt;자료&gt;의 표를 통해 명확히 입증됩니다.</div></div>
+<div class="item correct"><div class="item-header"><span class="qnum">37번</span><span class="badge badge-sec">화법과 작문</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">6.1s</span><span class="mark ok">✓</span></div><div class="question-text">발표 내용을 바탕으로 할 때, &lt;보기&gt;에 나타난 학생들의
+반응에 대한 이해로 가장 적절한 것은?
+&lt;보 기&gt;
+학생1 : 백두대간의 고지대처럼 해발 고도가 높은 풍혈지
+에서도 북방계 식물이 서식한다고 한 내용이 흥미로웠어.
+친구한테 식물도감을 빌려서 북방계 식물을 확인해야지.
+학생2 : 월귤의 국내 서식지가 서너 곳이라는 사실을 새롭게
+알게 됐어. 그런데 월귤의 해외 서식지에 대해서도 알고
+싶었는데 설명이 없어서 아쉬워.
+학생3 : 신문 기사를 보니 우리 지역의 산에도 풍혈지가 있대.
+우리 지역의 지리적 특성에 대한 보고서를 써야 하는데
+발표에서 들은 풍혈지에 관한 설명이 도움이 되겠어.</div><ul class="choices"><li class=""><div>① 학생1은 자신이 이해한 발표의 내용을 다른 사람이 이해한
+내용과 비교하고 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② 학생2는 발표를 통해 새롭게 알게 된 정보가 사실과 부합
+하는지 점검하고 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class="correct-choice ai-pick"><div>③ 학생3은 발표를 통해 알게 된 정보를 유용성 측면에서 평가
+하고 있다.</div><div><div class="conf-bar"><div class="conf-fill top" style="width:82%"></div></div><div class="conf-label">82.0%</div></div></li><li class=""><div>④ 학생1과 학생2는 모두, 발표 내용의 일부를 정확히 이해하지
+못하고 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:3%"></div></div><div class="conf-label">3.0%</div></div></li><li class=""><div>⑤ 학생2와 학생3은 모두, 자신이 필요하다고 생각하는 내용이
+발표에서 다루어지지 않았음을 아쉬워하고 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ③</span><span><b>AI:</b> ③</span></div><div class="reasoning">문제는 &lt;보기&gt;의 [조건]을 모두 만족하는 문장을 찾는 것입니다.\n\n[조건]\n- 관형사가 관형어로 쓸 것\n- 선어말 어미를 통한 높임 표현이 나타날 것\n- 자릿수가 하나인 서술어와 둘인 서술어를 포함할 것\n\n각 선택지 검토:\n\n①'세 하생이'→'세'는 수사(관형사), 하지만 선어말 어미를 통한 높임 표현이 없음. 불만족.\n\n②'언제나 책을'→'언제나'는 부사, 관형사가 아님. 불만족.\n\n③'끝없는 노력으로'→'끝없는'은 관형사로 쓰임(관형어), '-으셨-'에서 선어말 어미 '-으시-'로 높임, '합격하셨다'(하나의 서술어)와 '불합격했다'는 것으로 서술어가 하나 이상. 모든 조건 만족.\n\n④'유난히 길어진'→'유난히'는 부사, 관형사가 아님. 불만족.\n\n⑤'저 가깨에서'→'저'는 지시형용사로 관형어이나, 선어말 어미를 통한 높임이 없음. 불만족.\n\n③이 모든 조건을 충족합니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">38번</span><span class="badge badge-sec">화법과 작문</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">6.6s</span><span class="mark ng">✗</span></div><div class="question-text">(가)와 (나)의 의사소통 양상에 대한 설명으로 적절하지 않은
+것은?</div><ul class="choices"><li class="correct-choice"><div>① (가)는 (나)와 달리, 대화 참여자 중 한 명이 나머지 두 명에게
+발언을 요청하고 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② (가)는 (나)와 달리, 대화 참여자 중 두 명이 각각 특정 집단을
+대표하며 발언하고 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>③ (가)는 (나)와 달리, 대화 참여자 중 한 명이 나머지 두 명의
+발언 순서를 정하고 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:12%"></div></div><div class="conf-label">12.0%</div></div></li><li class="ai-pick wrong-pick"><div>④ (나)는 (가)와 달리, 대화에 직접 참여한 참여자들만을 청자로
+상정하고 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:70%"></div></div><div class="conf-label">70.0%</div></div></li><li class=""><div>⑤ (나)는 (가)와 달리, 대화 주제에 대한 긍정적, 부정적 관점의
+발화가 모두 이루어지고 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ①</span><span><b>AI:</b> ④</span></div><div class="reasoning">지수와 정원의 대화에서 ⓐ와 ⓒ의 관계를 파악해야 한다.\n\n지수가 '그건 ○ 그래. 근데 ⓐ 그건 이미 결정되어서 다시 분담하기가 좋 ⓒ 그러네'라고 말한다. 이 문맥에서:\n\n- ⓐ는 '경기 준목 정하고 간식도 준비해야 하고'라는 내용을 지칭\n- ⓒ는 '거기당 좀 나눠 말자고 해'라는 내용을 지칭\n\n⓸에서 제시하는 내용: 'ⓐ과 ⓒ는 앞에서 이미 이야기한 내용을 가리킨다'는 의미\n\n지수의 발화 흐름을 보면, 이미 정해진 것(ⓐ)과 이제 나누어야 할 것(ⓒ) 사이에 대비 관계가 있다. ⓐ과 ⓒ가 서로 다른 사항을 가리키므로, 이들이 앞의 서로 다른 내용을 지칭하고 있다는 것을 확인할 수 있다.\n\n④번이 'ⓐ과 ⓒ는 앞에서 이미 이야기한 내용을 가리킨다'는 일반적인 설명이 아니라, 구체적으로 대비되는 내용들을 정확히 지칭하고 있어 가장 정확한 설명이다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">39번</span><span class="badge badge-sec">화법과 작문</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">6.0s</span><span class="mark ng">✗</span></div><div class="question-text">대화의 흐름을 고려할 때, ㉠～㉤에 대한 설명으로 적절하지
+않은 것은?</div><ul class="choices"><li class=""><div>① ㉠: 다른 대화 참여자들의 앞선 발언 내용을 종합하고 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class="correct-choice"><div>② ㉡: 자신이 몰랐던 사실을 상대 발언을 통해 알게 되었음을
+드러내고 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:12%"></div></div><div class="conf-label">12.0%</div></div></li><li class="ai-pick wrong-pick"><div>③ ㉢: 자신이 추측한 바를 제시하며 대화 참여자들에게 의견을
+묻고 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:72%"></div></div><div class="conf-label">72.0%</div></div></li><li class=""><div>④ ㉣: 상대의 발언 내용을 바탕으로 자신이 예상한 결과를
+언급하고 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>⑤ ㉤: 상대의 발언 일부를 재진술하며 상대의 의견에 동의하고
+있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:3%"></div></div><div class="conf-label">3.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ②</span><span><b>AI:</b> ③</span></div><div class="reasoning">문제는 &lt;학습 활동&gt;을 수행한 결과로 적절한 것을 찾는 문제입니다.\n\n제시된 자료를 분석하면:\n- ㄱ: '시자되자'와 '낳쳤다'의 접미사는 모두 어근에 결합하여 어근의 품사와는 다른 품사의 단어를 파생\n- ㄴ: '낳쳤다'와 '빼앗겼다'는 모두 시동의 의미를 더해 주는 접미사가 결합하여 형성된 단어\n- ㄷ: '시자되자'와 '말리는'은 모두 피동의 의미를 더해 주는 접미사가 결합하여 형성된 단어\n\n③번을 검토하면: ㄱ의 '시자되자'와 ㄴ의 '말리는'은 모두 피동의 의미를 더해 주는 접미사가 결합하여 형성된 단어이다 - 이는 정확한 분석입니다. 두 단어 모두 피동사로, '-되-'와 '-리-'라는 피동 접미사를 포함하고 있습니다.\n\n다른 선택지들은 접미사의 기능이나 의미 관계를 정확하게 파악하지 못한 것으로 보입니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">40번</span><span class="badge badge-sec">화법과 작문</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">6.0s</span><span class="mark ng">✗</span></div><div class="question-text">(가), (나)의 담화 내용이 (다)에 반영된 양상으로 가장 적절한
+것은? [3점]</div><ul class="choices"><li class="ai-pick wrong-pick"><div>① 해당 현상을 보여 주는 사례에 대한 ‘진행자’의 말을 ‘학생3’이
+언급하며 밝힌 의견이 (다)에서 필자의 관점을 뒷받침하는 논거로
+제시되었다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:75%"></div></div><div class="conf-label">75.0%</div></div></li><li class=""><div>② 영상 산업의 성장에 대한 ‘전문가1’의 말을 ‘학생2’가 언급하며
+밝힌 의견이 (다)에서 비평 대상이 나타나게 된 원인을 분석한
+내용으로 제시되었다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>③ 손실 위험에 대한 ‘전문가1’의 말을 ‘학생2’가 언급하며 밝힌
+의견이 (다)에서 필자와 상반된 관점의 주장으로 제시되었다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>④ 기술 발달에 대한 ‘전문가2’의 말을 ‘학생3’이 언급하며 밝힌
+의견이 (다)에서 필자의 관점이 지닌 한계로 제시되었다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:4%"></div></div><div class="conf-label">4.0%</div></div></li><li class="correct-choice"><div>⑤ 추가적인 수익 창출 기회에 대한 ‘전문가2’의 말을 ‘학생3’이
+언급하며 밝힌 의견이 (다)에서 필자와 상반된 관점을 반박한
+내용으로 제시되었다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:3%"></div></div><div class="conf-label">3.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> ①</span></div><div class="reasoning">문제는 (가)와 (나)에 대한 설명으로 가장 적절한 것을 묻고 있습니다. 각 선택지를 검토하면:\n\n①번: (가)에는 (나)와 달리, 제시된 내용과 수용자가 접근할 수 있는 방법이 마련되어 있다는 설명 - 정보 제공 방식의 차이를 적절히 구분\n\n②번: (나)에만 문자 언어로 표현되는 정보를 보완하기 위해 시각적 요소를 활용한다는 설명 - (가)에도 같은 특성이 있을 수 있어 부정확\n\n③번: 모두에 생신자가 정보를 게시한 날짜와 시간이 표시된다는 설명 - 일반적 특성으로 두 매체의 차이를 설명하지 못함\n\n④번: 모두에 한정된 수용자에게만 정보가 제공된다는 설명 - 공개성 측면에서 (가)와 (나)의 차이를 무시\n\n⑤번: 모두에 생신된 정보에 대한 수용자의 반응이 즉각적 기호로 표현된다는 설명 - 이는 주로 (나)의 특성\n\n①번이 (가)와 (나)의 구조적 차이를 가장 명확하게 설명합니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">41번</span><span class="badge badge-sec">화법과 작문</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">6.8s</span><span class="mark ng">✗</span></div><div class="question-text">(다)에 활용된 글쓰기 방식으로 가장 적절한 것은?</div><ul class="choices"><li class=""><div>① 웹툰 영상화에 대한 영상 제작자의 인식 변화를 시기별로 서술
+하였다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="ai-pick wrong-pick"><div>② 웹툰 영상화 유행 현상이 국내에서 해외로 확대되는 과정을
+서술하였다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:85%"></div></div><div class="conf-label">85.0%</div></div></li><li class=""><div>③ 웹툰 영상화의 결과로 파생되는 저작물의 종류를 나열하여
+서술하였다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="correct-choice"><div>④ 웹툰 영상화 유행 현상이 미치는 영향을 산업별로 구분하여
+서술하였다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:3%"></div></div><div class="conf-label">3.0%</div></div></li><li class=""><div>⑤ 웹툰 영상화를 위해 활용되는 제작 기법의 특징을 분석하여
+서술하였다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ④</span><span><b>AI:</b> ②</span></div><div class="reasoning">문제는 참여자들의 소통 양상을 적절하게 나타낸 것이 무엇인지 묻고 있습니다.\n\n대화 흐름을 분석하면:\n- 살구: 책을 잃어버린 상황을 설명(문제 제시)\n- 태양: '책바다' 개념을 제시하여 살구의 이해 부족을 지적(상호 이해 증진)\n- 꽃잎: 도서 수령 마감을 언급하며 구체적 상황 추가(새로운 정보 제시)\n- 동동: 저도 수령 마감 기간을 확인하겠다고 반응(태양의 정보에 동의)\n- 바다: 10일무일을 너무 긴 것 같다며 의견 제시, 다른 사람도 있을 수 있음을 언급(의견 제시 및 공감)\n\n②번이 정답인 이유:\n'태양'은 살구의 상호 대차 이용 경험 부족에 대해 자신이 이해한 바를 질문하고, 도움이 될 만한 정보를 제시하고 있습니다. 이는 상대방의 이해 부족을 인지하고 적절한 정보를 제공하는 '질문과 설명'의 형태로, 참여자들 간의 상호 이해를 증진시키는 모습을 보여줍니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">42번</span><span class="badge badge-sec">화법과 작문</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">6.1s</span><span class="mark ng">✗</span></div><div class="question-text">다음은 (다)의 4문단의 초고와 학생들의 의견이다. 초고에 대한
+의견을 반영하여 고쳐 썼다고 할 때, 이에 대한 설명으로 적절
+하지 않은 것은?
+◦초고
+웹툰 영상화 유행 현상은 우리 콘텐츠 산업을 풍요롭게
+만든다. 이 현상은 우리 콘텐츠 시장의 흐름 중 하나가 되었다.
+간혹 흥행에 실패한 경우도 있지만 이는 소수에 불과했다.
+이러한 흐름을 바탕으로 세계적으로 인정받는 콘텐츠가 더
+많이 제작되려면 창의적 각색을 위한 노력이 필요하다. 앞으로도
+작품성과 흥행성을 갖춘 웹툰 원작 영상이 계속 제작되기를
+바란다.
+◦초고에 대한 의견
+학생2 : 글의 흐름이 자연스럽도록, 일부 내용을 삭제하거나
+순서를 바꾸면 좋겠어.
+학생3 : 글의 마무리 부분임을 고려해, 자신의 관점을 분명히
+밝히는 내용이나 발전 방안 또는 전망에 대한 내용을
+추가하면 좋겠어.</div><ul class="choices"><li class=""><div>① 학생2의 의견을 반영해, 웹툰 영상화의 흥행 실패에 관한
+내용을 삭제하였다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② 학생2의 의견을 반영해, 웹툰 영상화 유행 현상의 의의를
+언급한 문장의 위치를 변경하였다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="ai-pick wrong-pick"><div>③ 학생3의 의견을 반영해, 웹툰 영상화 유행 현상에 대한 자신의
+입장을 제시하는 내용을 추가하였다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:75%"></div></div><div class="conf-label">75.0%</div></div></li><li class="correct-choice"><div>④ 학생3의 의견을 반영해, 영상업계의 노력에 관한 내용을 추가
+하였다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>⑤ 학생3의 의견을 반영해, 세계 속 한국 콘텐츠의 향후 위상에
+대한 내용을 추가하였다.
+[43～45] 다음은 작문 상황과 이를 바탕으로 작성한 학생의 초고
+이다. 물음에 답하시오.
+[작문 상황]
+완벽주의적 자기 제시 성향에 대해 설명하는 글을 작성하여
+학교 신문에 실으려 함.
+[초고]
+사람은 누구나 다른 사람에게 좋은 모습을 보이고 싶어 하는
+면이 있다. 이러한 욕구가 커서 자신을 늘 완벽한 모습으로
+보이려고 하는 성향이 나타날 수 있는데，이를 완벽주의적 자기
+제시 성향이라 한다. 청소년 시기에는 또래 집단에서 친구들
+에게 긍정적으로 비춰지고 싶은 욕구가 크기 때문에 완벽주의적
+자기 제시 성향이 나타나는 경우가 많다.
+완벽주의적 자기 제시 성향을 지닌 사람들은 평가의 기준을
+자신보다 타인에 두기 때문에 타인의 시선과 평가에 민감해지기
+쉽다. 그래서 여러 사람들 앞에 나서야 할 때 불안을 겪기도
+한다. 이러한 불안이 사회생활에서 회피적 행동으로 이어지고,
+회피적 행동은 다시 불안을 가중한다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ④</span><span><b>AI:</b> ③</span></div><div class="reasoning">문제는 제작 과정에 반영된 작성자의 계획으로 적절한 것을 찾는 문항입니다.\n\n카드 1: 책 구하기 문제 상황 → 책장과 도서관 배경으로 제시했다는 설명\n카드 2: 상호 대차의 실명 담긴 (가)의 내용 → 지정 도서관으로 책이 이동하는 모습을 낀 책의 이미지로 제시했다는 설명\n카드 3: 상호 대차를 비유적으로 나타낸 (나)의 표현 → 상호 대차의 효용성을 여러 도서관이 연결되어 하나의 도서관과 같은 모습으로 제시했다는 설명\n카드 4: 상호 대차 운영 방식 → 상호 대차 이용 방법이 도서관마다 다를 수 있어 확인해야 한다는 내용으로 제시했다는 설명\n\n③번 선택지를 보면, 카드 3에서 상호 대차를 비유적으로 나타낸 (나)의 표현을 반영하여, 상호 대차의 효용성을 여러 도서관이 연결되어 하나의 도서관과 같은 모습으로 시각적으로 제시하는 모습과 정확히 일치합니다. 이는 제작 과정에서 의도한 설계와 실제 구현이 가장 잘 부합하는 경우입니다.</div></div>
+<div class="item correct"><div class="item-header"><span class="qnum">43번</span><span class="badge badge-sec">화법과 작문</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">6.2s</span><span class="mark ok">✓</span></div><div class="question-text">다음은 학생이 초고를 작성할 때 떠올린 생각이다. 이를 고려할
+때 [A]에 들어갈 내용으로 가장 적절한 것은?
+마지막 문단에서는 글의 전체적인 흐름을 고려하여, 완벽
+주의적 자기 제시 성향으로 인해 겪을 수 있는 정서적 어려
+움을 명시하고, 이를 완화하는 데 도움이 되는 태도와 그것이
+가져올 긍정적 변화를 제시해야겠어.</div><ul class="choices"><li class=""><div>① 자신에 대한 긍정적 평가가 진심으로 느껴지지 않아 불안해질
+때, 이를 그대로 둔다면 완벽주의적 자기 제시 성향이 고착화될
+것이다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>② 타인의 시선을 고려하기보다 자신의 시야에만 갇혀 불안한
+마음이 든다면, 일상에서 걷기와 같은 신체 활동을 해 보는
+것이 어떨까?</div><div><div class="conf-bar"><div class="conf-fill" style="width:12%"></div></div><div class="conf-label">12.0%</div></div></li><li class="correct-choice ai-pick"><div>③ 타인에게 완벽한 모습을 보이고 싶은 마음이 불안으로 이어질
+때, 자기 자신을 있는 그대로 받아들인다면 심리적 안정을
+얻을 수 있을 것이다.</div><div><div class="conf-bar"><div class="conf-fill top" style="width:70%"></div></div><div class="conf-label">70.0%</div></div></li><li class=""><div>④ 완벽주의적 자기 제시 성향은 사회생활을 하는 데 여러 가지
+문제를 초래하므로, 객관적으로 상황을 바라보는 인지적 유연
+성을 발휘해 보는 것이 어떨까?</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>⑤ 완벽함을 추구하는 것은 고통을 수반할 수 있으므로, 무조건적
+자기 수용보다는 사회적 지지 추구 행동을 통해 스스로의
+마음을 다스린다면 마음이 편안해질 수 있을 것이다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ③</span><span><b>AI:</b> ③</span></div><div class="reasoning">각 선택지가 설명하는 관용표현의 의미를 분석하면:\n\n(a) '남니다'를 사용하여 경험적 사실을 우승자에게 알린다 → 정보 전달 기능\n\n(b) '어요'를 사용하여 신청 도서를 수령할 수 있음을 나타낸다 → 가능성 표현\n\n(c) '이야'를 사용하여 책을 수령할 시점이 상호 대자를 재신청한 주의 목요일임을 강조한다 → 시점의 강조/확인\n\n(d) '아아지'를 사용하여 유의 사항을 확인해 보는 행위가 실수를 하지 않는 데 필요한 조건임을 나타낸다 → 조건 표현\n\n(e) '근께요'를 사용하여 카드 뉴스를 제작해 블로그에 올리겠다고 약속한다 → 약속/의지 표현\n\n문제는 '설명으로 적절하지 않은 것'을 찾는 것이므로, (c)의 설명이 가장 부자연스럽고 부정확하다. '이야'의 사용이 '상호 대자를 재신청한 주의 목요일'이라는 구체적인 시점을 강조한다는 설명은 문맥상 맞지 않으며, 실제 의미와 거리가 있다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">44번</span><span class="badge badge-sec">화법과 작문</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">5.0s</span><span class="mark ng">✗</span></div><div class="question-text">초고에 반영된 글쓰기 계획으로 적절하지 않은 것은?</div><ul class="choices"><li class=""><div>① 완벽주의적 자기 제시 성향의 개념을 밝혀야겠어.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="correct-choice"><div>② 완벽주의적 자기 제시 성향의 장단점을 설명해야겠어.</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="ai-pick wrong-pick"><div>③ 사람들의 일반적인 특성을 제시하며 글을 시작해야겠어.</div><div><div class="conf-bar"><div class="conf-fill" style="width:75%"></div></div><div class="conf-label">75.0%</div></div></li><li class=""><div>④ 완벽주의적 자기 제시 성향이 높은 사람의 특징을 언급해야겠어.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>⑤ 특정 시기에 완벽주의적 자기 제시 성향이 나타나는 경우가
+많은 이유를 제시해야겠어.</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ②</span><span><b>AI:</b> ③</span></div><div class="reasoning">문제는 ㄱ~ㄹ에 대한 설명으로 적절하지 않은 것을 찾는 문제입니다. \n\n각 선택지 검토:\n① 회의실로의 접속을 제한할 수 있는 ㄱ과 관련 - 해당 정보 전달됨\n② 회의실 입장 정보가 ㄴ과 관련 - 해당 정보 전달됨\n③ 회의실 참여자를 확인할 수 있는 ㄷ과 관련하여, '도움은 회의실에 아직 접속하지 않은 인물이 있음을 확인했다'는 표현이 부적절함. ㄷ은 '회의실 참여자들을 확인할 수 있는'것이므로, 이미 참여자 목록에서 확인되는 사람들에 대한 것이지, 미참여자를 확인하는 기능이 아님.\n④ 회의실 화면을 여러 참여자가 공유하는 ㄹ과 관련 - 해당 정보 전달됨\n⑤ 회의실에의 참여 요청을 수락할 수 있는 ㄹ과 관련 - 해당 정보 전달됨\n\n따라서 ③이 가장 부적절합니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">45번</span><span class="badge badge-sec">화법과 작문</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">7.6s</span><span class="mark ng">✗</span></div><div class="question-text">&lt;보기&gt;는 학생이 초고를 보완하기 위해 추가로 수집한 자료
+이다. 자료의 활용 방안으로 적절하지 않은 것은? [3점]
+&lt;보 기&gt;</div><ul class="choices"><li class=""><div>① ㄱ-1을 활용하여, 사회적 지지 추구 행동을 많이 할수록
+불안이 낮아진다는 것을, 주변 사람에게 도움을 받음으로써
+얻을 수 있는 효과를 뒷받침하는 근거로 4문단을 보강한다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>② ㄴ을 활용하여, 학생이 발표에서 완벽하게 보이려는 것을,
+완벽주의적 자기 제시 성향의 구체적 사례로 1문단에 추가한다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="ai-pick wrong-pick"><div>③ ㄷ을 활용하여, 정서를 명확히 인식하는 것을 전제로 한 정서
+조절이 인지적 유연성의 바탕이 된다는 것을, 인지적 유연성
+발휘를 위한 조건을 보완하는 내용으로 3문단에 추가한다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:60%"></div></div><div class="conf-label">60.0%</div></div></li><li class=""><div>④ ㄱ-1과 ㄴ을 활용하여, 회피적 행동이 불안에 미치는 영향을,
+불안이 회피적 행동으로 인해 가중된다는 점을 뒷받침하는
+근거와 이를 구체화하는 사례로 2문단을 보강한다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="correct-choice"><div>⑤ ㄱ-2와 ㄷ을 활용하여, 정서 조절의 실패에서 비롯된 불안을
+해소하는 데 걷기가 효과가 있다는 것을, 걷기가 정서에 미치는
+영향을 보여 주는 내용으로 5문단을 보강한다.
+* 확인 사항
+* 확인 사항
+◦답안지의 해당란에 필요한 내용을 정확히 기입(표기)했는지 확인
+◦답안지의 해당란에 필요한 내용을 정확히 기입(표기)했는지 확인
+하시오.
+하시오.
+◦이어서, ｢선택과목(언어와 매체)｣ 문제가 제시되오니, 자신이
+◦이어서, ｢선택과목(언어와 매체)｣ 문제가 제시되오니, 자신이
+선택한 과목인지 확인하시오.
+선택한 과목인지 확인하시오.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> ③</span></div><div class="reasoning">문제는 (가)의 내용을 바탕으로 (나)를 구성했을 때, 이에 대한 이해로 정절하지 않은 것을 찾는 문항입니다.\n\n(가)의 핵심: 논의의 대상과 관련된 서현과 도윤의 대화를 통해 행위자가 다른 글자로 표현을 더 크게 제시했다는 내용입니다.\n\n각 선택지 검토:\n① 눈의 하고자 하는 항목의 재목에 관한 서현과 도윤의 대화 - (가)에서 행위자와 관련된 표현이 다르게 제시되는 내용과 일치\n② 대상을 다르게 이유에 관한 혜정과 서현의 대화 - (가)의 내용과 부합\n③ 정보의 효용적 가치에 관한 혜정과 다겸의 대화를 반영하여 구성하려는 공간의 제약을 상세 내용을 아래로 펼치는 기능을 활용했다 - (가)에서 직접적으로 다루지 않는 내용으로, 정보의 효용성과 공간 제약에 대한 기능 설명이 (가)의 문맥과 맞지 않음\n④ 대상을 만드는 여러 가지 재료에 관한 서현과 다겸의 대화를 반영하여, 대상의 다양한 종류를 공통 재료에 추가 재료를 더한 결과로 제시했다 - (가)의 맥락과 부합\n⑤ 정보 접근의 편의성에 관한 혜정과 도윤의 대화를 반영하여, 정보 간의 연관성을 고려해 한 항목에서 다른 항목으로 이동하는 기능을 활용했다 - (가)의 내용과 부합\n\n③번이 (가)의 내용을 바탕으로 (나)를 구성하는 방식으로 정절하지 않습니다.</div></div>
+<div class="item correct"><div class="item-header"><span class="qnum">35번</span><span class="badge badge-sec">언어와 매체</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">6.6s</span><span class="mark ok">✓</span></div><div class="question-text">윗글에 대한 이해로 적절하지 않은 것은?</div><ul class="choices"><li class=""><div>① ‘마’의 ‘ㅏ’는 형식이고, 그 내용은 ‘ㅏ’가 나타내는 소리이다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② 현대 국어 ‘콩’의 ‘ㅇ’과 15세기 국어 ‘​’의 ‘
+’은 그 내용이
+같다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="correct-choice ai-pick"><div>③ 한글 자모 24자 중 자음자에는 두 소리의 연쇄를 나타내는
+것도 있다.</div><div><div class="conf-bar"><div class="conf-fill top" style="width:75%"></div></div><div class="conf-label">75.0%</div></div></li><li class=""><div>④ 이중 모음을 나타내는 것 중에는 24자모의 모음자 3개를
+어울러 쓴 것도 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>⑤ ‘ㅟ’는 ‘ㅜ’, ‘ㅣ’를 어울러 쓴 것이고, 두 종류의 소리를 나타
+낸다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ③</span><span><b>AI:</b> ③</span></div><div class="reasoning">문제는 '위글에 대한 이해로 적절하지 않은 것'을 찾는 문제입니다. 텍스트를 분석하면:\n\n① '마'의 'ㄴ'는 형식이고, 그 내용은 '나'가 나타내는 소리이다 - 텍스트에서 명시됨\n\n② 현대 국어 '궁'의 'ㅇ'과 15세기 국어 '궁'의 'ㅇ'은 그 내용이 같다 - 텍스트에서 '형식과 내용의 결합은 자의적이다'며 시간 경과에 따라 변할 수 있음을 설명\n\n③ 한글 자모 24자 중 자음자에는 두 소리의 여체를 나타내는 것도 있다 - 텍스트에서 '24자 의의 자모는 2개 이상의 자모를 "어울러 쓴 것"이다'라고 했으므로, 이는 두 소리의 여체를 나타내는 것이 아니라 두 자모의 결합임\n\n④ 이중 모음을 나타내는 것 중에는 24자모의 모음자 3개를 어울러 쓴 것도 있다 - 텍스트에서 확인 가능\n\n⑤ '귀'는 '구', '이'를 어울러 쓴 것이고, 두 종류의 소리를 나타낸다 - 텍스트에서 확인 가능\n\n③이 가장 부정확한 설명입니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">36번</span><span class="badge badge-sec">언어와 매체</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">5.0s</span><span class="mark ng">✗</span></div><div class="question-text">윗글과 &lt;보기&gt;를 바탕으로 &lt;자료&gt;를 탐구한 것으로 적절하지
+않은 것은? [3점]
+&lt;보 기&gt;
+◦󰡔훈민정음󰡕(해례본)에는 &lt;한글 맞춤법&gt;의 한글 자모 24자
+외에 ‘ㆆ, ㅿ,
+, ㆍ’ 4자가 더 있었다.
+◦15세기 국어에서 ‘ㅄ, ㅳ, ㅴ…’의 합용 병서는 초성에서
+두 소리의 연쇄로 발음되는 자음군을 나타냈다.
+◦15세기 국어의 ‘ㅿ’은 15세기 국어의 ‘ㅅ’과 같은 조음
+위치의 유성 마찰음을 나타냈다.
+◦15세기 국어에서는 경구개음이 자음 체계에 존재하지
+않아서 구개음화가 발생하지 않았다.
+&lt;자 료&gt;
+㉠
+㉡
+㉢
+㉣
+㉤
+15세기
+앗겨( ←앗기어)
+이​
+어버​
+​​
+즐기디
+국어
+현대
+아껴( ←아끼어)
+입때
+어버이
+가득
+즐기지
+국어</div><ul class="choices"><li class="ai-pick wrong-pick"><div>① ㉠을 보니, 15세기 국어의‘ㅕ’는 현대 국어의 ‘ㅕ’와 형식도
+같고 내용도 반모음과 단모음의 연쇄인 이중 모음으로 같군.</div><div><div class="conf-bar"><div class="conf-fill" style="width:85%"></div></div><div class="conf-label">85.0%</div></div></li><li class="correct-choice"><div>② ㉡을 보니, 15세기 국어의 ‘ㅵ’은 ‘ㅂ’이 나타내는 소리와 ‘ㅼ’이
+나타내는 소리의 연쇄였고, ‘ㅵ’의 ‘ㅼ’은 현대 국어의 ‘ㄸ’과
+형식과 내용이 모두 달랐군.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>③ ㉢을 보니, 15세기 국어의 ‘ㅿ’은 형식과 내용이 모두 소멸
+되었군.</div><div><div class="conf-bar"><div class="conf-fill" style="width:4%"></div></div><div class="conf-label">4.0%</div></div></li><li class=""><div>④ ㉣을 보니, 15세기 국어의 ‘ㆍ’는 형식이 소멸되었고 내용은
+다른 소리로 변했군.</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li><li class=""><div>⑤ ㉤을 보니, ‘ㅈ’은 ‘ㅔ’와 마찬가지로 15세기 국어와 현대 국어
+에서 형식은 같고 내용은 다르군.</div><div><div class="conf-bar"><div class="conf-fill" style="width:1%"></div></div><div class="conf-label">1.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ②</span><span><b>AI:</b> ①</span></div><div class="reasoning">문제는 밑줄 친 'ㄱ'의 소리를 바탕으로 &lt;자료&gt;를 탐구한 것으로 적절한 것을 찾는 것입니다. 제시된 &lt;보기&gt;에 따르면 15세기 국어의 'ㄷ'은 15세기 국어의 'ㅅ'과 같은 조음 위치의 유성 마찰음을 나타냈습니다. 문맥에서 '맏'과 '낟'의 형식과 내용을 살펴보면, ①번 선택지가 15세기 국어의 'ㄷ'이 현대 국어의 'ㄷ'과 형식도 같고 내용도 다른 반모음과 단모음의 연체인 이중 모음으로 같다고 설명하는 것이 맞습니다. 다른 선택지들은 &lt;보기&gt;의 정보나 표의 내용과 맞지 않습니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">37번</span><span class="badge badge-sec">언어와 매체</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">6.8s</span><span class="mark ng">✗</span></div><div class="question-text">&lt;보기&gt;의 [조건]이 모두 실현된 문장으로 적절한 것은?
+&lt;보 기&gt;
+[조건]
+◦관형사가 관형어로 쓰일 것.
+◦선어말 어미를 통한 높임 표현이 나타날 것.
+◦자릿수가 하나인 서술어와 둘인 서술어를 포함할 것.</div><ul class="choices"><li class=""><div>① 편찮으신 음악 선생님을 세 학생이 보건실로 조심히 모셨다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② 아버지께서는 언제나 책을 몇 장 읽으시다 잠자리에 드셨다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class="ai-pick wrong-pick"><div>③ 끊임없는 노력으로 할아버지께서는 결국 시험에 합격하셨다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:75%"></div></div><div class="conf-label">75.0%</div></div></li><li class="correct-choice"><div>④ 유난히 길어진 추위에 할머니께서는 온갖 걱정을 다 하셨다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>⑤ 저 가게에서 파는 떡이 정말 맛있다며 삼촌은 입맛을 다셨다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:4%"></div></div><div class="conf-label">4.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ④</span><span><b>AI:</b> ③</span></div><div class="reasoning">문제는 &lt;보기&gt;의 [조건]을 모두 만족하는 문장을 찾는 것입니다.\n\n[조건]\n- 관형사가 관형어로 쓰일 것\n- 선어말 어미를 통한 높임 표현이 나타날 것\n- 자릿수가 하나인 서술어와 둘인 서술어를 포함할 것\n\n각 선택지 검토:\n\n① '세 하생이' - 수사(관형사) O, 높임표현 X (조건 미충족)\n\n② '엔제나 책을' - 관형사 부재 (조건 미충족)\n\n③ '끝이없는 노력으로 할아버지께서는 결국 시험에 합격하셨다'\n- '끝이없는(형용사)' - 관형사 X이나, 전체 구조 검토 시 '없는'이 표현되는 방식\n- '할아버지께서는(높임 표현 O)' + '-하셨다(선어말 어미 -시- 포함 O)'\n- '할아버지께서는(2음절) 할' + '아버지께서는(다항동사 구조)'\n- 조건을 만족합니다.\n\n④ '유난히 깃어진 추위' - 관형사 부재, 높임표현 부재 (조건 미충족)\n\n⑤ '가게에서 파는' - 관형사 부재 (조건 미충족)\n\n③번이 [조건]의 세 요소를 모두 충족합니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">38번</span><span class="badge badge-sec">언어와 매체</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">5.4s</span><span class="mark ng">✗</span></div><div class="question-text">&lt;보기&gt;의 ㉠～㉩에 대한 설명으로 적절한 것은?
+&lt;보 기&gt;
+&lt;정원과 지수가 카페에서 만난 상황&gt;
+정원: 어머, 지수야 안녕? ㉠여기는 무슨 일이야?
+지수: 응, 안녕? 이따 학생회 회의가 있어서. ㉡이번에 □□
+고등학교하고 연합 체육 대회를 하잖아.
+정원: 아! 맞다, 네가 체육부장이지? 작년에는 ㉢거기 운동장
+에서 했으니까 이번엔 우리 학교에서 하겠네?
+지수: 맞아. 올해는 우리 학교 체육관에서 하기로 해서 할 게
+많더라. 경기 종목 정하고, 간식도 준비해야 하고.
+정원: 간식 준비도 우리가 해? ㉣그때도 여기서 준비했잖아.
+지수: 응, ㉤그쪽이 대신 기념품 맡는대.
+정원: 그래도 간식 준비가 훨씬 힘들지. ㉥거기랑 좀 나눠
+맡자고 해.
+지수: ㉦그건 ㉧그래. 근데 ㉨그건 이미 결정되어서 다시
+분담하기가 좀 ㉩그러네.</div><ul class="choices"><li class=""><div>① ㉠과 ㉢은 현재 담화가 이루어지고 있는 장소를 의미한다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class="ai-pick wrong-pick"><div>② ㉡은 발화시와 동일한 때를 가리키고, ㉣은 발화시 이전의
+때를 가리킨다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:75%"></div></div><div class="conf-label">75.0%</div></div></li><li class=""><div>③ ㉤과 ㉥은 청자를 포함한 대상을 나타낸다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="correct-choice"><div>④ ㉦과 ㉨은 앞에서 이미 이야기한 내용을 가리킨다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>⑤ ㉧은 ‘만족스럽지 않다’는 특정한 의미를 나타내고, ㉩은
+상대의 제안에 대한 동의를 나타낸다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ④</span><span><b>AI:</b> ②</span></div><div class="reasoning">대화 내용을 분석하면:\n\n(ㄴ)은 지수가 '이변에 □□고등학교하고 연합 체육 대회를 하잖아'라고 발화하는 부분으로, 방화시와 동일한 때를 가리킨다. 따라서 ㄴ은 발화시와 동일한 때를 가리킨다는 특징이 있다.\n\n(ㄹ)은 지수가 '그짝이 대신 기념품 말는데'라고 발화하는 부분으로, 향후의 상황을 예측하여 언급하는 것이다.\n\n②번 선택지를 검토하면: "(ㄴ)은 방화시와 동일한 때를 가리키고, (ㄹ)은 방화시 이전의 때를 가리킨다"는 옳은 설명이다.\n\n(ㄴ)은 현재 진행 중인 상황을 나타내고, (ㄹ)은 미래의 시점을 가리키므로 ②이 정답이다.</div></div>
+<div class="item correct"><div class="item-header"><span class="qnum">39번</span><span class="badge badge-sec">언어와 매체</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">7.0s</span><span class="mark ok">✓</span></div><div class="question-text">&lt;학습 활동&gt;을 수행한 결과로 적절한 것은?
+&lt;학습 활동&gt;
+국어의 의존 형태소에는 접사, 조사, 어미 등이 있다. 이들은
+각각 새로운 단어를 만들거나, 문법적 의미를 더해 주는 등
+다양한 기능을 한다. 제시된 자료 ㉠～㉢을 분석해 보자.
+㉠: 발표가 시작되자 참석자들은 모두 목소리를 낮췄다.
+㉡: 비에 젖은 옷들을 말리는 데 시간을 다 빼앗겼다.
+㉢: 나는 내일 친구랑 만나 미술관이랑 영화관에 가.</div><ul class="choices"><li class="correct-choice ai-pick"><div>① ㉠의 ‘시작되자’와 ‘낮췄다’의 접미사는 모두 어근에 결합하여
+어근의 품사와는 다른 품사의 단어를 파생하였다.</div><div><div class="conf-bar"><div class="conf-fill top" style="width:85%"></div></div><div class="conf-label">85.0%</div></div></li><li class=""><div>② ㉠의 ‘낮췄다’와 ㉡의 ‘빼앗겼다’는 모두 사동의 의미를 더해
+주는 접미사가 결합하여 형성된 단어이다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>③ ㉠의 ‘시작되자’와 ㉡의 ‘말리는’은 모두 피동의 의미를 더해
+주는 접미사가 결합하여 형성된 단어이다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:4%"></div></div><div class="conf-label">4.0%</div></div></li><li class=""><div>④ ㉢의 ‘친구랑’과 ‘미술관이랑’의 조사는 앞말의 받침 유무에
+따른 이형태 관계에 있고, 모두 앞말을 부사어로 기능하게 한다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li><li class=""><div>⑤ ㉢의 ‘만나’와 ‘가’의 어미는 모두 문장을 종결하는 동일한
+문법적 기능을 한다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:1%"></div></div><div class="conf-label">1.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ①</span><span><b>AI:</b> ①</span></div><div class="reasoning">이 문제는 한국어의 의존 형태소(접사, 조사, 어미)의 기능을 분석하는 문제입니다.\n\n제시된 자료를 분석하면:\n- ㉮ '시자되자'와 '낳쳤다': 모두 어근과 어미의 결합으로 품사를 파생\n- ㉯ '낳쳤다'와 '빼앗겼다': 사동의 의미를 더해 주는 점미사가 결합하여 형성된 단어\n- ㉰ '시자되자'와 '말리는': 모두 피동의 의미를 더해 주는 점미사가 결합하여 형성된 단어\n\n① ㉮의 '시자되자'와 '낳쳤다'의 접미사는 모두 어근에 결합하여 어근의 품사와는 다른 품사의 단어를 파생시킵니다. (O)\n\n② ㉮의 '낳쳤다'와 ㉯의 '빼앗겼다'는 모두 사동의 의미를 더해 주는 접미사가 결합하여 형성된 단어입니다. (X - 하나는 완료 어미, 하나는 사동/피동 혼재)\n\n③ ㉮의 '시자되자'와 ㉯의 '말리는'은 모두 피동의 의미를 더해 주는 접미사가 결합하여 형성된 단어입니다. (X - '시자되자'는 사동)\n\n④ ㉰의 '친구랑'과 '미술관이랑'은 조사입니다. (X - 조사의 범위 오류)\n\n⑤ ㉰의 '만나'와 '가'의 어미는 모두 문장을 종결하는 동일한 문법적 기능을 합니다. (X - 서로 다른 기능)\n\n정답은 ①입니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">40번</span><span class="badge badge-sec">언어와 매체</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">5.9s</span><span class="mark ng">✗</span></div><div class="question-text">(가)와 (나)에 대한 설명으로 가장 적절한 것은?</div><ul class="choices"><li class=""><div>① (가)에는 (나)와 달리, 제시된 내용과 관련된 정보에 수용자가
+접근할 수 있는 방법이 마련되어 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="correct-choice"><div>② (나)에는 (가)와 달리, 문자 언어로 표현되는 정보를 보완하기
+위해 상황에서 느낀 감정과 관련된 그림이 활용되어 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="ai-pick wrong-pick"><div>③ (가)와 (나)에는 모두, 생산자가 정보를 게시한 날짜와 시간이
+표시되어 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:75%"></div></div><div class="conf-label">75.0%</div></div></li><li class=""><div>④ (가)와 (나)에는 모두, 한정된 수용자에게만 정보가 제공된다는
+내용이 제시되어 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>⑤ (가)와 (나)에는 모두, 생산된 정보에 대한 수용자의 반응이
+시각적 기호로 표현되어 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ②</span><span><b>AI:</b> ③</span></div><div class="reasoning">문제는 (가)와 (나)에 대한 설명으로 가장 적절한 것을 찾는 문제입니다. 각 선택지를 검토하면:\n\n①은 내용상 수용자가 접근할 수 있는 '방법'에 관한 설명으로 일반적이지만 핵심을 놓칩니다.\n\n②는 '문자 언어로 표현되는 정보'라는 표현이 추상적이며, 그림이 활용되는 방식과의 연결이 명확하지 않습니다.\n\n③은 (가)와 (나) 모두에서 '생산자가 정보를 게시한 날짜와 시간이 표시되어 있다'는 시간 정보의 공통점을 정확히 파악합니다. 이는 두 자료의 명확한 공통 특성입니다.\n\n④는 '한정된 수용자'라는 표현이 주어진 자료에서 확인되지 않으며, 일반적인 설명에 불과합니다.\n\n⑤는 '생신된 정보'라는 용어가 부정확하며, '즉각적 기호'라는 표현도 명확하지 않습니다.\n\n따라서 ③이 가장 적절한 설명입니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">41번</span><span class="badge badge-sec">언어와 매체</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">6.9s</span><span class="mark ng">✗</span></div><div class="question-text">다음은 (나)에 달린 댓글이다. 참여자들의 소통 양상으로
+적절하지 않은 것은?</div><ul class="choices"><li class=""><div>① ‘살구’는 (나)를 문제 해결을 위한 유용한 정보로 수용하고,
+이를 적용해 자신에게 긍정적 결과가 있었음을 밝히고 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="ai-pick wrong-pick"><div>② ‘태양’은 ‘살구’의 상호 대차 이용 경험에 대해 자신이 이해한
+바를 질문하고, 도움이 될 만한 정보를 제시하고 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:75%"></div></div><div class="conf-label">75.0%</div></div></li><li class=""><div>③ ‘꽃잎’은 (나)에서처럼 예측하기 어려운 상황이 발생할 수
+있음을 언급하고, 이를 근거로 자신의 바람을 드러내고 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="correct-choice"><div>④ ‘동동’은 ‘꽃잎’의 생각을 자신의 경험과 연결 짓고, 재신청
+불가 기간 연장에 대한 자신의 계획을 밝히고 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>⑤ ‘바다’는 ‘동동’이 제시한 의견에 일부 공감하고, 그 의견이
+실현됐을 때 발생할 것으로 예상되는 문제를 언급하고 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ④</span><span><b>AI:</b> ②</span></div><div class="reasoning">문제는 참여자들의 소통 양상으로 적절하지 않은 것을 찾는 문제입니다.\n\n각 선택지 검토:\n① '살구'는 문제 해결을 위한 유용한 정보(대차 이용 경험)를 제시하고, 이를 적용해 자신에게 긍정적 결과가 있었음을 밝히고 있다. (적절함)\n\n② '태양'은 '살구'의 상호 대차 이용 경험에 대해 자신이 이해하지 못할 바를 질문하고, 도움이 될 만한 정보를 제시하고 있다고 설명되어 있습니다. 하지만 실제 대화에서 태양은 "책바다"라는 구체적인 서비스를 제시하여 도움이 될 정보를 제공하는 것이 맞습니다. 따라서 선택지의 표현이 정확합니다. (적절함)\n\n다시 검토하면, ②번 선택지의 "도움이 될 만한 정보를 제시하고 있다"는 표현이 정확하므로 적절합니다.\n\n③ '꽃잎'은 예측하기 어려운 상황을 언급하고, 이를 근거로 자신의 바람을 드러내고 있다. (적절함)\n\n④ '동동'은 '꽃잎'의 생각을 자신의 경험과 연결시키고, 재신청 기간 연장에 대한 계획을 밝히고 있다. (적절함)\n\n⑤ '바다'는 '동동'이 제시한 의견에 일부 공감하고, 그 의견이 실현됐을 때 발생할 문제를 언급하여 문제를 인급하고 있다. (적절함)\n\n재검토 결과 ②번이 가장 적절하지 않습니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">42번</span><span class="badge badge-sec">언어와 매체</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">6.6s</span><span class="mark ng">✗</span></div><div class="question-text">다음은 (가), (나)를 바탕으로 ‘상호 대차’를 소개하기 위해
+만든 카드 뉴스이다. 제작 과정에 반영된 학생의 계획으로 적절
+하지 않은 것은? [3점]</div><ul class="choices"><li class="ai-pick wrong-pick"><div>① ‘카드 1’에서는 책을 구하기 어려웠던 (나)의 경험을 반영하여,
+책을 구할 때 겪을 수 있는 문제 상황을 책장과 도서관을 배경
+으로 두고 걱정하는 모습으로 제시해야겠군.</div><div><div class="conf-bar"><div class="conf-fill" style="width:85%"></div></div><div class="conf-label">85.0%</div></div></li><li class=""><div>② ‘카드 2’에서는 상호 대차에 대한 설명이 담긴 (가)의 내용을
+반영하여, 지정 도서관으로 책이 이동하는 모습을 날개 달린
+책의 이미지로 제시해야겠군.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>③ ‘카드 3’에서는 상호 대차를 비유적으로 나타낸 (나)의 표현을
+반영하여, 상호 대차의 효용성을 여러 도서관이 연결되어 하나의
+도서관을 이루고 있는 모습으로 제시해야겠군.</div><div><div class="conf-bar"><div class="conf-fill" style="width:4%"></div></div><div class="conf-label">4.0%</div></div></li><li class=""><div>④ ‘카드 4’에서는 상호 대차 운영 방식과 관련한 (나)의 내용을
+반영하여, 상호 대차 이용 방법이 도서관마다 다를 수 있어
+확인해야 함을 검색창의 이미지와 문장으로 제시해야겠군.</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li><li class="correct-choice"><div>⑤ ‘카드 4’에서는 상호 대차 이용에 대한 (가)와 (나)의 내용을
+반영하여, 수령 시간에 대한 정확한 내용을 달력 이미지로 제시
+해야겠군.</div><div><div class="conf-bar"><div class="conf-fill" style="width:1%"></div></div><div class="conf-label">1.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> ①</span></div><div class="reasoning">문제는 제작 과정에 반영된 작성의 계획으로 적절하지 않은 것을 찾는 문항입니다.\n\n카드 1: 책을 구하기 어려운 (나)의 경험을 반영하여, 책을 구할 때 겪을 수 있는 문제 상황을 책장과 도서관 배경으로 제시 - 적절함\n\n카드 2: 상호 대차에 대한 설명이 담긴 (가)의 내용을 반영하여, 지정 도서관으로 책이 이동하는 모습을 달린 책의 이미지로 제시 - 적절함\n\n카드 3: 상호 대차를 비유적으로 나타낸 (나)의 표현을 반영하여, 상호 대차의 효용성을 여러 도서관이 연결되어 하나의 도서관을 이루는 모습으로 제시 - 적절함\n\n카드 4: 상호 대차 운영 방식과 관련한 (나)의 내용을 반영하여, 상호 대차 이용 방법이 도서관마다 다를 수 있어 확인해야 함을 강조 - 적절함\n\n카드 4'에서는 상호 대차 이용에 대한 (가)와 (나)의 내용을 반영하여, 우렁 시간에 대한 정확한 내용을 달력 이미지로 제시해야 하는데, 실제로는 (나)에서 우렁 시간이 주요 내용이 아니므로 부적절함.\n\n따라서 답은 ①입니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">43번</span><span class="badge badge-sec">언어와 매체</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">5.9s</span><span class="mark ng">✗</span></div><div class="question-text">ⓐ～ⓔ에 대한 설명으로 적절하지 않은 것은?</div><ul class="choices"><li class=""><div>① ⓐ: ‘-답니다’를 사용하여, 도서관으로부터 정보를 받았다는
+경험적 사실을 수용자에게 알려 주고 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class="correct-choice"><div>② ⓑ: ‘-어요’를 사용하여, 신청 도서를 수령할 수 있는지에 대한
+응답을 문자 발송 주체가 요구하고 있음을 나타내고 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:12%"></div></div><div class="conf-label">12.0%</div></div></li><li class="ai-pick wrong-pick"><div>③ ⓒ: ‘에야’를 사용하여, 책을 수령한 시점이 상호 대차를
+재신청한 주의 목요일이었음을 강조하여 나타내고 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:75%"></div></div><div class="conf-label">75.0%</div></div></li><li class=""><div>④ ⓓ: ‘-아야지’를 사용하여, 유의 사항을 확인해 보는 행위가
+실수를 하지 않는 데 필요한 조건임을 나타내고 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:3%"></div></div><div class="conf-label">3.0%</div></div></li><li class=""><div>⑤ ⓔ: ‘-ㄹ게요’를 사용하여, 카드 뉴스를 제작해 블로그에도
+올리겠다고 약속하고 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ②</span><span><b>AI:</b> ③</span></div><div class="reasoning">각 설명의 적절성을 검토하면:\n\n(a) '-남니다'는 도서관이라는 구체적 장소의 규칙을 나타내는 것으로 적절함.\n\n(b) '-어요'는 신청 도서를 수령할 수 있는지에 대한 '응답'을 나타내며, 이는 전제 조건이나 필요성을 묻는 것이 아니라 상황 설명이므로 설명과 맞지 않음. 문자 발송 주체가 요구하는 것이 아님.\n\n(c) '-이아'를 사용하여 책을 수령할 시점이 상호 대차자를 재신청한 주의 목욕일임을 강조하는 것으로 적절함.\n\n(d) '-아아지'는 유의사항 안내로 행위가 실수를 하지 않도록 필요한 조건을 나타내므로 적절함.\n\n(e) '-르게요'는 카드 뉴스를 제작해 블로그에 올리겠다는 약속으로, '금지'의 의미가 아님.\n\n따라서 설명으로 적절하지 않은 것은 (b)와 (e)인데, (c)번이 가장 명확하게 적절함.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">44번</span><span class="badge badge-sec">언어와 매체</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">8.6s</span><span class="mark ng">✗</span></div><div class="question-text">㉠～㉤에 대한 설명으로 적절하지 않은 것은?</div><ul class="choices"><li class=""><div>① 회의실로의 접속을 제한할 수 있는 ㉠과 관련하여, 해당
+정보를 잊어버린 혜정에게 서현은 잘못된 정보를 전달했다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class="ai-pick wrong-pick"><div>② 회의실로의 입장을 청하는 정보인 ㉡과 관련하여, 다겸은
+혜정이 더 편리하게 회의실에 접속할 수 있다고 판단했다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:75%"></div></div><div class="conf-label">75.0%</div></div></li><li class=""><div>③ 회의실 참여자를 확인할 수 있는 ㉢과 관련하여, 도윤은
+회의실에 아직 접속하지 않은 인물이 있음을 확인했다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="correct-choice"><div>④ 회의실 화면을 여러 참여자가 공유하는 ㉣과 관련하여, 혜정의
+요청에 따라 다겸은 화면 공유의 권한을 넘겼다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:4%"></div></div><div class="conf-label">4.0%</div></div></li><li class=""><div>⑤ 회의실에의 참여 요청을 수락할 수 있는 ㉤과 관련하여,
+다겸은 회의실에 입장하려는 혜정의 요구를 받아들였다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:3%"></div></div><div class="conf-label">3.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ④</span><span><b>AI:</b> ②</span></div><div class="reasoning">문제는 ㄱ~ㄹ에 대한 설명으로 적절하지 않은 것을 찾는 문제입니다.\n\n각 선택지 검토:\n①: 회의실로의 접속을 제한하는 ㄱ과 관련하여 '해당 정보를 잃어버린 혜정에게 서현은 잘못된 정보를 전달했다'는 내용이 명시되어 있음 - 적절함\n\n②: 혜의식로의 입장을 정하는 정보인 ㄴ과 관련하여 '다겸은 혜정이 더 편리하게 회의실에 접속할 수 있다고 판단했다'고 서술하고 있으나, 본문에서 다겸은 '혜정이 더 편리하게 회의실에 접속할 수 있게 하기 위해' 혜정의 헌정을 바꾸려고 했다는 내용이 없음 - 부정확함\n\n③: 회의실 참여자를 확인할 수 있는 ㄷ과 관련하여 '도움은 회의실에 아직 접속하지 않은 인물이 있음을 확인했다'는 내용이 적절함\n\n④: 회의실 화면을 여러 참여자가 공유하는 ㄹ과 관련하여 '혜정의 요청에 따라 다겸은 화면 공유의 권한을 넘겼다'는 내용이 적절함\n\n⑤: 회의실에의 참여 요청을 수락할 수 있는 ㄷ과 관련하여 '다겸은 회의실에 입장하려는 혜정의 요구를 받아들였다'는 내용이 적절함\n\n②번이 본문의 내용과 가장 부정확합니다.</div></div>
+<div class="item correct"><div class="item-header"><span class="qnum">45번</span><span class="badge badge-sec">언어와 매체</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">6.9s</span><span class="mark ok">✓</span></div><div class="question-text">(가)의 내용을 바탕으로 (나)를 구성했다고 할 때, 이에 대한
+이해로 적절하지 않은 것은?</div><ul class="choices"><li class=""><div>① 논의하고자 하는 항목의 제목에 관한 서현과 도윤의 대화를
+반영하여, 대상과 관련된 행위를 연상시키는 표현을 다른 글자
+보다 크게 제시했다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>② 대상을 다루려는 이유에 관한 혜정과 서현의 대화를 반영
+하여, 대상에서 강조하고자 하는 특징을 문자 언어와 이미지로
+제시했다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:12%"></div></div><div class="conf-label">12.0%</div></div></li><li class="correct-choice ai-pick"><div>③ 정보의 효용적 가치에 관한 혜정과 다겸의 대화를 반영하여,
+구성하려는 공간의 제약을 극복하고자 상세 내용을 아래로
+펼치는 기능을 활용했다.</div><div><div class="conf-bar"><div class="conf-fill top" style="width:70%"></div></div><div class="conf-label">70.0%</div></div></li><li class=""><div>④ 대상을 만드는 여러 가지 재료에 관한 서현과 다겸의 대화를
+반영하여, 대상의 다양한 종류를 공통 재료에 추가 재료를 더한
+결과로 제시했다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>⑤ 정보 접근의 편의성에 관한 혜정과 도윤의 대화를 반영하여,
+정보 간의 연관성을 고려해 한 항목에서 다른 항목으로 이동
+하는 기능을 활용했다.
+* 확인 사항
+◦답안지의 해당란에 필요한 내용을 정확히 기입(표기)했는지 확인
+하시오.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ③</span><span><b>AI:</b> ③</span></div><div class="reasoning">문제는 (가)의 내용을 바탕으로 (나)를 구성했을 때, 이에 대한 이해로 적절하지 않은 것을 찾는 것입니다.\n\n(가)의 핵심은 '(가)의 내용을 바탕으로'이므로 (나)가 (가)의 논리와 일관성 있게 전개되어야 합니다.\n\n① 대상을 다르게 인식하는 이유에 관한 혜정과 서현의 대화 - (가)에서 제시된 개인의 관점 차이 설명과 부합\n② 대상의 특징을 강조하되, 강조 방식의 차이 - (가)의 표현 방식 차이를 반영\n③ 정보의 효용적 가치에 관한 혜정과 다겸의 대화를 반영하여, 구성하려는 공간의 제약을 극복하고 상세 내용을 아래로 펼치는 기능 - 이는 (가)의 '정보의 효용적 가치'와 직접적 인과관계가 없음. (가)에서 다루지 않는 '공간의 제약'이라는 새로운 개념이 도입됨\n④ 대상의 다양한 종류 재료에 관한 서현과 다겸의 대화를 반영하여 추가 결과 제시\n⑤ 정보 접근의 편의성에 관한 혜정과 도윤의 대화를 반영하여 정보 간의 연관성을 고려해 한 항목에서 다른 항목으로 이동하는 기능\n\n③번이 (가)와의 인과적 논리 연결이 가장 약합니다.</div></div></div>
+<script>
+function filterAll(){setFilter('all')}
+function filterWrong(){setFilter('wrong')}
+function filterCorrect(){setFilter('correct')}
+function setFilter(f){
+  document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
+  document.querySelectorAll('.item').forEach(el=>{
+    const ok=el.classList.contains('correct');
+    el.style.display=(f==='all'||(f==='correct'&&ok)||(f==='wrong'&&!ok))?'':'none';
+  });
+}
+document.querySelectorAll('.question-text').forEach(el=>{
+  el.addEventListener('click',()=>el.classList.toggle('expanded'));
+});
+</script>
+</body>
+</html>

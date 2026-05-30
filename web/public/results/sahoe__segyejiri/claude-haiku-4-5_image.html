@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>AI 수능 — claude-haiku-4-5 / 사회탐구_세계지리 / image</title>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<style>
+*{box-sizing:border-box}
+body{font-family:'Noto Sans KR',sans-serif;max-width:960px;margin:0 auto;padding:20px;background:#f5f5f5;font-size:14px;line-height:1.6}
+h1{font-size:1.3rem;border-bottom:2px solid #222;padding-bottom:8px}
+.meta{font-size:.8rem;color:#666;margin-bottom:16px}
+.summary{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+.stat{background:#fff;border:1px solid #ddd;border-radius:6px;padding:12px 20px;text-align:center;min-width:100px}
+.stat b{font-size:1.4rem;display:block}
+.stat.good b{color:#1e7e34}
+.stat.bad b{color:#c5221f}
+.stat.info b{color:#1a56db}
+.filters{margin-bottom:16px;display:flex;gap:6px}
+.fbtn{padding:5px 14px;border:1px solid #aaa;border-radius:4px;cursor:pointer;background:#e8e8e8;font-size:.82rem;font-weight:600}
+.fbtn.active{background:#fff;color:#1a56db;border-color:#1a56db}
+.item{background:#fff;border:1px solid #e0e0e0;border-radius:6px;padding:16px 18px;margin-bottom:12px}
+.item.correct{border-left:4px solid #1e7e34}
+.item.wrong{border-left:4px solid #c5221f}
+.item-header{display:flex;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.qnum{font-weight:700;color:#1a56db;min-width:40px}
+.badge{font-size:.7rem;padding:2px 8px;border-radius:10px;font-weight:600}
+.badge-sec{background:#f0f0f0;color:#555}
+.mark{margin-left:auto;font-size:1.1rem;font-weight:700}
+.mark.ok{color:#1e7e34}
+.mark.ng{color:#c5221f}
+.time{font-size:.75rem;color:#888}
+.question-text{margin:8px 0;color:#333;white-space:pre-wrap;font-size:.9rem;max-height:80px;overflow:hidden;cursor:pointer}
+.question-text.expanded{max-height:none}
+.choices{list-style:none;padding:0;margin:8px 0}
+.choices li{padding:6px 10px;margin:3px 0;border-radius:4px;display:grid;grid-template-columns:1fr 160px;align-items:center;gap:10px;border:1px solid transparent}
+.choices li.correct-choice{background:#e6f4ea;border-color:#81c995}
+.choices li.ai-pick{outline:2px solid #1a56db}
+.choices li.ai-pick.wrong-pick{outline-color:#c5221f}
+.conf-bar{height:12px;background:#f0f0f0;border-radius:3px;overflow:hidden}
+.conf-fill{height:100%;background:linear-gradient(90deg,#9cc7ff,#1a56db);border-radius:3px}
+.conf-fill.top{background:linear-gradient(90deg,#86e29b,#1e7e34)}
+.conf-label{font-size:.7rem;color:#555;text-align:right;font-family:monospace}
+.reasoning{background:#fafafa;border:1px solid #eee;border-radius:4px;padding:10px 14px;margin-top:8px;font-size:.82rem;color:#444;white-space:pre-wrap;max-height:120px;overflow:auto}
+.ans-row{display:flex;gap:14px;font-size:.85rem;margin-top:8px;padding-top:6px;border-top:1px solid #f0f0f0}
+.ans-row b{color:#444}
+.short-conf{font-size:.78rem;color:#666;font-family:monospace}
+.choices.no-conf li{grid-template-columns:1fr}
+.ai-pick-tag{font-size:.72rem;background:#1a56db;color:#fff;padding:2px 10px;border-radius:10px;font-weight:600;justify-self:end}
+</style>
+</head>
+<body>
+<h1>AI 수능 — claude-haiku-4-5 / 사회탐구_세계지리 / image</h1>
+<p class="meta">모델: claude-haiku-4-5 · 모드: image · 2026-04-23T04:10:48</p>
+<div class="summary"><div class="stat info"><b>20.0%</b>정답률</div><div class="stat good"><b>4</b>정답</div><div class="stat bad"><b>16</b>오답</div><div class="stat info"><b>11/50</b>원점수</div><div class="stat"><b>128.1s</b>총 시간</div><div class="stat"><b>6.4s</b>문항 평균</div></div>
+<div class="filters">
+  <button class="fbtn active" onclick="filterAll()">전체</button>
+  <button class="fbtn" onclick="filterWrong()">오답만</button>
+  <button class="fbtn" onclick="filterCorrect()">정답만</button>
+</div>
+<div id="items"><div class="item wrong"><div class="item-header"><span class="qnum">1번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">6.2s</span><span class="mark ng">✗</span></div><div class="question-text">(가)～(다) 지도에 대한 설명으로 옳은 것은? (단, (가)～(다)는
+각각 곤여만국전도, 알 이드리시 세계 지도, 혼일강리역대국도지도
+중 하나임.) [3점]
+(가)
+(다)
+(나)</div><ul class="choices"><li class=""><div>① (나)는 지도의 위쪽이 동쪽이다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② (가)와 (다)는 모두 서양에서 최초로 제작되었다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>③ (나)와 (다)에는 모두 경위선이 표현되어 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="ai-pick wrong-pick"><div>④ (다)는 (나)보다 최초 제작 시기가 이르다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:65%"></div></div><div class="conf-label">65.0%</div></div></li><li class="correct-choice"><div>⑤ (가)～(다)에는 모두 아프리카 대륙이 표현되어 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> ④</span></div><div class="reasoning">문제는 (가)~(다) 지도에 대한 설명으로 옳은 것을 고르는 문제입니다.\n\n(가)는 16세기 메르카토르 세계지도로 서양에서 제작된 지도입니다.\n(나)는 중국식 원형 지도로 중국 중심의 세계관을 보여줍니다.\n(다)는 조선시대 제작된 지도로 한반도와 중국 등을 표현한 지도입니다.\n\n각 선택지 검토:\n①(나)의 위쪽이 동쪽이다 - (나)는 동쪽이 위쪽(상단)입니다. 틀림.\n②(가)와(다)는 모두 서양에서 제작 - (다)는 조선에서 제작됨. 틀림.\n③(나)와(다)에는 경위선이 표현 - (나)는 경위선 없음. 틀림.\n④(다)는(나)보다 최초 제작 시기가 이르다 - (나) 중국 고대 지도, (다) 조선시대 지도. 확인 필요하나, (다)가 (나)의 원형 세계관보다 더 정확한 표현을 보여줌. 제작 기술 측면에서 (다)가 더 정교함.\n⑤(가)~(다)에는 모두 아프리카 대륙이 표현 - (나)에는 아프리카가 명확하지 않음. 틀림.\n\n④번이 가장 타당한 답으로 판단됩니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">2번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">5.5s</span><span class="mark ng">✗</span></div><div class="question-text">다음은 세계지리 수업 장면의 일부이다. 교사의 질문에 옳게 답한
+학생만을 있는 대로 고른 것은?</div><ul class="choices"><li class="correct-choice"><div>① 갑, 정</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② 을, 병</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>③ 병, 정</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>④ 갑, 을, 병</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="ai-pick wrong-pick"><div>⑤ 갑, 을, 정</div><div><div class="conf-bar"><div class="conf-fill" style="width:65%"></div></div><div class="conf-label">65.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ①</span><span><b>AI:</b> ⑤</span></div><div class="reasoning">각 학생의 주장을 국제 환경 협약과 매칭해야 함. 감(가)은 세계에서 산업 혁명이 가장 먼저 시작된 나라의 수도→영국 런던. 을(나)은 시스타 사이언스 시티가 입지한 나라→인도. 병(다)은 멕시코, 미국과 북미 자유 무역협정(NAFTA)을 체결→멕시코 국가. 정(라)는 대서양과 지중해에 모두 접하는 나라→모로코. 표의 협약과 연도를 보면: (가)협약 1972년-오존층 파괴 물질 규제, (나)협약 1979년-대기오염 물질 통제, (다)의정서 1987년-오존층, (라)협약 2015년-탄소감축. 각 학생이 설명한 내용과 국가를 연결하면 감(영국), 을(인도), 병(멕시코), 정(모로코) 순서이므로 '감, 을, 정'이 정답.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">3번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">7.0s</span><span class="mark ng">✗</span></div><div class="question-text">다음 자료에 대한 설명으로 옳지 않은 것은?
+바다에 ㉠탑 모양으로 우뚝 솟은 봉우리
+들이 있고, 그 일부에는 ㉡종유석 등이
+있는 동굴이 발달해 있다. ‘할롱(Ha Long)’은
+‘용이 내려온 자리’라는 뜻으로 하늘에서
+용이 내려와 보석을 내뿜어 섬이 되었다는
+전설이 있다.
+(가) 할롱 베이
+뾰족한 돌기둥들이 숲처럼 펼쳐진 경관은
+㉢이 지역의 기반암이 용식을 거치며
+단단한 부분만 남아 형성되었다. ‘칭기
+(Tsingy)’는 ‘맨발로 걸을 수 없는 곳’을
+세
+의미한다.
+계
+(나) 그랑 칭기
+지
+리
+㉣계단 모양 지형과 하늘색 온천수가
+빚어내는 아름다운 풍경으로 유명하다.
+‘파묵칼레(Pamukkale)’는 ‘목화의 성’이라는
+뜻으로 층층이 쌓인 하얀색의 지형과 잘
+어울리는 지명이다.
+(다) 파묵칼레</div><ul class="choices"><li class=""><div>① ㉠은 기반암이 차별적인 침식과 용식을 받아 형성되었다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="correct-choice"><div>② ㉣은 용암의 반복적인 분출로 형성되었다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="ai-pick wrong-pick"><div>③ ㉡과 ㉢의 주성분은 탄산 칼슘이다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:75%"></div></div><div class="conf-label">75.0%</div></div></li><li class=""><div>④ (나)에서는 카렌을 볼 수 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>⑤ (가)와 (다)는 북반구에 위치한다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ②</span><span><b>AI:</b> ③</span></div><div class="reasoning">문제는 세 지역의 특징을 올바르게 매칭했는지 묻는 것입니다.\n\n(가) 할롱베이: 탈모양의 우뚝 솟은 봉우리들이 있는 카르스트 지형입니다.\n\n(나) 그랑 칭기: 깎아지른 돌기둥들이 솟처럼 촘촘히 형성된 독특한 지형입니다. 이는 수식성 풍경이 아닌 지반 침식으로 형성된 구조입니다.\n\n(다) 파묵칼레: 계단 모양의 하얀색 지형으로, 광물질이 침전되어 형성된 지형입니다.\n\n각 선택지 검토:\n① (가)의 기반암이 차별적 침식을 받아 형성 - 할롱베이는 카르스트 용식 지형이므로 부정확\n② (나)는 용암의 반복적 분출로 형성 - 그랑 칭기는 침식 지형이지 화산 지형이 아님\n③ (나)와 (다)의 주성분은 단산 칼슈 - 그랑 칭기(응회암)와 파묵칼레(탄산염) 모두 석회질 계열이므로 올바른 설명\n④ (나)에서는 카렌을 볼 수 있다 - 파묵칼레(다)의 특징이지 그랑 칭기가 아님\n⑤ (가)와 (나)는 북반구에 위치 - 할롱베이(베트남)는 북반구, 그랑 칭기(터키)도 북반구이지만 문제와 무관</div></div>
+<div class="item correct"><div class="item-header"><span class="qnum">4번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">8.1s</span><span class="mark ok">✓</span></div><div class="question-text">표의 (가)～(다)에 해당하는 지역을 지도의 A～C에서 고른 것은?
+(단, ㉠, ㉡ 시기는 각각 1월, 7월 중 하나임.)
+지역
+㉠시기 강수량 차이(mm)
+㉡시기 강수량 차이(mm)
+(가)
+－33.7
+33.5
+(나)
+71.0
+8.1
+(다)
+－37.4
+－41.7
+* 강수량 차이＝각 지역 강수량－(세 지역 강수량의 합÷ 3)
+(가)
+(나)
+(다)
+(가)
+(나)
+(다)</div><ul class="choices"><li class=""><div>① A
+C
+B</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② B
+A
+C</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="correct-choice ai-pick"><div>③ B
+C
+A</div><div><div class="conf-bar"><div class="conf-fill top" style="width:82%"></div></div><div class="conf-label">82.0%</div></div></li><li class=""><div>④ C
+A
+B</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li><li class=""><div>⑤ C
+B
+A</div><div><div class="conf-bar"><div class="conf-fill" style="width:1%"></div></div><div class="conf-label">1.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ③</span><span><b>AI:</b> ③</span></div><div class="reasoning">강수량 차이 계산 결과, (가)는 1월 음수·7월 양수(남반구)→B(호주), (나)는 1월 양수·7월 양수(북반구 겨울강수)→A(북미), (다)는 1월·7월 모두 음수(남반구 건조)→C(남미남단). 따라서 (가)B (나)A (다)C가 정답.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">5번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">4.7s</span><span class="mark ng">✗</span></div><div class="question-text">그래프는 세계 및 (가), (나) 지역(대륙)의 신․재생 에너지 발전량
+비율을 나타낸 것이다. 이에 대한 설명으로 옳은 것은? (단, (가),
+(나)는 각각 오세아니아, 유럽 중 하나이며, A～C는 각각 수력, 지열,
+풍력 중 하나임.)</div><ul class="choices"><li class=""><div>① (가)는 유럽이다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="ai-pick wrong-pick"><div>② A 발전량은 캐나다가 중국보다 많다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:75%"></div></div><div class="conf-label">75.0%</div></div></li><li class="correct-choice"><div>③ B 발전량은 독일이 프랑스보다 많다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>④ 노르웨이는 B 발전량이 A 발전량보다 많다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>⑤ C 발전량이 세계에서 가장 많은 국가는 (가)에 위치한다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ③</span><span><b>AI:</b> ②</span></div><div class="reasoning">그래프를 분석하면:\n\n세계: A 약 10%, B 약 70%, C 약 20%\n(가): A 약 30%, B 약 35%, C 약 35%\n(나): A 약 45%, B 약 60%, C 약 0%\n\n① (가)는 유럽이다 - 확인 필요\n② A 발전량은 캐나다가 중국보다 많다 - (가)의 A가 약 30%로 (나)의 A 약 45%보다 작으므로 거짓\n③ B 발전량은 독일이 프랑스보다 많다 - 판단 어려움\n④ 노르웨이는 B 발전량이 A 발전량보다 많다 - 판단 어려움\n⑤ C 발전량이 세계에서 가장 많은 국가는 (가)에 위치 - (가)의 C는 약 35%로 상당함\n\n(가)는 유럽(캐나다는 아메리카 대륙), (나)는 중국으로 추정. (가)의 A 발전량이 (나)보다 작으므로 ②가 거짓이다. 따라서 거짓인 것을 고르는 문제라면 ②가 정답.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">6번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">6.2s</span><span class="mark ng">✗</span></div><div class="question-text">다음 글은 (가)～(다) 국가에 대한 것이다. 이에 대한 설명으로
+옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? [3점]
+◦(가)에는 이라와디강이 흐른다. 이라와디강 하류에 위치한 양곤은
+과거부터 오랜 기간 수도였고, 수도를 네피도로 이전한 현재도 인구가
+가장 많은 도시로 경제, 문화의 중심지이다.
+◦(나)에는 짜오프라야강이 흐른다. 짜오프라야강 하류에 위치한 방콕은
+이 나라의 수도로 인구가 가장 많은 도시이다. 방콕을 비롯한 전국
+각지에서 매년 우기가 시작될 무렵 전통 축제인 ‘송끄란’이 열린다.
+㉠
+이 흐른다.
+◦(다)의 남부에는 티베트고원에서 발원한 하천인
+이 강 하구 북동쪽에 위치한 호찌민은 수도인 하노이보다 인구가 많은
+도시이며, 식민 지배의 영향으로 프랑스풍 건축물을 볼 수 있다.
+&lt;보 기&gt;
+ㄱ. ㉠은 메콩강이다.
+ㄴ. (가)에서는 로힝야족에 대한 차별과 억압이 이루어졌다.
+ㄷ. (가)～(다)는 모두 라오스와 국경을 접하고 있다.</div><ul class="choices"><li class=""><div>① ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>③ ㄱ, ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="ai-pick wrong-pick"><div>④ ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:65%"></div></div><div class="conf-label">65.0%</div></div></li><li class="correct-choice"><div>⑤ ㄱ, ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> ④</span></div><div class="reasoning">(가)는 이라와디강이 흐르는 미얀마를 설명하고 있습니다. 경제, 문화의 중심지이며 양곤이 가장 많은 인구를 가진 도시입니다. (나)는 짜우프라야강이 흐르는 태국을 설명하고 있습니다. 방콕을 중심으로 '송고란'이라는 수상시장이 있습니다. (다)의 남부에는 터베테강에서 발원한 하천인 ()이 흐릅니다. 동북부 쿠동족에 위치하며 인구가 많은 도시이고, 식민 지배의 영향으로 프랑스풍 건축물을 볼 수 있습니다. 이는 라오스의 메콩강입니다. 보기 검토: ㄱ. ()은 메콩강 - 참(①번), ㄴ. (가)에서는 로형하족(X), ㄷ. (가)~(다)는 모두 라우스와 국경 - 미얀마와 태국 모두 라오스와 국경을 접함. 따라서 정답은 ④(ㄱ, ㄷ)입니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">7번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">4.0s</span><span class="mark ng">✗</span></div><div class="question-text">다음 자료에 대한 설명으로 옳은 것은? (단, (가)～(다) 국가는
+각각 A～C 중 하나임.)</div><ul class="choices"><li class=""><div>① (가)의 원주민은 마오리족이 대표적이다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="ai-pick wrong-pick"><div>② C는 오스트레일리아보다 2022년 기준 총수출액에서 광물 및
+에너지 자원이 차지하는 비율이 높다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:75%"></div></div><div class="conf-label">75.0%</div></div></li><li class=""><div>③ B와 C는 모두 유럽 연합(EU) 회원국이다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>④ 인구는 B &gt; C &gt; A 순으로 많다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="correct-choice"><div>⑤ (가)는 A, (나)는 C, (다)는 B이다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> ②</span></div><div class="reasoning">표와 그래프를 분석하면: (가)는 1950년 수출액이 크고 2020년 수입액이 크므로 미국. (나)는 1950년 수출액이 크고 2020년 수입액이 크므로 미국이 아님. 국가 3개를 분석하면: 1번-프랑스/인도/대한민국, 2번-미국/미국/다른국, 3번-프랑스/인도/대한민국. 그래프의 A(약 10%, 40달러)는 프랑스, B(약 20%, 50달러)는 인도 또는 대한민국, C(약 28%, 160달러)는 미국으로 추정. ②번 설명: C는 미국이므로 2022년 기준 총수출액에서 광물 및 에너지 자원의 비율이 낮고, 제조업 생산액 비율이 높으므로 맞음.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">8번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">4.5s</span><span class="mark ng">✗</span></div><div class="question-text">다음은 (가), (나) 지역을 소개하는 다큐멘터리 대본의 일부이다.
+이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 고른 것은? [3점]
+&lt;보 기&gt;
+ㄱ. ㉠은 후빙기 해수면 상승으로 빙식곡이 침수되어 형성되었다.
+ㄴ. ㉡에서는 토양층의 융해에 대비한 고상 가옥을 볼 수 있다.
+ㄷ. ㉢은 주로 유수에 의해, ㉣은 주로 바람에 의해 형성되었다.
+ㄹ. (가), (나) 모두 최난월 평균 기온이 0℃ 미만이다.</div><ul class="choices"><li class="correct-choice"><div>① ㄱ, ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>③ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="ai-pick wrong-pick"><div>④ ㄴ, ㄹ</div><div><div class="conf-bar"><div class="conf-fill" style="width:72%"></div></div><div class="conf-label">72.0%</div></div></li><li class=""><div>⑤ ㄷ, ㄹ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ①</span><span><b>AI:</b> ④</span></div><div class="reasoning">(가)지역은 피오르가 발달한 남서부 해안의 노르웨이, (나)지역은 타리무 분지의 중국 신장 지역이다. 보기 분석: ㄱ.피오르는 빙하 침식으로 형성되어 여름에 빙하가 녹으므로 상승기류 발생 - 참. ㄴ.타리무 분지(나)는 건조 지역으로 대비하한 고기압 가옥 형성 - 참. ㄷ.은주로 습지에 의해, ㄷ는주로 건조에 의해 형성 - 참. ㄹ.두 지역 모두 최난월 평균 기온이 0℃를 초과 - 거짓(노르웨이 일부 지역은 0℃ 미만). 따라서 옳은 것은 ㄴ, ㄹ이다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">9번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">9.7s</span><span class="mark ng">✗</span></div><div class="question-text">그래프는 광물별 중․남부 아메리카와 아프리카의 주요 생산국을
+나타낸 것이다. (가)～(다) 국가에 대한 설명으로 옳은 것만을
+&lt;보기&gt;에서 고른 것은? (단, (가)～(다)는 각각 남아프리카 공화국,
+브라질, 칠레 중 하나임.)
+&lt;보 기&gt;
+ㄱ. (가)는 인종 차별 정책인 ‘아파르트헤이트’를 시행했었다.
+ㄴ. (다)에는 추키카마타 광산이 있다.
+ㄷ. (다)는 (나)보다 석탄 생산량이 많다.
+ㄹ. (가)와 (다)는 같은 지역(대륙)에 위치한다.</div><ul class="choices"><li class=""><div>① ㄱ, ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>③ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="correct-choice"><div>④ ㄴ, ㄹ</div><div><div class="conf-bar"><div class="conf-fill" style="width:20%"></div></div><div class="conf-label">20.0%</div></div></li><li class="ai-pick wrong-pick"><div>⑤ ㄷ, ㄹ</div><div><div class="conf-bar"><div class="conf-fill" style="width:50%"></div></div><div class="conf-label">50.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ④</span><span><b>AI:</b> ⑤</span></div><div class="reasoning">(가)=브라질, (나)=보초와나, (다)=콩고민주공화국. ㄱ은 아파르트헤이트는 남아공의 정책이므로 거짓, ㄴ은 추키카마타는 칠레 광산으로 거짓, ㄷ은 DRC가 콩고민주공화국으로 석탄 생산도 있으나 보초와나보다 많은지 검토 필요, ㄹ은 브라질(남미)과 DRC(아프리카)가 같은 지역이 아니므로 거짓. 따라서 ㄷ, ㄹ이 정답.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">10번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">9.0s</span><span class="mark ng">✗</span></div><div class="question-text">그래프의 (가)～(라) 국가에 대한 설명으로 옳은 것은? (단,
+(가)～(라)는 각각 독일, 브라질, 차드, 파키스탄 중 하나임.) [3점]</div><ul class="choices"><li class=""><div>① (나)는 1970년의 도시 인구가 2020년의 도시 인구보다 많다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="correct-choice"><div>② (나)는 (가)보다 2020년의 도시 인구가 많다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>③ (나)는 (다)보다 2020년의 국가 내 노년층 인구 비율이 높다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>④ (다)는 (라)보다 2020년의 합계 출산율이 높다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="ai-pick wrong-pick"><div>⑤ (가)는 아프리카, (라)는 아메리카에 위치한다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:70%"></div></div><div class="conf-label">70.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ②</span><span><b>AI:</b> ⑤</span></div><div class="reasoning">(가)는 도시인구 4→13백만, 인구밀도 75→300명/㎢로 급증하는 패턴으로 아프리카의 급속한 도시화 특성. (라)는 도시인구 1백만 미만, 인구밀도 25→40명/㎢로 낮게 유지되는 패턴으로 아메리카의 특성과 일치. ①②③④는 그래프에서 거짓이거나 검증 불가.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">11번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">4.7s</span><span class="mark ng">✗</span></div><div class="question-text">지도의 A～D 지역에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서
+있는 대로 고른 것은? [3점]
+&lt;보 기&gt;
+ㄱ. A에서는 이동식 전통 가옥인 유르트를 볼 수 있다.
+ㄴ. B에는 영구 동토층이 분포한다.
+ㄷ. C에는 타이가 지대가 나타난다.
+ㄹ. D에는 카나트라 불리는 전통적인 지하 관개 수로가 있다.</div><ul class="choices"><li class=""><div>① ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄴ, ㄹ</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>③ ㄷ, ㄹ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="correct-choice"><div>④ ㄱ, ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:12%"></div></div><div class="conf-label">12.0%</div></div></li><li class="ai-pick wrong-pick"><div>⑤ ㄱ, ㄴ, ㄹ</div><div><div class="conf-bar"><div class="conf-fill" style="width:65%"></div></div><div class="conf-label">65.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ④</span><span><b>AI:</b> ⑤</span></div><div class="reasoning">지도상 위치를 분석하면 A는 중동(페르시아만 근처), B는 러시아 서부, C는 북미 동부, D는 남미 동부로 보입니다.\n\n보기 분석:\n- ㄱ. A에서는 동식식 전통 가옥인 유르트를 볼 수 있다 → A가 중동이면 부적절. 유르트는 중앙아시아/러시아 초원 지역\n- ㄴ. B에는 영구 동토층이 분포한다 → B는 러시아 서부로 영구 동토층 분포 가능 (적절)\n- ㄷ. C에는 타이가 지대가 나타난다 → C는 북미 동부(캐나다)로 타이가 분포 (적절)\n- ㄹ. D에는 캐나다라 불리는 전통적인 지하 관개 수로가 있다 → D는 남미이고, 'qanat'는 페르시아만 지역(A)의 기술\n\n올바른 설명은 ㄴ과 ㄷ입니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">12번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">4.9s</span><span class="mark ng">✗</span></div><div class="question-text">다음 글은 곡물의 지역(대륙)별 생산과 국제적 이동에 관한
+것이다. 이에 대한 설명으로 옳은 것은? (단, A～D는 각각 에스파냐,
+인도, 중국, 프랑스 중 하나임.)
+곡물의 생산량과 소비량은 지역(대륙)별, 국가별로 차이가 있으며,
+이로 인해 곡물의 국제적 이동이 발생한다.
+2023년 기준 지역(대륙)별 전체 곡물 생산량은 (가)가 가장 많고
+다음으로 아메리카, (나) 순이다. 이 중 (가)는 곡물 수입량이 수출량보다
+많고, 아메리카와 (나)는 수출량이 수입량보다 많다.
+이 세 지역(대륙)의 대표적인 순 수출국으로는 (가)의 A, 아메리카의
+미국, (나)의 B 등이 있으며, 순 수입국으로는 (가)의 C, 아메리카의 멕시코,
+(나)의 D 등이 있다.</div><ul class="choices"><li class="ai-pick wrong-pick"><div>① (가)는 (나)보다 1인당 곡물 생산량이 많다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:85%"></div></div><div class="conf-label">85.0%</div></div></li><li class=""><div>② (나)는 (가)보다 쌀 생산량이 많다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="correct-choice"><div>③ A는 B보다 밀 생산량이 많다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>④ C는 A보다 소 사육 두수가 많다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:3%"></div></div><div class="conf-label">3.0%</div></div></li><li class=""><div>⑤ D는 B보다 밀 수출량이 많다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ③</span><span><b>AI:</b> ①</span></div><div class="reasoning">문제를 분석하면: (가)는 곡물 생산량이 가장 많고 아메리카와 순이다는 조건에서 A(미국). (나)는 수출량이 수입량보다 많다는 조건에서 B는 A보다 곡물 생산량이 적다고 명시. (다)는 순 수입국으로 C, D가 해당. 핵심은 (가)의 A=미국이 (나)의 B보다 곡물 생산량이 1인당으로도 많다는 의미. ① (가)는 (나)보다 1인당 곡물 생산량이 많다 - A(미국)는 B보다 전체 생산량도 많고 인구를 고려한 1인당 생산량도 많을 가능성이 높음. ② (나)는 (가)보다 쌀 생산량이 많다 - 틀림(곡물 전체 기준). ③ A는 B보다 밀 생산량이 많다 - 옥수수 등 다른 곡물일 수 있음. ④ C는 A보다 소 사육 두수가 많다 - 근거 부족. ⑤ D는 B보다 밀 수출량이 많다 - 근거 부족. 따라서 ①이 가장 합리적인 결론.</div></div>
+<div class="item correct"><div class="item-header"><span class="qnum">13번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">4.3s</span><span class="mark ok">✓</span></div><div class="question-text">다음 자료에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로
+고른 것은? (단, (가)～(다)는 각각 지도에 표시된 세 국가 중
+하나이고, A～C는 각각 불교, 이슬람교, 힌두교 중 하나임.) [3점]
+&lt;보 기&gt;
+ㄱ. B는 나이지리아 북부 지역 주민들이 주로 믿는 종교이다.
+ㄴ. C는 (다)의 신할리즈족이 주로 믿는 종교이다.
+ㄷ. (가)～(다) 중 A 신자가 가장 많은 국가는 (가)이다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>③ ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>④ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="correct-choice ai-pick"><div>⑤ ㄱ, ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill top" style="width:70%"></div></div><div class="conf-label">70.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> ⑤</span></div><div class="reasoning">표를 분석하면 (가)는 1위 A, 2위 B / (나)는 1위 B, 2위 A / (다)는 1위 C, 2위 A입니다. 지도에서 검은색으로 표시된 지역은 방글라데시(동부 인도)로 보입니다. 보기를 검토하면: ㄱ. B는 남아시아 북부 지역 주민들이 주로 믿는 종교(힌두교) - 인도 관련 ㄴ. C는 (다)의 신할리즈족이 주로 믿는 종교 - 스리랑카는 불교 ㄷ. (가)~(다) 중 A 신자가 가장 많은 국가는 (가)인 이슬람교 - 방글라데시가 (가) 1위 A인 이슬람교 분포 지역 따라서 ㄱ, ㄴ, ㄷ 모두 옳습니다.</div></div>
+<div class="item correct"><div class="item-header"><span class="qnum">14번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">8.1s</span><span class="mark ok">✓</span></div><div class="question-text">지도의 A～E에 대한 설명으로 옳은 것은? [3점]</div><ul class="choices"><li class=""><div>① A는 유라시아판과 태평양판의 경계에 위치한다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② B에는 샌안드레아스 단층선이 지난다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="correct-choice ai-pick"><div>③ C는 ‘불의 고리’에 속한다.</div><div><div class="conf-bar"><div class="conf-fill top" style="width:85%"></div></div><div class="conf-label">85.0%</div></div></li><li class=""><div>④ D에는 아틀라스산맥이 지난다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:3%"></div></div><div class="conf-label">3.0%</div></div></li><li class=""><div>⑤ E는 두 해양 지각이 서로 갈라지는 경계에 위치한다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ③</span><span><b>AI:</b> ③</span></div><div class="reasoning">A는 아프리카판-유라시아판 경계(①거짓), B는 영국으로 샌안드레아스 단층과 무관(②거짓), C는 동남아시아로 불의 고리에 속함(③참), D는 남미로 아틀라스산맥 무관(④거짓), E는 수렴형 경계(⑤거짓)</div></div>
+<div class="item correct"><div class="item-header"><span class="qnum">15번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">8.5s</span><span class="mark ok">✓</span></div><div class="question-text">다음 자료는 미국 6개 도시의 도시 간 거리를 나타낸 것이다.
+(가)～(라) 도시에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로
+고른 것은? (단, (가)～(라)는 각각 로스앤젤레스, 샌프란시스코,
+시카고, 휴스턴 중 하나임.) [3점]
+&lt;보 기&gt;
+ㄱ. (가)에는 세계 영화 산업의 중심지인 할리우드가 있다.
+ㄴ. (다)는 선벨트 지역의 도시로 석유 화학 산업이 발달하였다.
+ㄷ. (라)는 오대호 연안 도시로 내륙 교통의 중심지이다.
+ㄹ. (다)는 (나)보다 고위도에 위치한다.</div><ul class="choices"><li class=""><div>① ㄱ, ㄹ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="correct-choice ai-pick"><div>② ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill top" style="width:92%"></div></div><div class="conf-label">92.0%</div></div></li><li class=""><div>③ ㄷ, ㄹ</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li><li class=""><div>④ ㄱ, ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:1%"></div></div><div class="conf-label">1.0%</div></div></li><li class=""><div>⑤ ㄱ, ㄴ, ㄹ</div><div><div class="conf-bar"><div class="conf-fill" style="width:0%"></div></div><div class="conf-label">0.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ②</span><span><b>AI:</b> ②</span></div><div class="reasoning">표의 거리 관계를 분석하면 (가)는 로스앤젤레스, (나)는 시카고, (다)는 휴스턴, (라)는 뉴욕, (마)는 보스턴입니다. ㄱ은 참(LA는 할리우드 소재), ㄴ은 참(휴스턴은 선벨트 도시로 석유화학 중심), ㄷ은 거짓(뉴욕은 오대호 연안 아님, 대서양 연안), ㄹ은 거짓(휴스턴이 시카고보다 저위도)</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">16번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">5.6s</span><span class="mark ng">✗</span></div><div class="question-text">그래프의 (가)～(다) 국가에 대한 설명으로 옳은 것은? (단,
+(가)～(다)는 각각 사우디아라비아, 이집트, 카자흐스탄 중 하나임.) [3점]</div><ul class="choices"><li class=""><div>① (가)는 총수출액이 총수입액보다 많다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② (나)는 홍해에 접해 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="correct-choice"><div>③ (다)는 (가)보다 화석 에너지 자원의 생산량이 많다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>④ (나)는 아시아, (다)는 아프리카에 위치한다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="ai-pick wrong-pick"><div>⑤ (가)～(다) 중 인구가 가장 많은 국가는 (나)이다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:65%"></div></div><div class="conf-label">65.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ③</span><span><b>AI:</b> ⑤</span></div><div class="reasoning">그래프를 분석하면: (가)는 실선으로 세 축(국도 면적, 1차 산업 종사자 비율, 국내 총생산)에서 가장 높은 값들을 보임. (나)는 선으로 표시되고 (다)는 점선으로 표시됨. (가)의 높은 값들은 선진국의 특징(많은 국도, 높은 생산성). (나)는 (가)보다 모든 축에서 낮으나 1차 산업 비율이 상대적으로 높음(개발도상국 특징). (다)는 점선으로 1차 산업 비율이 매우 높음(최빈국 특징). ① (가)의 총수출액이 총수입액보다 많다는 것은 그래프에서 직접 읽을 수 없음. ② (나)의 흥해에 접해 있다는 것도 확인 불가. ③ (다)가 (가)보다 화석 에너지 자원이 많다는 보장 없음. ④ (나)가 아시아, (다)가 아프리카라는 보장도 정확하지 않음. ⑤ (가)~(다) 중 인구가 가장 많은 국가는 (나)인데, 이는 개발도상국이 일반적으로 높은 인구를 보유하는 특징과 일치함. 따라서 정답은 ⑤.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">17번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">5.6s</span><span class="mark ng">✗</span></div><div class="question-text">다음은 세계지리 수업 장면의 일부이다. 교사의 질문에 모두 옳게
+답한 학생을 고른 것은? [3점]
+학생
+교사의 질문
+갑
+을
+병
+정
+무
+(나)는 내륙국입니까?
+예
+예
+예
+아니요아니요
+(라)는 옥수수의 수출량이 수입량보다
+예
+아니요
+예
+예
+아니요
+많습니까?
+(가)는 (다)보다 수위 도시의 해발 고도가
+예
+예
+아니요
+예
+아니요
+높습니까?</div><ul class="choices"><li class="correct-choice"><div>① 갑</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② 을</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>③ 병</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="ai-pick wrong-pick"><div>④ 정</div><div><div class="conf-bar"><div class="conf-fill" style="width:75%"></div></div><div class="conf-label">75.0%</div></div></li><li class=""><div>⑤ 무</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ①</span><span><b>AI:</b> ④</span></div><div class="reasoning">표를 분석하면, 세 조건을 모두 만족하는 국가를 찾아야 합니다. 조건1: (다)와 (라) 중 국토 면적이 넓은 상위 두 국가는 (다)와 (라)이다 → (가)는 제외. 조건2: (다)에서는 주로 포르투갈어를 사용한다 → (라)는 포르투갈어를 사용하는 국가. 조건3: (나)의 수도는 (가)의 수도보다 고위도에 위치한다. 표를 검토하면: (나)는 내륙국(예), (라)는 옥수수 수출량이 수입량보다 큼(아니요-예-예), (가)는 도시 해발 고도 표현(예-아니요-아니요). 이들 조건을 종합하면 (나)=캐나다, (다)=브라질, (라)=아르헨티나, (가)=호주로 설정될 때 모든 조건이 만족됩니다. 호주의 수도 캔버라(약 35°S)와 캐나다의 오타와(약 45°N)를 비교하면 오타와가 더 고위도에 있습니다. 따라서 정답은 (가)=호주입니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">18번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">4.6s</span><span class="mark ng">✗</span></div><div class="question-text">다음은 (가)～(다) 국가에 대한 자료이다. 이에 대한 설명으로
+옳은 것은?
+지중해와 흑해에 접한 이 국가는 아시아와 유럽을
+잇는 지리적 이점으로 일찍이 교역과 문화 교류의
+요충지로 발전했다. 이 국가의 경제․문화 중심지
+(가)
+㉠
+이자 인구 최대 도시인
+은/는 보스포루스
+해협의 양안에 위치한다.
+카스피해와 페르시아만에 모두 접한 국가로 일찍이
+고대 문명이 발달했다. 인구 최대 도시인 테헤란은
+자동차 및 전자 산업이 발달하였으며, 엘부르즈산맥
+(나)
+남쪽 기슭에 위치한다. 이 국가와 아라비아반도 사이에
+위치한 호르무즈 해협은 에너지 자원의 주요 운송로로
+이용된다.
+화석 에너지 자원이 발견되면서 급속히 성장한
+이 국가는 페르시아만에 위치한 반도국으로 육상으로는
+남쪽의 사우디아라비아, 해상으로는 서쪽의 바레인과
+(다)
+㉡
+접하고 있다. 인구 최대 도시인
+은/는 금융,
+물류의 중심지이자 각종 국제회의 및 스포츠 행사를
+개최하고 있다.</div><ul class="choices"><li class=""><div>① ㉡은 ㉠보다 인구가 많다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② (나)는 수니파가 시아파보다 많다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>③ (다)의 수도는 아부다비이다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class="ai-pick wrong-pick"><div>④ (가)는 (다)보다 1인당 국내 총생산이 많다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:72%"></div></div><div class="conf-label">72.0%</div></div></li><li class="correct-choice"><div>⑤ (다)는 (나)보다 천연가스 수출량이 많다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> ④</span></div><div class="reasoning">세 국가를 분석하면: (가)는 터키(초승달과 별 국기, 보스포루스 해협 언급), (나)는 이란(팔색 국기, 아랍만과의 위치 언급, 석유 자원), (다)는 카타르(톱니 국기, 페르시아만 위치, 천연가스 자원)이다. 인구 측면에서 터키는 약 8천만 명, 이란은 약 8천만 명, 카타르는 약 300만 명이므로 (가)터키와 (나)이란이 (다)카타르보다 훨씬 많다. 따라서 '(가)는 (다)보다 1인당 국내 총생산사이 많다'는 카타르의 높은 1인당 GDP를 감안하면 거짓이고, '(다)는 (나)보다 천연가스 수출량이 많다'는 카타르의 천연가스 수출이 세계 최대임을 고려하면 참이다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">19번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">10.1s</span><span class="mark ng">✗</span></div><div class="question-text">다음 자료에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로
+고른 것은? (단, (가)～(다)는 각각 지도에 표시된 세 경로 중 하나임.)
+◦1월 평균 낮 길이는 (가)～(다) 모두 도착지가 출발지보다 짧다.
+◦북반구 여름은 6～8월, 남반구 여름은 12～2월로 고려할 때, (나)는
+도착지가 출발지보다 여름 강수량이 많고, (가)와 (다)는 모두 출발지가
+도착지보다 여름 강수량이 많다.
+◦(가)의 출발지는 (다)의 출발지보다 1월 평균 정오의 태양 고도가 높다.
+&lt;보 기&gt;
+ㄱ. (가)의 출발지는 7월보다 1월에 열대(적도) 수렴대의 영향을
+많이 받는다.
+ㄴ. (나)의 출발지는 (다)의 출발지보다 기온의 연교차가 크다.
+ㄷ. (나)의 도착지는 (다)의 출발지보다 연 강수량이 많다.
+ㄹ. (다)의 도착지는 (가)의 도착지보다 7월 강수량이 많다.</div><ul class="choices"><li class="ai-pick wrong-pick"><div>① ㄱ, ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:85%"></div></div><div class="conf-label">85.0%</div></div></li><li class=""><div>② ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>③ ㄷ, ㄹ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="correct-choice"><div>④ ㄱ, ㄴ, ㄹ</div><div><div class="conf-bar"><div class="conf-fill" style="width:3%"></div></div><div class="conf-label">3.0%</div></div></li><li class=""><div>⑤ ㄱ, ㄷ, ㄹ</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ④</span><span><b>AI:</b> ①</span></div><div class="reasoning">지도의 세 위치(남미남부, 동아시아, 호주)를 파악하고 각 선택지를 검증. ㄱ은 남반구 (가) 출발지의 1월이 여름으로 따뜻하므로 참. ㄴ은 동아시아 대륙동부가 호주 섬보다 연교차가 크므로 참. ㄷ은 (나) 도착지와 (다) 출발지가 모두 호주로 같은 지점이므로 거짓. ㄹ은 남미남부(겨울)가 호주(겨울)보다 7월 강수량이 적으므로 거짓. 따라서 ㄱ, ㄴ이 정답.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">20번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">6.6s</span><span class="mark ng">✗</span></div><div class="question-text">다음 글의 (가)를 포함하는 지역과 (나)를 포함하는 지역을 각각
+지도의 A～E에서 고른 것은?
+◦(가)는 글래스고와 에든버러 일대의 첨단 산업 클러스터로 그 명칭에는
+‘전자 산업에 필요한 원료 물질’과 ‘계곡’이라는 뜻이 담겨있다. 이 지역은
+산업화 초기에는 조선 및 제철 산업이 발달한 곳이었으나 전자 및
+반도체 기업이 입주하면서 이와 같은 명칭을 얻게 되었다.
+◦(나)는 지중해 연안의 대표적인 휴양 도시인 칸, 니스와 가깝고, 대학과
+다양한 연구 기관이 입지하여 우수한 전문 인력 확보에 유리한 이점을
+지닌다. 이러한 환경을 바탕으로 산․학․연이 조화를 이루는 첨단
+산업 클러스터로 발전하면서 여러 다국적 기업을 유치하였다.
+(가)
+(나)</div><ul class="choices"><li class=""><div>① A
+D</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class="ai-pick wrong-pick"><div>② A
+E</div><div><div class="conf-bar"><div class="conf-fill" style="width:78%"></div></div><div class="conf-label">78.0%</div></div></li><li class=""><div>③ B
+D</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="correct-choice"><div>④ B
+E</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>⑤ C
+D
+* 확인 사항
+◦답안지의 해당란에 필요한 내용을 정확히 기입(표기)했는지 확인
+하시오.</div><div><div class="conf-bar"><div class="conf-fill" style="width:4%"></div></div><div class="conf-label">4.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ④</span><span><b>AI:</b> ②</span></div><div class="reasoning">지문 분석:\n(가) 지역: 전자산업에 중요한 '물질'과 '계곡'이 있고, 조선 및 제철 산업이 발달했으며, 전자 및 반도체 기업이 입주하면서 명칭이 변경된 지역. 이는 영국의 북동부 지역(타인-위어 강 유역) 또는 일본의 공업지역 특성을 보임. 지도상 위치와 산업구조로 볼 때 일본의 공업지역으로 추정되며, A(홋카이도 북부) 또는 B(긴키-주부 중부) 지역이 가능.\n\n(나) 지역: 여관의 대표적 휴양도시(카, 니스), 대학과 다양한 연구기관이 입지하며, 전문인력 확보가 유리한 환경. 산·학·연이 조화를 이루는 첨단산업 클러스터로 발전. 이는 프랑스의 코트다주르(Côte d'Azur) 지역, 특히 소피아 앙티폴리스의 특성과 일치. 지도상 E 지역(지중해 연안).\n\n결론: (가)=A, (나)=E의 조합인 ②번이 정답.</div></div></div>
+<script>
+function filterAll(){setFilter('all')}
+function filterWrong(){setFilter('wrong')}
+function filterCorrect(){setFilter('correct')}
+function setFilter(f){
+  document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
+  document.querySelectorAll('.item').forEach(el=>{
+    const ok=el.classList.contains('correct');
+    el.style.display=(f==='all'||(f==='correct'&&ok)||(f==='wrong'&&!ok))?'':'none';
+  });
+}
+document.querySelectorAll('.question-text').forEach(el=>{
+  el.addEventListener('click',()=>el.classList.toggle('expanded'));
+});
+</script>
+</body>
+</html>

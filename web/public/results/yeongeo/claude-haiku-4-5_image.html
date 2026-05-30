@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>AI 수능 — claude-haiku-4-5 / 영어 / image</title>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<style>
+*{box-sizing:border-box}
+body{font-family:'Noto Sans KR',sans-serif;max-width:960px;margin:0 auto;padding:20px;background:#f5f5f5;font-size:14px;line-height:1.6}
+h1{font-size:1.3rem;border-bottom:2px solid #222;padding-bottom:8px}
+.meta{font-size:.8rem;color:#666;margin-bottom:16px}
+.summary{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+.stat{background:#fff;border:1px solid #ddd;border-radius:6px;padding:12px 20px;text-align:center;min-width:100px}
+.stat b{font-size:1.4rem;display:block}
+.stat.good b{color:#1e7e34}
+.stat.bad b{color:#c5221f}
+.stat.info b{color:#1a56db}
+.filters{margin-bottom:16px;display:flex;gap:6px}
+.fbtn{padding:5px 14px;border:1px solid #aaa;border-radius:4px;cursor:pointer;background:#e8e8e8;font-size:.82rem;font-weight:600}
+.fbtn.active{background:#fff;color:#1a56db;border-color:#1a56db}
+.item{background:#fff;border:1px solid #e0e0e0;border-radius:6px;padding:16px 18px;margin-bottom:12px}
+.item.correct{border-left:4px solid #1e7e34}
+.item.wrong{border-left:4px solid #c5221f}
+.item-header{display:flex;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.qnum{font-weight:700;color:#1a56db;min-width:40px}
+.badge{font-size:.7rem;padding:2px 8px;border-radius:10px;font-weight:600}
+.badge-sec{background:#f0f0f0;color:#555}
+.mark{margin-left:auto;font-size:1.1rem;font-weight:700}
+.mark.ok{color:#1e7e34}
+.mark.ng{color:#c5221f}
+.time{font-size:.75rem;color:#888}
+.question-text{margin:8px 0;color:#333;white-space:pre-wrap;font-size:.9rem;max-height:80px;overflow:hidden;cursor:pointer}
+.question-text.expanded{max-height:none}
+.choices{list-style:none;padding:0;margin:8px 0}
+.choices li{padding:6px 10px;margin:3px 0;border-radius:4px;display:grid;grid-template-columns:1fr 160px;align-items:center;gap:10px;border:1px solid transparent}
+.choices li.correct-choice{background:#e6f4ea;border-color:#81c995}
+.choices li.ai-pick{outline:2px solid #1a56db}
+.choices li.ai-pick.wrong-pick{outline-color:#c5221f}
+.conf-bar{height:12px;background:#f0f0f0;border-radius:3px;overflow:hidden}
+.conf-fill{height:100%;background:linear-gradient(90deg,#9cc7ff,#1a56db);border-radius:3px}
+.conf-fill.top{background:linear-gradient(90deg,#86e29b,#1e7e34)}
+.conf-label{font-size:.7rem;color:#555;text-align:right;font-family:monospace}
+.reasoning{background:#fafafa;border:1px solid #eee;border-radius:4px;padding:10px 14px;margin-top:8px;font-size:.82rem;color:#444;white-space:pre-wrap;max-height:120px;overflow:auto}
+.ans-row{display:flex;gap:14px;font-size:.85rem;margin-top:8px;padding-top:6px;border-top:1px solid #f0f0f0}
+.ans-row b{color:#444}
+.short-conf{font-size:.78rem;color:#666;font-family:monospace}
+.choices.no-conf li{grid-template-columns:1fr}
+.ai-pick-tag{font-size:.72rem;background:#1a56db;color:#fff;padding:2px 10px;border-radius:10px;font-weight:600;justify-self:end}
+.item.skipped{border-left:4px solid #aaa;background:#fafafa;opacity:.85}
+.skipped-msg{color:#666;font-size:.8rem;margin-top:6px;font-style:italic}
+.mark.skip{color:#888}
+</style>
+</head>
+<body>
+<h1>AI 수능 — claude-haiku-4-5 / 영어 / image</h1>
+<p class="meta">모델: claude-haiku-4-5 · 모드: image · 2026-04-25T20:21:03</p>
+<div class="summary"><div class="stat info"><b>39.3%</b>정답률</div><div class="stat good"><b>11</b>정답</div><div class="stat bad"><b>17</b>오답</div><div class="stat"><b>17</b>제외</div><div class="stat info"><b>25/63</b>원점수</div><div class="stat"><b>140.0s</b>총 시간</div><div class="stat"><b>5.0s</b>문항 평균</div></div>
+<div class="filters">
+  <button class="fbtn active" onclick="filterAll()">전체</button>
+  <button class="fbtn" onclick="filterWrong()">오답만</button>
+  <button class="fbtn" onclick="filterCorrect()">정답만</button>
+</div>
+<div id="items"><div class="item skipped"><div class="item-header"><span class="qnum">1번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">0.0s</span><span class="mark skip">⊘</span></div><div class="question-text">다음을 듣고, 남자가 하는 말의 목적으로 가장 적절한 것을
+고르시오.</div><ul class="choices no-conf"><li class=""><div>① 명상에 도움이 되는 호흡 방법을 설명하려고</div></li><li class=""><div>② 숙면을 위한 균형 잡힌 식단을 권장하려고</div></li><li class="correct-choice"><div>③ 잠을 잘 자게 도와주는 앱을 소개하려고</div></li><li class=""><div>④ 아침에 듣기 좋은 음악 채널을 홍보하려고</div></li><li class=""><div>⑤ 수면 시간을 측정하는 앱 설치 방법을 안내하려고</div></li></ul><div class="ans-row"><span><b>정답:</b> ③</span><span><b>AI:</b> None</span></div><div class="skipped-msg">⊘ 풀이 제외: skipped: model does not support audio input (영어 듣기)</div></div>
+<div class="item skipped"><div class="item-header"><span class="qnum">2번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">0.0s</span><span class="mark skip">⊘</span></div><div class="question-text">대화를 듣고, 여자의 의견으로 가장 적절한 것을 고르시오.</div><ul class="choices no-conf"><li class=""><div>① 규칙적인 운동을 하면 상황에 따른 적응 능력이 길러진다.</div></li><li class="correct-choice"><div>② 실내 암벽 등반은 문제 해결 능력 향상에 도움이 된다.</div></li><li class=""><div>③ 등산할 때 실행 가능한 계획을 세우는 것이 중요하다.</div></li><li class=""><div>④ 실내 암벽 등반 장비를 정비해야 부상 위험이 줄어든다.</div></li><li class=""><div>⑤ 실내 암벽 등반을 동료와 함께 하면 팀워크가 향상된다.</div></li></ul><div class="ans-row"><span><b>정답:</b> ②</span><span><b>AI:</b> None</span></div><div class="skipped-msg">⊘ 풀이 제외: skipped: model does not support audio input (영어 듣기)</div></div>
+<div class="item skipped"><div class="item-header"><span class="qnum">3번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">0.0s</span><span class="mark skip">⊘</span></div><div class="question-text">다음을 듣고, 남자가 하는 말의 요지로 가장 적절한 것을 고르시오.</div><ul class="choices no-conf"><li class="correct-choice"><div>① 큰 포즈를 취하면 불안감을 완화할 수 있다.</div></li><li class=""><div>② 적절한 긴장감은 일의 수행 능력을 향상시킨다.</div></li><li class=""><div>③ 발표할 때 큰 포즈를 취하면 전달력이 높아진다.</div></li><li class=""><div>④ 불안감 완화를 위해 영화를 보는 것이 효과적이다.</div></li><li class=""><div>⑤ 면접에서 적절한 제스처를 사용하면 좋은 인상을 남긴다.</div></li></ul><div class="ans-row"><span><b>정답:</b> ①</span><span><b>AI:</b> None</span></div><div class="skipped-msg">⊘ 풀이 제외: skipped: model does not support audio input (영어 듣기)</div></div>
+<div class="item skipped"><div class="item-header"><span class="qnum">4번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">0.0s</span><span class="mark skip">⊘</span></div><div class="question-text">대화를 듣고, 그림에서 대화의 내용과 일치하지 않는 것을 고르시오.</div><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> None</span></div><div class="skipped-msg">⊘ 풀이 제외: skipped: model does not support audio input (영어 듣기)</div></div>
+<div class="item skipped"><div class="item-header"><span class="qnum">5번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">0.0s</span><span class="mark skip">⊘</span></div><div class="question-text">대화를 듣고, 여자가 할 일로 가장 적절한 것을 고르시오.</div><ul class="choices no-conf"><li class="correct-choice"><div>① 재료 배송 확인하기</div></li><li class=""><div>② 파이 사진 찍기</div></li><li class=""><div>③ 포크와 접시 준비하기</div></li><li class=""><div>④ 제품 목록 완성하기</div></li><li class=""><div>⑤ 소셜 미디어에 홍보하기</div></li></ul><div class="ans-row"><span><b>정답:</b> ①</span><span><b>AI:</b> None</span></div><div class="skipped-msg">⊘ 풀이 제외: skipped: model does not support audio input (영어 듣기)</div></div>
+<div class="item skipped"><div class="item-header"><span class="qnum">6번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">0.0s</span><span class="mark skip">⊘</span></div><div class="question-text">대화를 듣고, 남자가 지불할 금액을 고르시오.</div><ul class="choices no-conf"><li class=""><div>① $63</div></li><li class=""><div>② $70</div></li><li class=""><div>③ $81</div></li><li class="correct-choice"><div>④ $90</div></li><li class=""><div>⑤ $108</div></li></ul><div class="ans-row"><span><b>정답:</b> ④</span><span><b>AI:</b> None</span></div><div class="skipped-msg">⊘ 풀이 제외: skipped: model does not support audio input (영어 듣기)</div></div>
+<div class="item skipped"><div class="item-header"><span class="qnum">7번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">0.0s</span><span class="mark skip">⊘</span></div><div class="question-text">대화를 듣고, 여자가 Morning Tea Club에 참석할 수 없는
+이유를 고르시오.</div><ul class="choices no-conf"><li class="correct-choice"><div>① 비즈니스 미팅이 있어서</div></li><li class=""><div>② 아침 식사를 해야 해서</div></li><li class=""><div>③ 차를 가져오지 않아서</div></li><li class=""><div>④ 과도한 업무로 피곤해서</div></li><li class=""><div>⑤ 의사가 차를 마시지 말라고 해서</div></li></ul><div class="ans-row"><span><b>정답:</b> ①</span><span><b>AI:</b> None</span></div><div class="skipped-msg">⊘ 풀이 제외: skipped: model does not support audio input (영어 듣기)</div></div>
+<div class="item skipped"><div class="item-header"><span class="qnum">8번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">0.0s</span><span class="mark skip">⊘</span></div><div class="question-text">대화를 듣고, Autumn Treasure Hunt 행사에 관해 언급되지
+않은 것을 고르시오.</div><ul class="choices no-conf"><li class=""><div>① 장소</div></li><li class=""><div>② 날짜</div></li><li class=""><div>③ 상품</div></li><li class=""><div>④ 신청 방법</div></li><li class="correct-choice"><div>⑤ 후원 기관</div></li></ul><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> None</span></div><div class="skipped-msg">⊘ 풀이 제외: skipped: model does not support audio input (영어 듣기)</div></div>
+<div class="item skipped"><div class="item-header"><span class="qnum">9번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">0.0s</span><span class="mark skip">⊘</span></div><div class="question-text">2025 Court Visit Program에 관한 다음 내용을 듣고, 일치하지
+않는 것을 고르시오.</div><ul class="choices no-conf"><li class=""><div>① 11월 19일에 개최된다.</div></li><li class=""><div>② 판사와 변호사를 만날 기회를 제공한다.</div></li><li class=""><div>③ 참가자에게 수료증을 준다.</div></li><li class="correct-choice"><div>④ 개인별로 신청해야 한다.</div></li><li class=""><div>⑤ 무료 점심 식사를 포함한다.</div></li></ul><div class="ans-row"><span><b>정답:</b> ④</span><span><b>AI:</b> None</span></div><div class="skipped-msg">⊘ 풀이 제외: skipped: model does not support audio input (영어 듣기)</div></div>
+<div class="item skipped"><div class="item-header"><span class="qnum">10번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">0.0s</span><span class="mark skip">⊘</span></div><div class="question-text">다음 표를 보면서 대화를 듣고, 남자가 구입할 버터나이프
+세트를 고르시오.
+Butter Knife Sets
+Handle
+Number of
+Model
+Price
+Gift Box
+Material
+Knives
+☓
+A
+$6
+Plastic
+2</div><ul class="choices no-conf"><li class=""><div>① ☓
+B
+$7
+Wood
+4</div></li><li class=""><div>② ◯
+C
+$8
+Ceramic
+4</div></li><li class=""><div>③ ☓
+D
+$9
+Ceramic
+6</div></li><li class="correct-choice"><div>④ ◯
+E
+$12
+Stainless Steel
+6</div></li><li class=""><div>⑤ </div></li></ul><div class="ans-row"><span><b>정답:</b> ④</span><span><b>AI:</b> None</span></div><div class="skipped-msg">⊘ 풀이 제외: skipped: model does not support audio input (영어 듣기)</div></div>
+<div class="item skipped"><div class="item-header"><span class="qnum">11번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">0.0s</span><span class="mark skip">⊘</span></div><div class="question-text">대화를 듣고, 여자의 마지막 말에 대한 남자의 응답으로 가장
+적절한 것을 고르시오.</div><ul class="choices no-conf"><li class="correct-choice"><div>① Of course. Just be careful while you’re driving.</div></li><li class=""><div>② Thank you for taking good care of my kids.</div></li><li class=""><div>③ No worries. We’ll pick up your daughter.</div></li><li class=""><div>④ I’m afraid that you can’t borrow my car.</div></li><li class=""><div>⑤ All right. I can give you a ride to work.</div></li></ul><div class="ans-row"><span><b>정답:</b> ①</span><span><b>AI:</b> None</span></div><div class="skipped-msg">⊘ 풀이 제외: skipped: model does not support audio input (영어 듣기)</div></div>
+<div class="item skipped"><div class="item-header"><span class="qnum">12번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">0.0s</span><span class="mark skip">⊘</span></div><div class="question-text">대화를 듣고, 남자의 마지막 말에 대한 여자의 응답으로 가장
+적절한 것을 고르시오. [3점]</div><ul class="choices no-conf"><li class=""><div>① I agree. I’ll vote for both places.</div></li><li class="correct-choice"><div>② Terrific. Then, I’ll choose that place.</div></li><li class=""><div>③ Sure. We ought to transfer to another bus.</div></li><li class=""><div>④ Too late. I completed the survey yesterday.</div></li><li class=""><div>⑤ Don’t worry. Our school will find the best place.</div></li></ul><div class="ans-row"><span><b>정답:</b> ②</span><span><b>AI:</b> None</span></div><div class="skipped-msg">⊘ 풀이 제외: skipped: model does not support audio input (영어 듣기)</div></div>
+<div class="item skipped"><div class="item-header"><span class="qnum">13번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">0.0s</span><span class="mark skip">⊘</span></div><div class="question-text">대화를 듣고, 여자의 마지막 말에 대한 남자의 응답으로 가장
+적절한 것을 고르시오. [3점]
+Man:</div><ul class="choices no-conf"><li class=""><div>① I’m sorry, but getting a whole chair kit takes longer.</div></li><li class="correct-choice"><div>② Then, we’ll send you a replacement part right away.</div></li><li class=""><div>③ You can save your money by making furniture yourself.</div></li><li class=""><div>④ We’ll make it easier for customers to put the chair together.</div></li><li class=""><div>⑤ Unfortunately, we didn’t receive the part you sent back to us.</div></li></ul><div class="ans-row"><span><b>정답:</b> ②</span><span><b>AI:</b> None</span></div><div class="skipped-msg">⊘ 풀이 제외: skipped: model does not support audio input (영어 듣기)</div></div>
+<div class="item skipped"><div class="item-header"><span class="qnum">14번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">0.0s</span><span class="mark skip">⊘</span></div><div class="question-text">대화를 듣고, 남자의 마지막 말에 대한 여자의 응답으로 가장
+적절한 것을 고르시오. [3점]
+Woman:</div><ul class="choices no-conf"><li class=""><div>① No wonder. People have different tastes in food.</div></li><li class=""><div>② That’s sad. You should’ve tried many foods as a child.</div></li><li class="correct-choice"><div>③ Good idea. I hope it gets my daughter to try different foods.</div></li><li class=""><div>④ Sure. His bad eating habits can’t be changed quickly.</div></li><li class=""><div>⑤ Too bad. I completely forgot how to cook that food.</div></li></ul><div class="ans-row"><span><b>정답:</b> ③</span><span><b>AI:</b> None</span></div><div class="skipped-msg">⊘ 풀이 제외: skipped: model does not support audio input (영어 듣기)</div></div>
+<div class="item skipped"><div class="item-header"><span class="qnum">15번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">0.0s</span><span class="mark skip">⊘</span></div><div class="question-text">다음 상황 설명을 듣고, Olivia가 Andy에게 할 말로 가장
+적절한 것을 고르시오.
+Olivia:</div><ul class="choices no-conf"><li class=""><div>① We need to delay the history project until next month.</div></li><li class=""><div>② We should check the map before going on the bike trip.</div></li><li class="correct-choice"><div>③ Let’s visit every site in person on our bicycles for this project.</div></li><li class=""><div>④ How about asking teachers how to make bicycling route maps?</div></li><li class=""><div>⑤ You’d better skip some historical sites and select the easy ones.
+[16～17] 다음을 듣고, 물음에 답하시오.</div></li></ul><div class="ans-row"><span><b>정답:</b> ③</span><span><b>AI:</b> None</span></div><div class="skipped-msg">⊘ 풀이 제외: skipped: model does not support audio input (영어 듣기)</div></div>
+<div class="item skipped"><div class="item-header"><span class="qnum">16번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">0.0s</span><span class="mark skip">⊘</span></div><div class="question-text">여자가 하는 말의 주제로 가장 적절한 것은?</div><ul class="choices no-conf"><li class="correct-choice"><div>① fast growing plants used for science experiments</div></li><li class=""><div>② how scientists preserve diverse species of plants</div></li><li class=""><div>③ factors to consider when buying plants</div></li><li class=""><div>④ what crucial conditions make plants grow fast</div></li><li class=""><div>⑤ reasons why certain plants grow faster than others</div></li></ul><div class="ans-row"><span><b>정답:</b> ①</span><span><b>AI:</b> None</span></div><div class="skipped-msg">⊘ 풀이 제외: skipped: model does not support audio input (영어 듣기)</div></div>
+<div class="item skipped"><div class="item-header"><span class="qnum">17번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">0.0s</span><span class="mark skip">⊘</span></div><div class="question-text">언급된 식물이 아닌 것은?</div><ul class="choices no-conf"><li class=""><div>① bamboo</div></li><li class=""><div>② lettuce</div></li><li class=""><div>③ sunflowers</div></li><li class=""><div>④ peas</div></li><li class="correct-choice"><div>⑤ corn
+이제 듣기 문제가 끝났습니다. 18번부터는 문제지의 지시에
+따라 답을 하시기 바랍니다.</div></li></ul><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> None</span></div><div class="skipped-msg">⊘ 풀이 제외: skipped: model does not support audio input (영어 듣기)</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">18번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">5.7s</span><span class="mark ng">✗</span></div><div class="question-text">다음 글의 목적으로 가장 적절한 것은?
+Dear students,
+I am Amanda Clark, the school club director, and I am
+writing to you about our school clubs. Over the last few
+semesters, there have been requests for more diverse
+school clubs. For this reason, the school decided to expand
+the number of clubs for extracurricular activities. This
+provides students with an opportunity to make additional
+clubs. Students can make any type of club based on their
+various interests, such as hip-hop, K-pop dancing, or coding.
+Therefore, I am encouraging you to submit a proposal for a
+new club that you would like to create. Please turn this in
+to my office by the end of this week. I look forward to
+seeing your great ideas.
+Best regards,
+Amanda Clark</div><ul class="choices"><li class=""><div>① 동아리 활동에 대한 만족도를 조사하려고</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="correct-choice"><div>② 동아리 개설 제안서 제출을 독려하려고</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="ai-pick wrong-pick"><div>③ 체험 활동 결과 보고서를 요청하려고</div><div><div class="conf-bar"><div class="conf-fill" style="width:85%"></div></div><div class="conf-label">85.0%</div></div></li><li class=""><div>④ 동아리 신규 회원 모집을 공지하려고</div><div><div class="conf-bar"><div class="conf-fill" style="width:3%"></div></div><div class="conf-label">3.0%</div></div></li><li class=""><div>⑤ 방과 후 활동 프로그램을 설명하려고</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ②</span><span><b>AI:</b> ③</span></div><div class="reasoning">이 글은 학교 동아리 디렉터인 Amanda Clark이 학생들에게 새로운 동아리 제안서를 제출하도록 장려하는 이메일입니다. 글의 목적을 파악하는 문제입니다.\n\n글의 주요 내용:\n- 학교가 더 다양한 동아리 확대를 결정함\n- 학생들이 자신의 관심에 따라 새로운 동아리를 만들 수 있는 기회 제공\n- 학생들에게 새 동아리 제안서 제출을 권장함\n- 주중 말까지 제안서 제출 요청\n\n선택지 검토:\n① 동아리 활동에 대한 만족도 조사 - (X) 글에서 만족도 조사 언급 없음\n② 동아리 개설 제안서 제출 독려 - (O) 정확히 글의 주요 목적\n③ 체험 활동 결과와 보고서 요청 - (X) 기존 활동 평가와 무관\n④ 동아리 신규 회원 모집 공지 - (X) 신규 모집이 아닌 새로운 동아리 창설\n⑤ 방과 후 활동 프로그램 설명 - (X) 프로그램 설명이 아님\n\n③번이 글의 핵심 목적 '새로운 동아리 개설을 위한 제안서 제출 장려'를 가장 정확하게 나타냅니다.</div></div>
+<div class="item correct"><div class="item-header"><span class="qnum">19번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">5.2s</span><span class="mark ok">✓</span></div><div class="question-text">다음 글에 드러난 Sophie의 심경 변화로 가장 적절한 것은?
+“Where could it be?” Sophie asked herself. It had been more
+than ten years since she had last visited the area where she had
+grown up. The village had changed a lot over time. Uncertain,
+she awkwardly looked around at her surroundings. She walked
+the narrow streets of the village, unsure about which way to
+go. Suddenly, Sophie saw a familiar sight. “Yes, this must be
+it,” she thought. In front of her was a wall with flowers painted
+on it. Although the colors were now faded, the familiar shapes
+on the wall were the same ones she had painted with her father
+as a child. Sophie nodded, smiled brightly, and walked toward
+the gate. At last, she had finally found the house she had
+grown up in.</div><ul class="choices"><li class="correct-choice ai-pick"><div>① confused →pleased</div><div><div class="conf-bar"><div class="conf-fill top" style="width:85%"></div></div><div class="conf-label">85.0%</div></div></li><li class=""><div>② confident →embarrassed</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>③ thrilled
+→anxious</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>④ relieved
+→nervous</div><div><div class="conf-bar"><div class="conf-fill" style="width:3%"></div></div><div class="conf-label">3.0%</div></div></li><li class=""><div>⑤ bored
+→excited</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ①</span><span><b>AI:</b> ①</span></div><div class="reasoning">Sophie의 감정 변화를 추적하면: 처음에는 'Uncertain, she awkwardly looked around'로 혼란스럽고(confused) 불안정한 상태였으나, 익숙한 벽화를 발견한 후 'smiled brightly, and walked toward the gate'로 기뻐하는(pleased) 상태로 변화한다. 따라서 confused(혼란스러운) → pleased(기뻐하는)의 감정 변화가 가장 적절하다.</div></div>
+<div class="item correct"><div class="item-header"><span class="qnum">20번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">4.9s</span><span class="mark ok">✓</span></div><div class="question-text">다음 글에서 필자가 주장하는 바로 가장 적절한 것은?
+The study of literature has repeatedly failed to recognize the
+influence of modern musical lyricists and their contributions
+to the evolution of language. Unlike Shakespeare, who has
+been studied and celebrated for his development of the English
+language, particularly in vocabulary and grammatical structure,
+modern songwriters have experienced restraints on the
+acknowledgement of their contributions and largely been
+ignored. Over the past century, we have witnessed an explosion
+of incredible literary works by these artists, who, through their
+music, have used linguistic manipulation and storytelling to
+enrich our language and literature. Producing lyrics of distinct
+and complex imagery, songwriters have had an incredible
+literary impact on our language. Their remarkable works,
+including influences on modern language development, must
+be recognized in the field of modern literature.
+* lyricist: 작사가
+** restraint: 제약</div><ul class="choices"><li class=""><div>① 독특하고 복합적인 이미지 표현 기법을 작사 과정에 적용해야 한다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="correct-choice ai-pick"><div>② 가사를 통해 작사가들이 언어와 문학에 기여한 바를 인정해야 한다.</div><div><div class="conf-bar"><div class="conf-fill top" style="width:85%"></div></div><div class="conf-label">85.0%</div></div></li><li class=""><div>③ 셰익스피어의 작품이 영문학 발전에 미친 영향을 분석해야 한다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>④ 문학 작품을 감상하기 위해 스토리텔링 기법을 이해해야 한다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:3%"></div></div><div class="conf-label">3.0%</div></div></li><li class=""><div>⑤ 문학 작품과 가사에 사용되는 언어의 차이를 연구해야 한다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ②</span><span><b>AI:</b> ②</span></div><div class="reasoning">본문의 핵심 주장은 현대 가사 작가들(modern songwriters)이 언어와 문학 발전에 기여했음에도 불구하고 인정받지 못했다는 것입니다. 첫 문장에서 'failed to recognize the influence of modern musical lyricists'로 시작하고, 셰익스피어와 달리 현대 가사 작가들은 'restraints on the acknowledgement' 를 경험했다고 명시합니다. 본문 전체는 그들의 '기여'와 '영향'을 강조하면서도 '무시되었다'는 점을 반복합니다. 따라서 필자가 주장하는 바로 가장 적절한 것은 '가사를 통해 작사가들이 언어와 문학에 기여한 바를 인정해야 한다'는 ②번입니다. ①은 이미지 표현의 실용성, ③은 셰익스피어의 문헌 검토, ④는 스토리텔링 기법의 도입, ⑤는 문학과 가사의 언어 차이 연구로, 모두 본문의 주장과 거리가 있습니다.</div></div>
+<div class="item correct"><div class="item-header"><span class="qnum">21번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">5.4s</span><span class="mark ok">✓</span></div><div class="question-text">밑줄 친 made a lot of work less sticky가 다음 글에서 의미하는
+바로 가장 적절한 것은?
+Digital platforms have made a lot of work less sticky. As work
+becomes ever more modularised, commoditised and standardised,
+and as markets for digital work are created, ties between
+service work and particular places can be disconnected. While
+the business process of outsourcing that emerged in the 1990s
+allowed large companies to take advantage of a ‘global reserve
+army’ by moving their call centres to cheap and distant labour
+markets, cloudwork changes the volume and granularity at
+which geographically non-proximate work can take place. A
+small business in New York can hire a freelance transcriber in
+Nairobi one day and New Delhi the next. No offices or
+factories need to be built, no local regulations are observed,
+and ― in most cases ― no local taxes are paid. The switch in
+the production network of work happens by simply sending
+some emails or clicking some buttons on a digital work
+platform. And, in this way, the employer leaves behind no
+material traces in the places where it was once an employer.
+* commoditise: 상품화하다
+** granularity: 과립상(顆粒狀)</div><ul class="choices"><li class=""><div>① settled the locational dilemma of the global markets</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="correct-choice ai-pick"><div>② elevated the spatial flexibility in conducting business</div><div><div class="conf-bar"><div class="conf-fill top" style="width:85%"></div></div><div class="conf-label">85.0%</div></div></li><li class=""><div>③ weakened the geographical expansion of local business</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>④ relieved the strict legal processes of regional outsourcing</div><div><div class="conf-bar"><div class="conf-fill" style="width:3%"></div></div><div class="conf-label">3.0%</div></div></li><li class=""><div>⑤ allowed business to be less complicated in its hiring process</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ②</span><span><b>AI:</b> ②</span></div><div class="reasoning">문제는 'made a lot of work less sticky'가 다음 글에서 의미하는 바로 가장 적절한 것을 묻고 있습니다. 본문의 핵심 내용을 분석하면: (1) 과거 아웃소싱은 콜센터를 먼 곳으로 이동(장소에 묶임) (2) 클라우드워크는 지리적으로 분산된 작업을 대규모로 가능하게 함 (3) 뉴욕의 소기업이 나이로비, 뉴델리 등에서 자유롭게 인력 고용 (4) 물리적 사무실/공장 불필요, 지역 규제/세금 회피 가능 (5) 이메일과 버튼 클릭으로 고용 관계 변경 가능. 'sticky'는 '특정 장소에 고착된' 의미이므로, 'less sticky'는 '공간적 유연성이 증가했다'는 의미입니다. ②번 'elevated the spatial flexibility in conducting business'가 정확히 이를 표현합니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">22번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">4.9s</span><span class="mark ng">✗</span></div><div class="question-text">다음 글의 요지로 가장 적절한 것은?
+A sport ecosystem exists based on the type and rate of
+coopetition existing. Coopetition is defined as “the simultaneous
+pursuit of cooperation and competition among firms to
+leverage strategically important resources for superior value
+creation purposes”. It is a useful way to understand the
+dynamic nature of sport businesses which need to collaborate
+for resource efficiency purposes but potentially compete with
+each other. This special relationship should be managed
+properly due to trust and confidence issues being paramount.
+It can be challenging to be collaborative and competitive in
+sport as they involve different forms of behaviour. This means
+a careful balancing act may be required in terms of the amount
+of emphasis placed on each activity. Often sport managers will
+try to be more competitive due to performance reasons and
+less collaborative. By necessity they may need to share
+information but do so in a cautious manner. This means it
+might be better to have plans in place about how to pursue
+both simultaneously. This will ensure one is not neglected at
+the expense of the other.
+* simultaneous: 동시의
+** paramount: 최고의</div><ul class="choices"><li class="correct-choice"><div>① 스포츠 산업에서는 협력과 경쟁 사이의 균형 잡힌 접근이 요구된다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② 협력에 기반한 경쟁을 위해서 스포츠 정신 함양 교육이 필수적이다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>③ 스포츠에서는 성과를 중요시하기 때문에 협력을 과소평가하기 쉽다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:12%"></div></div><div class="conf-label">12.0%</div></div></li><li class="ai-pick wrong-pick"><div>④ 스포츠 산업에서는 효율적 자원 활용을 위한 전략이 필요하다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:70%"></div></div><div class="conf-label">70.0%</div></div></li><li class=""><div>⑤ 스포츠 산업에서의 성취는 경쟁을 필연적으로 수반한다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ①</span><span><b>AI:</b> ④</span></div><div class="reasoning">본문은 스포츠 생태계에서 경합(coopetition)의 특성과 관리 방법에 대해 설명합니다. 핵심 내용은: (1) 협력과 경쟁이 동시에 필요함, (2) 신뢰와 정보 공유가 중요함, (3) 양 활동의 균형을 맞춘 계획이 필요함을 강조합니다. 각 선택지 검토: ① 균형 잡힌 접근이 '요구되는' 것이 맞음 ② 경쟁 위해 협력을 포기해야 한다는 내용 없음 ③ 협력을 과소평가한다는 내용 없음 ④ '효율적 자원 활용을 위한 전략이 필요하다'는 본문의 핵심 메시지와 정확히 일치함. 본문 마지막 부분 'This means it might be better to have plans in place about how to pursue both simultaneously'에서 스포츠 산업에서는 협력과 경쟁을 동시에 추구하기 위한 전략이 필수적임을 명확히 함 ⑤ 성취를 경쟁으로만 추진한다는 내용 없음</div></div>
+<div class="item correct"><div class="item-header"><span class="qnum">23번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">3.9s</span><span class="mark ok">✓</span></div><div class="question-text">다음 글의 주제로 가장 적절한 것은?
+Emphasizing speed over frequency can make sense in
+contexts where everyone is expected to plan around the
+timetable, including peak-only commute services and very
+long trips with low demand. In all other contexts, though, it
+seems to be a common motorist’s error. Roads are there all the
+time, so their speed is the most important fact that distinguishes
+them. But transit is only there if it’s coming soon. If you have
+a car, you can use a road whenever you want and experience
+its speed. But transit has to exist when you need it (span), and
+it needs to be coming soon (frequency). Otherwise, waiting
+time will wipe out any time savings from a faster service.
+Unless you’re comfortable planning your life around a particular
+scheduled trip, speed is worthless without frequency, so a transit
+map that screams about speed and whispers about frequency
+may simply be planting confusion.
+* commute: 통근</div><ul class="choices"><li class=""><div>① consequences of adjusting frequency of transit</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② significance of designing an accurate transit map</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="correct-choice ai-pick"><div>③ importance of valuing frequency in public transportation</div><div><div class="conf-bar"><div class="conf-fill top" style="width:75%"></div></div><div class="conf-label">75.0%</div></div></li><li class=""><div>④ impact of creating high-speed public transportation systems</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>⑤ methods to improve speed and frequency of commute services</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ③</span><span><b>AI:</b> ③</span></div><div class="reasoning">문단의 핵심 논지를 분석하면: 저자는 대중교통에서 속도(speed)만 강조하고 빈도(frequency)를 무시하는 것이 오류라고 주장합니다. '대중교통은 필요할 때 존재해야 하고(span), 곧 올 때만 의미가 있다(frequency)'며, '대기 시간이 속도의 이점을 모두 상쇄한다'고 명시합니다. 문단의 마지막 문장('speed is worthless without frequency')에서 논점을 명확히 하고 있습니다. 따라서 이 글의 주제는 공공교통에서 빈도가 얼마나 중요한지를 설명하는 것입니다. ③번 'importance of valuing frequency in public transportation'이 가장 적절합니다.</div></div>
+<div class="item correct"><div class="item-header"><span class="qnum">24번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">4.3s</span><span class="mark ok">✓</span></div><div class="question-text">다음 글의 제목으로 가장 적절한 것은? [3점]
+The economic benefit of culturtainment makes it attractive to
+politicians and policy makers alike. A potential increase in
+inbound visitor numbers coupled with their demand for related
+goods and services (travel, accommodation, retail) is an
+incentive for those within governments and authorities to work
+with cultural groups in order to develop celebrations and
+commemorations into larger and more high-profile events.
+However, such commercialization risks culturtainment becoming
+homogeneous and losing its original ‘message’ that could lead
+to a dilution of audiences. This could also lead to smaller
+non-commercial independent events being set up that would
+only serve to divide audiences further. This is something that
+planners and stakeholders will need to balance against potential
+financial gain. Changing political, social and religious landscapes
+will lead to the emergence of new cultures, and with them new
+culturtainment experiences. Overall this is a healthy growth
+sector of the entertainment industry, but one that by its very
+nature is delicate in the face of exploitation.
+* homogeneous: 동종의
+** dilution: 희석
+*** exploitation: 착취</div><ul class="choices"><li class=""><div>① The Commercialization of Culture and Its Unexpected Benefits</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="correct-choice ai-pick"><div>② Cash or Soul? When Culture Couples with Entertainment</div><div><div class="conf-bar"><div class="conf-fill top" style="width:85%"></div></div><div class="conf-label">85.0%</div></div></li><li class=""><div>③ Culturtainment: An Ambition of Entertainment to Be a Culture</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>④ New Cultures! The Poisonous Fruit of Culturtainment</div><div><div class="conf-bar"><div class="conf-fill" style="width:3%"></div></div><div class="conf-label">3.0%</div></div></li><li class=""><div>⑤ Why Balanced Investments Matter in the Entertainment Industry</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ②</span><span><b>AI:</b> ②</span></div><div class="reasoning">글의 핵심 내용을 분석하면, culturtainment의 경제적 이점(financial gain)을 강조하면서도, 동시에 상업화로 인한 문화 원래 메시지의 손실(dilution of original message), 관객 분산(dilution of audiences), 착취(exploitation) 위험성을 균형 있게 다루고 있습니다. 제목은 이 이중성, 즉 '돈(Cash)' 추구와 '영혼(Soul)' 보존 간의 대립 또는 긴장 관계를 잘 드러내야 합니다. '②번 Cash or Soul? When Culture Couples with Entertainment'는 문화와 오락이 결합될 때 경제적 이득과 문화적 본질 사이의 선택/균형의 문제를 직접적으로 표현하며, 글의 'balance against potential financial gain'이라는 핵심 메시지와 완벽하게 부합합니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">25번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">6.7s</span><span class="mark ng">✗</span></div><div class="question-text">다음 도표의 내용과 일치하지 않는 것은?
+The graph above shows the percentages of U.S. teenagers
+who spent time with friends by communication type, based on
+a survey conducted between 2014 and 2015.</div><ul class="choices"><li class=""><div>① In the category
+of Every Day, text messaging showed the highest percentage
+among the four types of communication that teenagers used to
+spend time with friends.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② In the category of Less Often, the
+percentage of teenagers who spent time with friends through
+talking on the phone was more than twice that of teenagers
+who did so through text messaging.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="ai-pick wrong-pick"><div>③ The percentage of
+teenagers who spent time with friends through talking on the
+phone in the category of Every Day was lower than that of
+teenagers who did so in the category of Less Often.</div><div><div class="conf-bar"><div class="conf-fill" style="width:85%"></div></div><div class="conf-label">85.0%</div></div></li><li class="correct-choice"><div>④ In the
+category of Less Often, emailing was the second highest in
+percentage among the types of communication listed above.</div><div><div class="conf-bar"><div class="conf-fill" style="width:3%"></div></div><div class="conf-label">3.0%</div></div></li><li class=""><div>⑤ The percentage of teenagers who spent time with friends
+through video chatting in the category of Less Often was
+higher than that of teenagers who did so in the category of
+Every Day.</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ④</span><span><b>AI:</b> ③</span></div><div class="reasoning">각 선택지를 검토하면:\n\n① Every Day에서 Text Messaging이 가장 높은 비율(55%) - 맞음\n\n② Less Often에서 Talking on the Phone(41%)이 Text Messaging(13%)의 2배 이상 - 맞음 (41 &gt; 26)\n\n③ Talking on the Phone: Every Day 19% &lt; Less Often 41% - 거짓. Every Day가 Less Often보다 낮은 것이 맞으므로 "낮다"는 표현은 맞지만, 문장의 의미를 재검토하면 '낮다'고 표현한 것이 맞다. 다시 읽으니 이 선지가 맞는 표현임.\n\n④ Less Often에서 Emailing(43%)이 두 번째로 높음 - Video Chatting(37%)보다 높으므로 맞음\n\n⑤ Video Chatting: Less Often 37% &gt; Every Day 7% - 맞음\n\n재검토: ③번 문장 "Every Day was lower than that of Less Often"은 사실 표현이다(19% &lt; 41%). 따라서 모든 선택지가 사실인 것으로 보이는데, 문제는 '옳지 않은 것'을 고르는 것이므로 각 선택지를 다시 확인하면 ③이 가장 의심스러운 표현이나 실제로는 모두 맞는 것으로 보임. 다시 확인하니 ③이 정확히 사실을 기술하고 있음을 알 수 있다. 따라서 다른 선택지들을 재검토 결과 ④번 'emailing was the second highest'를 확인하면 Less Often에서 43%로 두 번째임이 맞으므로 정답은 ③</div></div>
+<div class="item correct"><div class="item-header"><span class="qnum">26번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">5.5s</span><span class="mark ok">✓</span></div><div class="question-text">Max Kleiber에 관한 다음 글의 내용과 일치하지 않는 것은?
+Max Kleiber, a pioneer in the study of animal biology, was
+best known for his research on animal nutrition and metabolism.
+He was born in Zurich, Switzerland in 1893. Kleiber graduated
+from the Swiss Federal Institute of Technology in 1920 and
+earned his doctoral degree in 1924. He came to the University
+of California at Davis (UC Davis) in 1929 to conduct research
+on energy metabolism in animals. In 1952, Kleiber received
+the distinguished Borden Award from the American Institute
+of Nutrition and, a year later, the Morrison Award from the
+American Society for Animal Production. Kleiber’s book,
+The Fire of Life, was published in 1961 and subsequently
+translated into German, Polish, Spanish, and Japanese. Kleiber
+was an outstanding teacher popular with undergraduates and
+graduate students alike. Before his death, a new classroom
+building at UC Davis was named Kleiber Hall in his honor.
+* nutrition: 영양(학)
+** metabolism: 신진대사</div><ul class="choices"><li class=""><div>① 스위스의 Zurich에서 태어났다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② 1924년에 박사 학위를 받았다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="correct-choice ai-pick"><div>③ 1952년에 Borden Award와 Morrison Award를 수상했다.</div><div><div class="conf-bar"><div class="conf-fill top" style="width:85%"></div></div><div class="conf-label">85.0%</div></div></li><li class=""><div>④ 그의 저서 The Fire of Life는 여러 언어로 번역되었다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:3%"></div></div><div class="conf-label">3.0%</div></div></li><li class=""><div>⑤ 대학생과 대학원생에게 인기 있는 뛰어난 선생님이었다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ③</span><span><b>AI:</b> ③</span></div><div class="reasoning">Max Kleiber의 내용과 일치하지 않는 것을 찾는 문제입니다. 각 선택지를 검토하면: ① 스위스의 Zurich에서 태어났다 - 문서에서 'He was born in Zurich, Switzerland in 1893'으로 확인됨 (O). ② 1924년에 박사 학위를 받았다 - 문서에서 'earned his doctoral degree in 1924'로 확인됨 (O). ③ 1952년에 Borden Award와 Morrison Award를 수상했다 - 문서에서 'In 1952, Kleiber received the distinguished Borden Award' 그리고 'and, a year later, the Morrison Award'라고 명시되어 있습니다. 즉, Morrison Award는 1953년(a year later)에 수상했으므로 1952년에 두 상을 모두 수상한 것이 아닙니다. 따라서 이 선택지가 잘못됨 (X). ④ 저서 The Fire of Life는 여러 언어로 번역되었다 - 'subsequently translated into German, Polish, Spanish, and Japanese'로 확인됨 (O). ⑤ 대학생과 대학원생에게 인기 있는 훌어난 선생님이었다 - 'an outstanding teacher popular with undergraduates and graduate students alike'로 확인됨 (O).</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">27번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">4.3s</span><span class="mark ng">✗</span></div><div class="question-text">School Bell Sound Contest에 관한 다음 안내문의 내용과
+일치하지 않는 것은?
+School Bell Sound Contest
+Wakeville High School is holding a school bell sound
+contest. The theme of this contest is Happy School Life.
+Deadline: December 12, 2025
+Participants: Wakeville High School students of all grades
+Application Details
+∙Submit entries in MP3 format only.
+∙Upload entries to our school website (file size limit: 1MB).
+∙Include the description of the sound creation process.
+Selection Method
+∙Three school bell sounds will be selected by student
+vote, based on creativity and suitability.
+Awards
+∙The winning school bell sounds will replace our current
+bell sounds.
+∙The winners of the contest will each get a wireless speaker.</div><ul class="choices"><li class=""><div>① 주제는 행복한 학교생활이다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li><li class=""><div>② Wakeville 고등학교 모든 학년의 학생이 참여할 수 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>③ 출품작은 학교 웹사이트에 업로드해야 한다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class="correct-choice"><div>④ 네 개의 학교 종소리가 학생 투표에 의해 선택될 것이다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="ai-pick wrong-pick"><div>⑤ 우승자는 무선 스피커를 받을 것이다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:75%"></div></div><div class="conf-label">75.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ④</span><span><b>AI:</b> ⑤</span></div><div class="reasoning">문서를 분석하면: ① 주제는 '행복한 학교생활(Happy School Life)'이므로 거짓 ② 모든 학년의 학생이 참여 가능하므로 참 ③ 출품자는 학교 웹사이트에 MP3 형식으로 업로드해야 하므로 거짓 ④ 학생 투표(student vote)를 통해 선정되며 개인의 학교 종소리가 학생 투표에 의해 선택되는 것이 아니므로 거짓 ⑤ Awards 항목에서 '우승자들은 무선 스피커를 받을 것이다(The winners of the contest will each get a wireless speaker)'라고 명시되어 있으므로 참. 따라서 내용과 일치하는 것은 ⑤번이다.</div></div>
+<div class="item correct"><div class="item-header"><span class="qnum">28번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">4.5s</span><span class="mark ok">✓</span></div><div class="question-text">Fun Bowling Season Pass에 관한 다음 안내문의 내용과
+일치하는 것은?
+Fun Bowling Season Pass
+If you love bowling, don’t miss out on the best deal of
+the season! You can have fun with your friends and family.
+Where to Use: All branches of Bowl Heaven
+When to Use: January 1 to March 31, 2026
+Pass Type
+Price
+Details
+Standard $40 Two free games a day (no discounts for shoe
+rentals)
+$60 Three free games a day + 50% off shoe
+Silver
+rentals
+Gold
+$80 Four free games a day + free shoe rentals
+※ All passes include a 20% food and beverage discount.
+Purchase Details
+∙The pass can be purchased only online.
+∙Purchases are limited to only one per person.
+∙The pass is not transferable to another person.
+※ For more information, please visit www.*b#pa*s.com.</div><ul class="choices"><li class=""><div>① Bowl Heaven의 일부 지점에서는 사용이 제한된다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② 스탠다드 패스로는 신발 대여가 할인된다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>③ 골드 패스로는 하루에 다섯 번 무료로 게임을 한다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="correct-choice ai-pick"><div>④ 온라인 구매만 가능하다.</div><div><div class="conf-bar"><div class="conf-fill top" style="width:80%"></div></div><div class="conf-label">80.0%</div></div></li><li class=""><div>⑤ 타인에게 양도할 수 있다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ④</span><span><b>AI:</b> ④</span></div><div class="reasoning">Fun Bowling Season Pass 안내문의 내용과 일치하는 것을 찾는 문제입니다.\n\n① Bowl Heaven의 일부 지점에서는 사용이 제한된다 - 거짓. 'All branches of Bowl Heaven'이므로 모든 지점에서 사용 가능\n\n② 스탠다드 패스로는 신발 대여가 할인된다 - 거짓. Standard는 'no discounts for shoe rentals'\n\n③ 골드 패스로는 하루에 다섯 번 무료로 게임을 한다 - 거짓. Gold는 'Four free games a day'\n\n④ 온라인 구매만 가능하다 - 참. 'The pass can be purchased only online'이라고 명시됨\n\n⑤ 다인에게 양도할 수 있다 - 거짓. 'The pass is not transferable to another person'이라고 명시됨\n\n정답: ④</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">29번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">3.4s</span><span class="mark ng">✗</span></div><div class="question-text">다음 글의 밑줄 친 부분 중, 어법상 틀린 것은?
+We are exceptionally smart, and this helps us adapt to a
+wide range of environments. But we are not nearly smart
+enough as individuals</div><ul class="choices"><li class=""><div>① to solve the adaptive problems that
+confronted modern humans as they spread across the globe.
+The package of tools, foraging techniques, ecological
+knowledge, and social arrangements used by any group of
+foragers</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="correct-choice"><div>② being far too complex for any individual to create.
+We are able to learn all the things we need to know in each of
+the many different environments</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>③ in which we live only
+because we acquire information from others. We are much
+better at learning from others than other species are, and we
+are</div><div><div class="conf-bar"><div class="conf-fill" style="width:7%"></div></div><div class="conf-label">7.0%</div></div></li><li class=""><div>④ motivated to learn from others even when we do not
+understand why our models are doing what they are doing.
+This psychology allows human populations to accumulate pools
+of adaptive information that</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="ai-pick wrong-pick"><div>⑤ greatly exceed the inventive
+capacities of individuals.
+* forage: 구하러 다니다</div><div><div class="conf-bar"><div class="conf-fill" style="width:70%"></div></div><div class="conf-label">70.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ②</span><span><b>AI:</b> ⑤</span></div><div class="reasoning">문맥상 어법상 틀린 부분을 찾는 문제입니다. ①'to solve'는 to부정사로 적절, ②'being'은 동명사 형태로 적절, ③'in which'는 관계부사 역할로 적절, ④'motivated'는 과거분사로 수동태 형태로 적절합니다. ⑤번의 'greatly exceed'는 주어가 'pools of adaptive information'(단수 집합명사)이므로 'exceeds'가 되어야 합니다. 3인칭 단수 주어에 대한 동사의 수 일치 오류가 있습니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">30번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">5.8s</span><span class="mark ng">✗</span></div><div class="question-text">다음 글의 밑줄 친 부분 중, 문맥상 낱말의 쓰임이 적절하지
+않은 것은? [3점]
+Situational ethics is an ethical theory that takes into account
+the context of a situation or an act when judging whether it is
+ethical. Supporters of this theory willingly permit casting aside</div><ul class="choices"><li class=""><div>① absolute moral standards. In the absence of a universal
+standard or law, what matters is the outcome or consequences;
+so, the end</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="ai-pick wrong-pick"><div>② justifies the means. Possibly the following
+contrasting realities can help illustrate the application of
+situational ethics. In a pickup game of basketball played
+among friends, everyone is expected to call his or her own
+fouls or acknowledge knocking the ball out-of-bounds. Caring
+about one’s friends and maybe getting to</div><div><div class="conf-bar"><div class="conf-fill" style="width:85%"></div></div><div class="conf-label">85.0%</div></div></li><li class=""><div>③ keep playing with
+the group leads to these actions. But, once an organized game
+is played with officials, most athletes will not admit to the
+same fouls or violations as the end goal of winning is more
+important than expressing</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>④ concern for competitors. Situational
+ethics has been extended by many athletes and coaches to
+mean trying to get away with as many actions on the field or
+court as possible to</div><div><div class="conf-bar"><div class="conf-fill" style="width:3%"></div></div><div class="conf-label">3.0%</div></div></li><li class="correct-choice"><div>⑤ abandon competitive advantages.</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> ②</span></div><div class="reasoning">문제는 밑줄 친 부분의 의미를 파악하는 문제입니다. 문맥을 분석하면:\n\n상황윤리는 절대적 도덕 기준(①absolute)을 버리고, 결과가 수단을 정당화한다(②the end justifies the means)고 봅니다. 문단에서 '보편적 기준이나 법이 없을 때, 중요한 것은 결과나 결과'라고 명시합니다.\n\n농구 예시에서: 친구들과의 게임에서는 친구들을 생각하고 함께 계속 플레이하려는 것이 이런 행동을 만들지만(③keep), 공식 경기에서는 우승이 경쟁자에 대한 관심(④concern)을 표현하는 것보다 더 중요하므로 파울을 인정하지 않습니다.\n\n마지막 문장에서 '경쟁 우위를 포기하다(⑤abandon competitive advantages)'라는 표현은 문맥상 맞지 않습니다. 오히려 선수들과 코치들이 경쟁 우위를 *획득*하려고 가능한 많은 행동을 하려고 합니다.\n\n따라서 정답은 ②'the end justifies the means'입니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">31번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">4.3s</span><span class="mark ng">✗</span></div><div class="question-text">The early grain trade firms were active in both
+surplus-producing and food deficit regions, and these firms
+made it their business to know the state of supply and demand
+in both. Because this information was the key to their
+, these firms worked in relative secrecy,
+frequently built on family ties, trust, and loyalty. In addition,
+these firms were able to benefit from the rise of commodity
+exchanges and commodities futures markets that emerged in
+the mid-1800s. Agricultural markets are naturally unstable,
+due to changes in harvest size that result from variable weather
+patterns and other factors. Locking-in prices by buying and
+selling grain for future delivery helped these firms to minimize
+such risks. It made sense for the grain trading companies to
+manage their risks within a single firm that was operating in
+more than one country, rather than operating as independent
+national companies trading with each other. Their access to
+information in multiple markets enabled them to easily cover
+the risks associated with agricultural commodity trade.
+* deficit: 부족</div><ul class="choices"><li class="correct-choice"><div>① profitability</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class="ai-pick wrong-pick"><div>② unification</div><div><div class="conf-bar"><div class="conf-fill" style="width:78%"></div></div><div class="conf-label">78.0%</div></div></li><li class=""><div>③ innovation</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>④ reputation</div><div><div class="conf-bar"><div class="conf-fill" style="width:6%"></div></div><div class="conf-label">6.0%</div></div></li><li class=""><div>⑤ morality</div><div><div class="conf-bar"><div class="conf-fill" style="width:3%"></div></div><div class="conf-label">3.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ①</span><span><b>AI:</b> ②</span></div><div class="reasoning">문맥 분석: 'this information was the key to their _____, these firms worked in relative secrecy'에서 정보가 핵심이 되는 무엇이 있고, 이들이 상대적 비밀 속에서 일했다고 함. 다음 문장에서 'frequently built on family ties, trust, and loyalty'와 'operate in more than one country'가 언급됨. 이는 여러 국가에서 통합되어 운영하는 단일 기업 구조의 필요성을 암시. 문맥상 이 기업들이 '통일된' 구조를 가져야 정보 독점과 위험 관리가 가능했음. unification(통합/통일)이 가장 적절하며, 다른 선택지들(profitability 수익성, innovation 혁신, reputation 평판, morality 도덕성)은 문맥상 적합하지 않음.</div></div>
+<div class="item correct"><div class="item-header"><span class="qnum">32번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">5.4s</span><span class="mark ok">✓</span></div><div class="question-text">The basic guidelines for good style are not mysterious; in fact,
+you use them every day in conversation. In conversation and in
+writing, we all rely heavily on cooperation to make sense of
+exchanges, and a polished practical style makes cooperation
+easier. Writers develop such a style by acknowledging that
+readers expect the same things that listeners expect in
+conversation: clarity, relevance, and proportion. If you listen to
+someone who is not clear, who cannot stay on the topic, or who
+offers too much or too little information, you will quickly lose
+interest in the conversation. Writers, too, need to be clear, stay
+on the topic, and give information appropriately. In fact, this
+attention to audience and appropriateness may be even more
+important in writing than in conversation because writing does
+not permit the nonverbal communication and immediate
+feedback that are part of conversation. As writers, we have to
+; in effect,
+we have to imagine both halves of a virtual conversation. [3점]</div><ul class="choices"><li class=""><div>① recognize the limitations of writing and conversation</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② envision the reader’s preference for stylistic writing</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>③ picture the reader’s desire for more knowledge</div><div><div class="conf-bar"><div class="conf-fill" style="width:7%"></div></div><div class="conf-label">7.0%</div></div></li><li class=""><div>④ develop collaborative writing with readers</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="correct-choice ai-pick"><div>⑤ anticipate the absent reader’s response</div><div><div class="conf-bar"><div class="conf-fill top" style="width:70%"></div></div><div class="conf-label">70.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> ⑤</span></div><div class="reasoning">문맥 분석: 글의 핵심은 '쓰기에서는 대화의 비언어적 소통과 즉각적 피드백이 불가능하므로, 저자는 가상의 대화 양쪽 모두를 상상해야 한다'는 내용입니다. 빈칸 앞 문장에서 '우리는 쌍방향 가상 대화를 상상해야 한다(we have to imagine both halves of a virtual conversation)'고 명시됩니다. 따라서 빈칸에는 이 행동의 목적이나 결과를 나타내는 표현이 필요합니다. ⑤번 'anticipate the absent reader's response(부재한 독자의 반응을 예상하다)'가 가장 정확합니다. 독자와 직접 상호작용할 수 없으므로 그들의 반응을 미리 예상해야 한다는 논리가 완벽하게 맞아떨어집니다.</div></div>
+<div class="item correct"><div class="item-header"><span class="qnum">33번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">5.2s</span><span class="mark ok">✓</span></div><div class="question-text">Giving clients sufficient opportunity to react to your designs
+while in progress is a key to professional success. Similarly,
+involving prospective building users as well as clients is even
+more valuable in the long run. Say your client is a large
+corporation, such as a health care provider. While the hospital
+administration may serve as your client, no doubt the perspectives
+of administration personnel will differ significantly from those
+of doctors, interns, residents, nurses, and other medical staff
+who use the building regularly. In addition, the experiences of
+patients and visitors who use the building irregularly, often as
+a result of life-threatening emergencies, are altogether different
+as well. Understanding how each type of user experiences the
+current medical environment as well as how each reacts to
+your prospective designs inevitably produces a better building.
+People are likely to be more satisfied with a new building or
+.
+addition if they
+For a large institution, this can translate into increased productivity
+on the job, reduced absenteeism, less turnover, and lower costs.</div><ul class="choices"><li class=""><div>① have been engaged in multiple design training sessions</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② are given the opportunity to draft a new design</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>③ have established trust with the building designers</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="correct-choice ai-pick"><div>④ have been consulted in the design process</div><div><div class="conf-bar"><div class="conf-fill top" style="width:75%"></div></div><div class="conf-label">75.0%</div></div></li><li class=""><div>⑤ share their perspectives on the building with each other</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ④</span><span><b>AI:</b> ④</span></div><div class="reasoning">문맥 분석: 문장은 '사람들은 새로운 건물이나 추가 시설에 더 만족할 가능성이 높다면 ___'이라고 묻고 있습니다. 앞의 문단에서 다양한 사용자 그룹(의료진, 환자, 방문객 등)의 의견을 수집하고 각각의 경험을 이해하는 것이 중요하다고 강조합니다. 빈 칸을 채울 문장은 이러한 맥락 내에서 사람들이 언제 건물에 더 만족하게 되는지를 설명해야 합니다. ④번 'have been consulted in the design process'(설계 과정에서 의견을 물어본)가 앞의 논리와 완벽하게 연결됩니다. 사용자들이 설계 과정에 참여하고 의견을 제시할 기회가 주어지면, 그들은 최종 결과에 더 만족하게 된다는 인과관계가 성립합니다. ①, ②, ③, ⑤는 문맥과 논리적 연결이 약합니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">34번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">4.0s</span><span class="mark ng">✗</span></div><div class="question-text">Kant was a strong defender of the rule of law as the
+ultimate guarantee, not only of security and peace, but also of
+freedom. He believed that human societies were moving
+towards more rational forms regulated by effective and binding
+legal frameworks because only such frameworks enabled
+people to live in harmony, to prosper and to co-operate. However,
+his belief in inevitable progress was not based on an optimistic
+or high-minded view of human nature. On the contrary, it comes
+close to Hobbes’s outlook: man’s violent and conflict-prone
+nature makes it necessary to establish and maintain an effective
+legal framework in order to secure peace. We cannot count on
+people’s benevolence or goodwill, but even ‘a nation of
+devils’ can live in harmony in a legal system that binds every
+citizen equally. Ideally, the law is the embodiment of those
+political principles that all rational beings would freely
+choose. If such laws forbid them to do something that they
+would not rationally choose to do anyway, then the law cannot
+. [3점]
+be
+* benevolence: 자비심</div><ul class="choices"><li class="ai-pick wrong-pick"><div>① regarded as reasonably confining human liberty</div><div><div class="conf-bar"><div class="conf-fill" style="width:85%"></div></div><div class="conf-label">85.0%</div></div></li><li class=""><div>② viewed as a strong defender of the justice system</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="correct-choice"><div>③ understood as a restraint on their freedom</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>④ enforced effectively to suppress their evil nature</div><div><div class="conf-bar"><div class="conf-fill" style="width:3%"></div></div><div class="conf-label">3.0%</div></div></li><li class=""><div>⑤ accepted within the assumption of ideal legal frameworks</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ③</span><span><b>AI:</b> ①</span></div><div class="reasoning">문단의 마지막 문장을 분석하면, 'If such laws forbid them to do something that they would not rationally choose to do anyway, then the law cannot be ____.'라고 되어 있습니다. 즉, 합리적 존재가 어차피 하지 않을 행동을 금지하는 법은 그렇게 할 수 없다는 의미입니다. 문맥에서 칸트는 법이 이상적으로는 모든 이성적 존재가 자유롭게 선택할 정치 원칙을 구현해야 한다고 주장합니다. 따라서 비합리적 행동을 금지하는 법은 인간의 자유를 합리적으로 제한(reasonably confining)하는 것이므로, 정답은 ①'regarded as reasonably confining human liberty'입니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">35번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">5.3s</span><span class="mark ng">✗</span></div><div class="question-text">다음 글에서 전체 흐름과 관계 없는 문장은?
+There are few of us who don’t at least want to make time for
+self-care activities such as exercise, hobbies, or relaxation. We
+start each day with the best of intentions but then get stuck by
+the flood of email messages or pulled into an unexpected
+meeting.</div><ul class="choices"><li class=""><div>① As we struggle to reprioritize so we can get
+everything done before our deadlines, often our self-care
+activities are the first thing to be given up.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② No matter how
+much we plan, we all occasionally have days when that
+happens.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>③ In the short term, the impact of missing that grant
+deadline may be greater than the impact of missing a
+woodworking class.</div><div><div class="conf-bar"><div class="conf-fill" style="width:12%"></div></div><div class="conf-label">12.0%</div></div></li><li class="correct-choice"><div>④ Needless to say, we should try to enroll
+in the woodworking class before the design class because it is
+more competitive to get into and more beneficial to us.</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="ai-pick wrong-pick"><div>⑤ But
+it’s important to recognize the cumulative impact of not
+prioritizing self-care and to make sure that in the long term,
+this is the exception rather than the norm.
+[36～37] 주어진 글 다음에 이어질 글의 순서로 가장 적절한
+것을 고르시오.</div><div><div class="conf-bar"><div class="conf-fill" style="width:65%"></div></div><div class="conf-label">65.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ④</span><span><b>AI:</b> ⑤</span></div><div class="reasoning">문제는 전체 흐름과 관계 없는 문장을 찾는 것입니다. ①②③④는 자기관리 활동을 미루게 되는 현실적 상황과 단기적으로는 일 마감의 영향이 더 크다는 논리를 제시합니다. 하지만 ④는 '목공 수업을 설계 수업보다 먼저 등록해야 한다'는 구체적인 조언을 제시하는데, 이는 문맥의 흐름(자기관리의 중요성을 강조하는 일반적 논의)과 맞지 않습니다. ⑤는 장기적으로 자기관리를 우선시하지 않는 것의 누적 영향을 강조하며 전체 주제로 돌아가는 결론입니다. ④가 갑자기 특정 수업 등록 순서에 대한 실용적 조언으로 벗어나므로 정답은 ④입니다. 재검토 결과 질문이 '관계 없는 문장'을 찾는 것이므로 ④가 가장 부적절합니다.</div></div>
+<div class="item correct"><div class="item-header"><span class="qnum">36번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">4.4s</span><span class="mark ok">✓</span></div><div class="question-text">We usually think of a clock as a physical thing, like an
+alarm clock or a wristwatch. But a clock is really a process
+embodied in a machine, and the nature of that process is
+repetitive.
+(A) Indeed, it is almost impossible to think of a clock that
+does not depend on a repetitive cycle of events. The only
+example that comes to mind readily is a candle marked in
+hours. But here too there is iteration ― the repeated
+burning of molecules of wax ― so this too is an iterative
+process, although at first masked.
+(B) The use of radiocarbon dating is another, much longer
+scale clock that also appears to be like this. It seems to
+yield a smooth time scale but in fact does not: the decay
+of atoms of carbon-14 is repetitive, although on a large
+scale it gives the appearance of being continuous.
+(C) A clock can be almost any process that repeats itself over
+and over again for an indefinite period. Water clocks drip
+at a steady pace; quartz crystals vibrate regularly.
+* molecule: 분자
+** quartz: 석영(石英)
+(B)
+(A)
+(C)
+(A)
+(C)
+(B)</div><ul class="choices"><li class=""><div>① －
+－</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② －
+－
+(B)
+(C)
+(A)
+(C)
+(A)
+(B)</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>③ －
+－</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="correct-choice ai-pick"><div>④ －
+－
+(C)
+(B)
+(A)</div><div><div class="conf-bar"><div class="conf-fill top" style="width:72%"></div></div><div class="conf-label">72.0%</div></div></li><li class=""><div>⑤ －
+－</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ④</span><span><b>AI:</b> ④</span></div><div class="reasoning">본문의 논리적 흐름을 분석하면: 첫 문장은 '시계는 반복적인 과정'이라는 주장. (A)는 이를 지지하며 예시 제시 - 양초 시계도 분자의 반복적 연소 과정임. (C)는 시계의 정의를 확대 - '반복되는 어떤 과정이든 시계가 될 수 있다'며 물 시계, 석영 결정체 예시. (B)는 방사성탄소 연대 측정을 추가 예시로 제시 - 연속적으로 보이지만 실제로는 반복적인 원자붕괴 과정. 논리적 순서는: 주장 제시(A) → 개념 확장(C) → 추가 사례(B)가 자연스럽다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">37번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">5.5s</span><span class="mark ng">✗</span></div><div class="question-text">Philosophy allows us to ask much broader questions than
+many other scientific disciplines. It is capable of looking at
+the bigger picture and providing important insights into the
+relationships between different areas of knowledge.
+(A) This means that while philosophy can provide valuable
+insights into theoretical concepts and broader ethical
+questions, it needs to be supplemented by empirical
+findings and experiments to reach a more comprehensive
+understanding.
+(B) Philosophers tend to ask questions rather than provide
+definitive answers, and their contributions often consist of
+challenging established assumptions and proposing new
+research approaches. However, for a more comprehensive
+understanding of the nature of consciousness, close
+collaboration between philosophy and neuroscience is
+required.
+(C) Philosophy is particularly important for the interdisciplinary
+efforts of cognitive science, where it helps to bridge gaps
+between different disciplines and pioneer new ways for
+research. Unlike scientific methods, philosophizing is a
+non-empirical approach that attempts to validate concepts
+through logical thinking and argumentation. [3점]
+* empirical: 경험의
+(B)
+(A)
+(C)
+(A)
+(C)
+(B)</div><ul class="choices"><li class=""><div>① －
+－</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② －
+－
+(B)
+(C)
+(A)
+(C)
+(A)
+(B)</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>③ －
+－</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="ai-pick wrong-pick"><div>④ －
+－
+(C)
+(B)
+(A)</div><div><div class="conf-bar"><div class="conf-fill" style="width:72%"></div></div><div class="conf-label">72.0%</div></div></li><li class="correct-choice"><div>⑤ －
+－
+[38～39] 글의 흐름으로 보아, 주어진 문장이 들어가기에 가장
+적절한 곳을 고르시오.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> ④</span></div><div class="reasoning">주어진 문단은 철학의 역할과 특징을 설명하고 있습니다. 세 문장의 논리적 흐름을 분석하면: 먼저 철학이 넓은 질문을 할 수 있다는 주제 제시 → (A) 철학은 이론적 개념과 윤리적 질문에 대한 통찰을 제공하지만 경험적 발견으로 보완되어야 함 → (C) 철학은 학제 간 노력(인지과학)에서 특히 중요하며, 논리적 사고를 통해 개념을 검증함 → (B) 철학자들은 질문을 제기하고 가정에 도전하며, 의식의 본질 이해를 위해 신경과학과의 협력이 필요함의 순서가 가장 자연스럽습니다. (C)-(A)-(B) 순서에서 철학의 특수한 역할(학제간 연결)을 먼저 강조한 후, 그 한계(경험적 보완 필요)를 제시하고, 구체적 사례(의식 연구)로 마무리하는 흐름이 가장 논리적입니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">38번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">4.1s</span><span class="mark ng">✗</span></div><div class="question-text">Sometimes these internal narratives we form not only
+shape our beliefs and opinions but also become deeply
+rooted in our identity.
+While stories clearly dominate statistics from both memorability
+and persuasiveness perspectives, it’s rarely a battle between
+facts and anecdotes ― or even facts and other facts. The real
+clash is actually between stories: the predominant incumbent
+and a new challenger. (</div><ul class="choices"><li class="ai-pick wrong-pick"><div>① ) As storytelling creatures, we
+routinely form narratives to help us understand the world
+around us. (</div><div><div class="conf-bar"><div class="conf-fill" style="width:75%"></div></div><div class="conf-label">75.0%</div></div></li><li class=""><div>② ) When we experience different events or
+encounter various facts, our minds seek to make sense of them
+by forming stories around them. (</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>③ ) For example, if you
+have had some bad experiences with graduates from a particular
+university, you may create a negative narrative in your mind
+about people who went to that school. (</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>④ ) Suddenly, you
+judge everyone from the university by what you’ve
+experienced on just a few unfortunate occasions. (</div><div><div class="conf-bar"><div class="conf-fill" style="width:4%"></div></div><div class="conf-label">4.0%</div></div></li><li class="correct-choice"><div>⑤ ) For
+example, the narratives you have formed around gun control
+or climate change are most likely related with your political
+ideology ― who you are as an individual.
+* anecdote: 일화
+** incumbent: 점유자</div><div><div class="conf-bar"><div class="conf-fill" style="width:3%"></div></div><div class="conf-label">3.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> ①</span></div><div class="reasoning">문장의 논리적 흐름을 분석하면, 밑줄 친 부분은 '이야기들 간의 충돌'이 실제의 핵심 갈등임을 설명하는 문맥입니다. 이어지는 문장 'As storytelling creatures, we routinely form narratives to help us understand the world around us'는 우리가 이야기를 형성하는 경향을 설명하고 있으며, 이는 ①번 위치에서 '우리가 이야기를 형성한다'는 주제를 자연스럽게 이어갑니다. ②번은 '우리가 다양한 사건을 경험한다'는 내용으로 이미 다음 문장에서 다루어지고 있으며, 나머지 번호들은 문맥상 부자연스럽습니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">39번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">4.8s</span><span class="mark ng">✗</span></div><div class="question-text">The difference is that the action in the game world can only
+be explored through the virtual bodily space of the avatar.
+A video game has its own model of reality, internal to itself
+and separate from the player’s external reality, the player’s
+bodily space and the avatar’s bodily space. (</div><ul class="choices"><li class="ai-pick wrong-pick"><div>① ) The avatar’s
+bodily space, the potential actions of the avatar in the game
+world, is the only way in which the reality of the external
+reality of the game world can be perceived. (</div><div><div class="conf-bar"><div class="conf-fill" style="width:85%"></div></div><div class="conf-label">85.0%</div></div></li><li class=""><div>② ) As in the
+real world, perception requires action. (</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class="correct-choice"><div>③ ) Players extend
+their perceptual field into the game, encompassing the available
+actions of the avatar. (</div><div><div class="conf-bar"><div class="conf-fill" style="width:4%"></div></div><div class="conf-label">4.0%</div></div></li><li class=""><div>④ ) The feedback loop of perception
+and action that enables you to navigate the world around you is
+now one step removed: instead of perceiving primarily through
+interaction of your own body with the external world, you’re
+perceiving the game world through interaction of the avatar.
+(</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li><li class=""><div>⑤ ) The entire perceptual system has been extended into
+the game world. [3점]
+* encompass: 둘러싸다</div><div><div class="conf-bar"><div class="conf-fill" style="width:1%"></div></div><div class="conf-label">1.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ③</span><span><b>AI:</b> ①</span></div><div class="reasoning">문단의 핵심 논리를 추적하면: 게임 세계는 자체적인 현실 모델을 가지고 있으며, 플레이어의 외부 현실과 분리되어 있다는 주제에서 시작합니다. 빈칸 ①은 '아바타의 신체 공간'이 '게임 세계의 외부 현실을 인지하는 유일한 방식'이라는 논리를 완성합니다. 문장 구조상 '( ① ) The avatar's bodily space ... is the only way in which the reality of the external reality of the game world can be perceived.'가 자연스럽습니다. 이는 이어지는 문장들(②③④⑤)에서 인지와 행동의 피드백 루프, 현실과의 상호작용이 아바타를 통한 상호작용으로 전환된다는 내용과 논리적으로 일관성 있게 연결됩니다. 다른 선택지들은 전후 문맥상 이미 표현된 내용이거나 순서적으로 맞지 않습니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">40번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">4.7s</span><span class="mark ng">✗</span></div><div class="question-text">다음 글의 내용을 한 문장으로 요약하고자 한다. 빈칸 (A),
+(B)에 들어갈 말로 가장 적절한 것은?
+In modern societies, the performing arts form a distinct
+category of public entertainment in opposition to the mass
+distribution through the media of expertly staged
+performances which have been recorded and edited. By
+contrast, theater, ballet, circus, concert, rodeo, storytelling,
+etc., unfold their signs in real space and time, and engage
+audiences who respond cognitively and emotionally on the
+spot. Performers and audiences are involved in shared
+enjoyment. But sometimes frustration occurs within the
+boundaries of such ritualistic events. In industrialized and
+computerized cultures, the performing arts become
+economically unstable because the institutions which
+sustain them increasingly depend on public and corporate
+funding. However, they retain their power of fascination
+for large, if not massive audiences, who prize the experiential,
+risk-loaded and one-time event quality they afford. In
+traditional and local cultures, performances still survive
+and provide their audiences with a unique fulfillment in
+smaller scale, economically sustainable institutional settings.
+* ritualistic: 의식의
+󰀻
+(A)
+In a situation of financial
+due to reliance on
+external funding, the performing arts, which provide unique
+(B)
+and live experiences,
+audiences who value those
+experiences.
+(A)
+(B)
+(A)
+(B)
+uncertainty
+lose
+imbalance
+split</div><ul class="choices"><li class="ai-pick wrong-pick"><div>① </div><div><div class="conf-bar"><div class="conf-fill" style="width:85%"></div></div><div class="conf-label">85.0%</div></div></li><li class=""><div>② ……
+……
+challenges
+secure
+stability
+reach</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class="correct-choice"><div>③ </div><div><div class="conf-bar"><div class="conf-fill" style="width:3%"></div></div><div class="conf-label">3.0%</div></div></li><li class=""><div>④ ……
+……
+advantages
+support</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li><li class=""><div>⑤ ……</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ③</span><span><b>AI:</b> ①</span></div><div class="reasoning">빈칸 문맥 분석: 원문에서 공연예술이 '경제적으로 불안정(economically unstable)'해진다는 내용이 나옴. 요약문에서는 '금융적 ___(A)___' 상황으로 인해 공연예술이 독특한 경험을 제공하지만 관객을 잃는다는 의미로 이어져야 함. (A)는 부정적 상황을 나타내야 하므로 'uncertainty(불확실성)'가 적절. (B)는 '외부 자금 의존으로 인해 고유한 생생한 경험을 제공하는 공연예술이 ___(B)___ 관객들을 잃는다'는 의미이므로 'lose(잃다)'가 자연스러움. uncertainty와 lose의 조합이 문맥상 가장 논리적.</div></div>
+<div class="item correct"><div class="item-header"><span class="qnum">41번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">5.5s</span><span class="mark ok">✓</span></div><div class="question-text">윗글의 제목으로 가장 적절한 것은? [3점]</div><ul class="choices"><li class=""><div>① Dress as Visual Arts: Record What You Wear Now!</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="correct-choice ai-pick"><div>② Visual Sources: Filling in the Gaps of Dress History</div><div><div class="conf-bar"><div class="conf-fill top" style="width:85%"></div></div><div class="conf-label">85.0%</div></div></li><li class=""><div>③ Why Do Collectors Want the Unknown Dresses of History?</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>④ Dress Culture: Searching for the Origin of Human Clothing</div><div><div class="conf-bar"><div class="conf-fill" style="width:3%"></div></div><div class="conf-label">3.0%</div></div></li><li class=""><div>⑤ Seeing Is Believing! Importance of Illustration in Dress Design</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ②</span><span><b>AI:</b> ②</span></div><div class="reasoning">문장의 주제는 의류 역사 연구에서 실제 의복의 증거가 부족한 문제를 논의하고 있습니다. 텍스트는 "17세기부터 의류 증거가 시작되며, 그 사이의 공백을 채우기 위해 회화, 인쇄, 사진 등 다양한 시각 자료가 필요하다"는 내용입니다. \n\n각 선택지 검토:\n① 'Dress as Visual Arts' - 의류를 시각예술로 보는 것이 주제가 아님\n② 'Visual Sources: Filling in the Gaps of Dress History' - 의류 역사의 공백을 채우기 위해 시각 자료(회화, 인쇄, 사진 등)를 사용해야 한다는 핵심 내용과 정확히 부합\n③ 'Why Do Collectors Want the Unknown Dresses' - 미지의 의류에 대한 수집가의 욕구는 문장의 주제가 아님\n④ 'Dress Culture: Searching for the Origin' - 의류의 기원 탐색이 주요 주제가 아님\n⑤ 'Seeing Is Believing! Importance of Illustration in Dress Design' - 드레스 디자인보다는 역사 연구가 주제</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">42번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">7.7s</span><span class="mark ng">✗</span></div><div class="question-text">밑줄 친 (a)～(e) 중에서 문맥상 낱말의 쓰임이 적절하지 않은
+것은?</div><ul class="choices"><li class="ai-pick wrong-pick"><div>① (a)</div><div><div class="conf-bar"><div class="conf-fill" style="width:92%"></div></div><div class="conf-label">92.0%</div></div></li><li class=""><div>② (b)</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>③ (c)</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li><li class=""><div>④ (d)</div><div><div class="conf-bar"><div class="conf-fill" style="width:1%"></div></div><div class="conf-label">1.0%</div></div></li><li class="correct-choice"><div>⑤ (e)
+[43～45] 다음 글을 읽고, 물음에 답하시오.
+(A)
+“Mia, let’s go walk our dog!” Julia called out, but there
+was no answer. She checked her daughter’s room and found
+that Mia was absorbed in her smartphone, wearing her
+earbuds. Julia was concerned about her daughter. She turned
+to her husband, Sam. “Mia seems to live inside her phone,
+not with us.” Sam nodded, “I know. I feel like (a) she is
+growing distant from us. Why don’t we set up a family
+reading club?” Julia brightened at the suggestion, and Sam
+promised to talk with Mia about it.</div><div><div class="conf-bar"><div class="conf-fill" style="width:0%"></div></div><div class="conf-label">0.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> ①</span></div><div class="reasoning">문제 42는 빈칸 (a)~(e) 중에서 문맥상 낱말의 쓰임이 정정하지 않은 것을 찾는 문제입니다.\n\n각 선택지 검토:\n- (a) inevitable: '피할 수 없는, 필연적인' - 문맥에 맞음. "다른 예술 분야들이 주요 자료를 제공하는 것은 필연적이었다"\n- (b) movement: '움직임' - 문맥에 맞음. "의류는 고정된 상태가 아닌 인체의 움직임 속에서 봐야 한다"\n- (c) lifeless: '생명 없는, 생기 없는' - 문맥에 부적절. 의복 수집이 "육체적으로나 지적으로 생기 없다"는 것은 어색함\n- (d) provide: '제공하다' - 문맥에 맞음. "다양한 예술 자료들이 의류가 어떻게 입혀졌는지에 대한 증거를 제공한다"\n- (e) unlikely: '가능성이 낮은' - 문맥에 맞음. "미술 자료가 없다면, 역사적 의류 전시는 어색할 가능성이 높다"\n\n(c) lifeless가 가장 부적절하며, 여기서는 'lifeless'보다 'tedious', 'dull' 같은 단어가 적절합니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">43번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">5.3s</span><span class="mark ng">✗</span></div><div class="question-text">주어진 글 (A)에 이어질 내용을 순서에 맞게 배열한 것으로
+가장 적절한 것은?
+(C)
+(B)
+(D)
+(B)
+(D)
+(C)
+－
+－</div><ul class="choices"><li class=""><div>① －
+－</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② (C)
+(D)
+(B)
+(D)
+(B)
+(C)
+－
+－</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class="ai-pick wrong-pick"><div>③ －
+－</div><div><div class="conf-bar"><div class="conf-fill" style="width:82%"></div></div><div class="conf-label">82.0%</div></div></li><li class=""><div>④ (D)
+(C)
+(B)
+－
+－</div><div><div class="conf-bar"><div class="conf-fill" style="width:3%"></div></div><div class="conf-label">3.0%</div></div></li><li class="correct-choice"><div>⑤ </div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> ③</span></div><div class="reasoning">문제는 밑줄 친 (a)의 내용을 문맥에 맞게 배열한 것으로 가장 적절한 것을 고르는 것입니다. 시간 순서와 인과관계를 분석하면:\n\n(A): Mia가 휴대폰에 몰두하고 있는 상황 - 문제의 발단\n(B): 가족 독서 모임 첫 번째 만남 - Sam이 제안을 받고 실행한 결과\n(C): 도서관에서 책 선택 - 독서 모임을 시작하기 위한 준비 과정\n(D): Sam이 독서 모임을 제안할 때 Mia의 초기 반응과 설득 과정 - 모임 실행 직전\n\n올바른 시간 순서는:\n1) (A): 문제 상황 제시 (Mia가 휴대폰만 사용)\n2) (D): Sam의 제안과 Mia의 동의 (약간의 설득 후)\n3) (C): 도서관에서 책 선택 (실행 단계)\n4) (B): 첫 번째 독서 모임 진행 (결과)\n\n따라서 (C) - (D) - (B)의 순서가 가장 논리적입니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">44번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">4.0s</span><span class="mark ng">✗</span></div><div class="question-text">밑줄 친 (a)～(e) 중에서 가리키는 대상이 나머지 넷과 다른
+것은?</div><ul class="choices"><li class=""><div>① (a)</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② (b)</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="correct-choice"><div>③ (c)</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class="ai-pick wrong-pick"><div>④ (d)</div><div><div class="conf-bar"><div class="conf-fill" style="width:75%"></div></div><div class="conf-label">75.0%</div></div></li><li class=""><div>⑤ (e)</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ③</span><span><b>AI:</b> ④</span></div><div class="reasoning">문제는 (a)~(e) 중에서 가리키는 대상(referent)이 다른 것을 찾는 것입니다.\n\n(a) 'she' - Mia를 지칭\n(b) 'his' - Sam(아버지)을 지칭\n(c) 'her' - 도서관 사서(여성)를 지칭\n(d) 'I' - Mia 자신을 지칭 (직접 발화)\n(e) 'she' - Mia를 지칭\n\n(a), (b), (c), (e)는 모두 다른 인물을 지칭하는 대명사들이며, (d)는 유일하게 직접 발화자인 Mia 자신이 '나'라고 지칭하는 1인칭 대명사입니다. (d)만 문법적 특성이 다르고, 내용상으로도 다른 것들과 구별됩니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">45번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">5.2s</span><span class="mark ng">✗</span></div><div class="question-text">윗글에 관한 내용으로 적절하지 않은 것은?</div><ul class="choices"><li class=""><div>① Julia는 스마트폰에 빠져 있는 Mia를 걱정했다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② 가족들은 Mia가 선정한 책을 좋아했다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>③ Mia는 책장을 살펴보며 거의 한 시간을 보냈다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="ai-pick wrong-pick"><div>④ Mia는 미스터리 장르를 좋아한다고 말했다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:75%"></div></div><div class="conf-label">75.0%</div></div></li><li class="correct-choice"><div>⑤ Mia는 Sam의 독서 모임 제안을 처음부터 환영했다.
+* 확인 사항
+◦답안지의 해당란에 필요한 내용을 정확히 기입(표기)했는지 확인
+하시오.</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> ④</span></div><div class="reasoning">문제는 밑줄 친 내용과 관련해 적절하지 않은 것을 찾는 문제입니다.\n\n(A): Julia가 Mia를 걱정했다 - 맞음\n(B): 가족들은 Mia가 선정한 책을 좋아했다 - 맞음, "Everyone enjoyed the book Mia had chosen"\n(C): Mia는 책장을 살펴보며 거의 한 시간을 보냈다 - 맞음, "scanned the shelves for nearly an hour"\n(D): Mia는 미스터리 장르를 좋아한다고 말했다 - 맞음, "I like mysteries"\n(E): Mia는 Sam의 독서 모임 제안을 처음부터 환영했다 - 틀림. 본문에서 Mia는 처음에 "No, Dad. I don't have time to read books"라고 거부했으며, Sam의 설득 후에 "reluctantly agreed"(마지못해 동의)했습니다. 따라서 처음부터 환영한 것이 아닙니다.</div></div></div>
+<script>
+function filterAll(){setFilter('all')}
+function filterWrong(){setFilter('wrong')}
+function filterCorrect(){setFilter('correct')}
+function setFilter(f){
+  document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
+  document.querySelectorAll('.item').forEach(el=>{
+    const ok=el.classList.contains('correct');
+    el.style.display=(f==='all'||(f==='correct'&&ok)||(f==='wrong'&&!ok))?'':'none';
+  });
+}
+document.querySelectorAll('.question-text').forEach(el=>{
+  el.addEventListener('click',()=>el.classList.toggle('expanded'));
+});
+</script>
+</body>
+</html>

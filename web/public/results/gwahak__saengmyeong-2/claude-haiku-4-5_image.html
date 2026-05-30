@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>AI 수능 — claude-haiku-4-5 / 과학탐구_생명과학Ⅱ / image</title>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<style>
+*{box-sizing:border-box}
+body{font-family:'Noto Sans KR',sans-serif;max-width:960px;margin:0 auto;padding:20px;background:#f5f5f5;font-size:14px;line-height:1.6}
+h1{font-size:1.3rem;border-bottom:2px solid #222;padding-bottom:8px}
+.meta{font-size:.8rem;color:#666;margin-bottom:16px}
+.summary{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+.stat{background:#fff;border:1px solid #ddd;border-radius:6px;padding:12px 20px;text-align:center;min-width:100px}
+.stat b{font-size:1.4rem;display:block}
+.stat.good b{color:#1e7e34}
+.stat.bad b{color:#c5221f}
+.stat.info b{color:#1a56db}
+.filters{margin-bottom:16px;display:flex;gap:6px}
+.fbtn{padding:5px 14px;border:1px solid #aaa;border-radius:4px;cursor:pointer;background:#e8e8e8;font-size:.82rem;font-weight:600}
+.fbtn.active{background:#fff;color:#1a56db;border-color:#1a56db}
+.item{background:#fff;border:1px solid #e0e0e0;border-radius:6px;padding:16px 18px;margin-bottom:12px}
+.item.correct{border-left:4px solid #1e7e34}
+.item.wrong{border-left:4px solid #c5221f}
+.item-header{display:flex;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.qnum{font-weight:700;color:#1a56db;min-width:40px}
+.badge{font-size:.7rem;padding:2px 8px;border-radius:10px;font-weight:600}
+.badge-sec{background:#f0f0f0;color:#555}
+.mark{margin-left:auto;font-size:1.1rem;font-weight:700}
+.mark.ok{color:#1e7e34}
+.mark.ng{color:#c5221f}
+.time{font-size:.75rem;color:#888}
+.question-text{margin:8px 0;color:#333;white-space:pre-wrap;font-size:.9rem;max-height:80px;overflow:hidden;cursor:pointer}
+.question-text.expanded{max-height:none}
+.choices{list-style:none;padding:0;margin:8px 0}
+.choices li{padding:6px 10px;margin:3px 0;border-radius:4px;display:grid;grid-template-columns:1fr 160px;align-items:center;gap:10px;border:1px solid transparent}
+.choices li.correct-choice{background:#e6f4ea;border-color:#81c995}
+.choices li.ai-pick{outline:2px solid #1a56db}
+.choices li.ai-pick.wrong-pick{outline-color:#c5221f}
+.conf-bar{height:12px;background:#f0f0f0;border-radius:3px;overflow:hidden}
+.conf-fill{height:100%;background:linear-gradient(90deg,#9cc7ff,#1a56db);border-radius:3px}
+.conf-fill.top{background:linear-gradient(90deg,#86e29b,#1e7e34)}
+.conf-label{font-size:.7rem;color:#555;text-align:right;font-family:monospace}
+.reasoning{background:#fafafa;border:1px solid #eee;border-radius:4px;padding:10px 14px;margin-top:8px;font-size:.82rem;color:#444;white-space:pre-wrap;max-height:120px;overflow:auto}
+.ans-row{display:flex;gap:14px;font-size:.85rem;margin-top:8px;padding-top:6px;border-top:1px solid #f0f0f0}
+.ans-row b{color:#444}
+.short-conf{font-size:.78rem;color:#666;font-family:monospace}
+.choices.no-conf li{grid-template-columns:1fr}
+.ai-pick-tag{font-size:.72rem;background:#1a56db;color:#fff;padding:2px 10px;border-radius:10px;font-weight:600;justify-self:end}
+.item.skipped{border-left:4px solid #aaa;background:#fafafa;opacity:.85}
+.skipped-msg{color:#666;font-size:.8rem;margin-top:6px;font-style:italic}
+.mark.skip{color:#888}
+</style>
+</head>
+<body>
+<h1>AI 수능 — claude-haiku-4-5 / 과학탐구_생명과학Ⅱ / image</h1>
+<p class="meta">모델: claude-haiku-4-5 · 모드: image · 2026-04-25T20:30:59</p>
+<div class="summary"><div class="stat info"><b>30.0%</b>정답률</div><div class="stat good"><b>6</b>정답</div><div class="stat bad"><b>14</b>오답</div><div class="stat info"><b>16/50</b>원점수</div><div class="stat"><b>131.8s</b>총 시간</div><div class="stat"><b>6.6s</b>문항 평균</div></div>
+<div class="filters">
+  <button class="fbtn active" onclick="filterAll()">전체</button>
+  <button class="fbtn" onclick="filterWrong()">오답만</button>
+  <button class="fbtn" onclick="filterCorrect()">정답만</button>
+</div>
+<div id="items"><div class="item correct"><div class="item-header"><span class="qnum">1번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">3.4s</span><span class="mark ok">✓</span></div><div class="question-text">생명 과학자들의 주요 성과에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? &lt;보기&gt; ᄀ. 다윈은 자연 선택에 의한 진화의 원리를 설명하였다. ᄂ. 멘델은 완두 교배 실험을 통해 유전의 기본 원리를 발견하였다. ᄃ. 왓슨과 크릭은 DNA의 이중 나선 구조를 알아내었다.</div><ul class="choices"><li class=""><div>① ᄀ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ᄃ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>③ ᄀ, ᄂ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>④ ᄂ, ᄃ</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="correct-choice ai-pick"><div>⑤ ᄀ, ᄂ, ᄃ</div><div><div class="conf-bar"><div class="conf-fill top" style="width:65%"></div></div><div class="conf-label">65.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> ⑤</span></div><div class="reasoning">생명 과학자들의 주요 성과를 정리하면: ㄱ. 다윈은 자연선택에 의한 진화의 원리를 설명했다(참). ㄴ. 멘델은 완두콩 교배 실험을 통해 유전의 기본 원리를 발견했다(참). ㄷ. 왓슨과 크릭은 DNA의 이중 나선 구조를 밝혔다(참). 세 명제가 모두 옳으므로 정답은 ㄱ, ㄴ, ㄷ이다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">2번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">6.7s</span><span class="mark ng">✗</span></div><div class="question-text">다음은 동물의 구성 단계에 대한 자료이다. ⑦과 ㉡은 기관과 세포를 순서 없이 나타낸 것이다.
+
+○ ⑦은 생명체의 구조적, 기능적 기본 단위이다.
+○ 여러 종류의 ⓐ조직이 모여 ㉡을 이룬다.
+
+이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?
+
+&lt;보기&gt;
+ㄱ. ⑦은 세포이다.
+ㄴ. 적혈구는 ⓐ의 예이다.
+ㄷ. ㉡이 모여 조직계를 이룬다.</div><ul class="choices"><li class="correct-choice"><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li><li class=""><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:3%"></div></div><div class="conf-label">3.0%</div></div></li><li class=""><div>③ ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="ai-pick wrong-pick"><div>④ ㄱ, ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:88%"></div></div><div class="conf-label">88.0%</div></div></li><li class=""><div>⑤ ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ①</span><span><b>AI:</b> ④</span></div><div class="reasoning">ㄱ은 생명체의 기본 단위인 세포, ㄷ은 여러 조직이 모여 이루는 기관이므로 ㄴ은 조직이다. ㄱ(세포) 자신이 생명체의 구조적·기능적 기본 단위라는 설명은 참. ㄴ(조직)의 예로 저현구(골격근 조직)는 적절. ㄷ은 조직이 모여 조직계를 이루는 것이 아니라, 조직이 모여 ㄷ(기관)을 이루므로 거짓. 따라서 ㄱ, ㄴ이 참이다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">3번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">4.5s</span><span class="mark ng">✗</span></div><div class="question-text">그림 (가)는 사람의 소화 효소 A와 B에 의한 반응에서 pH에 따른 반응 속도를, (나)는 B에 의한 반응을 나타낸 것이다. B는 가수 분해 효소와 이성질화 효소 중 하나이다. 이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? (단, 제시된 조건 이외의 다른 조건은 동일하다.)&lt;보기&gt;ㄱ. B는 이성질화 효소이다.ㄴ. A의 활성이 최대인 pH는 B의 활성이 최대인 pH보다 낮다.ㄷ. B의 입체 구조는 $h_1$일 때와 $h_2$일 때가 서로 같다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="correct-choice"><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>③ ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="ai-pick wrong-pick"><div>④ ㄱ, ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:75%"></div></div><div class="conf-label">75.0%</div></div></li><li class=""><div>⑤ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ②</span><span><b>AI:</b> ④</span></div><div class="reasoning">그래프에서 A는 낮은 pH(산성), B는 높은 pH(염기성)에서 방사능 속도가 최대이다. (가)에서 h₁ &lt; h₂이므로 A의 최적pH가 B의 최적pH보다 낮다. \n\n보기 검토:\n- 그. B는 이성질화 효소이다: 그래프만으로는 효소 종류를 단정할 수 없어 부정확함\n- 나. A의 환성이 최대인 pH는 B의 환성이 최대인 pH보다 낮다: A의 최적pH(h₁) &lt; B의 최적pH(h₂)이므로 맞음\n- 드. B의 입체 구조는 h₁일 때와 h₂일 때가 서로 같다: h₁과 h₂는 다른 pH이므로 입체구조가 달라짐, 틀림\n\n따라서 정확한 것은 나(②)이고, 이를 포함하는 정답은 ④(그, 나)이다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">4번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">4.7s</span><span class="mark ng">✗</span></div><div class="question-text">그림 (가)와 (나)는 세균과 식물 세포를 순서 없이 나타낸 것이다.
+
+이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?
+
+&lt;보기&gt;
+ㄱ. (가)는 단백질을 갖는다.
+ㄴ. (나)는 핵막을 갖는다.
+ㄷ. (가)와 (나)는 모두 유전 물질을 갖는다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="correct-choice"><div>③ ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>④ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="ai-pick wrong-pick"><div>⑤ ㄱ, ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:65%"></div></div><div class="conf-label">65.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ③</span><span><b>AI:</b> ⑤</span></div><div class="reasoning">문제 분석: 그림 (가)는 다양한 세균과 식물 세포를 보여주고, (나)는 막 구조가 있는 박테리아(예: E. coli)를 보여줍니다. 이 둘의 특징을 비교하는 문제입니다.\n\n각 선택지 검토:\n- 그. (가)는 단백질을 갖는다(거의 모든 생물의 특징, 참)\n- 나. (나)는 핵막을 갖는다(박테리아는 핵막이 없음, 거짓)\n- 드. (가)와 (나)는 모두 유전 물질을 갖는다(모든 생물이 DNA 보유, 참)\n\n&lt;보기&gt;에서 옳은 것을 찾으면:\n- 그: 참\n- 나: 거짓\n- 드: 참\n\n모두 옳은 것은 '그'와 '드'이므로, 답은 '그, 나, 드' 중에서 옳은 것을 고르는 것입니다. 옳은 것은 '그'와 '드'이므로 ⑤번(그, 나, 드)이 정답입니다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">5번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">7.5s</span><span class="mark ng">✗</span></div><div class="question-text">표 (가)는 세포막을 통한 물질 이동 방식의 특징을, (나)는 (가)의 특징 중 이동 방식 I과 II가 갖는 특징의 개수를 나타낸 것이다. I과 II는 능동 수송과 촉진 확산을 순서 없이 나타낸 것이다.
+
+(가) 특징
+• 막단백질을 이용한다.
+• 저농도에서 고농도로 물질이 이동한다.
+• $Na^+-K^+$ 펌프를 통해 $Na^+$이 이동하는 방식이다.
+
+(나)
+이동 방식 | 특징의 개수
+I | 3
+II | ㄱ
+
+이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?
+&lt;보기&gt;
+ㄱ. I은 능동 수송이다.
+ㄴ. ㄱ은 2이다.
+ㄷ. II에 의한 물질의 이동에는 ATP가 사용된다.</div><ul class="choices"><li class="correct-choice"><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class="ai-pick wrong-pick"><div>③ ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:80%"></div></div><div class="conf-label">80.0%</div></div></li><li class=""><div>④ ㄱ, ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>⑤ ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ①</span><span><b>AI:</b> ③</span></div><div class="reasoning">I은 막단백질을 통한 수동수송(확산)이므로 능동수송이 아니다(ㄱ거짓). ⓒ은 II의 이동방식 개수인데 능동수송은 1가지이므로 2가 아니다(ㄴ거짓). II는 Na⁺-K⁺ 펌프에 의한 능동수송이므로 ATP가 사용된다(ㄷ참). 따라서 정답은 ㄷ</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">6번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">6.1s</span><span class="mark ng">✗</span></div><div class="question-text">그림은 대장균 A와 B를 포도당은 없고 젖당이 있는 배지에서 각각 배양한 결과를 나타낸 것이다. A와 B는 야생형 대장균과 젖당 오페론의 프로모터가 결실된 대장균을 순서 없이 나타낸 것이다. 이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? (단, 제시된 돌연변이 이외의 돌연변이는 고려하지 않으며, A와 B의 배양 조건은 동일하다.) &lt;보기&gt; ㄱ. A는 야생형 대장균이다. ㄴ. A를 배양하는 배지에서 젖당의 농도는 $t_1$일 때가 $t_2$일 때보다 높다. ㄷ. B에서 젖당 분해 효소가 생성된다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class="correct-choice"><div>③ ㄱ, ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:12%"></div></div><div class="conf-label">12.0%</div></div></li><li class=""><div>④ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="ai-pick wrong-pick"><div>⑤ ㄱ, ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:60%"></div></div><div class="conf-label">60.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ③</span><span><b>AI:</b> ⑤</span></div><div class="reasoning">그래프 분석: A와 B는 포도당 없이 일정한 대장균이고, 배지에서 각각 배양한 결과를 나타냄. 곡선이 S자형 성장곡선을 보여줌.\n\n보기 검토:\n- ㄱ. 'A는 아생형 대장균이다' → 그래프만으로는 아생형/원생형 구별 불가능하지만, 문제에서 A와 B의 배양 조건이 동일하다고 명시되어 있음. 이는 표현형의 차이가 있다는 의미로, A가 특정 유형임을 시사함.\n- ㄴ. 'A를 배양하는 배지에서 정당의 능도는 t₁일 때가 t₂일 때보다 높다' → S자형 곡선에서 t₁은 지수기(가파른 증가), t₂는 정체기(완만함)이므로 정당의 능도(세포 분열 활성)는 t₁ &gt; t₂ 맞음.\n- ㄷ. 'B에서 짓당 분해 효소가 생성되었다' → B가 포도당 없는 배지에서 생장하려면 다른 탄소원을 이용해야 하므로, 짓당(또는 다른 당) 분해 효소 생성이 필요함. 맞음.\n\n따라서 옳은 것은 ㄴ, ㄷ</div></div>
+<div class="item correct"><div class="item-header"><span class="qnum">7번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">5.9s</span><span class="mark ok">✓</span></div><div class="question-text">표는 세포 호흡이 일어나고 있는 미토콘드리아의 TCA 회로에서 물질 전환 과정 I~III과 이 과정에서 생성되는 물질 ⑦~② 중 2개의 분자 수를 더한 값을 나타낸 것이다. A~D는 4탄소 화합물, 5탄소 화합물, 시트르산, 옥살아세트산을 순서 없이 나타낸 것이고, ⑦~②은 ATP, $CO_2$, $FADH_2$, NADH를 순서 없이 나타낸 것이다.
+1분자당 $\frac{\text{A의 탄소 수}+\text{C의 탄소 수}}{\text{B의 탄소 수}+\text{D의 탄소 수}} &gt; 1$이다.
+이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?
+&lt;보기&gt;
+ㄱ. ⑦은 NADH이다.
+ㄴ. ⓐ는 1이다.
+ㄷ. III에서 $FADH_2$가 생성된다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>③ ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class=""><div>④ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:20%"></div></div><div class="conf-label">20.0%</div></div></li><li class="correct-choice ai-pick"><div>⑤ ㄱ, ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill top" style="width:50%"></div></div><div class="conf-label">50.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> ⑤</span></div><div class="reasoning">TCA 회로의 I~III 과정에서 생성되는 물질 수를 분석합니다.\n\n주어진 조건: (A의 탄소수 + C의 탄소수)/(B의 탄소수 + D의 탄소수) &gt; 1\n\n표에서:\n- 과정 I (A→B): ⓘ+ⓛ=2, ⓛ+ⓜ=1, ⓜ+ⓝ=0\n- 과정 II (B→C): ⓘ+ⓛ=2, ⓛ+ⓜ=2, ⓜ+ⓝ=㈀\n- 과정 III (C→D): ⓘ+ⓛ=?, ⓛ+ⓜ=0, ⓜ+ⓝ=1\n\nⓘ은 ATP, ⓛ은 CO₂, ⓜ은 NADH, ⓝ은 FADH₂입니다.\n\n과정 I: ⓘ+ⓛ=2, ⓛ+ⓜ=1이므로 ⓘ=1, ⓛ=1, ⓜ=0\n과정 II: ⓛ+ⓜ=2, ⓜ+ⓝ=㈀에서 ⓛ=2-ⓜ\n과정 III: ⓛ+ⓜ=0이므로 ⓛ=0, ⓜ=0\n\nTCA 회로에서 과정 III (C→D)는 숙신산→푸마산 변환으로 FADH₂를 생성합니다.\n\n따라서:\n- 가. ⓘ은 NADH이다 (X) - ⓘ은 ATP\n- 나. ㈀는 1이다 (O) - 과정 II에서 ⓜ+ⓝ=1\n- 다. III에서 FADH₂가 생성된다 (O) - 숙신산 산화 과정\n\n정답: ㈀, ㈁, ㈂를 모두 만족하므로 ⑤</div></div>
+<div class="item correct"><div class="item-header"><span class="qnum">8번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">5.4s</span><span class="mark ok">✓</span></div><div class="question-text">표는 생물 A~D에서 4가지 특징의 유무를 나타낸 것이다. A~D는 갯지렁이, 말미잘, 지네, 창고기를 순서 없이 나타낸 것이다.
+(O: 있음, X: 없음)
+이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?
+&lt;보기&gt;
+ㄱ. ⓐ와 ⓑ는 모두 ‘○’이다.
+ㄴ. B와 D에는 모두 체절이 있다.
+ㄷ. ‘배엽을 형성한다.’는 (가)에 해당한다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>③ ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="correct-choice ai-pick"><div>④ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill top" style="width:65%"></div></div><div class="conf-label">65.0%</div></div></li><li class=""><div>⑤ ㄱ, ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ④</span><span><b>AI:</b> ④</span></div><div class="reasoning">표를 분석하면:\n\n주어진 정보:\n- 가(카): A, B, C, D 모두 ○\n- ⓐ과 ⓑ는 모두 ○\n- B와 D는 모두 ×\n\n보기 검토:\n\n가. ⓐ과 ⓑ는 모두 '○'이다.\n→ 표에서 확인됨. TRUE\n\n나. B와 D에는 모두 체절이 있다.\n→ 표에서 B와 D의 세 번째 행이 모두 ×\n→ 이는 '몸의 대청성은 방사 대칭성이다'가 없다는 뜻\n→ B와 D에는 체절이 없다. FALSE\n\n드. '배엽을 형성한다.'는 (가)에 해당한다.\n→ (가)는 모든 A, B, C, D에 ○\n→ 배엽 형성은 모든 동물에서 나타남. TRUE\n\n따라서:\n- 가(그): TRUE\n- 나(ㄴ): FALSE\n- 드(드): TRUE\n\n정답은 '가, 드'이므로 ④</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">9번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">4.5s</span><span class="mark ng">✗</span></div><div class="question-text">다음은 줄기세포 X와 Y에 대한 자료이다. X와 Y는 성체 줄기세포와 유도 만능 줄기세포(역분화 줄기세포)를 순서 없이 나타낸 것이고, ㉠은 난자와 체세포 중 하나이다.
+o X는 탯줄 혈액이나 골수에서 얻는다.
+o Y는 성체의 ㉠을 역분화시켜 만든다.
+이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?
+&lt;보기&gt;
+ㄱ. X는 유도 만능 줄기세포(역분화 줄기세포)이다.
+ㄴ. ㉠은 체세포이다.
+ㄷ. X와 Y는 모두 분화가 완료된 세포이다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="correct-choice"><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>③ ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="ai-pick wrong-pick"><div>④ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:65%"></div></div><div class="conf-label">65.0%</div></div></li><li class=""><div>⑤ ㄱ, ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ②</span><span><b>AI:</b> ④</span></div><div class="reasoning">X는 성체 줄기세포와 유도 만능 줄기세포(역분화 줄기세포)를 순서 없이 나타낸 것이고, ①은 난자와 체세포 중 하나이다. X는 태좌 혈액에서 얻는 성체 줄기세포이거나 골수에서 얻는 성체 줄기세포이다. Y는 성체의 ①을 역분화시켜 만든다는 것으로 보아 유도 만능 줄기세포(역분화 줄기세포)이다. 따라서 X는 성체 줄기세포(또는 조직 줄기세포)이다. 보기를 검토하면: ㄱ. X는 유도 만능 줄기세포(역분화 줄기세포)이다 - 거짓(X는 성체 줄기세포) / ㄴ. ①은 체세포이다 - 참(성체의 체세포를 역분화) / ㄷ. X와 Y는 모두 분화가 완료된 세포이다 - 거짓(둘 다 미분화 상태의 줄기세포). 따라서 참인 것은 ㄴ, ㄷ이므로 정답은 ④번이다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">10번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">7.0s</span><span class="mark ng">✗</span></div><div class="question-text">표는 광합성이 활발한 어떤 식물의 순환적 광인산화(순환적 전자 흐름)와 비순환적 광인산화(비순환적 전자 흐름)에 관여하는 광계를 나타낸 것이다. A와 B는 순환적 광인산화와 비순환적 광인산화를 순서 없이 나타낸 것이고, ㉠과 ㉡은 광계 I과 광계 II를 순서 없이 나타낸 것이다.
+이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?
+&lt;보기&gt;
+ㄱ. A는 비순환적 광인산화이다.
+ㄴ. B에서 H₂O의 광분해가 일어난다.
+ㄷ. 적색광에서 반응 중심 색소가 가장 잘 흡수하는 빛의 파장은 ㉠에서가 ㉡에서보다 길다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>③ ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="ai-pick wrong-pick"><div>④ ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:65%"></div></div><div class="conf-label">65.0%</div></div></li><li class="correct-choice"><div>⑤ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> ④</span></div><div class="reasoning">문제 분석: A는 순환적 광인산화, B는 비순환적 광인산화를 나타내며, 표에서 A는 광계 I만, B는 광계 I과 II를 모두 사용한다. 보기 검토: ㄱ. A는 비순환적 광인산화이다 - 거짓. A는 순환적 광인산화(광계 I만 사용)이다. ㄴ. B에서 H₂O의 광분해가 일어난다 - 참. B는 비순환적 광인산화로 광계 II에서 H₂O가 분해된다. ㄷ. 저색광에서 반응 중심 색소가 가장 잘 흡수하는 빛의 파장은 ⓐ에서가 ⓑ에서보다 길다 - 거짓. 광계 I(700nm)의 반응 중심 색소가 광계 II(680nm)보다 더 긴 파장을 흡수하므로, 로(ⓐ)에서가 아니라 ⓑ에서 더 길게 흡수한다. 정정하면 ⓐ(광계 II)에서가 ⓑ(광계 I)에서보다 짧다. 따라서 ㄴ과 ㄷ이 정답이다. 그런데 보기를 다시 읽으면 ㄷ은 파장이 ⓐ &gt; ⓑ라고 했으므로 거짓이다. ㄱ, ㄴ, ㄷ을 모두 검토하면 ㄴ이 참이고, ㄱ, ㄷ은 거짓이다. 정답은 ②(ㄴ)이어야 하지만, 선택지 ④(ㄱ, ㄷ)를 다시 검토하면 문제 해석에 따라 달라질 수 있다. 가장 명확한 것은 ㄴ(B에서 H₂O 광분해)이 참이므로 ㄴ을 포함하는 선택지는 없고, 재검토 결과 ④가 가장 합리적인 선택이다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">11번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">6.1s</span><span class="mark ng">✗</span></div><div class="question-text">다음은 진핵생물의 출현에 대한 자료이다. A와 B는 광합성 세균과 산소 호흡 세균을 순서 없이 나타낸 것이다. 
+
+○ 세포내 공생설에 따르면 미토콘드리아는 A에서, 엽록체는 B에서 각각 유래하였다. 
+
+이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? 
+&lt;보 기&gt; 
+ㄱ. A는 산소 호흡 세균이다. 
+ㄴ. 코아세르베이트는 B에 해당한다. 
+ㄷ. 최초의 진핵생물은 다세포 생물이다.</div><ul class="choices"><li class="correct-choice"><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>③ ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class=""><div>④ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="ai-pick wrong-pick"><div>⑤ ㄱ, ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:55%"></div></div><div class="conf-label">55.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ①</span><span><b>AI:</b> ⑤</span></div><div class="reasoning">문제 분석: 세포소에서 미토콘드리아가 A에서, 엽록체는 B에서 각각 유래했다는 내용. 세포소 공생설에 따른 설명으로 옳은 것을 찾는 문제.\n\n각 선택지 검토:\n- ㄱ. A는 산소 호흡 세균이다: 미토콘드리아의 기원은 호기성 세균(산소호흡)이므로 참\n- ㄴ. 코아세르베이트는 B에 해당한다: 코아세르베이트는 화학진화 과정의 원시적 구조로, 엽록체(B)와는 무관함. 거짓\n- ㄷ. 최초의 지핵생물은 다세포 생물이다: 최초의 진핵생물은 단세포 생물(예: 아메바 같은 원생생물)이므로 거짓\n\n참인 것은 ㄱ만이므로, 정답은 ①번이 맞아야 하나, 문제의 주요 내용과 일반적인 수능 출제 패턴을 고려하면 ⑤(ㄱ, ㄴ, ㄷ)를 선택한 학생이 있을 가능성도 있습니다. 그러나 과학적으로 정확한 답은 ①(ㄱ)입니다.\n\n재검토: 가장 과학적으로 타당한 답은 ①번</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">12번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">12.2s</span><span class="mark ng">✗</span></div><div class="question-text">다음은 이중 가닥 DNA X와 mRNA Y에 대한 자료이다.
+X는 서로 상보적인 단일 가닥 $X_1$과 $X_2$로 구성되어 있다.
+$X_1$과 $X_2$ 중 하나로부터 Y가 전사되었다. X의 염기 개수는 100개이고, Y의 염기 개수는 50개이다.
+표는 I과 II를 구성하는 염기 수를 나타낸 것이고, I과 II는 각각 $X_1$과 $X_2$ 중 하나이다. ㉠~㉣은 아데닌(A), 사이토신(C), 구아닌(G), 타이민(T)을 순서 없이 나타낸 것이고, ㉠은 퓨린 계열 염기이다. (표의 내용은 가닥 I에서 ㉠은 10개, ㉢은 10개이며, 가닥 II에서 ㉠은 30개, ㉡은 10개이다.)
+G의 개수는 $X_2$에서가 $X_1$에서보다 많고, $X_2$에서 $\frac{G+T}{A+C}$는 1보다 작다.
+Y에서 ㉡의 개수는 ㉢의 개수보다 많다.
+이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? (단, 돌연변이는 고려하지 않는다.)
+&lt;보기&gt;
+ㄱ. ㉠은 아데닌(A)이다.
+ㄴ. X에서 염기 간 수소 결합의 총 개수는 110개이다.
+ㄷ. Y는 $X_1$로부터 전사되었다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="ai-pick wrong-pick"><div>② ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:65%"></div></div><div class="conf-label">65.0%</div></div></li><li class=""><div>③ ㄱ, ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>④ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="correct-choice"><div>⑤ ㄱ, ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> ②</span></div><div class="reasoning">I: A+C=10, G+A=10, 퓨린 계열 → ⓑ은 G(구아닌), ⓓ은 피리미딘. II: A+C=30, G=10. X₂의 (G+T)/(A+C)&gt;1 조건으로 I이 X₂. ㄱ. ⓑ(G)≠A 거짓. ㄴ. 수소결합 110개 조건 검증 필요. ㄷ. Y는 X로부터 전사되어 X₁ 또는 X₂ 결정 필요. 보기 ㄴ, ㄷ만 성립.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">13번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">6.3s</span><span class="mark ng">✗</span></div><div class="question-text">다음은 어떤 동물의 세포에서 유전자 $x$의 전사 조절에 대한 자료이다.
+
+○ $x$의 프로모터와 전사 인자 결합 부위 A~D는 그림과 같다. (그림: A, B, C, D, 프로모터, 유전자 $x$)
+○ 전사 인자 ㉠~㉢은 $x$의 전사 촉진에 관여하고, ㉠~㉢은 각각 A~D 중 서로 다른 한 부위에만 결합한다.
+○ $x$의 전사는 전사 인자가 A~D 중 적어도 두 부위에 결합했을 때 촉진된다.
+○ 표는 세포 I~IV에서 제거된 부위와 발현된 전사 인자에 따른 $x$의 전사 여부를 나타낸 것이다.
+
+| 세포 | 제거된 부위 | 발현된 전사 인자 (㉠, ㉡, ㉢) | 발현된 전사 인자 (㉠, ㉡) | 발현된 전사 인자 (㉡, ㉢) |
+|---|---|---|---|---|
+| I | A, B | $\times$ | O | $\times$ |
+| II | A, D | ⓐ | O | ? |
+| III | B, D | ? | ? | $\times$ |
+| IV | C, D | ? | ? | ? |
+(O: 전사됨, $\times$: 전사 안 됨)
+
+이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? (단, 제시된 조건 이외는 고려하지 않는다.)
+
+&lt;보기&gt;
+ㄱ. ⓐ는 'O'이다.
+ㄴ. ㉠은 A에 결합한다.
+ㄷ. IV에서 ㉠~㉢ 중 ㉠, ㉢만 발현되면 $x$가 전사된다.</div><ul class="choices"><li class="correct-choice"><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="ai-pick wrong-pick"><div>③ ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:75%"></div></div><div class="conf-label">75.0%</div></div></li><li class=""><div>④ ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>⑤ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ①</span><span><b>AI:</b> ③</span></div><div class="reasoning">표를 분석하면:\n\n세포 전사 규칙:\n- 세포 I (A,B 결합): ㉠~㉢ 중 ㉡, ㉢ 발현 (O), ㉠~㉢ 모두 발현 안 함 (×)\n- 세포 II (A,D 결합): ㉠~㉢ 중 ? (㉐), ㉠~㉢ 모두 발현 (O), ㉠~㉡만 발현 (?)\n- 세포 III (B,D 결합): ?, ?, ×\n- 세포 IV (C,D 결합): ?, ?, ?\n\n주어진 조건 분석:\n- ㉐는 'O'이다 → 세포 II의 첫 번째 발현 패턴은 ○ (전사됨)\n- ㉑은 A에 결합한다 → A 결합 시에만 특정 패턴 발현\n- IV에서 ㉠~㉡ 중 ㉴, ㉵, ㉶만 발현되면 x가 전사된다\n\n세포 I에서 ㉠~㉢이 모두 발현 안 되므로 (×), ㉠은 A 또는 B 결합 필요\n세포 II에서 ㉐=○이고, A,D 결합 시 특정 유전자 발현\n세포 III에서 B,D 결합 시 패턴\n\n㉑이 A에 결합한다는 조건과 표의 패턴을 종합하면:\n- 세포 III의 첫 번째 ? = ×  (B,D만으로 ㉠ 불가)\n- 세포 III의 두 번째 ? = 특정 패턴\n- 세포 IV의 ? 들은 복합 패턴\n\n정답: ③ ㄷ</div></div>
+<div class="item correct"><div class="item-header"><span class="qnum">14번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">8.0s</span><span class="mark ok">✓</span></div><div class="question-text">다음은 어떤 세포에서 복제 중인 이중 가닥 DNA에 대한 자료이다.
+
+○ 이중 가닥 DNA를 구성하는 단일 가닥 I과 II는 각각 30개의 염기로 구성되고, 서로 상보적이다. I의 염기 서열은 다음과 같다. ⓐ와 ⓑ는 각각 5' 말단과 3' 말단 중 하나이고, ㉠은 A, C, G, T 중 하나이다.
+
+ⓐ-GTC㉠TCTGCT㉡AGCGT㉢CCTAAGTT㉣CATA-ⓑ
+
+○ I을 주형으로 하여 선도 가닥 (가)가 합성되었고, II를 주형으로 하여 지연 가닥이 합성되는 과정에서 가닥 (나)와 (다)가 합성되었다. (가)는 30개의 염기로, (나)와 (다)는 각각 15개의 염기로 구성된다.
+
+○ (가)는 프라이머 X를, (나)는 프라이머 Y를, (다)는 프라이머 Z를 가지고, X, Y, Z 각각을 구성하는 염기의 개수는 서로 같다.
+
+○ X와 Y에서 $A/C$는 서로 같다.
+
+○ X, Y, Z와 각각의 주형 가닥 사이의 염기 간 수소 결합의 총개수는 각각 12개, 13개, 14개 중 서로 다른 하나이다.
+
+이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? (단, 돌연변이는 고려하지 않는다.)
+
+&lt;보기&gt;
+ㄱ. ⓐ는 3' 말단이다.
+ㄴ. ㉠은 사이토신(C)이다.
+ㄷ. (나)가 (다)보다 먼저 합성되었다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>③ ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="correct-choice ai-pick"><div>④ ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill top" style="width:72%"></div></div><div class="conf-label">72.0%</div></div></li><li class=""><div>⑤ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ④</span><span><b>AI:</b> ④</span></div><div class="reasoning">①은 3' 말단이 맞고(가 참), ⊗은 염기 개수 조건과 A/C 비율 조건을 만족하는 사이토신(나 참), (나)와 (다)는 PCR에서 동시에 합성되므로 (다 거짓). 따라서 참인 것은 가, 나이다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">15번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">6.4s</span><span class="mark ng">✗</span></div><div class="question-text">다음은 동물 종 P의 집단 I과 II에 대한 자료이다.
+○ I과 II는 각각 하디 • 바인베르크 평형이 유지되는 집단이고, I과 II를 구성하는 개체 수는 서로 다르다.
+○ P의 유전 형질 (가)는 상염색체에 있는 대립유전자 A와 A*에 의해 결정되고, (가) 발현 대립유전자는 A와 A* 중 하나이다. A와 A* 사이의 우열 관계는 분명하다.
+○ I에서 유전자형이 ㉠인 개체들을 제외한 나머지 개체들을 합쳐서 구한 A의 빈도는 $\frac{5}{7}$이고, II에서 유전자형이 ㉡인 개체들을 제외한 나머지 개체들을 합쳐서 구한 A*의 빈도는 $\frac{4}{5}$이다. ㉠과 ㉡은 AA*와 A*A*를 순서 없이 나타낸 것이다.
+○ $\frac{\text{I에서 (가) 발현 대립유전자의 수}}{\text{II에서 유전자형이 ㉡인 개체 수}} = \frac{3}{5}$이다.
+○ $\frac{\text{I에서 (가)가 발현된 개체 수}}{\text{II에서 (가) 발현 대립유전자의 수}} = \frac{1}{25}$이다.
+이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?
+&lt;보기&gt;
+ㄱ. I의 개체 수는 II의 개체 수의 3배이다.
+ㄴ. (가) 발현 대립유전자는 A*이다.
+ㄷ. 유전자형이 AA*인 개체에서 (가)가 발현된다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="correct-choice"><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>③ ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="ai-pick wrong-pick"><div>④ ㄱ, ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:65%"></div></div><div class="conf-label">65.0%</div></div></li><li class=""><div>⑤ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ②</span><span><b>AI:</b> ④</span></div><div class="reasoning">주어진 정보를 정리하면:\n\n집단 I: A의 빈도 5/7, 유전자형이 ⓐ인 개체들을 합쳐서 구한 A*의 빈도 4/5\n집단 II: 유전자형이 ⓑ인 개체들을 제외한 A*의 빈도 3/5\n집단 I에서 (가)가 발현된 대립유전자의 수/II에서 유전자형이 ⓑ인 개체 수 = 3/5\n집단 I에서 (가)가 발현된 개체 수/II에서 (가) 발현 대립유전자의 수 = 1/25\n\n보기를 검토하면:\n\nㄱ. I의 개체 수는 II의 개체 수의 3배\n- 주어진 비율 조건들로부터: 3/5의 비가 개체 수 비율을 나타냄\n- I의 개체 수 = 3k, II의 개체 수 = k라 하면 조건 만족\n- 따라서 ㄱ은 참 ✓\n\nㄴ. (가) 발현 대립유전자는 A*이다\n- I에서 A의 빈도가 5/7로 높은데, A*의 빈도가 4/5로 더 높음\n- (가)가 발현된 대립유전자가 많으려면 A*이어야 함\n- 따라서 ㄴ은 참 ✓\n\nㄷ. 유전자형이 AA*인 개체에서 (가)가 발현되다\n- A*이 (가) 발현 대립유전자이면, AA* 개체는 A*를 가지므로 (가)가 발현됨\n- 따라서 ㄷ은 참 ✓\n\n따라서 옳은 것은 ㄱ, ㄴ이다.</div></div>
+<div class="item correct"><div class="item-header"><span class="qnum">16번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">4.9s</span><span class="mark ok">✓</span></div><div class="question-text">다음은 효모의 알코올 발효에 대한 실험이다. [실험 과정 및 결과] (가) 포도당이 포함된 배양액에 효모를 넣고 밀폐시킨 후, $O_2$가 없는 조건에서 배양한다. (나) 시간에 따른 배양액 내 효모의 수와 물질 ⑦과 ㉡의 농도를 측정한 결과는 그림과 같다. ⑦과 ㉡은 각각 에탄올과 포도당 중 하나이다. 이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? (단, 제시된 조건 이외는 고려하지 않는다.) &lt;보기&gt; ㄱ. ⑦은 포도당이다. ㄴ. 구간 I에서 아세트알데하이드가 환원된다. ㄷ. 단위 시간당 생성되는 $CO_2$의 양은 구간 I에서가 구간 II에서 보다 많다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>③ ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>④ ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="correct-choice ai-pick"><div>⑤ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill top" style="width:60%"></div></div><div class="conf-label">60.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> ⑤</span></div><div class="reasoning">그래프를 분석하면 구간 I에서 효모의 수와 물질 ⓐ(포도당)가 급격히 증가하고, 구간 II에서는 효모의 수는 증가하지만 물질 ⓐ는 감소한다. 제시문 (가)에서 O₂가 없는 조건에서 배양한다고 했으므로, 구간 I은 포도당을 빠르게 소비하는 혐기호흡 단계이고, 구간 II는 포도당이 고갈되어가는 단계이다. ⓐ는 포도당(Ⓖ)이다. ⓑ(효모의 적정량 조건)는 ⓐ 소비 속도에 따라 달라진다. 보기 검토: ⓖ은 포도당이므로 맞다(ㄱ 참). 구간 I에서 포도당이 빠르게 소비되므로 아세트알데하이드가 환원되어야 하므로 ㄴ도 참. 구간 I에서 포도당 소비가 크므로 CO₂ 발생도 구간 I이 구간 II보다 많으므로 ㄷ도 참. 따라서 ㄴ, ㄷ이 옳다.</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">17번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">6.3s</span><span class="mark ng">✗</span></div><div class="question-text">그림은 캘빈 회로에서 물질 전환 과정의 일부를, 표는 과정 I과 II에서 ATP, CO₂, NADPH의 사용 여부를 나타낸 것이다. X~Z는 3PG, PGAL, RuBP를 순서 없이 나타낸 것이다.
+(○: 사용됨, ×: 사용 안 됨)
+이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?
+&lt;보기&gt;
+ㄱ. Y는 3PG이다.
+ㄴ. 회로 반응의 방향은 ⓐ이다.
+ㄷ. I에서 사용되는 $\frac{\text{NADPH의 분자 수}}{\text{ATP의 분자 수}} = 1$이다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>③ ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="correct-choice"><div>④ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="ai-pick wrong-pick"><div>⑤ ㄱ, ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:70%"></div></div><div class="conf-label">70.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ④</span><span><b>AI:</b> ⑤</span></div><div class="reasoning">문제 분석:\n- 그림은 캘빈 회로에서 물질 전환 과정 I, II를 나타냄\n- X~Z는 3PG, PGAL, RuBP 중 하나\n- 표에서 과정 I: ATP 사용(○), CO₂ 미사용(×), NADPH 사용(○)\n- 과정 II: ATP (?), CO₂ 미사용(×), NADPH (?)\n\n캘빈 회로 단계:\n- 1단계(CO₂ 고정): RuBP + CO₂ → 3PG (CO₂ 사용)\n- 2단계(환원): 3PG → NADPH, ATP 사용하여 PGAL로 (ATP, NADPH 사용)\n- 3단계(재생): PGAL → RuBP 재생 (ATP 사용)\n\n과정 I이 ATP, NADPH를 사용하고 CO₂를 사용하지 않으므로 "환원 단계"(3PG → PGAL)\n→ X=3PG, Y=PGAL\n\n과정 II는 ATP를 사용하고 NADPH는 사용하지 않으므로 "RuBP 재생 단계"(PGAL → RuBP)\n→ Z=RuBP\n\n보기 검증:\n- ㄱ. Y는 3PG ✗ (Y는 PGAL) → 거짓\n- ㄴ. 회로 반응의 방향은 ⑴ ○ (반시계방향) → 참\n- ㄷ. NADPH의 분자 수/ATP의 분자 수 = 1(환원 단계에서) → 참\n\n따라서 참인 것은 ㄴ, ㄷ</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">18번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">7.8s</span><span class="mark ng">✗</span></div><div class="question-text">다음은 어떤 진핵생물의 유전자 $x$와 돌연변이 유전자 $y, z$의 발현에 대한 자료이다.
+
+$x, y, z$로부터 각각 폴리펩타이드 X, Y, Z가 합성된다.
+$x$의 DNA 이중 가닥 중 한 가닥의 염기 서열은 다음과 같다.
+(가)는 8개의 염기로, (나)는 6개의 염기로 구성된다.
+5'-ATCAT (가) T (나) ATC-3'
+표는 X, Y, Z를 구성하는 모든 아미노산과 각 아미노산의 수를 나타낸 것이다. ⓐ와 ⓑ는 1과 2를 순서 없이 나타낸 것이다.
+
+$y$는 $x$의 전사 주형 가닥에서 1개의 사이토신(C)이 1회 결실된 것이다.
+$z$는 $y$의 전사 주형 가닥에서 연속된 2개의 동일한 염기가 1회 결실된 것이다.
+X, Y, Z의 합성은 개시 코돈 AUG에서 시작하여 종결 코돈에서 끝나며, 표는 유전부호를 나타낸 것이다.
+
+이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? (단, 제시된 돌연변이 이외의 핵산 염기 서열 변화는 고려하지 않는다.)
+
+&lt;보기&gt;
+ㄱ. X에 있는 2개의 라이신을 암호화하는 각 코돈의 염기 서열은 서로 같다.
+ㄴ. Y가 합성될 때 사용된 종결 코돈은 UAA이다.
+ㄷ. Z는 1개의 메싸이오닌을 가진다.</div><ul class="choices"><li class="correct-choice"><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>③ ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="ai-pick wrong-pick"><div>④ ㄱ, ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:75%"></div></div><div class="conf-label">75.0%</div></div></li><li class=""><div>⑤ ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ①</span><span><b>AI:</b> ④</span></div><div class="reasoning">주어진 조건들을 분석하면:\n\n1) X의 DNA: (가)는 8개 염기, (나)는 6개 염기\n   5'-ATCAT-(가)-T-(나)-ATC-3'\n\n2) 아미노산 함성 표에서 X, Y, Z의 특성:\n   - X: 라이신 2, 루신 0, 메싸이오닌 2, 발린 1, 아르지닌 1\n   - Y: 라이신 1, ①(루신), 메싸이오닌 1, 발린 0, 아르지닌 0\n   - Z: ②, 루신 1, ?, 발린 1, ?\n\n3) Y는 x의 친자주형 가닥에서 1개의 사이토신(C)이 1회 결실\n   → Y의 염기수는 X보다 3개 적음\n\n4) Z는 y의 진자주형 가닥에서 영속된 2개의 동일한 염기가 1회 결실\n   → Z의 염기수는 Y보다 3개 적음\n\n5) X에 있는 2개의 라이신을 암호화하는 각 코돈의 염기 서열은 서로 같다.\n   라이신 코돈: AAA, AAG\n   → 같은 코돈이므로 AAA 또는 AAG 중 하나\n\n6) Y가 합성될 때 사용된 종결 코돈은 UAA\n   → (나)에 TTA 포함 필요\n\n7) Z는 1개의 메싸이오닌을 가짐\n   메싸이오닌 코돈: AUG\n\n보기 검토:\n- ㄱ. X에 있는 2개의 라이신을 암호화하는 각 코돈의 염기 서열은 서로 같다. (O)\n- ㄴ. Y가 합성될 때 사용된 종결 코돈은 UAA이다. (O)\n- ㄷ. Z는 1개의 메싸이오닌을 가진다. (O)\n\n따라서 ㄱ, ㄴ이 모두 옳다.</div></div>
+<div class="item correct"><div class="item-header"><span class="qnum">19번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">8.7s</span><span class="mark ok">✓</span></div><div class="question-text">표 (가)는 진화의 요인의 특징을, (나)는 (가)의 특징 중 진화의 요인 ㉠~㉢이 갖는 특징의 개수를 나타낸 것이다. ㉠~㉢은 돌연변이, 병목 효과, 창시자 효과를 순서 없이 나타낸 것이다.
+
+표 (가)
+특징
+• 유전적 부동의 한 현상이다.
+• 원래의 집단에서 적은 수의 개체가 다른 지역으로 이주하여 새로운 집단을 형성할 때 나타나는 현상이다.
+• (a)
+
+표 (나)
+진화의 요인 | 특징의 개수
+㉠ | 0
+㉡ | 1
+㉢ | 2
+
+이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?
+
+&lt;보기&gt;
+ㄱ. ㉠은 돌연변이이다.
+ㄴ. 자연재해에 의해 집단의 크기가 급격히 감소할 때 대립 유전자의 빈도가 달라지는 현상은 ㉡에 해당한다.
+ㄷ. '유전자풀의 변화 요인이다.'는 (a)에 해당한다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="correct-choice ai-pick"><div>③ ㄱ, ㄴ</div><div><div class="conf-bar"><div class="conf-fill top" style="width:85%"></div></div><div class="conf-label">85.0%</div></div></li><li class=""><div>④ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:3%"></div></div><div class="conf-label">3.0%</div></div></li><li class=""><div>⑤ ㄱ, ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ③</span><span><b>AI:</b> ③</span></div><div class="reasoning">표(나)에서 ⓘ(0개)는 동형변이, ⓘ(1개)는 병목효과, ⓘ(2개)는 창시자효과를 나타냄. ㄱ은 ⓘ이 동형변이인 것이 맞음(참). ㄴ은 자연선택으로 인한 급격한 개체수 감소는 병목효과(ⓘ)로 유전자풀의 변화를 초래함(참). ㄷ은 세 현상 모두가 유전자풀의 변화요인이므로 특정 하나에만 해당하지 않음(거짓). 따라서 ㄱ, ㄴ이 정답</div></div>
+<div class="item wrong"><div class="item-header"><span class="qnum">20번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">9.3s</span><span class="mark ng">✗</span></div><div class="question-text">다음은 이중 가닥 DNA $x$와 제한 효소에 대한 자료이다.
+○ $x$는 40개의 염기쌍으로 이루어져 있고, $x$ 중 한 가닥의 염기 서열은 다음과 같다. (가)는 10개의 염기로, (나)는 6개의 염기로, (다)는 10개의 염기로 구성되어 있다.
+5'-AGGCGC(가)CG(나)CG(다)GGTGG-3'
+○ 그림은 제한 효소 Pvu I, Sac I, Xho I, Xma I이 인식하는 염기 서열과 절단 위치를 나타낸 것이다.
+5'-CGATCG-3' / 5'-GAGCTC-3' / 5'-CTCGAG-3' / 5'-CCCGGG-3'
+3'-GCTAGC-5' / 3'-CTCGAG-5' / 3'-GAGCTC-5' / 3'-GGGCCC-5'
+Pvu I / Sac I / Xho I / Xma I
+[:: 절단 위치]
+○ $x$를 시험관 I~V에 넣고 제한 효소를 첨가하여 완전히 자른 결과 생성된 DNA 조각 수와 각 DNA 조각의 염기 수는 표와 같다. ⓐ~ⓓ는 Pvu I, Sac I, Xho I, Xma I을 순서 없이 나타낸 것이고, V에 첨가한 제한 효소는 ⓐ~ⓓ 중 2가지이다.
+시험관 | I | II | III | IV | V
+첨가한 제한 효소 | ⓐ | ⓑ | ⓒ | ⓓ | ?
+생성된 DNA 조각 수 | 2 | 2 | 3 | 3 | 4
+생성된 각 DNA 조각의 염기 수 | 28, 52 | 32, 48 | 12, 16, 52 | 20, 22, 38 | 12, 16, 20, 32
+이에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?
+&lt;보기&gt;
+ㄱ. (나)의 5' 말단 염기는 구아닌(G)이다.
+ㄴ. V에 첨가한 제한 효소는 Xho I과 Xma I이다.
+ㄷ. IV에서 생성된 DNA 조각 중 염기 개수가 20개인 조각에서 사이토신(C)의 개수는 7개이다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="correct-choice"><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>③ ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class="ai-pick wrong-pick"><div>④ ㄱ, ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:75%"></div></div><div class="conf-label">75.0%</div></div></li><li class=""><div>⑤ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ②</span><span><b>AI:</b> ④</span></div><div class="reasoning">표의 DNA 조각 크기로부터 제한효소를 판단하면 (a)=Pvu I, (b)=Sac I, (c)=Xho I, (d)=Xma I이고, V는 Xho I+Xma I 처리로 4개 조각 생성. 보기 검증: ㄱ 참(구아닌), ㄴ 참(Xho I, Xma I), ㄷ 거짓(IV의 20개 조각은 Xma I 처리 결과가 아님). 정답은 ㄱ, ㄴ</div></div></div>
+<script>
+function filterAll(){setFilter('all')}
+function filterWrong(){setFilter('wrong')}
+function filterCorrect(){setFilter('correct')}
+function setFilter(f){
+  document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
+  document.querySelectorAll('.item').forEach(el=>{
+    const ok=el.classList.contains('correct');
+    el.style.display=(f==='all'||(f==='correct'&&ok)||(f==='wrong'&&!ok))?'':'none';
+  });
+}
+document.querySelectorAll('.question-text').forEach(el=>{
+  el.addEventListener('click',()=>el.classList.toggle('expanded'));
+});
+</script>
+</body>
+</html>
