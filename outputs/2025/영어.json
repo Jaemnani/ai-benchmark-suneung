@@ -1,0 +1,1065 @@
+{
+  "subject": "영어",
+  "form": "홀수형",
+  "source_pdf": "/Users/jaemoonyeah/workspace/AI-benchmark-suneung/raw_datas/2025/영어영역_문제지.pdf",
+  "questions": [
+    {
+      "number": 1,
+      "page": 1,
+      "column": 0,
+      "bbox": [
+        87.9,
+        320.0,
+        409.6,
+        443.2
+      ],
+      "question": "다음을 듣고, 남자가 하는 말의 목적으로 가장 적절한 것을\n고르시오.",
+      "choices": [
+        "명상에 도움이 되는 호흡 방법을 설명하려고",
+        "숙면을 위한 균형 잡힌 식단을 권장하려고",
+        "잠을 잘 자게 도와주는 앱을 소개하려고",
+        "아침에 듣기 좋은 음악 채널을 홍보하려고",
+        "수면 시간을 측정하는 앱 설치 방법을 안내하려고"
+      ],
+      "image_path": "images/영어/q01.png",
+      "passage_id": null,
+      "section": "공통"
+    },
+    {
+      "number": 2,
+      "page": 1,
+      "column": 0,
+      "bbox": [
+        87.9,
+        461.0,
+        398.1,
+        567.5
+      ],
+      "question": "대화를 듣고, 여자의 의견으로 가장 적절한 것을 고르시오.",
+      "choices": [
+        "규칙적인 운동을 하면 상황에 따른 적응 능력이 길러진다.",
+        "실내 암벽 등반은 문제 해결 능력 향상에 도움이 된다.",
+        "등산할 때 실행 가능한 계획을 세우는 것이 중요하다.",
+        "실내 암벽 등반 장비를 정비해야 부상 위험이 줄어든다.",
+        "실내 암벽 등반을 동료와 함께 하면 팀워크가 향상된다."
+      ],
+      "image_path": "images/영어/q02.png",
+      "passage_id": null,
+      "section": "공통"
+    },
+    {
+      "number": 3,
+      "page": 1,
+      "column": 0,
+      "bbox": [
+        87.9,
+        585.3,
+        405.4,
+        691.9
+      ],
+      "question": "다음을 듣고, 남자가 하는 말의 요지로 가장 적절한 것을 고르시오.",
+      "choices": [
+        "큰 포즈를 취하면 불안감을 완화할 수 있다.",
+        "적절한 긴장감은 일의 수행 능력을 향상시킨다.",
+        "발표할 때 큰 포즈를 취하면 전달력이 높아진다.",
+        "불안감 완화를 위해 영화를 보는 것이 효과적이다.",
+        "면접에서 적절한 제스처를 사용하면 좋은 인상을 남긴다."
+      ],
+      "image_path": "images/영어/q03.png",
+      "passage_id": null,
+      "section": "공통"
+    },
+    {
+      "number": 4,
+      "page": 1,
+      "column": 0,
+      "bbox": [
+        87.9,
+        709.7,
+        405.4,
+        723.5
+      ],
+      "question": "대화를 듣고, 그림에서 대화의 내용과 일치하지 않는 것을 고르시오.",
+      "choices": [],
+      "image_path": "images/영어/q04.png",
+      "passage_id": null,
+      "section": "공통"
+    },
+    {
+      "number": 5,
+      "page": 1,
+      "column": 0,
+      "bbox": [
+        87.9,
+        940.7,
+        386.5,
+        1012.7
+      ],
+      "question": "대화를 듣고, 여자가 할 일로 가장 적절한 것을 고르시오.",
+      "choices": [
+        "재료 배송 확인하기",
+        "파이 사진 찍기",
+        "포크와 접시 준비하기",
+        "제품 목록 완성하기",
+        "소셜 미디어에 홍보하기"
+      ],
+      "image_path": "images/영어/q05.png",
+      "passage_id": null,
+      "section": "공통"
+    },
+    {
+      "number": 6,
+      "page": 1,
+      "column": 0,
+      "bbox": [
+        87.9,
+        1030.4,
+        384.8,
+        1067.9
+      ],
+      "question": "대화를 듣고, 남자가 지불할 금액을 고르시오.",
+      "choices": [
+        "$63",
+        "$70",
+        "$81",
+        "$90",
+        "$108"
+      ],
+      "image_path": "images/영어/q06.png",
+      "passage_id": null,
+      "section": "공통"
+    },
+    {
+      "number": 7,
+      "page": 1,
+      "column": 1,
+      "bbox": [
+        436.6,
+        229.1,
+        754.0,
+        350.4
+      ],
+      "question": "대화를 듣고, 여자가 Morning Tea Club에 참석할 수 없는\n이유를 고르시오.",
+      "choices": [
+        "비즈니스 미팅이 있어서",
+        "아침 식사를 해야 해서",
+        "차를 가져오지 않아서",
+        "과도한 업무로 피곤해서",
+        "의사가 차를 마시지 말라고 해서"
+      ],
+      "image_path": "images/영어/q07.png",
+      "passage_id": null,
+      "section": "공통"
+    },
+    {
+      "number": 8,
+      "page": 1,
+      "column": 1,
+      "bbox": [
+        436.6,
+        371.3,
+        758.3,
+        442.6
+      ],
+      "question": "대화를 듣고, Autumn Treasure Hunt 행사에 관해 언급되지\n않은 것을 고르시오.",
+      "choices": [
+        "장소",
+        "날짜",
+        "상품",
+        "신청 방법",
+        "후원 기관"
+      ],
+      "image_path": "images/영어/q08.png",
+      "passage_id": null,
+      "section": "공통"
+    },
+    {
+      "number": 9,
+      "page": 1,
+      "column": 1,
+      "bbox": [
+        436.6,
+        463.3,
+        758.4,
+        584.8
+      ],
+      "question": "2025 Court Visit Program에 관한 다음 내용을 듣고, 일치하지\n않는 것을 고르시오.",
+      "choices": [
+        "11월 19일에 개최된다.",
+        "판사와 변호사를 만날 기회를 제공한다.",
+        "참가자에게 수료증을 준다.",
+        "개인별로 신청해야 한다.",
+        "무료 점심 식사를 포함한다."
+      ],
+      "image_path": "images/영어/q09.png",
+      "passage_id": null,
+      "section": "공통"
+    },
+    {
+      "number": 10,
+      "page": 1,
+      "column": 1,
+      "bbox": [
+        436.6,
+        606.2,
+        758.3,
+        780.7
+      ],
+      "question": "다음 표를 보면서 대화를 듣고, 남자가 구입할 버터나이프\n세트를 고르시오.\nButter Knife Sets\nHandle\nNumber of\nModel\nPrice\nGift Box\nMaterial\nKnives\n☓\nA\n$6\nPlastic\n2",
+      "choices": [
+        "☓\nB\n$7\nWood\n4",
+        "◯\nC\n$8\nCeramic\n4",
+        "☓\nD\n$9\nCeramic\n6",
+        "◯\nE\n$12\nStainless Steel\n6",
+        ""
+      ],
+      "image_path": "images/영어/q10.png",
+      "passage_id": null,
+      "section": "공통"
+    },
+    {
+      "number": 11,
+      "page": 1,
+      "column": 1,
+      "bbox": [
+        436.6,
+        804.8,
+        758.3,
+        925.7
+      ],
+      "question": "대화를 듣고, 여자의 마지막 말에 대한 남자의 응답으로 가장\n적절한 것을 고르시오.",
+      "choices": [
+        "Of course. Just be careful while you’re driving.",
+        "Thank you for taking good care of my kids.",
+        "No worries. We’ll pick up your daughter.",
+        "I’m afraid that you can’t borrow my car.",
+        "All right. I can give you a ride to work."
+      ],
+      "image_path": "images/영어/q11.png",
+      "passage_id": null,
+      "section": "공통"
+    },
+    {
+      "number": 12,
+      "page": 1,
+      "column": 1,
+      "bbox": [
+        436.6,
+        947.0,
+        758.3,
+        1067.9
+      ],
+      "question": "대화를 듣고, 남자의 마지막 말에 대한 여자의 응답으로 가장\n적절한 것을 고르시오. [3점]",
+      "choices": [
+        "I agree. I’ll vote for both places.",
+        "Terrific. Then, I’ll choose that place.",
+        "Sure. We ought to transfer to another bus.",
+        "Too late. I completed the survey yesterday.",
+        "Don’t worry. Our school will find the best place."
+      ],
+      "image_path": "images/영어/q12.png",
+      "passage_id": null,
+      "section": "공통"
+    },
+    {
+      "number": 13,
+      "page": 2,
+      "column": 0,
+      "bbox": [
+        87.9,
+        160.1,
+        409.7,
+        306.6
+      ],
+      "question": "대화를 듣고, 여자의 마지막 말에 대한 남자의 응답으로 가장\n적절한 것을 고르시오. [3점]\nMan:",
+      "choices": [
+        "I’m sorry, but getting a whole chair kit takes longer.",
+        "Then, we’ll send you a replacement part right away.",
+        "You can save your money by making furniture yourself.",
+        "We’ll make it easier for customers to put the chair together.",
+        "Unfortunately, we didn’t receive the part you sent back to us."
+      ],
+      "image_path": "images/영어/q13.png",
+      "passage_id": null,
+      "section": "공통"
+    },
+    {
+      "number": 14,
+      "page": 2,
+      "column": 0,
+      "bbox": [
+        87.9,
+        349.7,
+        409.7,
+        496.1
+      ],
+      "question": "대화를 듣고, 남자의 마지막 말에 대한 여자의 응답으로 가장\n적절한 것을 고르시오. [3점]\nWoman:",
+      "choices": [
+        "No wonder. People have different tastes in food.",
+        "That’s sad. You should’ve tried many foods as a child.",
+        "Good idea. I hope it gets my daughter to try different foods.",
+        "Sure. His bad eating habits can’t be changed quickly.",
+        "Too bad. I completely forgot how to cook that food."
+      ],
+      "image_path": "images/영어/q14.png",
+      "passage_id": null,
+      "section": "공통"
+    },
+    {
+      "number": 15,
+      "page": 2,
+      "column": 0,
+      "bbox": [
+        87.9,
+        538.8,
+        409.7,
+        769.0
+      ],
+      "question": "다음 상황 설명을 듣고, Olivia가 Andy에게 할 말로 가장\n적절한 것을 고르시오.\nOlivia:",
+      "choices": [
+        "We need to delay the history project until next month.",
+        "We should check the map before going on the bike trip.",
+        "Let’s visit every site in person on our bicycles for this project.",
+        "How about asking teachers how to make bicycling route maps?",
+        "You’d better skip some historical sites and select the easy ones.\n[16～17] 다음을 듣고, 물음에 답하시오."
+      ],
+      "image_path": "images/영어/q15.png",
+      "passage_id": null,
+      "section": "공통"
+    },
+    {
+      "number": 16,
+      "page": 2,
+      "column": 0,
+      "bbox": [
+        87.9,
+        779.5,
+        358.9,
+        886.0
+      ],
+      "question": "여자가 하는 말의 주제로 가장 적절한 것은?",
+      "choices": [
+        "fast growing plants used for science experiments",
+        "how scientists preserve diverse species of plants",
+        "factors to consider when buying plants",
+        "what crucial conditions make plants grow fast",
+        "reasons why certain plants grow faster than others"
+      ],
+      "image_path": "images/영어/q16.png",
+      "passage_id": "p16-17",
+      "section": "공통"
+    },
+    {
+      "number": 17,
+      "page": 2,
+      "column": 0,
+      "bbox": [
+        87.9,
+        929.1,
+        402.6,
+        1061.5
+      ],
+      "question": "언급된 식물이 아닌 것은?",
+      "choices": [
+        "bamboo",
+        "lettuce",
+        "sunflowers",
+        "peas",
+        "corn\n이제 듣기 문제가 끝났습니다. 18번부터는 문제지의 지시에\n따라 답을 하시기 바랍니다."
+      ],
+      "image_path": "images/영어/q17.png",
+      "passage_id": "p16-17",
+      "section": "공통"
+    },
+    {
+      "number": 18,
+      "page": 2,
+      "column": 1,
+      "bbox": [
+        436.6,
+        160.1,
+        748.7,
+        489.4
+      ],
+      "question": "다음 글의 목적으로 가장 적절한 것은?\nDear students,\nI am Amanda Clark, the school club director, and I am\nwriting to you about our school clubs. Over the last few\nsemesters, there have been requests for more diverse\nschool clubs. For this reason, the school decided to expand\nthe number of clubs for extracurricular activities. This\nprovides students with an opportunity to make additional\nclubs. Students can make any type of club based on their\nvarious interests, such as hip-hop, K-pop dancing, or coding.\nTherefore, I am encouraging you to submit a proposal for a\nnew club that you would like to create. Please turn this in\nto my office by the end of this week. I look forward to\nseeing your great ideas.\nBest regards,\nAmanda Clark",
+      "choices": [
+        "동아리 활동에 대한 만족도를 조사하려고",
+        "동아리 개설 제안서 제출을 독려하려고",
+        "체험 활동 결과 보고서를 요청하려고",
+        "동아리 신규 회원 모집을 공지하려고",
+        "방과 후 활동 프로그램을 설명하려고"
+      ],
+      "image_path": "images/영어/q18.png",
+      "passage_id": null,
+      "section": "공통"
+    },
+    {
+      "number": 19,
+      "page": 2,
+      "column": 1,
+      "bbox": [
+        436.6,
+        501.4,
+        757.0,
+        735.2
+      ],
+      "question": "다음 글에 드러난 Sophie의 심경 변화로 가장 적절한 것은?\n“Where could it be?” Sophie asked herself. It had been more\nthan ten years since she had last visited the area where she had\ngrown up. The village had changed a lot over time. Uncertain,\nshe awkwardly looked around at her surroundings. She walked\nthe narrow streets of the village, unsure about which way to\ngo. Suddenly, Sophie saw a familiar sight. “Yes, this must be\nit,” she thought. In front of her was a wall with flowers painted\non it. Although the colors were now faded, the familiar shapes\non the wall were the same ones she had painted with her father\nas a child. Sophie nodded, smiled brightly, and walked toward\nthe gate. At last, she had finally found the house she had\ngrown up in.",
+      "choices": [
+        "confused →pleased",
+        "confident →embarrassed",
+        "thrilled\n→anxious",
+        "relieved\n→nervous",
+        "bored\n→excited"
+      ],
+      "image_path": "images/영어/q19.png",
+      "passage_id": null,
+      "section": "공통"
+    },
+    {
+      "number": 20,
+      "page": 2,
+      "column": 1,
+      "bbox": [
+        436.6,
+        747.5,
+        757.2,
+        1068.2
+      ],
+      "question": "다음 글에서 필자가 주장하는 바로 가장 적절한 것은?\nThe study of literature has repeatedly failed to recognize the\ninfluence of modern musical lyricists and their contributions\nto the evolution of language. Unlike Shakespeare, who has\nbeen studied and celebrated for his development of the English\nlanguage, particularly in vocabulary and grammatical structure,\nmodern songwriters have experienced restraints on the\nacknowledgement of their contributions and largely been\nignored. Over the past century, we have witnessed an explosion\nof incredible literary works by these artists, who, through their\nmusic, have used linguistic manipulation and storytelling to\nenrich our language and literature. Producing lyrics of distinct\nand complex imagery, songwriters have had an incredible\nliterary impact on our language. Their remarkable works,\nincluding influences on modern language development, must\nbe recognized in the field of modern literature.\n* lyricist: 작사가\n** restraint: 제약",
+      "choices": [
+        "독특하고 복합적인 이미지 표현 기법을 작사 과정에 적용해야 한다.",
+        "가사를 통해 작사가들이 언어와 문학에 기여한 바를 인정해야 한다.",
+        "셰익스피어의 작품이 영문학 발전에 미친 영향을 분석해야 한다.",
+        "문학 작품을 감상하기 위해 스토리텔링 기법을 이해해야 한다.",
+        "문학 작품과 가사에 사용되는 언어의 차이를 연구해야 한다."
+      ],
+      "image_path": "images/영어/q20.png",
+      "passage_id": null,
+      "section": "공통"
+    },
+    {
+      "number": 21,
+      "page": 3,
+      "column": 0,
+      "bbox": [
+        87.9,
+        159.4,
+        409.8,
+        585.5
+      ],
+      "question": "밑줄 친 made a lot of work less sticky가 다음 글에서 의미하는\n바로 가장 적절한 것은?\nDigital platforms have made a lot of work less sticky. As work\nbecomes ever more modularised, commoditised and standardised,\nand as markets for digital work are created, ties between\nservice work and particular places can be disconnected. While\nthe business process of outsourcing that emerged in the 1990s\nallowed large companies to take advantage of a ‘global reserve\narmy’ by moving their call centres to cheap and distant labour\nmarkets, cloudwork changes the volume and granularity at\nwhich geographically non-proximate work can take place. A\nsmall business in New York can hire a freelance transcriber in\nNairobi one day and New Delhi the next. No offices or\nfactories need to be built, no local regulations are observed,\nand ― in most cases ― no local taxes are paid. The switch in\nthe production network of work happens by simply sending\nsome emails or clicking some buttons on a digital work\nplatform. And, in this way, the employer leaves behind no\nmaterial traces in the places where it was once an employer.\n* commoditise: 상품화하다\n** granularity: 과립상(顆粒狀)",
+      "choices": [
+        "settled the locational dilemma of the global markets",
+        "elevated the spatial flexibility in conducting business",
+        "weakened the geographical expansion of local business",
+        "relieved the strict legal processes of regional outsourcing",
+        "allowed business to be less complicated in its hiring process"
+      ],
+      "image_path": "images/영어/q21.png",
+      "passage_id": null,
+      "section": "공통"
+    },
+    {
+      "number": 22,
+      "page": 3,
+      "column": 0,
+      "bbox": [
+        87.9,
+        626.8,
+        408.5,
+        1067.8
+      ],
+      "question": "다음 글의 요지로 가장 적절한 것은?\nA sport ecosystem exists based on the type and rate of\ncoopetition existing. Coopetition is defined as “the simultaneous\npursuit of cooperation and competition among firms to\nleverage strategically important resources for superior value\ncreation purposes”. It is a useful way to understand the\ndynamic nature of sport businesses which need to collaborate\nfor resource efficiency purposes but potentially compete with\neach other. This special relationship should be managed\nproperly due to trust and confidence issues being paramount.\nIt can be challenging to be collaborative and competitive in\nsport as they involve different forms of behaviour. This means\na careful balancing act may be required in terms of the amount\nof emphasis placed on each activity. Often sport managers will\ntry to be more competitive due to performance reasons and\nless collaborative. By necessity they may need to share\ninformation but do so in a cautious manner. This means it\nmight be better to have plans in place about how to pursue\nboth simultaneously. This will ensure one is not neglected at\nthe expense of the other.\n* simultaneous: 동시의\n** paramount: 최고의",
+      "choices": [
+        "스포츠 산업에서는 협력과 경쟁 사이의 균형 잡힌 접근이 요구된다.",
+        "협력에 기반한 경쟁을 위해서 스포츠 정신 함양 교육이 필수적이다.",
+        "스포츠에서는 성과를 중요시하기 때문에 협력을 과소평가하기 쉽다.",
+        "스포츠 산업에서는 효율적 자원 활용을 위한 전략이 필요하다.",
+        "스포츠 산업에서의 성취는 경쟁을 필연적으로 수반한다."
+      ],
+      "image_path": "images/영어/q22.png",
+      "passage_id": null,
+      "section": "공통"
+    },
+    {
+      "number": 23,
+      "page": 3,
+      "column": 1,
+      "bbox": [
+        436.6,
+        160.1,
+        757.1,
+        548.8
+      ],
+      "question": "다음 글의 주제로 가장 적절한 것은?\nEmphasizing speed over frequency can make sense in\ncontexts where everyone is expected to plan around the\ntimetable, including peak-only commute services and very\nlong trips with low demand. In all other contexts, though, it\nseems to be a common motorist’s error. Roads are there all the\ntime, so their speed is the most important fact that distinguishes\nthem. But transit is only there if it’s coming soon. If you have\na car, you can use a road whenever you want and experience\nits speed. But transit has to exist when you need it (span), and\nit needs to be coming soon (frequency). Otherwise, waiting\ntime will wipe out any time savings from a faster service.\nUnless you’re comfortable planning your life around a particular\nscheduled trip, speed is worthless without frequency, so a transit\nmap that screams about speed and whispers about frequency\nmay simply be planting confusion.\n* commute: 통근",
+      "choices": [
+        "consequences of adjusting frequency of transit",
+        "significance of designing an accurate transit map",
+        "importance of valuing frequency in public transportation",
+        "impact of creating high-speed public transportation systems",
+        "methods to improve speed and frequency of commute services"
+      ],
+      "image_path": "images/영어/q23.png",
+      "passage_id": null,
+      "section": "공통"
+    },
+    {
+      "number": 24,
+      "page": 3,
+      "column": 1,
+      "bbox": [
+        436.6,
+        621.3,
+        757.1,
+        1067.8
+      ],
+      "question": "다음 글의 제목으로 가장 적절한 것은? [3점]\nThe economic benefit of culturtainment makes it attractive to\npoliticians and policy makers alike. A potential increase in\ninbound visitor numbers coupled with their demand for related\ngoods and services (travel, accommodation, retail) is an\nincentive for those within governments and authorities to work\nwith cultural groups in order to develop celebrations and\ncommemorations into larger and more high-profile events.\nHowever, such commercialization risks culturtainment becoming\nhomogeneous and losing its original ‘message’ that could lead\nto a dilution of audiences. This could also lead to smaller\nnon-commercial independent events being set up that would\nonly serve to divide audiences further. This is something that\nplanners and stakeholders will need to balance against potential\nfinancial gain. Changing political, social and religious landscapes\nwill lead to the emergence of new cultures, and with them new\nculturtainment experiences. Overall this is a healthy growth\nsector of the entertainment industry, but one that by its very\nnature is delicate in the face of exploitation.\n* homogeneous: 동종의\n** dilution: 희석\n*** exploitation: 착취",
+      "choices": [
+        "The Commercialization of Culture and Its Unexpected Benefits",
+        "Cash or Soul? When Culture Couples with Entertainment",
+        "Culturtainment: An Ambition of Entertainment to Be a Culture",
+        "New Cultures! The Poisonous Fruit of Culturtainment",
+        "Why Balanced Investments Matter in the Entertainment Industry"
+      ],
+      "image_path": "images/영어/q24.png",
+      "passage_id": null,
+      "section": "공통"
+    },
+    {
+      "number": 25,
+      "page": 4,
+      "column": 0,
+      "bbox": [
+        87.9,
+        160.1,
+        408.5,
+        681.5
+      ],
+      "question": "다음 도표의 내용과 일치하지 않는 것은?\nThe graph above shows the percentages of U.S. teenagers\nwho spent time with friends by communication type, based on\na survey conducted between 2014 and 2015.",
+      "choices": [
+        "In the category\nof Every Day, text messaging showed the highest percentage\namong the four types of communication that teenagers used to\nspend time with friends.",
+        "In the category of Less Often, the\npercentage of teenagers who spent time with friends through\ntalking on the phone was more than twice that of teenagers\nwho did so through text messaging.",
+        "The percentage of\nteenagers who spent time with friends through talking on the\nphone in the category of Every Day was lower than that of\nteenagers who did so in the category of Less Often.",
+        "In the\ncategory of Less Often, emailing was the second highest in\npercentage among the types of communication listed above.",
+        "The percentage of teenagers who spent time with friends\nthrough video chatting in the category of Less Often was\nhigher than that of teenagers who did so in the category of\nEvery Day."
+      ],
+      "image_path": "images/영어/q25.png",
+      "passage_id": null,
+      "section": "공통"
+    },
+    {
+      "number": 26,
+      "page": 4,
+      "column": 0,
+      "bbox": [
+        87.9,
+        708.3,
+        408.5,
+        1067.8
+      ],
+      "question": "Max Kleiber에 관한 다음 글의 내용과 일치하지 않는 것은?\nMax Kleiber, a pioneer in the study of animal biology, was\nbest known for his research on animal nutrition and metabolism.\nHe was born in Zurich, Switzerland in 1893. Kleiber graduated\nfrom the Swiss Federal Institute of Technology in 1920 and\nearned his doctoral degree in 1924. He came to the University\nof California at Davis (UC Davis) in 1929 to conduct research\non energy metabolism in animals. In 1952, Kleiber received\nthe distinguished Borden Award from the American Institute\nof Nutrition and, a year later, the Morrison Award from the\nAmerican Society for Animal Production. Kleiber’s book,\nThe Fire of Life, was published in 1961 and subsequently\ntranslated into German, Polish, Spanish, and Japanese. Kleiber\nwas an outstanding teacher popular with undergraduates and\ngraduate students alike. Before his death, a new classroom\nbuilding at UC Davis was named Kleiber Hall in his honor.\n* nutrition: 영양(학)\n** metabolism: 신진대사",
+      "choices": [
+        "스위스의 Zurich에서 태어났다.",
+        "1924년에 박사 학위를 받았다.",
+        "1952년에 Borden Award와 Morrison Award를 수상했다.",
+        "그의 저서 The Fire of Life는 여러 언어로 번역되었다.",
+        "대학생과 대학원생에게 인기 있는 뛰어난 선생님이었다."
+      ],
+      "image_path": "images/영어/q26.png",
+      "passage_id": null,
+      "section": "공통"
+    },
+    {
+      "number": 27,
+      "page": 4,
+      "column": 1,
+      "bbox": [
+        436.6,
+        159.4,
+        758.3,
+        588.0
+      ],
+      "question": "School Bell Sound Contest에 관한 다음 안내문의 내용과\n일치하지 않는 것은?\nSchool Bell Sound Contest\nWakeville High School is holding a school bell sound\ncontest. The theme of this contest is Happy School Life.\nDeadline: December 12, 2025\nParticipants: Wakeville High School students of all grades\nApplication Details\n∙Submit entries in MP3 format only.\n∙Upload entries to our school website (file size limit: 1MB).\n∙Include the description of the sound creation process.\nSelection Method\n∙Three school bell sounds will be selected by student\nvote, based on creativity and suitability.\nAwards\n∙The winning school bell sounds will replace our current\nbell sounds.\n∙The winners of the contest will each get a wireless speaker.",
+      "choices": [
+        "주제는 행복한 학교생활이다.",
+        "Wakeville 고등학교 모든 학년의 학생이 참여할 수 있다.",
+        "출품작은 학교 웹사이트에 업로드해야 한다.",
+        "네 개의 학교 종소리가 학생 투표에 의해 선택될 것이다.",
+        "우승자는 무선 스피커를 받을 것이다."
+      ],
+      "image_path": "images/영어/q27.png",
+      "passage_id": null,
+      "section": "공통"
+    },
+    {
+      "number": 28,
+      "page": 4,
+      "column": 1,
+      "bbox": [
+        436.6,
+        607.3,
+        758.3,
+        1068.4
+      ],
+      "question": "Fun Bowling Season Pass에 관한 다음 안내문의 내용과\n일치하는 것은?\nFun Bowling Season Pass\nIf you love bowling, don’t miss out on the best deal of\nthe season! You can have fun with your friends and family.\nWhere to Use: All branches of Bowl Heaven\nWhen to Use: January 1 to March 31, 2026\nPass Type\nPrice\nDetails\nStandard $40 Two free games a day (no discounts for shoe\nrentals)\n$60 Three free games a day + 50% off shoe\nSilver\nrentals\nGold\n$80 Four free games a day + free shoe rentals\n※ All passes include a 20% food and beverage discount.\nPurchase Details\n∙The pass can be purchased only online.\n∙Purchases are limited to only one per person.\n∙The pass is not transferable to another person.\n※ For more information, please visit www.*b#pa*s.com.",
+      "choices": [
+        "Bowl Heaven의 일부 지점에서는 사용이 제한된다.",
+        "스탠다드 패스로는 신발 대여가 할인된다.",
+        "골드 패스로는 하루에 다섯 번 무료로 게임을 한다.",
+        "온라인 구매만 가능하다.",
+        "타인에게 양도할 수 있다."
+      ],
+      "image_path": "images/영어/q28.png",
+      "passage_id": null,
+      "section": "공통"
+    },
+    {
+      "number": 29,
+      "page": 5,
+      "column": 0,
+      "bbox": [
+        87.9,
+        160.1,
+        408.5,
+        481.8
+      ],
+      "question": "다음 글의 밑줄 친 부분 중, 어법상 틀린 것은?\nWe are exceptionally smart, and this helps us adapt to a\nwide range of environments. But we are not nearly smart\nenough as individuals",
+      "choices": [
+        "to solve the adaptive problems that\nconfronted modern humans as they spread across the globe.\nThe package of tools, foraging techniques, ecological\nknowledge, and social arrangements used by any group of\nforagers",
+        "being far too complex for any individual to create.\nWe are able to learn all the things we need to know in each of\nthe many different environments",
+        "in which we live only\nbecause we acquire information from others. We are much\nbetter at learning from others than other species are, and we\nare",
+        "motivated to learn from others even when we do not\nunderstand why our models are doing what they are doing.\nThis psychology allows human populations to accumulate pools\nof adaptive information that",
+        "greatly exceed the inventive\ncapacities of individuals.\n* forage: 구하러 다니다"
+      ],
+      "image_path": "images/영어/q29.png",
+      "passage_id": null,
+      "section": "공통"
+    },
+    {
+      "number": 30,
+      "page": 5,
+      "column": 0,
+      "bbox": [
+        87.9,
+        718.4,
+        409.7,
+        1064.6
+      ],
+      "question": "다음 글의 밑줄 친 부분 중, 문맥상 낱말의 쓰임이 적절하지\n않은 것은? [3점]\nSituational ethics is an ethical theory that takes into account\nthe context of a situation or an act when judging whether it is\nethical. Supporters of this theory willingly permit casting aside",
+      "choices": [
+        "absolute moral standards. In the absence of a universal\nstandard or law, what matters is the outcome or consequences;\nso, the end",
+        "justifies the means. Possibly the following\ncontrasting realities can help illustrate the application of\nsituational ethics. In a pickup game of basketball played\namong friends, everyone is expected to call his or her own\nfouls or acknowledge knocking the ball out-of-bounds. Caring\nabout one’s friends and maybe getting to",
+        "keep playing with\nthe group leads to these actions. But, once an organized game\nis played with officials, most athletes will not admit to the\nsame fouls or violations as the end goal of winning is more\nimportant than expressing",
+        "concern for competitors. Situational\nethics has been extended by many athletes and coaches to\nmean trying to get away with as many actions on the field or\ncourt as possible to",
+        "abandon competitive advantages."
+      ],
+      "image_path": "images/영어/q30.png",
+      "passage_id": null,
+      "section": "공통"
+    },
+    {
+      "number": 31,
+      "page": 5,
+      "column": 1,
+      "bbox": [
+        436.6,
+        183.6,
+        757.2,
+        574.7
+      ],
+      "question": "The early grain trade firms were active in both\nsurplus-producing and food deficit regions, and these firms\nmade it their business to know the state of supply and demand\nin both. Because this information was the key to their\n, these firms worked in relative secrecy,\nfrequently built on family ties, trust, and loyalty. In addition,\nthese firms were able to benefit from the rise of commodity\nexchanges and commodities futures markets that emerged in\nthe mid-1800s. Agricultural markets are naturally unstable,\ndue to changes in harvest size that result from variable weather\npatterns and other factors. Locking-in prices by buying and\nselling grain for future delivery helped these firms to minimize\nsuch risks. It made sense for the grain trading companies to\nmanage their risks within a single firm that was operating in\nmore than one country, rather than operating as independent\nnational companies trading with each other. Their access to\ninformation in multiple markets enabled them to easily cover\nthe risks associated with agricultural commodity trade.\n* deficit: 부족",
+      "choices": [
+        "profitability",
+        "unification",
+        "innovation",
+        "reputation",
+        "morality"
+      ],
+      "image_path": "images/영어/q31.png",
+      "passage_id": "p31-34",
+      "section": "공통"
+    },
+    {
+      "number": 32,
+      "page": 5,
+      "column": 1,
+      "bbox": [
+        436.6,
+        683.3,
+        757.1,
+        1068.4
+      ],
+      "question": "The basic guidelines for good style are not mysterious; in fact,\nyou use them every day in conversation. In conversation and in\nwriting, we all rely heavily on cooperation to make sense of\nexchanges, and a polished practical style makes cooperation\neasier. Writers develop such a style by acknowledging that\nreaders expect the same things that listeners expect in\nconversation: clarity, relevance, and proportion. If you listen to\nsomeone who is not clear, who cannot stay on the topic, or who\noffers too much or too little information, you will quickly lose\ninterest in the conversation. Writers, too, need to be clear, stay\non the topic, and give information appropriately. In fact, this\nattention to audience and appropriateness may be even more\nimportant in writing than in conversation because writing does\nnot permit the nonverbal communication and immediate\nfeedback that are part of conversation. As writers, we have to\n; in effect,\nwe have to imagine both halves of a virtual conversation. [3점]",
+      "choices": [
+        "recognize the limitations of writing and conversation",
+        "envision the reader’s preference for stylistic writing",
+        "picture the reader’s desire for more knowledge",
+        "develop collaborative writing with readers",
+        "anticipate the absent reader’s response"
+      ],
+      "image_path": "images/영어/q32.png",
+      "passage_id": "p31-34",
+      "section": "공통"
+    },
+    {
+      "number": 33,
+      "page": 6,
+      "column": 0,
+      "bbox": [
+        87.9,
+        159.4,
+        408.5,
+        561.8
+      ],
+      "question": "Giving clients sufficient opportunity to react to your designs\nwhile in progress is a key to professional success. Similarly,\ninvolving prospective building users as well as clients is even\nmore valuable in the long run. Say your client is a large\ncorporation, such as a health care provider. While the hospital\nadministration may serve as your client, no doubt the perspectives\nof administration personnel will differ significantly from those\nof doctors, interns, residents, nurses, and other medical staff\nwho use the building regularly. In addition, the experiences of\npatients and visitors who use the building irregularly, often as\na result of life-threatening emergencies, are altogether different\nas well. Understanding how each type of user experiences the\ncurrent medical environment as well as how each reacts to\nyour prospective designs inevitably produces a better building.\nPeople are likely to be more satisfied with a new building or\n.\naddition if they\nFor a large institution, this can translate into increased productivity\non the job, reduced absenteeism, less turnover, and lower costs.",
+      "choices": [
+        "have been engaged in multiple design training sessions",
+        "are given the opportunity to draft a new design",
+        "have established trust with the building designers",
+        "have been consulted in the design process",
+        "share their perspectives on the building with each other"
+      ],
+      "image_path": "images/영어/q33.png",
+      "passage_id": "p31-34",
+      "section": "공통"
+    },
+    {
+      "number": 34,
+      "page": 6,
+      "column": 0,
+      "bbox": [
+        87.9,
+        642.1,
+        408.5,
+        1067.6
+      ],
+      "question": "Kant was a strong defender of the rule of law as the\nultimate guarantee, not only of security and peace, but also of\nfreedom. He believed that human societies were moving\ntowards more rational forms regulated by effective and binding\nlegal frameworks because only such frameworks enabled\npeople to live in harmony, to prosper and to co-operate. However,\nhis belief in inevitable progress was not based on an optimistic\nor high-minded view of human nature. On the contrary, it comes\nclose to Hobbes’s outlook: man’s violent and conflict-prone\nnature makes it necessary to establish and maintain an effective\nlegal framework in order to secure peace. We cannot count on\npeople’s benevolence or goodwill, but even ‘a nation of\ndevils’ can live in harmony in a legal system that binds every\ncitizen equally. Ideally, the law is the embodiment of those\npolitical principles that all rational beings would freely\nchoose. If such laws forbid them to do something that they\nwould not rationally choose to do anyway, then the law cannot\n. [3점]\nbe\n* benevolence: 자비심",
+      "choices": [
+        "regarded as reasonably confining human liberty",
+        "viewed as a strong defender of the justice system",
+        "understood as a restraint on their freedom",
+        "enforced effectively to suppress their evil nature",
+        "accepted within the assumption of ideal legal frameworks"
+      ],
+      "image_path": "images/영어/q34.png",
+      "passage_id": "p31-34",
+      "section": "공통"
+    },
+    {
+      "number": 35,
+      "page": 6,
+      "column": 1,
+      "bbox": [
+        436.6,
+        160.1,
+        758.4,
+        617.9
+      ],
+      "question": "다음 글에서 전체 흐름과 관계 없는 문장은?\nThere are few of us who don’t at least want to make time for\nself-care activities such as exercise, hobbies, or relaxation. We\nstart each day with the best of intentions but then get stuck by\nthe flood of email messages or pulled into an unexpected\nmeeting.",
+      "choices": [
+        "As we struggle to reprioritize so we can get\neverything done before our deadlines, often our self-care\nactivities are the first thing to be given up.",
+        "No matter how\nmuch we plan, we all occasionally have days when that\nhappens.",
+        "In the short term, the impact of missing that grant\ndeadline may be greater than the impact of missing a\nwoodworking class.",
+        "Needless to say, we should try to enroll\nin the woodworking class before the design class because it is\nmore competitive to get into and more beneficial to us.",
+        "But\nit’s important to recognize the cumulative impact of not\nprioritizing self-care and to make sure that in the long term,\nthis is the exception rather than the norm.\n[36～37] 주어진 글 다음에 이어질 글의 순서로 가장 적절한\n것을 고르시오."
+      ],
+      "image_path": "images/영어/q35.png",
+      "passage_id": null,
+      "section": "공통"
+    },
+    {
+      "number": 36,
+      "page": 6,
+      "column": 1,
+      "bbox": [
+        436.6,
+        628.3,
+        757.1,
+        1067.5
+      ],
+      "question": "We usually think of a clock as a physical thing, like an\nalarm clock or a wristwatch. But a clock is really a process\nembodied in a machine, and the nature of that process is\nrepetitive.\n(A) Indeed, it is almost impossible to think of a clock that\ndoes not depend on a repetitive cycle of events. The only\nexample that comes to mind readily is a candle marked in\nhours. But here too there is iteration ― the repeated\nburning of molecules of wax ― so this too is an iterative\nprocess, although at first masked.\n(B) The use of radiocarbon dating is another, much longer\nscale clock that also appears to be like this. It seems to\nyield a smooth time scale but in fact does not: the decay\nof atoms of carbon-14 is repetitive, although on a large\nscale it gives the appearance of being continuous.\n(C) A clock can be almost any process that repeats itself over\nand over again for an indefinite period. Water clocks drip\nat a steady pace; quartz crystals vibrate regularly.\n* molecule: 분자\n** quartz: 석영(石英)\n(B)\n(A)\n(C)\n(A)\n(C)\n(B)",
+      "choices": [
+        "－\n－",
+        "－\n－\n(B)\n(C)\n(A)\n(C)\n(A)\n(B)",
+        "－\n－",
+        "－\n－\n(C)\n(B)\n(A)",
+        "－\n－"
+      ],
+      "image_path": "images/영어/q36.png",
+      "passage_id": "p36-37",
+      "section": "공통"
+    },
+    {
+      "number": 37,
+      "page": 7,
+      "column": 0,
+      "bbox": [
+        87.9,
+        160.1,
+        409.8,
+        685.8
+      ],
+      "question": "Philosophy allows us to ask much broader questions than\nmany other scientific disciplines. It is capable of looking at\nthe bigger picture and providing important insights into the\nrelationships between different areas of knowledge.\n(A) This means that while philosophy can provide valuable\ninsights into theoretical concepts and broader ethical\nquestions, it needs to be supplemented by empirical\nfindings and experiments to reach a more comprehensive\nunderstanding.\n(B) Philosophers tend to ask questions rather than provide\ndefinitive answers, and their contributions often consist of\nchallenging established assumptions and proposing new\nresearch approaches. However, for a more comprehensive\nunderstanding of the nature of consciousness, close\ncollaboration between philosophy and neuroscience is\nrequired.\n(C) Philosophy is particularly important for the interdisciplinary\nefforts of cognitive science, where it helps to bridge gaps\nbetween different disciplines and pioneer new ways for\nresearch. Unlike scientific methods, philosophizing is a\nnon-empirical approach that attempts to validate concepts\nthrough logical thinking and argumentation. [3점]\n* empirical: 경험의\n(B)\n(A)\n(C)\n(A)\n(C)\n(B)",
+      "choices": [
+        "－\n－",
+        "－\n－\n(B)\n(C)\n(A)\n(C)\n(A)\n(B)",
+        "－\n－",
+        "－\n－\n(C)\n(B)\n(A)",
+        "－\n－\n[38～39] 글의 흐름으로 보아, 주어진 문장이 들어가기에 가장\n적절한 곳을 고르시오."
+      ],
+      "image_path": "images/영어/q37.png",
+      "passage_id": "p36-37",
+      "section": "공통"
+    },
+    {
+      "number": 38,
+      "page": 7,
+      "column": 0,
+      "bbox": [
+        87.9,
+        696.2,
+        408.5,
+        1069.7
+      ],
+      "question": "Sometimes these internal narratives we form not only\nshape our beliefs and opinions but also become deeply\nrooted in our identity.\nWhile stories clearly dominate statistics from both memorability\nand persuasiveness perspectives, it’s rarely a battle between\nfacts and anecdotes ― or even facts and other facts. The real\nclash is actually between stories: the predominant incumbent\nand a new challenger. (",
+      "choices": [
+        ") As storytelling creatures, we\nroutinely form narratives to help us understand the world\naround us. (",
+        ") When we experience different events or\nencounter various facts, our minds seek to make sense of them\nby forming stories around them. (",
+        ") For example, if you\nhave had some bad experiences with graduates from a particular\nuniversity, you may create a negative narrative in your mind\nabout people who went to that school. (",
+        ") Suddenly, you\njudge everyone from the university by what you’ve\nexperienced on just a few unfortunate occasions. (",
+        ") For\nexample, the narratives you have formed around gun control\nor climate change are most likely related with your political\nideology ― who you are as an individual.\n* anecdote: 일화\n** incumbent: 점유자"
+      ],
+      "image_path": "images/영어/q38.png",
+      "passage_id": "p38-39",
+      "section": "공통"
+    },
+    {
+      "number": 39,
+      "page": 7,
+      "column": 1,
+      "bbox": [
+        436.6,
+        160.1,
+        757.1,
+        496.8
+      ],
+      "question": "The difference is that the action in the game world can only\nbe explored through the virtual bodily space of the avatar.\nA video game has its own model of reality, internal to itself\nand separate from the player’s external reality, the player’s\nbodily space and the avatar’s bodily space. (",
+      "choices": [
+        ") The avatar’s\nbodily space, the potential actions of the avatar in the game\nworld, is the only way in which the reality of the external\nreality of the game world can be perceived. (",
+        ") As in the\nreal world, perception requires action. (",
+        ") Players extend\ntheir perceptual field into the game, encompassing the available\nactions of the avatar. (",
+        ") The feedback loop of perception\nand action that enables you to navigate the world around you is\nnow one step removed: instead of perceiving primarily through\ninteraction of your own body with the external world, you’re\nperceiving the game world through interaction of the avatar.\n(",
+        ") The entire perceptual system has been extended into\nthe game world. [3점]\n* encompass: 둘러싸다"
+      ],
+      "image_path": "images/영어/q39.png",
+      "passage_id": "p38-39",
+      "section": "공통"
+    },
+    {
+      "number": 40,
+      "page": 7,
+      "column": 1,
+      "bbox": [
+        436.6,
+        516.5,
+        754.0,
+        1067.3
+      ],
+      "question": "다음 글의 내용을 한 문장으로 요약하고자 한다. 빈칸 (A),\n(B)에 들어갈 말로 가장 적절한 것은?\nIn modern societies, the performing arts form a distinct\ncategory of public entertainment in opposition to the mass\ndistribution through the media of expertly staged\nperformances which have been recorded and edited. By\ncontrast, theater, ballet, circus, concert, rodeo, storytelling,\netc., unfold their signs in real space and time, and engage\naudiences who respond cognitively and emotionally on the\nspot. Performers and audiences are involved in shared\nenjoyment. But sometimes frustration occurs within the\nboundaries of such ritualistic events. In industrialized and\ncomputerized cultures, the performing arts become\neconomically unstable because the institutions which\nsustain them increasingly depend on public and corporate\nfunding. However, they retain their power of fascination\nfor large, if not massive audiences, who prize the experiential,\nrisk-loaded and one-time event quality they afford. In\ntraditional and local cultures, performances still survive\nand provide their audiences with a unique fulfillment in\nsmaller scale, economically sustainable institutional settings.\n* ritualistic: 의식의\n󰀻\n(A)\nIn a situation of financial\ndue to reliance on\nexternal funding, the performing arts, which provide unique\n(B)\nand live experiences,\naudiences who value those\nexperiences.\n(A)\n(B)\n(A)\n(B)\nuncertainty\nlose\nimbalance\nsplit",
+      "choices": [
+        "",
+        "……\n……\nchallenges\nsecure\nstability\nreach",
+        "",
+        "……\n……\nadvantages\nsupport",
+        "……"
+      ],
+      "image_path": "images/영어/q40.png",
+      "passage_id": null,
+      "section": "공통"
+    },
+    {
+      "number": 41,
+      "page": 8,
+      "column": 0,
+      "bbox": [
+        87.9,
+        675.8,
+        405.1,
+        782.3
+      ],
+      "question": "윗글의 제목으로 가장 적절한 것은? [3점]",
+      "choices": [
+        "Dress as Visual Arts: Record What You Wear Now!",
+        "Visual Sources: Filling in the Gaps of Dress History",
+        "Why Do Collectors Want the Unknown Dresses of History?",
+        "Dress Culture: Searching for the Origin of Human Clothing",
+        "Seeing Is Believing! Importance of Illustration in Dress Design"
+      ],
+      "image_path": "images/영어/q41.png",
+      "passage_id": "p41-42",
+      "section": "공통"
+    },
+    {
+      "number": 42,
+      "page": 8,
+      "column": 0,
+      "bbox": [
+        87.9,
+        801.4,
+        405.3,
+        1058.9
+      ],
+      "question": "밑줄 친 (a)～(e) 중에서 문맥상 낱말의 쓰임이 적절하지 않은\n것은?",
+      "choices": [
+        "(a)",
+        "(b)",
+        "(c)",
+        "(d)",
+        "(e)\n[43～45] 다음 글을 읽고, 물음에 답하시오.\n(A)\n“Mia, let’s go walk our dog!” Julia called out, but there\nwas no answer. She checked her daughter’s room and found\nthat Mia was absorbed in her smartphone, wearing her\nearbuds. Julia was concerned about her daughter. She turned\nto her husband, Sam. “Mia seems to live inside her phone,\nnot with us.” Sam nodded, “I know. I feel like (a) she is\ngrowing distant from us. Why don’t we set up a family\nreading club?” Julia brightened at the suggestion, and Sam\npromised to talk with Mia about it."
+      ],
+      "image_path": "images/영어/q42.png",
+      "passage_id": "p41-42",
+      "section": "공통"
+    },
+    {
+      "number": 43,
+      "page": 8,
+      "column": 1,
+      "bbox": [
+        436.6,
+        704.3,
+        758.3,
+        793.6
+      ],
+      "question": "주어진 글 (A)에 이어질 내용을 순서에 맞게 배열한 것으로\n가장 적절한 것은?\n(C)\n(B)\n(D)\n(B)\n(D)\n(C)\n－\n－",
+      "choices": [
+        "－\n－",
+        "(C)\n(D)\n(B)\n(D)\n(B)\n(C)\n－\n－",
+        "－\n－",
+        "(D)\n(C)\n(B)\n－\n－",
+        ""
+      ],
+      "image_path": "images/영어/q43.png",
+      "passage_id": "p43-45",
+      "section": "공통"
+    },
+    {
+      "number": 44,
+      "page": 8,
+      "column": 1,
+      "bbox": [
+        436.6,
+        811.5,
+        754.0,
+        865.4
+      ],
+      "question": "밑줄 친 (a)～(e) 중에서 가리키는 대상이 나머지 넷과 다른\n것은?",
+      "choices": [
+        "(a)",
+        "(b)",
+        "(c)",
+        "(d)",
+        "(e)"
+      ],
+      "image_path": "images/영어/q44.png",
+      "passage_id": "p43-45",
+      "section": "공통"
+    },
+    {
+      "number": 45,
+      "page": 8,
+      "column": 1,
+      "bbox": [
+        436.6,
+        883.1,
+        744.0,
+        1061.7
+      ],
+      "question": "윗글에 관한 내용으로 적절하지 않은 것은?",
+      "choices": [
+        "Julia는 스마트폰에 빠져 있는 Mia를 걱정했다.",
+        "가족들은 Mia가 선정한 책을 좋아했다.",
+        "Mia는 책장을 살펴보며 거의 한 시간을 보냈다.",
+        "Mia는 미스터리 장르를 좋아한다고 말했다.",
+        "Mia는 Sam의 독서 모임 제안을 처음부터 환영했다.\n* 확인 사항\n◦답안지의 해당란에 필요한 내용을 정확히 기입(표기)했는지 확인\n하시오."
+      ],
+      "image_path": "images/영어/q45.png",
+      "passage_id": "p43-45",
+      "section": "공통"
+    }
+  ],
+  "passages": [
+    {
+      "id": "p16-17",
+      "question_numbers": [
+        16,
+        17
+      ],
+      "intro": "[16～17] 다음을 듣고, 물음에 답하시오.",
+      "text": "",
+      "image_paths": []
+    },
+    {
+      "id": "p31-34",
+      "question_numbers": [
+        31,
+        32,
+        33,
+        34
+      ],
+      "intro": "[31～34] 다음 빈칸에 들어갈 말로 가장 적절한 것을 고르시오.",
+      "text": "",
+      "image_paths": []
+    },
+    {
+      "id": "p36-37",
+      "question_numbers": [
+        36,
+        37
+      ],
+      "intro": "[36～37] 주어진 글 다음에 이어질 글의 순서로 가장 적절한",
+      "text": "것을 고르시오.",
+      "image_paths": [
+        "images/영어/passage_p36-37_p6c1.png"
+      ]
+    },
+    {
+      "id": "p38-39",
+      "question_numbers": [
+        38,
+        39
+      ],
+      "intro": "[38～39] 글의 흐름으로 보아, 주어진 문장이 들어가기에 가장",
+      "text": "적절한 곳을 고르시오.",
+      "image_paths": [
+        "images/영어/passage_p38-39_p7c0.png"
+      ]
+    },
+    {
+      "id": "p41-42",
+      "question_numbers": [
+        41,
+        42
+      ],
+      "intro": "[41～42] 다음 글을 읽고, 물음에 답하시오.",
+      "text": "There is an obvious problem with the history of dress in all\nof its displays and that is, although textiles survive from early\nperiods and cultures of recorded history, actual garments do\nnot provide an uninterrupted flow of evidence across the\nsame long time-span. Therefore, to give the study of dress equal\nsignificance to other areas such as architecture, painting,\nprints, drawings and sculpture, it was (a) inevitable that these\nother areas would provide much of the source material. The\nhistory of surviving dress really only starts in the 17th century,\nand like all artefacts described as fine or decorative art, is a\nhighly visual subject. However, unlike most of the categories\nof collection and study that make up those areas, it is fluid\nrather than static. Garments should be seen in (b) movement\non a human body, not frozen on a display figure. This is one\nof the many difficulties when curating collections of costume\nand also why some modern writers find costume collections\nphysically and intellectually (c) lifeless. Fortunately, in the\nperiod after 1660, when more items of dress survive to enrich\nour understanding of the history of the subject, there are\nalso many painted, printed, photographed and filmed sources\nof evidence of people in clothing, caught in movement.\nOften a variety of different types of illustrative examples will\n(d) provide evidence about how a garment was worn within\nthe period in which it was made. Without the information\ncontained in art in all of its forms, from drawing to sculpture,\nit is (e) unlikely that displays of historic dress would be\nawkward imitations of the intentions of their original makers\nand owners.\n* garment: 의복",
+      "image_paths": [
+        "images/영어/passage_p41-42_p8c0.png"
+      ]
+    },
+    {
+      "id": "p43-45",
+      "question_numbers": [
+        43,
+        44,
+        45
+      ],
+      "intro": "[43～45] 다음 글을 읽고, 물음에 답하시오.",
+      "text": "(A)\n“Mia, let’s go walk our dog!” Julia called out, but there\nwas no answer. She checked her daughter’s room and found\nthat Mia was absorbed in her smartphone, wearing her\nearbuds. Julia was concerned about her daughter. She turned\nto her husband, Sam. “Mia seems to live inside her phone,\nnot with us.” Sam nodded, “I know. I feel like (a) she is\ngrowing distant from us. Why don’t we set up a family\nreading club?” Julia brightened at the suggestion, and Sam\npromised to talk with Mia about it.\n(B)\nMia’s family held their first book club meeting on Saturday\nafternoon. Everyone enjoyed the book Mia had chosen. Julia\nwas the first to speak: “Dr. Duvall nearly invented a drug for\neternal life, yet disappeared one day and ended up running\nCafé Paris. That’s such a mystery.” Mia responded, her eyes\nsparkling, “Mom, I understand him. He always dreamed\nof being a barista, and his dream came true.” Sam supported\n(b) his daughter, and their conversation grew lively. During\nthe discussion, Mia felt reconnected with her parents and\nalready looked forward to their next book club meeting.\n(C)\nAt the library, Mia scanned the shelves for nearly an hour,\nfeeling lost among the endless titles. Then, a librarian\napproached and asked, “Looking for something in particular?”\n“I need a book for my family’s reading club,” Mia admitted.\n“What genre do you enjoy?” she asked kindly. “Hmm, I like\nmysteries,” Mia replied. The librarian handed her a book\ntitled Café Paris and said with a smile, “You’ll love this one.”\nMia thanked (c) her and checked it out.\n(D)\nWhen Sam suggested starting a family reading club, Mia\nimmediately shook her head and said, “No, Dad. I don’t have\ntime to read books. You know how busy (d) I am with exams\nall semester.” He didn’t give up. “But wouldn’t it be fun if\nwe all read the same story and shared our thoughts? You\ncould simply read for 20 minutes, maybe during your lunch\nbreak.” After some persuasion, Mia reluctantly agreed. Deep\ndown, (e) she knew she was spending too much time on her\nphone. So she asked, “Dad, can I choose the first book?” Sam\ngladly said, “Yes.”",
+      "image_paths": [
+        "images/영어/passage_p43-45_p8c0.png",
+        "images/영어/passage_p43-45_p8c1.png"
+      ]
+    }
+  ]
+}

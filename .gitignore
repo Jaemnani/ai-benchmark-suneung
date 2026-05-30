@@ -1,6 +1,5 @@
 __pycache__/
 .DS_Store
-outputs/
 .env
 
 # web (Next.js) — 빌드/의존성만 무시. data/results.json·public/results 는 커밋(Vercel 빌드용)

@@ -1,0 +1,459 @@
+[
+  {
+    "key": "국어",
+    "form": "홀수형",
+    "n_questions": 56,
+    "sections": {
+      "공통": {
+        "n": 34,
+        "range": [
+          1,
+          34
+        ]
+      },
+      "화법과 작문": {
+        "n": 11,
+        "range": [
+          35,
+          45
+        ]
+      },
+      "언어와 매체": {
+        "n": 11,
+        "range": [
+          35,
+          45
+        ]
+      }
+    },
+    "contiguous": true,
+    "choice_histogram": {
+      "5": 56
+    },
+    "n_passages": 14,
+    "n_answers_odd": 56,
+    "answers_match": true
+  },
+  {
+    "key": "수학",
+    "form": "홀수형",
+    "n_questions": 46,
+    "sections": {
+      "공통": {
+        "n": 22,
+        "range": [
+          1,
+          22
+        ]
+      },
+      "확률과 통계": {
+        "n": 8,
+        "range": [
+          23,
+          30
+        ]
+      },
+      "미적분": {
+        "n": 8,
+        "range": [
+          23,
+          30
+        ]
+      },
+      "기하": {
+        "n": 8,
+        "range": [
+          23,
+          30
+        ]
+      }
+    },
+    "contiguous": true,
+    "choice_histogram": {
+      "5": 33,
+      "0": 13
+    },
+    "n_passages": 0,
+    "n_answers_odd": 46,
+    "answers_match": true
+  },
+  {
+    "key": "영어",
+    "form": "홀수형",
+    "n_questions": 45,
+    "sections": {
+      "공통": {
+        "n": 45,
+        "range": [
+          1,
+          45
+        ]
+      }
+    },
+    "contiguous": true,
+    "choice_histogram": {
+      "5": 44,
+      "0": 1
+    },
+    "n_passages": 6,
+    "n_answers_odd": 45,
+    "answers_match": true
+  },
+  {
+    "key": "사회탐구_생활과 윤리",
+    "form": "",
+    "n_questions": 20,
+    "sections": {
+      "공통": {
+        "n": 20,
+        "range": [
+          1,
+          20
+        ]
+      }
+    },
+    "contiguous": true,
+    "choice_histogram": {
+      "5": 20
+    },
+    "n_passages": 0,
+    "n_answers_odd": 20,
+    "answers_match": true
+  },
+  {
+    "key": "사회탐구_윤리와 사상",
+    "form": "",
+    "n_questions": 20,
+    "sections": {
+      "공통": {
+        "n": 20,
+        "range": [
+          1,
+          20
+        ]
+      }
+    },
+    "contiguous": true,
+    "choice_histogram": {
+      "5": 20
+    },
+    "n_passages": 0,
+    "n_answers_odd": 20,
+    "answers_match": true
+  },
+  {
+    "key": "사회탐구_한국지리",
+    "form": "",
+    "n_questions": 20,
+    "sections": {
+      "공통": {
+        "n": 20,
+        "range": [
+          1,
+          20
+        ]
+      }
+    },
+    "contiguous": true,
+    "choice_histogram": {
+      "5": 20
+    },
+    "n_passages": 0,
+    "n_answers_odd": 20,
+    "answers_match": true
+  },
+  {
+    "key": "사회탐구_세계지리",
+    "form": "",
+    "n_questions": 20,
+    "sections": {
+      "공통": {
+        "n": 20,
+        "range": [
+          1,
+          20
+        ]
+      }
+    },
+    "contiguous": true,
+    "choice_histogram": {
+      "5": 20
+    },
+    "n_passages": 0,
+    "n_answers_odd": 20,
+    "answers_match": true
+  },
+  {
+    "key": "사회탐구_동아시아사",
+    "form": "",
+    "n_questions": 20,
+    "sections": {
+      "공통": {
+        "n": 20,
+        "range": [
+          1,
+          20
+        ]
+      }
+    },
+    "contiguous": true,
+    "choice_histogram": {
+      "5": 20
+    },
+    "n_passages": 0,
+    "n_answers_odd": 20,
+    "answers_match": true
+  },
+  {
+    "key": "사회탐구_세계사",
+    "form": "",
+    "n_questions": 20,
+    "sections": {
+      "공통": {
+        "n": 20,
+        "range": [
+          1,
+          20
+        ]
+      }
+    },
+    "contiguous": true,
+    "choice_histogram": {
+      "5": 20
+    },
+    "n_passages": 0,
+    "n_answers_odd": 20,
+    "answers_match": true
+  },
+  {
+    "key": "사회탐구_경제",
+    "form": "",
+    "n_questions": 20,
+    "sections": {
+      "공통": {
+        "n": 20,
+        "range": [
+          1,
+          20
+        ]
+      }
+    },
+    "contiguous": true,
+    "choice_histogram": {
+      "5": 20
+    },
+    "n_passages": 0,
+    "n_answers_odd": 20,
+    "answers_match": true
+  },
+  {
+    "key": "사회탐구_정치와 법",
+    "form": "",
+    "n_questions": 20,
+    "sections": {
+      "공통": {
+        "n": 20,
+        "range": [
+          1,
+          20
+        ]
+      }
+    },
+    "contiguous": true,
+    "choice_histogram": {
+      "5": 20
+    },
+    "n_passages": 1,
+    "n_answers_odd": 20,
+    "answers_match": true
+  },
+  {
+    "key": "사회탐구_사회·문화",
+    "form": "",
+    "n_questions": 20,
+    "sections": {
+      "공통": {
+        "n": 20,
+        "range": [
+          1,
+          20
+        ]
+      }
+    },
+    "contiguous": true,
+    "choice_histogram": {
+      "5": 20
+    },
+    "n_passages": 0,
+    "n_answers_odd": 20,
+    "answers_match": true
+  },
+  {
+    "key": "과학탐구_물리학Ⅰ",
+    "form": "",
+    "n_questions": 20,
+    "sections": {
+      "공통": {
+        "n": 20,
+        "range": [
+          1,
+          20
+        ]
+      }
+    },
+    "contiguous": true,
+    "choice_histogram": {
+      "5": 20
+    },
+    "n_passages": 0,
+    "n_answers_odd": 20,
+    "answers_match": true
+  },
+  {
+    "key": "과학탐구_화학Ⅰ",
+    "form": "",
+    "n_questions": 20,
+    "sections": {
+      "공통": {
+        "n": 20,
+        "range": [
+          1,
+          20
+        ]
+      }
+    },
+    "contiguous": true,
+    "choice_histogram": {
+      "5": 20
+    },
+    "n_passages": 0,
+    "n_answers_odd": 20,
+    "answers_match": true
+  },
+  {
+    "key": "과학탐구_생명과학Ⅰ",
+    "form": "",
+    "n_questions": 20,
+    "sections": {
+      "공통": {
+        "n": 20,
+        "range": [
+          1,
+          20
+        ]
+      }
+    },
+    "contiguous": true,
+    "choice_histogram": {
+      "5": 20
+    },
+    "n_passages": 0,
+    "n_answers_odd": 20,
+    "answers_match": true
+  },
+  {
+    "key": "과학탐구_지구과학Ⅰ",
+    "form": "",
+    "n_questions": 20,
+    "sections": {
+      "공통": {
+        "n": 20,
+        "range": [
+          1,
+          20
+        ]
+      }
+    },
+    "contiguous": true,
+    "choice_histogram": {
+      "5": 20
+    },
+    "n_passages": 0,
+    "n_answers_odd": 20,
+    "answers_match": true
+  },
+  {
+    "key": "과학탐구_물리학Ⅱ",
+    "form": "",
+    "n_questions": 20,
+    "sections": {
+      "공통": {
+        "n": 20,
+        "range": [
+          1,
+          20
+        ]
+      }
+    },
+    "contiguous": true,
+    "choice_histogram": {
+      "5": 20
+    },
+    "n_passages": 0,
+    "n_answers_odd": 20,
+    "answers_match": true
+  },
+  {
+    "key": "과학탐구_화학Ⅱ",
+    "form": "",
+    "n_questions": 20,
+    "sections": {
+      "공통": {
+        "n": 20,
+        "range": [
+          1,
+          20
+        ]
+      }
+    },
+    "contiguous": true,
+    "choice_histogram": {
+      "5": 20
+    },
+    "n_passages": 0,
+    "n_answers_odd": 20,
+    "answers_match": true
+  },
+  {
+    "key": "과학탐구_생명과학Ⅱ",
+    "form": "",
+    "n_questions": 20,
+    "sections": {
+      "공통": {
+        "n": 20,
+        "range": [
+          1,
+          20
+        ]
+      }
+    },
+    "contiguous": true,
+    "choice_histogram": {
+      "5": 20
+    },
+    "n_passages": 0,
+    "n_answers_odd": 20,
+    "answers_match": true
+  },
+  {
+    "key": "과학탐구_지구과학Ⅱ",
+    "form": "",
+    "n_questions": 20,
+    "sections": {
+      "공통": {
+        "n": 20,
+        "range": [
+          1,
+          20
+        ]
+      }
+    },
+    "contiguous": true,
+    "choice_histogram": {
+      "5": 20
+    },
+    "n_passages": 0,
+    "n_answers_odd": 20,
+    "answers_match": true
+  }
+]

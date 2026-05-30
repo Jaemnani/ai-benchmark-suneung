@@ -1,0 +1,129 @@
+[
+  {
+    "subject": "사회탐구_사회·문화",
+    "form": "",
+    "source_pdf": "/Users/jaemoonyeah/workspace/AI-benchmark-suneung/raw_datas/2025/사회탐구영역_정답표/09 사회·문화_정답.pdf",
+    "entries": [
+      {
+        "number": 1,
+        "answer": "⑤",
+        "points": 2,
+        "section": "공통"
+      },
+      {
+        "number": 6,
+        "answer": "①",
+        "points": 2,
+        "section": "공통"
+      },
+      {
+        "number": 11,
+        "answer": "④",
+        "points": 2,
+        "section": "공통"
+      },
+      {
+        "number": 16,
+        "answer": "⑤",
+        "points": 2,
+        "section": "공통"
+      },
+      {
+        "number": 2,
+        "answer": "②",
+        "points": 3,
+        "section": "공통"
+      },
+      {
+        "number": 7,
+        "answer": "②",
+        "points": 2,
+        "section": "공통"
+      },
+      {
+        "number": 12,
+        "answer": "①",
+        "points": 3,
+        "section": "공통"
+      },
+      {
+        "number": 17,
+        "answer": "④",
+        "points": 3,
+        "section": "공통"
+      },
+      {
+        "number": 3,
+        "answer": "①",
+        "points": 3,
+        "section": "공통"
+      },
+      {
+        "number": 8,
+        "answer": "⑤",
+        "points": 3,
+        "section": "공통"
+      },
+      {
+        "number": 13,
+        "answer": "②",
+        "points": 2,
+        "section": "공통"
+      },
+      {
+        "number": 18,
+        "answer": "②",
+        "points": 2,
+        "section": "공통"
+      },
+      {
+        "number": 4,
+        "answer": "④",
+        "points": 2,
+        "section": "공통"
+      },
+      {
+        "number": 9,
+        "answer": "④",
+        "points": 3,
+        "section": "공통"
+      },
+      {
+        "number": 14,
+        "answer": "④",
+        "points": 3,
+        "section": "공통"
+      },
+      {
+        "number": 19,
+        "answer": "③",
+        "points": 3,
+        "section": "공통"
+      },
+      {
+        "number": 5,
+        "answer": "①",
+        "points": 3,
+        "section": "공통"
+      },
+      {
+        "number": 10,
+        "answer": "③",
+        "points": 2,
+        "section": "공통"
+      },
+      {
+        "number": 15,
+        "answer": "⑤",
+        "points": 3,
+        "section": "공통"
+      },
+      {
+        "number": 20,
+        "answer": "③",
+        "points": 2,
+        "section": "공통"
+      }
+    ]
+  }
+]

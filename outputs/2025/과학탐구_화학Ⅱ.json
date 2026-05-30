@@ -1,0 +1,468 @@
+{
+  "subject": "과학탐구_화학Ⅱ",
+  "form": "",
+  "source_pdf": "/Users/jaemoonyeah/workspace/AI-benchmark-suneung/raw_datas/2025/과학탐구영역_문제지/06 화학Ⅱ_문제.pdf",
+  "questions": [
+    {
+      "number": 1,
+      "page": 1,
+      "column": 0,
+      "bbox": [
+        87.9,
+        259.1,
+        409.7,
+        404.1
+      ],
+      "question": "다음 중 화학 에너지를 전기 에너지로 전환시키는 장치로 가장 적절한 것은?",
+      "choices": [
+        "아연판, 구리판, 묽은 황산으로 구성된 전지 (백열전구 연결)",
+        "뷰렛을 이용한 수산화 나트륨 수용액과 식초의 중화 적정",
+        "반투막으로 분리된 U자관의 물과 설탕 수용액",
+        "온도계가 꽂힌 단열컵 안의 수용액 (열량계)",
+        "전원에 연결된 물과 전해질 용액을 이용한 전기분해"
+      ],
+      "image_path": "images/과학탐구_화학Ⅱ/q01.png",
+      "passage_id": null,
+      "section": "공통",
+      "text_source": "gemini_vision"
+    },
+    {
+      "number": 2,
+      "page": 1,
+      "column": 0,
+      "bbox": [
+        87.9,
+        550.7,
+        405.5,
+        776.0
+      ],
+      "question": "다음은 강철 용기 내 $2\text{X}(g) \to 2\text{Y}(g) + \text{Z}(g)$ 반응의 반응 속도식 $v=k[\text{X}]$에 대한 학생들의 대화이다. $k$는 반응 속도 상수이다.\n\n학생 A: 전체 반응 차수는 화학 반응식의 반응 계수로 예측할 수 있어.\n학생 B: $k$는 온도에 관계없이 항상 일정해.\n학생 C: $\text{X}(g)$의 양(mol)이 감소하는 속도는 $\text{Z}(g)$의 양(mol)이 증가하는 속도의 2배야.\n\n제시한 내용이 옳은 학생만을 있는 대로 고른 것은?",
+      "choices": [
+        "A",
+        "B",
+        "C",
+        "A, B",
+        "B, C"
+      ],
+      "image_path": "images/과학탐구_화학Ⅱ/q02.png",
+      "passage_id": null,
+      "section": "공통",
+      "text_source": "gemini_vision"
+    },
+    {
+      "number": 3,
+      "page": 1,
+      "column": 0,
+      "bbox": [
+        87.9,
+        851.1,
+        402.8,
+        1047.9
+      ],
+      "question": "다음은 금속 Cu($s$)와 K($s$)의 결정 구조에 대한 자료이다.\no Cu($s$)와 K($s$)의 결정 구조는 각각 단순 입방 구조, 면심 입방 구조, 체심 입방 구조 중 하나이다.\no 단위 세포당 원자 수의 비는 Cu:K = 2:1이다.\no Cu($s$)와 K($s$)에서 단위 세포의 면 A\nK($s$)에서 A로 가장 적절한 것은?",
+      "choices": [
+        "Image of a square with quarter circles at each of its four corners, leaving a central square void.",
+        "Image of a square with a full circle in the center and quarter circles at each of its four corners.",
+        "Image of a square with four full circles, one placed at each corner.",
+        "Image of a square with two half-circles placed on opposite sides, at the top and bottom.",
+        "Image of a square with four half-circles, one on each of the four sides."
+      ],
+      "image_path": "images/과학탐구_화학Ⅱ/q03.png",
+      "passage_id": null,
+      "section": "공통",
+      "text_source": "gemini_vision"
+    },
+    {
+      "number": 4,
+      "page": 1,
+      "column": 1,
+      "bbox": [
+        436.6,
+        259.1,
+        758.6,
+        611.7
+      ],
+      "question": "다음은 $A(g)$로부터 $B(g)$가 생성되는 반응의 화학 반응식과 활성화 에너지($E_a$)이다.\n$A(g) \\rightarrow B(g) \\quad E_a$\n그림은 온도 $T_1$과 $T_2$에서 $A(g)$의 분자 운동 에너지 분포를 각각 나타낸 것이고, 표는 3개의 동일한 강철 용기에 $A(g)$ $1\\text{mol}$을 각각 넣고 반응시킨 실험 (가)~(다)에 대한 자료이다.\n|실험|첨가한 촉매|온도|$E_a$|\n|---|---|---|---|\n|(가)|부촉매|$T_1$|$x$|\n|(나)|없음|$T_1$|$a$|\n|(다)|없음|$T_2$|$a$|\n\n이에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은? (단, 촉매의 부피는 무시한다.)\n<보기>\nㄱ. $T_1 > T_2$이다.\nㄴ. $x > a$이다.\nㄷ. 초기 반응 속도는 (다) > (나) > (가)이다.",
+      "choices": [
+        "ㄱ",
+        "ㄴ",
+        "ㄱ, ㄷ",
+        "ㄴ, ㄷ",
+        "ㄱ, ㄴ, ㄷ"
+      ],
+      "image_path": "images/과학탐구_화학Ⅱ/q04.png",
+      "passage_id": null,
+      "section": "공통",
+      "text_source": "gemini_vision"
+    },
+    {
+      "number": 5,
+      "page": 1,
+      "column": 1,
+      "bbox": [
+        436.6,
+        631.6,
+        789.4,
+        1068.3
+      ],
+      "question": "다음은 백금(Pt)과 은(Ag)을 각각 전극으로 사용한 $AgNO_3(aq)$의 전기 분해 실험 (가)와 (나)에 대한 자료이다. ㉠~㉣은 각각 $Ag(s)$과 $Ag^+(aq)$ 중 하나이다.\n\n(가) 백금 전극, (나) 은 전극, 모두 1 M $AgNO_3(aq)$ 용액.\n\n○ 산화되기 쉬운 경향: $Ag(s) > H_2O(l)$\n○ 환원되기 쉬운 경향: $Ag^+(aq) > H_2O(l)$\n○ 물의 산화 반응: $2H_2O(l) \\rightarrow O_2(g) + 4H^+(aq) + 4e^-$ \n○ 전기 분해한 결과, 각 전극에서 생성된 물질\n\n| 실험 | (－)극 | (＋)극 |\n|---|---|---|\n| (가) | ㉠ | $O_2(g)$, $H^+(aq)$ |\n| (나) | ㉡ | ㉢ |\n\n(가)와 (나)에서 전기 분해가 진행될 때, 이에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은?\n\n<보기>\nㄱ. (가)에서 수용액에 들어 있는 양이온의 수는 증가한다.\nㄴ. (나)에서 (＋) 전극의 질량은 증가한다.\nㄷ. ㉠과 ㉡은 같다.",
+      "choices": [
+        "ㄱ",
+        "ㄷ",
+        "ㄱ, ㄴ",
+        "ㄴ, ㄷ",
+        "ㄱ, ㄴ, ㄷ"
+      ],
+      "image_path": "images/과학탐구_화학Ⅱ/q05.png",
+      "passage_id": null,
+      "section": "공통",
+      "text_source": "gemini_vision"
+    },
+    {
+      "number": 6,
+      "page": 2,
+      "column": 0,
+      "bbox": [
+        87.9,
+        161.4,
+        409.7,
+        397.6
+      ],
+      "question": "그림 (가)는 3가지 액체 I ~ III의 증기 압력 곡선을, (나)는 $25^\\circ\\text{C}$에서 I ~ III을 각각 가열하였을 때 온도 변화에 따른 증기 압력 변화를 나타낸 것이다. A ~ C는 각각 I ~ III 중 하나이다.\nA ~ C의 기준 끓는점을 비교한 것으로 옳은 것은?",
+      "choices": [
+        "A > B > C",
+        "A > C > B",
+        "B > A > C",
+        "C > A > B",
+        "C > B > A"
+      ],
+      "image_path": "images/과학탐구_화학Ⅱ/q06.png",
+      "passage_id": null,
+      "section": "공통",
+      "text_source": "gemini_vision"
+    },
+    {
+      "number": 7,
+      "page": 2,
+      "column": 0,
+      "bbox": [
+        87.9,
+        472.4,
+        409.7,
+        801.7
+      ],
+      "question": "다음은 온도 $T$에서 $A(g)$가 반응하여 $B(g)$와 $C(g)$를 생성하는 반응의 열화학 반응식이다.\n$2A(g) \rightleftharpoons B(g) + C(g) \\quad \\Delta H = a \\text{kJ}$\n그림 (가)는 실린더에 $A(g)$가 들어 있는 초기 상태를, (나)는 (가)에서 반응이 진행될 때 반응 시간에 따른 실린더 속 기체의 부피를 나타낸 것이다. 시간 $t$에서 평형에 도달했을 때, $A(g)$의 몰 분율은 $0.2$이고 $B(g)$의 부분 압력은 $P \\text{atm}$이다. 실린더 안과 밖의 열 출입은 없다.\n$a$의 부호(ㄱ)와 $P$의 크기(ㄴ)로 옳은 것은? (단, 외부 압력은 $1 \\text{atm}$으로 일정하고, 피스톤의 질량과 마찰은 무시한다.)",
+      "choices": [
+        "$\text{+}$ $P=0.4$",
+        "$\text{+}$ $P<0.4$",
+        "$\text{-}$ $P>0.4$",
+        "$\text{-}$ $P=0.4$",
+        "$\text{-}$ $P<0.4$"
+      ],
+      "image_path": "images/과학탐구_화학Ⅱ/q07.png",
+      "passage_id": null,
+      "section": "공통",
+      "text_source": "gemini_vision"
+    },
+    {
+      "number": 8,
+      "page": 2,
+      "column": 0,
+      "bbox": [
+        87.9,
+        876.5,
+        409.7,
+        1067.3
+      ],
+      "question": "그림은 물 100 g에 A(s)와 B(s)의 질량을 달리하여 녹인 수용액 (가)와 (나)의 끓는점 오름($\\Delta T_b$)을 나타낸 것이다. (가)와 (나)에서 물에 녹인 A(s)와 B(s)의 질량의 합은 각각 10 g으로 같다. $\\frac{\\text{B의 분자량}}{\\text{A의 분자량}}$은? (단, 외부 압력은 1 atm으로 일정하고, A와 B는 비휘발성, 비전해질이며, 서로 반응하지 않는다. 수용액은 라울 법칙을 따른다.)",
+      "choices": [
+        "$\\frac{3}{11}$",
+        "$\\frac{3}{10}$",
+        "$\\frac{1}{3}$",
+        "$\\frac{3}{8}$",
+        "$\\frac{3}{7}$"
+      ],
+      "image_path": "images/과학탐구_화학Ⅱ/q08.png",
+      "passage_id": null,
+      "section": "공통",
+      "text_source": "gemini_vision"
+    },
+    {
+      "number": 9,
+      "page": 2,
+      "column": 1,
+      "bbox": [
+        436.6,
+        161.4,
+        758.6,
+        399.8
+      ],
+      "question": "표는 2주기 14~17족 원소 X와 Y의 수소 화합물 (가)~(라)의 기준 끓는점에 대한 자료이다. (가)와 (나)는 각각 XH$_m$과 YH$_n$ 중 하나이고, (다)와 (라)는 각각 X$_2$H$_{2m-2}$와 Y$_2$H$_{2n-2}$ 중 하나이다. 기준 끓는점($^\\circ$C)은 (가) $-162$, (나) $-33$, (다) $114$, (라) $-89$ 이다. 액체 상태의 (가)~(라)에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은? (단, X와 Y는 임의의 원소 기호이다.) <보기> ㄱ. 분자 사이에 수소 결합이 존재하는 물질은 2가지이다. ㄴ. 분자 사이의 쌍극자$\\cdot$쌍극자 힘은 (나)가 (가)보다 크다. ㄷ. (나)와 (라)를 각각 구성하는 원소의 종류는 같다.",
+      "choices": [
+        "ㄱ",
+        "ㄷ",
+        "ㄱ, ㄴ",
+        "ㄴ, ㄷ",
+        "ㄱ, ㄴ, ㄷ"
+      ],
+      "image_path": "images/과학탐구_화학Ⅱ/q09.png",
+      "passage_id": null,
+      "section": "공통",
+      "text_source": "gemini_vision"
+    },
+    {
+      "number": 10,
+      "page": 2,
+      "column": 1,
+      "bbox": [
+        436.6,
+        445.2,
+        754.0,
+        744.9
+      ],
+      "question": "그림 (가)는 $\\mathrm{N_2(g)}$와 $\\mathrm{O_2(g)}$의 혼합 기체가 압력 $1\\,\\mathrm{atm}$, 부피 $1.2\\,\\mathrm{L}$, 온도 $300\\,\\mathrm{K}$인 자전거 타이어에 채워진 상태를, (나)는 (가)의 타이어에 $\\mathrm{CO_2(g)}$ $8.8\\,\\mathrm{g}$을 추가로 주입하여 압력 $P\\,\\mathrm{atm}$, 부피 $1.2\\,\\mathrm{L}$, 온도 $300\\,\\mathrm{K}$가 된 후의 상태를 나타낸 것이다. 이에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은? (단, $\\mathrm{N_2}$, $\\mathrm{O_2}$, $\\mathrm{CO_2}$의 분자량은 각각 $28$, $32$, $44$이고, 기체 상수는 $0.08\\,\\mathrm{atm \\cdot L/(mol \\cdot K)}$이며, 모든 기체는 반응하지 않는다.) <보기> ㄱ. $P=5$이다. ㄴ. (나)의 타이어 속 전체 기체의 질량은 $10\\,\\mathrm{g}$보다 크다. ㄷ. 온도와 부피를 일정하게 유지하며 (가)의 타이어에 $\\mathrm{CO_2(g)}$ 대신 $\\mathrm{N_2(g)}$ $8.8\\,\\mathrm{g}$을 추가로 주입하면 타이어 속 전체 기체의 압력은 $P\\,\\mathrm{atm}$보다 커진다.",
+      "choices": [
+        "ㄱ",
+        "ㄷ",
+        "ㄱ, ㄴ",
+        "ㄴ, ㄷ",
+        "ㄱ, ㄴ, ㄷ"
+      ],
+      "image_path": "images/과학탐구_화학Ⅱ/q10.png",
+      "passage_id": null,
+      "section": "공통",
+      "text_source": "gemini_vision"
+    },
+    {
+      "number": 11,
+      "page": 2,
+      "column": 1,
+      "bbox": [
+        436.6,
+        790.3,
+        758.5,
+        1068.4
+      ],
+      "question": "다음은 $25^\\circ\\text{C}$, $1\\text{ atm}$에서 2가지 열화학 반응식과 이와 관련된 자료이다.\n[열화학 반응식]\n$\\circ\\ \\text{C}_2\\text{H}_4(g) + \\text{H}_2(g) \\longrightarrow \\text{C}_2\\text{H}_6(g) \\quad \\Delta H = x\\ \\text{kJ}$\n$\\circ\\ \\text{C}(g) \\longrightarrow \\text{C}(s,\\ \\text{흑연}) \\quad \\Delta H = a\\ \\text{kJ}$\n[자료]\n$\\text{C}_2\\text{H}_6$의 구조식:\n  H H\n  | |\nH-C-C-H\n  | |\n  H H\n결합 | C-C | C-H | H-H\n결합 에너지 ($\\text{kJ/mol}$) | $b$ | $c$ | $d$\n$\\circ\\ \\text{C}_2\\text{H}_4(g)$의 생성 엔탈피는 $y\\ \\text{kJ/mol}$이다.\n이 자료로부터 구한 $x+y$는? (단, $25^\\circ\\text{C}$, $1\\text{ atm}$에서 $\\text{C}(s,\\ \\text{흑연})$과 $\\text{H}_2(g)$의 생성 엔탈피는 $0$이다.)",
+      "choices": [
+        "$-a-b-6c+3d$",
+        "$2a+b+6c-3d$",
+        "$2a-b-6c+3d$",
+        "$-2a+b+6c-3d$",
+        "$-2a-b-6c+3d$"
+      ],
+      "image_path": "images/과학탐구_화학Ⅱ/q11.png",
+      "passage_id": null,
+      "section": "공통",
+      "text_source": "gemini_vision"
+    },
+    {
+      "number": 12,
+      "page": 3,
+      "column": 0,
+      "bbox": [
+        87.9,
+        161.4,
+        410.0,
+        592.1
+      ],
+      "question": "다음은 어떤 학생이 수행한 탐구 활동이다.\n[가설]\n약산과 ⑦ 가 섞여 있는 수용액에 소량의 강염기를 첨가해도 pH 변화는 크지 않다.\n[자료]\n$25^\\circ C$에서 $CH_3COOH$의 이온화 상수($K_a$)는 $1.8 \\times 10^{-5}$이다.\n[탐구 과정 및 결과]\n혼합 수용액 I과 II에 각각 $NaOH(s)$ $1 g$을 첨가하기 전과 후의 pH를 측정하였다.\n| 혼합 수용액 | 혼합 조건 | $NaOH(s)$ 첨가 전 액성 | pH 변화 |\n|---|---|---|---|\n| I | $1 M CH_3COOH(aq)$ $0.5 L$ $+ 1 M NaCl(aq)$ $0.5 L$ | 산성 | $0.96$ |\n| II | $1 M CH_3COOH(aq)$ $0.5 L$ $+ 1 M CH_3COONa(aq)$ $0.5 L$ | ᄂ | $0.04$ |\n[결론]\nI보다 II의 pH 변화가 작으므로 가설은 옳다.\n학생의 탐구 과정 및 결과와 결론이 타당할 때, 다음 중 ⑦과 ᄂ으로 가장 적절한 것은? (단, 수용액의 온도는 $25^\\circ C$로 일정하다.)",
+      "choices": [
+        "약산의 짝염기 염기성",
+        "약산의 짝염기 산성",
+        "약산의 짝염기 중성",
+        "강산의 짝염기 산성",
+        "강산의 짝염기 중성"
+      ],
+      "image_path": "images/과학탐구_화학Ⅱ/q12.png",
+      "passage_id": null,
+      "section": "공통",
+      "text_source": "gemini_vision"
+    },
+    {
+      "number": 13,
+      "page": 3,
+      "column": 0,
+      "bbox": [
+        87.9,
+        628.6,
+        409.9,
+        1068.5
+      ],
+      "question": "다음은 $A(g)$와 $C(g)$가 각각 분해되는 반응의 화학 반응식과 반응 속도식이다. $k_1$과 $k_2$는 온도 $T$에서의 반응 속도 상수이다.\n$A(g) \\rightarrow 2B(g) \\quad v=k_1[A]$\n$C(g) \\rightarrow D(g)+E(g) \\quad v=k_2[C]$\n그림 (가)는 온도 $T$에서 강철 용기에 $A(g)$와 $C(g)$를 넣은 초기 상태를, (나)는 (가)에서 반응이 진행될 때 반응 시간에 따른 물질의 양(mol)을 나타낸 것이다. I과 II는 $n_A+n_B$와 $n_A+n_C$를 순서 없이 나타낸 것이고, $n_A \\sim n_C$는 각각 $A(g) \\sim C(g)$의 양(mol)이다. 이에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은? (단, 온도는 $T$로 일정하고, 두 분해 반응은 서로 영향을 주지 않는다.)\n<보기>\nㄱ. I은 $n_A+n_C$이다.\nㄴ. 분해 반응의 반감기는 $C(g)$가 $A(g)$의 2배이다.\nㄷ. $2t$일 때 $\\frac{A(g)의\\; 부분\\; 압력}{C(g)의\\; 부분\\; 압력}=1$이다.",
+      "choices": [
+        "ㄱ",
+        "ㄴ",
+        "ㄱ, ㄷ",
+        "ㄴ, ㄷ",
+        "ㄱ, ㄴ, ㄷ"
+      ],
+      "image_path": "images/과학탐구_화학Ⅱ/q13.png",
+      "passage_id": null,
+      "section": "공통",
+      "text_source": "gemini_vision"
+    },
+    {
+      "number": 14,
+      "page": 3,
+      "column": 1,
+      "bbox": [
+        436.6,
+        161.4,
+        758.5,
+        422.5
+      ],
+      "question": "그림 (가)는 $t_1$$^\\circ$C, 1 atm에서 실린더 속 물질 X의 평형 상태 I과, I에서 순차적으로 조건을 달리하여 새롭게 도달한 평형 상태 II와 III을, (나)는 X의 상평형 그림 일부를 나타낸 것이다. III에서 X의 온도는 $t_2$$^\\circ$C이고, I~III은 각각 A~D 중 하나이다.\nII와 III으로 옳은 것은? (단, 대기압은 1 atm으로 일정하고, 피스톤의 질량과 마찰은 무시한다.)",
+      "choices": [
+        "A C",
+        "A D",
+        "B C",
+        "C D",
+        "D C"
+      ],
+      "image_path": "images/과학탐구_화학Ⅱ/q14.png",
+      "passage_id": null,
+      "section": "공통",
+      "text_source": "gemini_vision"
+    },
+    {
+      "number": 15,
+      "page": 3,
+      "column": 1,
+      "bbox": [
+        436.6,
+        470.8,
+        758.4,
+        812.7
+      ],
+      "question": "다음은 $NO_2(g)$가 반응하여 $N_2O_4(g)$를 생성하는 반응의 화학 반응식이다.\n$2NO_2(g) \rightleftharpoons N_2O_4(g)$\n그림 (가)와 (나)는 두 강철 용기에 $NO_2(g)$와 $N_2O_4(g)$가 들어 있는 초기 상태를 나타낸 것이다. (가)에서는 정반응이, (나)에서는 역반응이 우세하게 진행되어 온도 $T$에서 (가)와 (나)는 각각 평형 상태 I과 II에 도달하였다.\n(가)\n$NO_2(g)$ $x$ g\n$N_2O_4(g)$ $x$ g\n$T$, $VL$\n(나)\n$NO_2(g)$ $x$ g\n$N_2O_4(g)$ $3x$ g\n$T$, $2VL$\n이에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은? (단, 제시된 반응 이외의 반응은 고려하지 않는다.)",
+      "choices": [
+        "ㄱ",
+        "ㄴ",
+        "ㄱ, ㄷ",
+        "ㄴ, ㄷ",
+        "ㄱ, ㄴ, ㄷ"
+      ],
+      "image_path": "images/과학탐구_화학Ⅱ/q15.png",
+      "passage_id": null,
+      "section": "공통",
+      "text_source": "gemini_vision"
+    },
+    {
+      "number": 16,
+      "page": 3,
+      "column": 1,
+      "bbox": [
+        436.6,
+        859.7,
+        737.1,
+        1068.2
+      ],
+      "question": "그림은 A($aq$) (가)~(다)의 퍼센트 농도를 용질 A의 질량에 따라 나타낸 것이다. (라)는 (가)와 (다)를 모두 혼합한 수용액이다.\n이에 대한 설명으로 옳은 것만을 <보기> 에서 있는 대로 고른 것은?\n\n<보기>\nㄱ. $\\frac{\\text{(나)의 몰랄 농도}(m)}{\\text{(다)의 몰랄 농도}(m)} = \\frac{2}{3}$이다.\nㄴ. ppm 농도는 (라)가 (가)의 $2$배이다.\nㄷ. A의 몰 분율은 (나)에서와 (라)에서가 같다.",
+      "choices": [
+        "ㄱ",
+        "ㄴ",
+        "ㄷ",
+        "ㄱ, ㄴ",
+        "ㄴ, ㄷ"
+      ],
+      "image_path": "images/과학탐구_화학Ⅱ/q16.png",
+      "passage_id": null,
+      "section": "공통",
+      "text_source": "gemini_vision"
+    },
+    {
+      "number": 17,
+      "page": 4,
+      "column": 0,
+      "bbox": [
+        87.9,
+        161.4,
+        410.0,
+        487.8
+      ],
+      "question": "다음은 A(g)로부터 B(g)가 생성되는 반응의 화학 반응식과 반응 속도식이다.\n$\text{A(g)} \\rightarrow \text{2B(g)}$ $v=k[\text{A}]$ ($k$는 반응 속도 상수)\n그림 (가)는 강철 용기 I과 II의 초기 상태를, (나)는 I과 II에서 반응이 진행될 때 반응 시간에 따른 $\\frac{\\text{B(g)의 질량(g)}}{\\text{A(g)의 질량(g)}}$을 나타낸 것이다.\nI에서 $t$일 때 A(g)의 질량은 $\\frac{1}{3}xg$이다.\nII에서 $2t$일 때 A(g)의 몰 분율은? (단, 온도는 각각 $T_1$과 $T_2$로 일정하고, 역반응은 일어나지 않는다.)",
+      "choices": [
+        "$\\frac{1}{11}$",
+        "$\\frac{1}{10}$",
+        "$\\frac{1}{9}$",
+        "$\\frac{1}{8}$",
+        "$\\frac{1}{7}$"
+      ],
+      "image_path": "images/과학탐구_화학Ⅱ/q17.png",
+      "passage_id": null,
+      "section": "공통",
+      "text_source": "gemini_vision"
+    },
+    {
+      "number": 18,
+      "page": 4,
+      "column": 0,
+      "bbox": [
+        87.9,
+        557.5,
+        409.7,
+        1068.4
+      ],
+      "question": "다음은 기체 반응과 관련된 실험이다. $1 \\text{ atm}$은 $760 \\text{ mmHg}$이다.\n[화학 반응식]\n$\\\\circ \\text{ } x\\text{A}(g) + \\text{B}(g) \\rightarrow 2\\text{D}(g) \\text{ ($x$는 반응 계수)}$\n$\\\\circ \\text{ B}(g) + \\text{C}(g) \\rightarrow 2\\text{E}(g)$\n[실험 과정 및 결과]\n(가) 온도 $T$에서 꼭지로 분리된 강철 용기에 $\\text{A}(g) \\sim \\text{C}(g)$를 각각 넣고, 충분한 시간이 흐른 후 측정한 수은 기둥의 높이 차($|h_1 - h_2|$)는 그림과 같이 $380 \\text{ mm}$이었다. (그림: 왼쪽 A(g) $3\\text{atm}$ $\\text{VL}$, B(g) $2\\text{atm}$ $\\text{VL}$ – 꼭지 1 – 연결. 오른쪽 C(g) $y\\text{VL}$, B(g) $2\\text{atm}$ $\\text{VL}$ – 꼭지 2 – 연결. 이 두 연결 사이에 수은 마노미터가 있고, $h_2 - h_1 = 380 \\text{ mm}$)\n(나) 꼭지 1을 열어 $\\text{A}(g)$가 모두 소모될 때까지 반응시키고, 충분한 시간이 흐른 후 측정한 $|h_1 - h_2|$는 $0$이었다.\n(다) 꼭지 2를 열어 반응을 완결시키고, 충분한 시간이 흐른 후 측정한 $|h_1 - h_2|$는 $76 \\text{ mm}$이었다.\n이에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은? (단, 온도는 $T$로 일정하고, 수은의 증기 압력과 연결관의 부피는 무시한다.)\n<보기>\nㄱ. $x=2$이다.\nㄴ. $y=4$이다.\nㄷ. (다) 과정 후 $\\text{E}(g)$의 부분 압력은 $\\frac{1}{5} \\text{ atm}$이다.",
+      "choices": [
+        "ㄱ",
+        "ㄴ",
+        "ㄷ",
+        "ㄱ, ㄴ",
+        "ㄴ, ㄷ"
+      ],
+      "image_path": "images/과학탐구_화학Ⅱ/q18.png",
+      "passage_id": null,
+      "section": "공통",
+      "text_source": "gemini_vision"
+    },
+    {
+      "number": 19,
+      "page": 4,
+      "column": 1,
+      "bbox": [
+        436.6,
+        161.4,
+        758.4,
+        528.4
+      ],
+      "question": "다음은 약염기 B의 이온화 반응식과 $25 \\,^{\\circ}\\mathrm{C}$에서의 이온화 상수 ($K_b$)이다.\n${\\mathrm{B}(aq) + \\mathrm{H_2O}(l) \rightleftharpoons \\mathrm{BH^+}(aq) + \\mathrm{OH^-}(aq)}$\n표는 혼합 수용액 (가)~(다)에 대한 자료이다.\n이에 대한 설명으로 옳은 것만을 <보기>에서 있는 대로 고른 것은? (단, 수용액의 온도는 $25 \\,^{\\circ}\\mathrm{C}$로 일정하고, $25 \\,^{\\circ}\\mathrm{C}$에서 물의 이온화 상수($K_w$)는 $1 \times 10^{-14}$이며, 혼합 수용액의 부피는 혼합 전 각 수용액의 부피의 합과 같다.)\n<보기>\nㄱ. $x=0.1$이다.\nㄴ. $K_b=1 \times 10^{-6}$이다.\nㄷ. (다)의 $\\mathrm{pH}$는 $5.0$보다 작다.",
+      "choices": [
+        "ㄱ",
+        "ㄴ",
+        "ㄷ",
+        "ㄱ, ㄴ",
+        "ㄴ, ㄷ"
+      ],
+      "image_path": "images/과학탐구_화학Ⅱ/q19.png",
+      "passage_id": null,
+      "section": "공통",
+      "text_source": "gemini_vision"
+    },
+    {
+      "number": 20,
+      "page": 4,
+      "column": 1,
+      "bbox": [
+        436.6,
+        583.1,
+        758.4,
+        1061.8
+      ],
+      "question": "다음은 $SO_3(g)$이 반응하여 $SO_2(g)$와 $O_2(g)$를 생성하는 반응의 열화학 반응식과 농도로 정의되는 평형 상수($K$)이다.\n$2SO_3(g) \\rightleftharpoons 2SO_2(g) + O_2(g) \\quad \\Delta H > 0, K$\n그림 (가)와 (나)는 $T_1K$에서 강철 용기와 실린더에 $SO_3(g)$ $2mol$을 각각 넣고 반응이 진행되어 도달한 평형 상태를, (다)는 (나)에서 피스톤 위에 추를 올리고 온도를 변화시킨 후 반응이 진행되어 도달한 새로운 평형 상태를 나타낸 것이다. $X_{SO_3}$과 $P_{SO_3}$은 각각 $SO_3(g)$의 몰 분율과 부분 압력이다.\n(가) $T_1K, V_1L, X_{SO_3}=0.5$\n(나) $T_1K, V_2L, P_{SO_3}=0.4atm$\n(다) $T_2K, P_{SO_3}=0.4atm$\n$V_1$과 $V_2$의 크기 비교($\\neg$)와 $T_1$과 $T_2$의 크기 비교($\\llcorner$)로 옳은 것은? (단, 대기압은 $1atm$으로 일정하고, 피스톤의 질량과 마찰은 무시하며, 제시된 반응 이외의 반응은 고려하지 않는다.)",
+      "choices": [
+        "$3V_1 < V_2 \\quad T_1 < T_2$",
+        "$3V_1 < V_2 \\quad T_1 > T_2$",
+        "$3V_1 = V_2 \\quad T_1 < T_2$",
+        "$3V_1 > V_2 \\quad T_1 < T_2$",
+        "$3V_1 > V_2 \\quad T_1 > T_2$"
+      ],
+      "image_path": "images/과학탐구_화학Ⅱ/q20.png",
+      "passage_id": null,
+      "section": "공통",
+      "text_source": "gemini_vision"
+    }
+  ],
+  "passages": []
+}

@@ -1,0 +1,568 @@
+[
+  {
+    "subject": "수학",
+    "form": "홀수형",
+    "source_pdf": "/Users/jaemoonyeah/workspace/AI-benchmark-suneung/raw_datas/2025/수학영역_정답표.pdf",
+    "entries": [
+      {
+        "number": 1,
+        "answer": "①",
+        "points": 2,
+        "section": "공통"
+      },
+      {
+        "number": 12,
+        "answer": "②",
+        "points": 4,
+        "section": "공통"
+      },
+      {
+        "number": 23,
+        "answer": "③",
+        "points": 2,
+        "section": "확률과 통계"
+      },
+      {
+        "number": 23,
+        "answer": "③",
+        "points": 2,
+        "section": "미적분"
+      },
+      {
+        "number": 23,
+        "answer": "③",
+        "points": 2,
+        "section": "기하"
+      },
+      {
+        "number": 2,
+        "answer": "④",
+        "points": 2,
+        "section": "공통"
+      },
+      {
+        "number": 13,
+        "answer": "⑤",
+        "points": 4,
+        "section": "공통"
+      },
+      {
+        "number": 24,
+        "answer": "①",
+        "points": 3,
+        "section": "확률과 통계"
+      },
+      {
+        "number": 24,
+        "answer": "④",
+        "points": 3,
+        "section": "미적분"
+      },
+      {
+        "number": 24,
+        "answer": "①",
+        "points": 3,
+        "section": "기하"
+      },
+      {
+        "number": 3,
+        "answer": "⑤",
+        "points": 3,
+        "section": "공통"
+      },
+      {
+        "number": 14,
+        "answer": "④",
+        "points": 4,
+        "section": "공통"
+      },
+      {
+        "number": 25,
+        "answer": "②",
+        "points": 3,
+        "section": "확률과 통계"
+      },
+      {
+        "number": 25,
+        "answer": "③",
+        "points": 3,
+        "section": "미적분"
+      },
+      {
+        "number": 25,
+        "answer": "⑤",
+        "points": 3,
+        "section": "기하"
+      },
+      {
+        "number": 4,
+        "answer": "③",
+        "points": 3,
+        "section": "공통"
+      },
+      {
+        "number": 15,
+        "answer": "④",
+        "points": 4,
+        "section": "공통"
+      },
+      {
+        "number": 26,
+        "answer": "⑤",
+        "points": 3,
+        "section": "확률과 통계"
+      },
+      {
+        "number": 26,
+        "answer": "①",
+        "points": 3,
+        "section": "미적분"
+      },
+      {
+        "number": 26,
+        "answer": "②",
+        "points": 3,
+        "section": "기하"
+      },
+      {
+        "number": 5,
+        "answer": "③",
+        "points": 3,
+        "section": "공통"
+      },
+      {
+        "number": 16,
+        "answer": "9",
+        "points": 3,
+        "section": "공통"
+      },
+      {
+        "number": 27,
+        "answer": "④",
+        "points": 3,
+        "section": "확률과 통계"
+      },
+      {
+        "number": 27,
+        "answer": "②",
+        "points": 3,
+        "section": "미적분"
+      },
+      {
+        "number": 27,
+        "answer": "④",
+        "points": 3,
+        "section": "기하"
+      },
+      {
+        "number": 6,
+        "answer": "②",
+        "points": 3,
+        "section": "공통"
+      },
+      {
+        "number": 17,
+        "answer": "16",
+        "points": 3,
+        "section": "공통"
+      },
+      {
+        "number": 28,
+        "answer": "②",
+        "points": 4,
+        "section": "확률과 통계"
+      },
+      {
+        "number": 28,
+        "answer": "⑤",
+        "points": 4,
+        "section": "미적분"
+      },
+      {
+        "number": 28,
+        "answer": "④",
+        "points": 4,
+        "section": "기하"
+      },
+      {
+        "number": 7,
+        "answer": "⑤",
+        "points": 3,
+        "section": "공통"
+      },
+      {
+        "number": 18,
+        "answer": "12",
+        "points": 3,
+        "section": "공통"
+      },
+      {
+        "number": 29,
+        "answer": "977",
+        "points": 4,
+        "section": "확률과 통계"
+      },
+      {
+        "number": 29,
+        "answer": "97",
+        "points": 4,
+        "section": "미적분"
+      },
+      {
+        "number": 29,
+        "answer": "360",
+        "points": 4,
+        "section": "기하"
+      },
+      {
+        "number": 8,
+        "answer": "①",
+        "points": 3,
+        "section": "공통"
+      },
+      {
+        "number": 19,
+        "answer": "15",
+        "points": 3,
+        "section": "공통"
+      },
+      {
+        "number": 30,
+        "answer": "262",
+        "points": 4,
+        "section": "확률과 통계"
+      },
+      {
+        "number": 30,
+        "answer": "11",
+        "points": 4,
+        "section": "미적분"
+      },
+      {
+        "number": 30,
+        "answer": "221",
+        "points": 4,
+        "section": "기하"
+      },
+      {
+        "number": 9,
+        "answer": "④",
+        "points": 4,
+        "section": "공통"
+      },
+      {
+        "number": 20,
+        "answer": "130",
+        "points": 4,
+        "section": "공통"
+      },
+      {
+        "number": 10,
+        "answer": "③",
+        "points": 4,
+        "section": "공통"
+      },
+      {
+        "number": 21,
+        "answer": "65",
+        "points": 4,
+        "section": "공통"
+      },
+      {
+        "number": 11,
+        "answer": "③",
+        "points": 4,
+        "section": "공통"
+      },
+      {
+        "number": 22,
+        "answer": "457",
+        "points": 4,
+        "section": "공통"
+      }
+    ]
+  },
+  {
+    "subject": "수학",
+    "form": "짝수형",
+    "source_pdf": "/Users/jaemoonyeah/workspace/AI-benchmark-suneung/raw_datas/2025/수학영역_정답표.pdf",
+    "entries": [
+      {
+        "number": 1,
+        "answer": "①",
+        "points": 2,
+        "section": "공통"
+      },
+      {
+        "number": 12,
+        "answer": "②",
+        "points": 4,
+        "section": "공통"
+      },
+      {
+        "number": 23,
+        "answer": "③",
+        "points": 2,
+        "section": "확률과 통계"
+      },
+      {
+        "number": 23,
+        "answer": "③",
+        "points": 2,
+        "section": "미적분"
+      },
+      {
+        "number": 23,
+        "answer": "③",
+        "points": 2,
+        "section": "기하"
+      },
+      {
+        "number": 2,
+        "answer": "④",
+        "points": 2,
+        "section": "공통"
+      },
+      {
+        "number": 13,
+        "answer": "⑤",
+        "points": 4,
+        "section": "공통"
+      },
+      {
+        "number": 24,
+        "answer": "①",
+        "points": 3,
+        "section": "확률과 통계"
+      },
+      {
+        "number": 24,
+        "answer": "④",
+        "points": 3,
+        "section": "미적분"
+      },
+      {
+        "number": 24,
+        "answer": "①",
+        "points": 3,
+        "section": "기하"
+      },
+      {
+        "number": 3,
+        "answer": "⑤",
+        "points": 3,
+        "section": "공통"
+      },
+      {
+        "number": 14,
+        "answer": "④",
+        "points": 4,
+        "section": "공통"
+      },
+      {
+        "number": 25,
+        "answer": "②",
+        "points": 3,
+        "section": "확률과 통계"
+      },
+      {
+        "number": 25,
+        "answer": "③",
+        "points": 3,
+        "section": "미적분"
+      },
+      {
+        "number": 25,
+        "answer": "⑤",
+        "points": 3,
+        "section": "기하"
+      },
+      {
+        "number": 4,
+        "answer": "③",
+        "points": 3,
+        "section": "공통"
+      },
+      {
+        "number": 15,
+        "answer": "④",
+        "points": 4,
+        "section": "공통"
+      },
+      {
+        "number": 26,
+        "answer": "⑤",
+        "points": 3,
+        "section": "확률과 통계"
+      },
+      {
+        "number": 26,
+        "answer": "①",
+        "points": 3,
+        "section": "미적분"
+      },
+      {
+        "number": 26,
+        "answer": "②",
+        "points": 3,
+        "section": "기하"
+      },
+      {
+        "number": 5,
+        "answer": "③",
+        "points": 3,
+        "section": "공통"
+      },
+      {
+        "number": 16,
+        "answer": "9",
+        "points": 3,
+        "section": "공통"
+      },
+      {
+        "number": 27,
+        "answer": "④",
+        "points": 3,
+        "section": "확률과 통계"
+      },
+      {
+        "number": 27,
+        "answer": "②",
+        "points": 3,
+        "section": "미적분"
+      },
+      {
+        "number": 27,
+        "answer": "④",
+        "points": 3,
+        "section": "기하"
+      },
+      {
+        "number": 6,
+        "answer": "②",
+        "points": 3,
+        "section": "공통"
+      },
+      {
+        "number": 17,
+        "answer": "16",
+        "points": 3,
+        "section": "공통"
+      },
+      {
+        "number": 28,
+        "answer": "②",
+        "points": 4,
+        "section": "확률과 통계"
+      },
+      {
+        "number": 28,
+        "answer": "⑤",
+        "points": 4,
+        "section": "미적분"
+      },
+      {
+        "number": 28,
+        "answer": "④",
+        "points": 4,
+        "section": "기하"
+      },
+      {
+        "number": 7,
+        "answer": "①",
+        "points": 3,
+        "section": "공통"
+      },
+      {
+        "number": 18,
+        "answer": "12",
+        "points": 3,
+        "section": "공통"
+      },
+      {
+        "number": 29,
+        "answer": "977",
+        "points": 4,
+        "section": "확률과 통계"
+      },
+      {
+        "number": 29,
+        "answer": "97",
+        "points": 4,
+        "section": "미적분"
+      },
+      {
+        "number": 29,
+        "answer": "360",
+        "points": 4,
+        "section": "기하"
+      },
+      {
+        "number": 8,
+        "answer": "⑤",
+        "points": 3,
+        "section": "공통"
+      },
+      {
+        "number": 19,
+        "answer": "15",
+        "points": 3,
+        "section": "공통"
+      },
+      {
+        "number": 30,
+        "answer": "262",
+        "points": 4,
+        "section": "확률과 통계"
+      },
+      {
+        "number": 30,
+        "answer": "11",
+        "points": 4,
+        "section": "미적분"
+      },
+      {
+        "number": 30,
+        "answer": "221",
+        "points": 4,
+        "section": "기하"
+      },
+      {
+        "number": 9,
+        "answer": "④",
+        "points": 4,
+        "section": "공통"
+      },
+      {
+        "number": 20,
+        "answer": "130",
+        "points": 4,
+        "section": "공통"
+      },
+      {
+        "number": 10,
+        "answer": "③",
+        "points": 4,
+        "section": "공통"
+      },
+      {
+        "number": 21,
+        "answer": "65",
+        "points": 4,
+        "section": "공통"
+      },
+      {
+        "number": 11,
+        "answer": "③",
+        "points": 4,
+        "section": "공통"
+      },
+      {
+        "number": 22,
+        "answer": "457",
+        "points": 4,
+        "section": "공통"
+      }
+    ]
+  }
+]
