@@ -52,6 +52,11 @@ h1{font-size:1.3rem;border-bottom:2px solid #222;padding-bottom:8px}
 .short-conf{font-size:.78rem;color:#666;font-family:monospace}
 .choices.no-conf li{grid-template-columns:1fr}
 .ai-pick-tag{font-size:.72rem;background:#1a56db;color:#fff;padding:2px 10px;border-radius:10px;font-weight:600;justify-self:end}
+.item.skipped{border-left:4px solid #aaa;background:#fafafa;opacity:.85}
+.item.error{border-left:4px solid #e08b00;background:#fffdf5}
+.skipped-msg{color:#666;font-size:.8rem;margin-top:6px;font-style:italic}
+.mark.skip{color:#888}
+.mark.err{color:#e08b00}
 </style>
 </head>
 <body>
@@ -59,9 +64,9 @@ h1{font-size:1.3rem;border-bottom:2px solid #222;padding-bottom:8px}
 <p class="meta">모델: claude-haiku-4-5 · 모드: image · 2026-04-23T04:15:33</p>
 <div class="summary"><div class="stat info"><b>25.0%</b>정답률</div><div class="stat good"><b>5</b>정답</div><div class="stat bad"><b>15</b>오답</div><div class="stat info"><b>11/50</b>원점수</div><div class="stat"><b>139.7s</b>총 시간</div><div class="stat"><b>7.0s</b>문항 평균</div></div>
 <div class="filters">
-  <button class="fbtn active" onclick="filterAll()">전체</button>
-  <button class="fbtn" onclick="filterWrong()">오답만</button>
-  <button class="fbtn" onclick="filterCorrect()">정답만</button>
+  <button class="fbtn active" onclick="setFilter('all',this)">전체</button>
+  <button class="fbtn" onclick="setFilter('wrong',this)">오답만</button>
+  <button class="fbtn" onclick="setFilter('correct',this)">정답만</button>
 </div>
 <div id="items"><div class="item wrong"><div class="item-header"><span class="qnum">1번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">4.5s</span><span class="mark ng">✗</span></div><div class="question-text">정치를 바라보는 갑, 을의 관점에 대한 설명으로 옳은 것은?</div><ul class="choices"><li class=""><div>① 갑의 관점은 국가와 국가 이외 사회 집단의 정치 현상은 본질적으로
 다르지 않다고 본다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② 을의 관점은 국가 형성 이전의 정치 현상을 설명하기에 적합하지 않다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="ai-pick wrong-pick"><div>③ 갑과 달리 을의 관점은 정치 활동을 소수 통치 엘리트들의
@@ -359,15 +364,11 @@ B를 청구하였다. 헌법 재판소는 △△법 조항이 정당한 입법 �
 ◦답안지의 해당란에 필요한 내용을 정확히 기입(표기)했는지 확인
 하시오.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ④</span><span><b>AI:</b> ④</span></div><div class="reasoning">첫 번째 사건(A): 헌법 재판소가 □□법 조항을 위헌으로 결정하여 헌법 자판소에 A를 제청했음. 헌법 자판소는 해당 조항이 최소성에 위배되며 보충성도 결여되어 있다고 판단함.\n\n두 번째 사건(B): 가정폭력 가해자인 전 배우자가 자신의 개인정보 자기결정권을 침해받았다며 헌법 자판소에 B를 청구. 헌법 자판소는 정당한 입법 목적을 위한 적합한 수단이지만, 필요한 법위를 넘어서 공익보다 충하다고 보아 헌법에 합치되지 않음.\n\n선택지 검토:\n①: A 제청의 필수 요건이 아님\n②: 기술적 오류\n③: B의 위헌 여부를 판단하는 것이 심사형 헌법 소원\n④: 두 법원 모두 구체적 사건의 재판에 적용될 법률의 위헌 여부가 문제가 되어 헌법 재판소 제청이 필요함 - 정확함\n⑤: 둘 다 과외금지의 원칙에 위배됨은 오류</div></div></div>
 <script>
-function filterAll(){setFilter('all')}
-function filterWrong(){setFilter('wrong')}
-function filterCorrect(){setFilter('correct')}
-function setFilter(f){
+function setFilter(f,btn){
   document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active'));
-  event.target.classList.add('active');
+  btn.classList.add('active');
   document.querySelectorAll('.item').forEach(el=>{
-    const ok=el.classList.contains('correct');
-    el.style.display=(f==='all'||(f==='correct'&&ok)||(f==='wrong'&&!ok))?'':'none';
+    el.style.display=(f==='all'||el.classList.contains(f))?'':'none';
   });
 }
 document.querySelectorAll('.question-text').forEach(el=>{

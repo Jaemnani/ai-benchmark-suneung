@@ -52,6 +52,11 @@ h1{font-size:1.3rem;border-bottom:2px solid #222;padding-bottom:8px}
 .short-conf{font-size:.78rem;color:#666;font-family:monospace}
 .choices.no-conf li{grid-template-columns:1fr}
 .ai-pick-tag{font-size:.72rem;background:#1a56db;color:#fff;padding:2px 10px;border-radius:10px;font-weight:600;justify-self:end}
+.item.skipped{border-left:4px solid #aaa;background:#fafafa;opacity:.85}
+.item.error{border-left:4px solid #e08b00;background:#fffdf5}
+.skipped-msg{color:#666;font-size:.8rem;margin-top:6px;font-style:italic}
+.mark.skip{color:#888}
+.mark.err{color:#e08b00}
 </style>
 </head>
 <body>
@@ -59,9 +64,9 @@ h1{font-size:1.3rem;border-bottom:2px solid #222;padding-bottom:8px}
 <p class="meta">모델: claude-haiku-4-5 · 모드: image · 2026-04-23T04:02:10</p>
 <div class="summary"><div class="stat info"><b>15.0%</b>정답률</div><div class="stat good"><b>3</b>정답</div><div class="stat bad"><b>17</b>오답</div><div class="stat info"><b>8/50</b>원점수</div><div class="stat"><b>146.1s</b>총 시간</div><div class="stat"><b>7.3s</b>문항 평균</div></div>
 <div class="filters">
-  <button class="fbtn active" onclick="filterAll()">전체</button>
-  <button class="fbtn" onclick="filterWrong()">오답만</button>
-  <button class="fbtn" onclick="filterCorrect()">정답만</button>
+  <button class="fbtn active" onclick="setFilter('all',this)">전체</button>
+  <button class="fbtn" onclick="setFilter('wrong',this)">오답만</button>
+  <button class="fbtn" onclick="setFilter('correct',this)">정답만</button>
 </div>
 <div id="items"><div class="item wrong"><div class="item-header"><span class="qnum">1번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">8.6s</span><span class="mark ng">✗</span></div><div class="question-text">밑줄 친 ‘이 지역’을 지도에서 옳게 고른 것은?</div><ul class="choices"><li class=""><div>① (가)</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② (나)</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>③ (다)</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="ai-pick wrong-pick"><div>④ (라)</div><div><div class="conf-bar"><div class="conf-fill" style="width:75%"></div></div><div class="conf-label">75.0%</div></div></li><li class="correct-choice"><div>⑤ (마)</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> ④</span></div><div class="reasoning">문제는 신석기 시대 편에 나오는 두 유물이 어느 지역에서 출토되었는지 묻고 있습니다. 좌측은 신석기 시대 편의 알굴 모양 토우로, 우측은 동아시아 유물 사전의 토기로 표면에 새끼줄 무늬가 있는 것이 특징입니다. 좌측의 알굴 모양 토우는 신석기 시대 한반도 지역, 특히 중부 지역의 특징적인 유물입니다. 우측의 새끼줄 무늬 토기는 동아시아 지역의 신석기 유물로, 두 유물의 출토 지역 분포를 고려하면 지도상 (라) 지역(한반도 중부/북부 지역)에 해당합니다. 한반도 신석기 문화의 특징적인 유물들이 집중된 지역으로 보아 (라) 선택지가 가장 적절합니다.</div></div>
 <div class="item wrong"><div class="item-header"><span class="qnum">2번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">5.8s</span><span class="mark ng">✗</span></div><div class="question-text">밑줄 친 ‘이 국가’에 대한 설명으로 옳은 것은? [3점]</div><ul class="choices"><li class=""><div>① 백제를 멸망시켰다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="correct-choice"><div>② 제(齊)와 대립하였다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="ai-pick wrong-pick"><div>③ 대도를 수도로 삼았다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:75%"></div></div><div class="conf-label">75.0%</div></div></li><li class=""><div>④ 다이카 개신을 단행하였다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>⑤ 남북조의 혼란을 수습하였다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ②</span><span><b>AI:</b> ③</span></div><div class="reasoning">신문의 제목이 '효민황제 무덤, 정릉 발견'이고, 본문에서 '최근 산시성에서 북주의 군주인 우문각의 무덤이 발견되었다. 이 무덤에서 도용 등 다량의 부장품이 출토되었다'고 설명하고 있습니다. 북주는 선양방아 북주를 개국하였으므로, 도용(말 탄 기병 도자기)은 당나라 이전 북조 시대의 유물입니다. 문맥상 도용이 무덤에서 출토되었다는 것은 대도를 수도로 삼았던 역사적 사실과 맞지 않습니다. 본문의 핵심은 '이 국가가 동서로 분열된 이후, 우문각은 서쪽 지방을 근거로 삼은 나라의 공제로부터 선양받아 북주를 개국하였고'라는 내용입니다. 이는 북주의 건국과 관련된 내용이며, 도용 출토는 당시 마상(기병) 문화를 보여주는 증거입니다. 따라서 정답은 '대도를 수도로 삼았다'는 ③번입니다.</div></div>
@@ -199,15 +204,11 @@ h1{font-size:1.3rem;border-bottom:2px solid #222;padding-bottom:8px}
 ◦답안지의 해당란에 필요한 내용을 정확히 기입(표기)했는지 확인
 하시오.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ①</span><span><b>AI:</b> ④</span></div><div class="reasoning">문제는 두 시기 사이에 있었던 사실로 옳은 것을 묻고 있습니다. 판의 왼쪽 주제는 '사회주의 국가의 개혁·개방 정책', 중앙은 '중국에서 당사유권 집권 이후 (㈁)개혁·개방이 시작되고, 농업·공업·국방·과학기술 4개 부문의 현대화가 분석되었음', 오른쪽은 '베트남에서 제6차 공산당 전국(대표) 대회에서 (ㄴ)"쇠신"이라는 의의의 정책을 처음 채택하여 시장 경제 체제의 일부를 도입하였음'을 제시하고 있습니다. 중국의 개혁·개방은 1978년 경제 정책 실패 등으로 붕괴되었던 것을 극복하기 위한 정책이고, 베트남의 쇠신은 1986년 시작되었습니다. ④번 '경제 정책 실패 등으로 55년 체제가 붕괴되었다'는 소련의 붕괴가 아닌 중국의 정책 전환 배경을 정확히 설명하고 있습니다.</div></div></div>
 <script>
-function filterAll(){setFilter('all')}
-function filterWrong(){setFilter('wrong')}
-function filterCorrect(){setFilter('correct')}
-function setFilter(f){
+function setFilter(f,btn){
   document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active'));
-  event.target.classList.add('active');
+  btn.classList.add('active');
   document.querySelectorAll('.item').forEach(el=>{
-    const ok=el.classList.contains('correct');
-    el.style.display=(f==='all'||(f==='correct'&&ok)||(f==='wrong'&&!ok))?'':'none';
+    el.style.display=(f==='all'||el.classList.contains(f))?'':'none';
   });
 }
 document.querySelectorAll('.question-text').forEach(el=>{

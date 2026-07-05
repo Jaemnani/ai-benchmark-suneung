@@ -52,6 +52,11 @@ h1{font-size:1.3rem;border-bottom:2px solid #222;padding-bottom:8px}
 .short-conf{font-size:.78rem;color:#666;font-family:monospace}
 .choices.no-conf li{grid-template-columns:1fr}
 .ai-pick-tag{font-size:.72rem;background:#1a56db;color:#fff;padding:2px 10px;border-radius:10px;font-weight:600;justify-self:end}
+.item.skipped{border-left:4px solid #aaa;background:#fafafa;opacity:.85}
+.item.error{border-left:4px solid #e08b00;background:#fffdf5}
+.skipped-msg{color:#666;font-size:.8rem;margin-top:6px;font-style:italic}
+.mark.skip{color:#888}
+.mark.err{color:#e08b00}
 </style>
 </head>
 <body>
@@ -59,9 +64,9 @@ h1{font-size:1.3rem;border-bottom:2px solid #222;padding-bottom:8px}
 <p class="meta">모델: claude-haiku-4-5 · 모드: image · 2026-04-23T04:13:07</p>
 <div class="summary"><div class="stat info"><b>45.0%</b>정답률</div><div class="stat good"><b>9</b>정답</div><div class="stat bad"><b>11</b>오답</div><div class="stat info"><b>23/50</b>원점수</div><div class="stat"><b>133.2s</b>총 시간</div><div class="stat"><b>6.7s</b>문항 평균</div></div>
 <div class="filters">
-  <button class="fbtn active" onclick="filterAll()">전체</button>
-  <button class="fbtn" onclick="filterWrong()">오답만</button>
-  <button class="fbtn" onclick="filterCorrect()">정답만</button>
+  <button class="fbtn active" onclick="setFilter('all',this)">전체</button>
+  <button class="fbtn" onclick="setFilter('wrong',this)">오답만</button>
+  <button class="fbtn" onclick="setFilter('correct',this)">정답만</button>
 </div>
 <div id="items"><div class="item correct"><div class="item-header"><span class="qnum">1번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">5.7s</span><span class="mark ok">✓</span></div><div class="question-text">다음 가상 대화의 스승이 강조하는 삶의 태도로 가장 적절한 것은?</div><ul class="choices"><li class=""><div>① 도덕적 시비를 명확히 분별하여 군자의 도리를 실행해야 한다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② 만물 간의 위계질서를 확립함으로써 차등적 사랑을 실현해야 한다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>③ 보살로서의 삶을 살기 위해 보시(布施) 바라밀을 실천해야 한다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:12%"></div></div><div class="conf-label">12.0%</div></div></li><li class=""><div>④ 사회적 규범[禮]에 맞게 이기적 본성이 변화되도록 노력해야 한다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="correct-choice ai-pick"><div>⑤ 마음을 깨끗이 비우는 심재(心齋)를 통해 차별 의식에서 벗어나야 한다.</div><div><div class="conf-bar"><div class="conf-fill top" style="width:65%"></div></div><div class="conf-label">65.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> ⑤</span></div><div class="reasoning">대화를 분석하면, 여자가 '진인(眞人)은 어떠한 사람입니까?'라고 묻고, 남자가 '자연에 따라 살아감으로써 도(道)와 하나가 된 사람이라네'라고 답하는 것으로 보아 도가 사상을 다루고 있습니다. 특히 '고요히 앉아 자신을 구속하는 모든 것을 잊어야 한다네'는 답변은 도가의 정신적 수양과 자아 초월을 강조하고 있습니다. 도가에서 추구하는 이상적 인물상인 진인(眞人)은 마음을 비우고(心齋) 외부의 속박에서 벗어나 자연과 하나 되는 상태를 지향합니다. 이는 도가적 수양론에서 강조하는 '잡념 제거'와 '본성 회복'을 통해 진정한 자유와 깨달음을 얻는다는 내용과 일치합니다. 따라서 ⑤번 '마음을 깨끗이 비우는 실제(心齋)를 통해 차별 의식에서 벗어나야 한다'는 도가적 심재(心齋) 개념을 정확히 설명하고 있습니다.</div></div>
 <div class="item wrong"><div class="item-header"><span class="qnum">2번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">6.2s</span><span class="mark ng">✗</span></div><div class="question-text">고대 서양 사상가 갑, 근대 서양 사상가 을의 입장으로 옳은 것은?
@@ -262,15 +267,11 @@ h1{font-size:1.3rem;border-bottom:2px solid #222;padding-bottom:8px}
 ◦답안지의 해당란에 필요한 내용을 정확히 기입(표기)했는지 확인
 하시오.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ②</span><span><b>AI:</b> ④</span></div><div class="reasoning">문제는 근대 한국 사상가 감, 음의 입장으로 적절한 것을 찾는 문제입니다.\n\n제시문 분석:\n- 감: 인의에지는 옛 성인의 가르침이고, 수심정기(守心正氣)는 내가 다시 정한 것. 동방에서 도를 반았으니 그 가르침이 서학과 다르다고 함\n- 음: 인의의 도덕을 들어마고 세상을 속이는 밝이 어느 때인들 없었으나, 서양의 것마금 참혹한 것은 없다. 난세를 구하고 이단(異端)을 물리치는 길은 바른 학문(正學)을 받드는 것이라고 함\n\n보기 검토:\n- ㄱ. 감: 경천(敬天) 사상에 기반하여 보국안민을 이루어야 한다 → 감의 입장과 맞음\n- ㄴ. 음: 서양과 교류하여 효제의 가르침을 친하에 전해야 한다 → 음은 서양 배격 입장이므로 맞지 않음\n- ㄷ. 음: 성리학적 질서를 수호하여 절의(節義)를 실천해야 한다 → 음의 정학(正學) 강조와 맞음\n- ㄹ. 감과 음: 만민이 평등한 사회를 현세에서 구현해야 한다 → 둘 다의 입장과 맞지 않음\n\n감의 입장(ㄱ)과 음의 입장(ㄷ)이 적절하므로 답은 ④입니다.</div></div></div>
 <script>
-function filterAll(){setFilter('all')}
-function filterWrong(){setFilter('wrong')}
-function filterCorrect(){setFilter('correct')}
-function setFilter(f){
+function setFilter(f,btn){
   document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active'));
-  event.target.classList.add('active');
+  btn.classList.add('active');
   document.querySelectorAll('.item').forEach(el=>{
-    const ok=el.classList.contains('correct');
-    el.style.display=(f==='all'||(f==='correct'&&ok)||(f==='wrong'&&!ok))?'':'none';
+    el.style.display=(f==='all'||el.classList.contains(f))?'':'none';
   });
 }
 document.querySelectorAll('.question-text').forEach(el=>{

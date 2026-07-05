@@ -53,8 +53,10 @@ h1{font-size:1.3rem;border-bottom:2px solid #222;padding-bottom:8px}
 .choices.no-conf li{grid-template-columns:1fr}
 .ai-pick-tag{font-size:.72rem;background:#1a56db;color:#fff;padding:2px 10px;border-radius:10px;font-weight:600;justify-self:end}
 .item.skipped{border-left:4px solid #aaa;background:#fafafa;opacity:.85}
+.item.error{border-left:4px solid #e08b00;background:#fffdf5}
 .skipped-msg{color:#666;font-size:.8rem;margin-top:6px;font-style:italic}
 .mark.skip{color:#888}
+.mark.err{color:#e08b00}
 </style>
 </head>
 <body>
@@ -62,9 +64,9 @@ h1{font-size:1.3rem;border-bottom:2px solid #222;padding-bottom:8px}
 <p class="meta">모델: claude-haiku-4-5 · 모드: image · 2026-04-25T20:37:58</p>
 <div class="summary"><div class="stat info"><b>30.0%</b>정답률</div><div class="stat good"><b>6</b>정답</div><div class="stat bad"><b>14</b>오답</div><div class="stat info"><b>15/50</b>원점수</div><div class="stat"><b>146.1s</b>총 시간</div><div class="stat"><b>7.3s</b>문항 평균</div></div>
 <div class="filters">
-  <button class="fbtn active" onclick="filterAll()">전체</button>
-  <button class="fbtn" onclick="filterWrong()">오답만</button>
-  <button class="fbtn" onclick="filterCorrect()">정답만</button>
+  <button class="fbtn active" onclick="setFilter('all',this)">전체</button>
+  <button class="fbtn" onclick="setFilter('wrong',this)">오답만</button>
+  <button class="fbtn" onclick="setFilter('correct',this)">정답만</button>
 </div>
 <div id="items"><div class="item correct"><div class="item-header"><span class="qnum">1번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">4.3s</span><span class="mark ok">✓</span></div><div class="question-text">다음은 일상생활에서 사용하는 제품과 이와 관련된 성분 ㉠~㉢에 대한 자료이다.
 ㉠ 설탕($\text{C}_{12}\text{H}_{22}\text{O}_{11}$)이 들어 있는 아이스크림
@@ -267,15 +269,11 @@ $\frac{y}{x}$는? (단, 혼합 용액의 부피는 혼합 전 각 수용액의 �
 
 $\frac{\mathrm{X}_a\mathrm{Z}_b\text{의 분자량}}{\mathrm{Y}_c\mathrm{Z}_b\text{의 분자량}}$은? (단, $\mathrm{X}\sim\mathrm{Z}$는 임의의 원소 기호이다.)</div><ul class="choices"><li class="correct-choice"><div>① $\frac{4}{5}$</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② $\frac{9}{10}$</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>③ $1$</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class="ai-pick wrong-pick"><div>④ $\frac{8}{7}$</div><div><div class="conf-bar"><div class="conf-fill" style="width:72%"></div></div><div class="conf-label">72.0%</div></div></li><li class=""><div>⑤ $\frac{9}{5}$</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ①</span><span><b>AI:</b> ④</span></div><div class="reasoning">Z의 질량비(7:9), 원자 수 비율, 전체 질량비를 종합하여 XₐZᵦ와 YcZᵦ의 분자량 비를 계산하면 8:7이 도출된다.</div></div></div>
 <script>
-function filterAll(){setFilter('all')}
-function filterWrong(){setFilter('wrong')}
-function filterCorrect(){setFilter('correct')}
-function setFilter(f){
+function setFilter(f,btn){
   document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active'));
-  event.target.classList.add('active');
+  btn.classList.add('active');
   document.querySelectorAll('.item').forEach(el=>{
-    const ok=el.classList.contains('correct');
-    el.style.display=(f==='all'||(f==='correct'&&ok)||(f==='wrong'&&!ok))?'':'none';
+    el.style.display=(f==='all'||el.classList.contains(f))?'':'none';
   });
 }
 document.querySelectorAll('.question-text').forEach(el=>{

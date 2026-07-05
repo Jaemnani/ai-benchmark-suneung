@@ -53,8 +53,10 @@ h1{font-size:1.3rem;border-bottom:2px solid #222;padding-bottom:8px}
 .choices.no-conf li{grid-template-columns:1fr}
 .ai-pick-tag{font-size:.72rem;background:#1a56db;color:#fff;padding:2px 10px;border-radius:10px;font-weight:600;justify-self:end}
 .item.skipped{border-left:4px solid #aaa;background:#fafafa;opacity:.85}
+.item.error{border-left:4px solid #e08b00;background:#fffdf5}
 .skipped-msg{color:#666;font-size:.8rem;margin-top:6px;font-style:italic}
 .mark.skip{color:#888}
+.mark.err{color:#e08b00}
 </style>
 </head>
 <body>
@@ -62,9 +64,9 @@ h1{font-size:1.3rem;border-bottom:2px solid #222;padding-bottom:8px}
 <p class="meta">모델: claude-haiku-4-5 · 모드: image · 2026-04-25T20:30:59</p>
 <div class="summary"><div class="stat info"><b>30.0%</b>정답률</div><div class="stat good"><b>6</b>정답</div><div class="stat bad"><b>14</b>오답</div><div class="stat info"><b>16/50</b>원점수</div><div class="stat"><b>131.8s</b>총 시간</div><div class="stat"><b>6.6s</b>문항 평균</div></div>
 <div class="filters">
-  <button class="fbtn active" onclick="filterAll()">전체</button>
-  <button class="fbtn" onclick="filterWrong()">오답만</button>
-  <button class="fbtn" onclick="filterCorrect()">정답만</button>
+  <button class="fbtn active" onclick="setFilter('all',this)">전체</button>
+  <button class="fbtn" onclick="setFilter('wrong',this)">오답만</button>
+  <button class="fbtn" onclick="setFilter('correct',this)">정답만</button>
 </div>
 <div id="items"><div class="item correct"><div class="item-header"><span class="qnum">1번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">3.4s</span><span class="mark ok">✓</span></div><div class="question-text">생명 과학자들의 주요 성과에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은? &lt;보기&gt; ᄀ. 다윈은 자연 선택에 의한 진화의 원리를 설명하였다. ᄂ. 멘델은 완두 교배 실험을 통해 유전의 기본 원리를 발견하였다. ᄃ. 왓슨과 크릭은 DNA의 이중 나선 구조를 알아내었다.</div><ul class="choices"><li class=""><div>① ᄀ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ᄃ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>③ ᄀ, ᄂ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>④ ᄂ, ᄃ</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="correct-choice ai-pick"><div>⑤ ᄀ, ᄂ, ᄃ</div><div><div class="conf-bar"><div class="conf-fill top" style="width:65%"></div></div><div class="conf-label">65.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> ⑤</span></div><div class="reasoning">생명 과학자들의 주요 성과를 정리하면: ㄱ. 다윈은 자연선택에 의한 진화의 원리를 설명했다(참). ㄴ. 멘델은 완두콩 교배 실험을 통해 유전의 기본 원리를 발견했다(참). ㄷ. 왓슨과 크릭은 DNA의 이중 나선 구조를 밝혔다(참). 세 명제가 모두 옳으므로 정답은 ㄱ, ㄴ, ㄷ이다.</div></div>
 <div class="item wrong"><div class="item-header"><span class="qnum">2번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">6.7s</span><span class="mark ng">✗</span></div><div class="question-text">다음은 동물의 구성 단계에 대한 자료이다. ⑦과 ㉡은 기관과 세포를 순서 없이 나타낸 것이다.
@@ -270,15 +272,11 @@ Pvu I / Sac I / Xho I / Xma I
 ㄴ. V에 첨가한 제한 효소는 Xho I과 Xma I이다.
 ㄷ. IV에서 생성된 DNA 조각 중 염기 개수가 20개인 조각에서 사이토신(C)의 개수는 7개이다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="correct-choice"><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>③ ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class="ai-pick wrong-pick"><div>④ ㄱ, ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:75%"></div></div><div class="conf-label">75.0%</div></div></li><li class=""><div>⑤ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ②</span><span><b>AI:</b> ④</span></div><div class="reasoning">표의 DNA 조각 크기로부터 제한효소를 판단하면 (a)=Pvu I, (b)=Sac I, (c)=Xho I, (d)=Xma I이고, V는 Xho I+Xma I 처리로 4개 조각 생성. 보기 검증: ㄱ 참(구아닌), ㄴ 참(Xho I, Xma I), ㄷ 거짓(IV의 20개 조각은 Xma I 처리 결과가 아님). 정답은 ㄱ, ㄴ</div></div></div>
 <script>
-function filterAll(){setFilter('all')}
-function filterWrong(){setFilter('wrong')}
-function filterCorrect(){setFilter('correct')}
-function setFilter(f){
+function setFilter(f,btn){
   document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active'));
-  event.target.classList.add('active');
+  btn.classList.add('active');
   document.querySelectorAll('.item').forEach(el=>{
-    const ok=el.classList.contains('correct');
-    el.style.display=(f==='all'||(f==='correct'&&ok)||(f==='wrong'&&!ok))?'':'none';
+    el.style.display=(f==='all'||el.classList.contains(f))?'':'none';
   });
 }
 document.querySelectorAll('.question-text').forEach(el=>{

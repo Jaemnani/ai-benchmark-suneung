@@ -5,12 +5,15 @@
   "timestamp": "2026-04-20T01:13:09",
   "summary": {
     "total_questions": 46,
+    "graded_questions": 42,
+    "skipped": 0,
+    "errors": 4,
     "correct": 25,
     "score": 74,
-    "max_score": 152,
-    "accuracy": 54.3,
-    "total_time_sec": 830.0,
-    "avg_time_sec": 18.0
+    "max_score": 137,
+    "accuracy": 59.5,
+    "total_time_sec": 796.4,
+    "avg_time_sec": 19.0
   },
   "items": [
     {

@@ -53,8 +53,10 @@ h1{font-size:1.3rem;border-bottom:2px solid #222;padding-bottom:8px}
 .choices.no-conf li{grid-template-columns:1fr}
 .ai-pick-tag{font-size:.72rem;background:#1a56db;color:#fff;padding:2px 10px;border-radius:10px;font-weight:600;justify-self:end}
 .item.skipped{border-left:4px solid #aaa;background:#fafafa;opacity:.85}
+.item.error{border-left:4px solid #e08b00;background:#fffdf5}
 .skipped-msg{color:#666;font-size:.8rem;margin-top:6px;font-style:italic}
 .mark.skip{color:#888}
+.mark.err{color:#e08b00}
 </style>
 </head>
 <body>
@@ -62,9 +64,9 @@ h1{font-size:1.3rem;border-bottom:2px solid #222;padding-bottom:8px}
 <p class="meta">모델: claude-haiku-4-5 · 모드: image · 2026-04-25T20:23:27</p>
 <div class="summary"><div class="stat info"><b>40.0%</b>정답률</div><div class="stat good"><b>8</b>정답</div><div class="stat bad"><b>12</b>오답</div><div class="stat info"><b>19/50</b>원점수</div><div class="stat"><b>136.7s</b>총 시간</div><div class="stat"><b>6.8s</b>문항 평균</div></div>
 <div class="filters">
-  <button class="fbtn active" onclick="filterAll()">전체</button>
-  <button class="fbtn" onclick="filterWrong()">오답만</button>
-  <button class="fbtn" onclick="filterCorrect()">정답만</button>
+  <button class="fbtn active" onclick="setFilter('all',this)">전체</button>
+  <button class="fbtn" onclick="setFilter('wrong',this)">오답만</button>
+  <button class="fbtn" onclick="setFilter('correct',this)">정답만</button>
 </div>
 <div id="items"><div class="item wrong"><div class="item-header"><span class="qnum">1번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">5.0s</span><span class="mark ng">✗</span></div><div class="question-text">그림은 태양에서 일어나는 핵반응에 대해 학생 A, B, C가 대화하는 모습을 나타낸 것이다.
 $\langle$태양에서 일어나는 핵반응$angle$
@@ -204,15 +206,11 @@ $x=3.5d$: 세기 $I_0$, 방향 $-y$
 ㄴ. (다)의 ⑦은 (나)에서 P에 작용하는 전기력이다.
 ㄷ. P가 $x=x_0$ 에 있을 때, A와 B로부터 받는 전기력의 크기는 $6$N보다 작다.</div><ul class="choices"><li class="correct-choice"><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class=""><div>③ ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class="ai-pick wrong-pick"><div>④ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:72%"></div></div><div class="conf-label">72.0%</div></div></li><li class=""><div>⑤ ㄱ, ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ①</span><span><b>AI:</b> ④</span></div><div class="reasoning">그래프 분석: (가)에서 x=0 근처에서 전기력이 거의 0이므로 A와 B의 영향이 상쇄 → A의 크기 &lt; C의 크기(ㄱ 참). (나)의 배치에서 점선 ⓐ는 P를 0≤x&lt;d 범위에서 이동시킬 때의 전기력 변화 → ㄴ 참. x=x₀에서 Fp≈8N이고 C의 영향을 고려하면 A,B로부터의 전기력은 6N보다 큼 → ㄷ 거짓. 따라서 ㄴ, ㄷ이 맞는 답</div></div></div>
 <script>
-function filterAll(){setFilter('all')}
-function filterWrong(){setFilter('wrong')}
-function filterCorrect(){setFilter('correct')}
-function setFilter(f){
+function setFilter(f,btn){
   document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active'));
-  event.target.classList.add('active');
+  btn.classList.add('active');
   document.querySelectorAll('.item').forEach(el=>{
-    const ok=el.classList.contains('correct');
-    el.style.display=(f==='all'||(f==='correct'&&ok)||(f==='wrong'&&!ok))?'':'none';
+    el.style.display=(f==='all'||el.classList.contains(f))?'':'none';
   });
 }
 document.querySelectorAll('.question-text').forEach(el=>{

@@ -5,6 +5,9 @@
   "timestamp": "2026-04-23T04:13:07",
   "summary": {
     "total_questions": 20,
+    "graded_questions": 20,
+    "skipped": 0,
+    "errors": 0,
     "correct": 9,
     "score": 23,
     "max_score": 50,

@@ -53,8 +53,10 @@ h1{font-size:1.3rem;border-bottom:2px solid #222;padding-bottom:8px}
 .choices.no-conf li{grid-template-columns:1fr}
 .ai-pick-tag{font-size:.72rem;background:#1a56db;color:#fff;padding:2px 10px;border-radius:10px;font-weight:600;justify-self:end}
 .item.skipped{border-left:4px solid #aaa;background:#fafafa;opacity:.85}
+.item.error{border-left:4px solid #e08b00;background:#fffdf5}
 .skipped-msg{color:#666;font-size:.8rem;margin-top:6px;font-style:italic}
 .mark.skip{color:#888}
+.mark.err{color:#e08b00}
 </style>
 </head>
 <body>
@@ -62,9 +64,9 @@ h1{font-size:1.3rem;border-bottom:2px solid #222;padding-bottom:8px}
 <p class="meta">모델: claude-haiku-4-5 · 모드: image · 2026-04-25T20:33:17</p>
 <div class="summary"><div class="stat info"><b>10.0%</b>정답률</div><div class="stat good"><b>2</b>정답</div><div class="stat bad"><b>18</b>오답</div><div class="stat info"><b>5/50</b>원점수</div><div class="stat"><b>130.5s</b>총 시간</div><div class="stat"><b>6.5s</b>문항 평균</div></div>
 <div class="filters">
-  <button class="fbtn active" onclick="filterAll()">전체</button>
-  <button class="fbtn" onclick="filterWrong()">오답만</button>
-  <button class="fbtn" onclick="filterCorrect()">정답만</button>
+  <button class="fbtn active" onclick="setFilter('all',this)">전체</button>
+  <button class="fbtn" onclick="setFilter('wrong',this)">오답만</button>
+  <button class="fbtn" onclick="setFilter('correct',this)">정답만</button>
 </div>
 <div id="items"><div class="item wrong"><div class="item-header"><span class="qnum">1번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">4.8s</span><span class="mark ng">✗</span></div><div class="question-text">그림은 대서양의 해수 순환을 모식적으로 나타낸 것이다. A와 B는 심층 해류와 표층 해류를 순서 없이 나타낸 것이고, ㉠과 ㉡은 표층 해수가 침강하는 해역이다.
 이 자료에 대한 설명으로 옳은 것만을 &lt;보기&gt;에서 있는 대로 고른 것은?
@@ -202,15 +204,11 @@ B의 경로: 200 Ma (○, 약 45° 위도), 150 Ma (○, 약 30° 위도), 100 M
 ㄴ. A와 B의 절대 연령 차는 0.25억 년보다 크다.
 ㄷ. 현재로부터 1억 년이 지났을 때, $\frac{B에 포함된 방사성 원소 함량}{A에 포함된 방사성 원소 함량}$은 4이다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>③ ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="ai-pick wrong-pick"><div>④ ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:65%"></div></div><div class="conf-label">65.0%</div></div></li><li class="correct-choice"><div>⑤ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ⑤</span><span><b>AI:</b> ④</span></div><div class="reasoning">문제 분석: A와 B는 X와 Y 중 서로 다른 한 종류의 방사성 원소를 포함하고, A와 B의 방사성 원소 합량은 각각 76%와 38%이다. C의 절대 연령은 1억 년이다.\n\n조건 검토:\n- 보기 가: A에 포함된 방사성 원소는 Y이다 → 그래프에서 X는 1억 년일 때 약 2.5, Y는 약 1.5이다. A(76%)와 B(38%)의 관계를 보면, A의 함량이 더 높으므로 더 빠르게 감소하는 원소를 함유. X가 더 빠르게 감소하므로 A는 X를 함유 → 거짓\n\n- 보기 나: A와 B의 절대 연령 차는 0.25억 년보다 크다 → C가 1억 년이고 같은 지층이면 동일 연령이어야 함. A, B, C의 상대적 위치와 방사성 원소 함량으로부터 A와 B의 연령차를 계산하면 0.25억 년보다 크다 → 참\n\n- 보기 다: 현재로부터 1억 년이 지났을 때, B에 포함된 방사성 원소 함량/A에 포함된 방사성 원소 함량 = 4 → 지수감소 식을 적용하면 이 비율이 4가 되는지 확인 필요. 방사성 원소의 감소 곡선 기울기와 초기값을 고려하면 이 값은 성립 → 참\n\n따라서 나와 다가 모두 참이다.</div></div></div>
 <script>
-function filterAll(){setFilter('all')}
-function filterWrong(){setFilter('wrong')}
-function filterCorrect(){setFilter('correct')}
-function setFilter(f){
+function setFilter(f,btn){
   document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active'));
-  event.target.classList.add('active');
+  btn.classList.add('active');
   document.querySelectorAll('.item').forEach(el=>{
-    const ok=el.classList.contains('correct');
-    el.style.display=(f==='all'||(f==='correct'&&ok)||(f==='wrong'&&!ok))?'':'none';
+    el.style.display=(f==='all'||el.classList.contains(f))?'':'none';
   });
 }
 document.querySelectorAll('.question-text').forEach(el=>{

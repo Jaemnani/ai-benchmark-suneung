@@ -52,6 +52,11 @@ h1{font-size:1.3rem;border-bottom:2px solid #222;padding-bottom:8px}
 .short-conf{font-size:.78rem;color:#666;font-family:monospace}
 .choices.no-conf li{grid-template-columns:1fr}
 .ai-pick-tag{font-size:.72rem;background:#1a56db;color:#fff;padding:2px 10px;border-radius:10px;font-weight:600;justify-self:end}
+.item.skipped{border-left:4px solid #aaa;background:#fafafa;opacity:.85}
+.item.error{border-left:4px solid #e08b00;background:#fffdf5}
+.skipped-msg{color:#666;font-size:.8rem;margin-top:6px;font-style:italic}
+.mark.skip{color:#888}
+.mark.err{color:#e08b00}
 </style>
 </head>
 <body>
@@ -59,9 +64,9 @@ h1{font-size:1.3rem;border-bottom:2px solid #222;padding-bottom:8px}
 <p class="meta">모델: claude-haiku-4-5 · 모드: image · 2026-04-23T04:10:48</p>
 <div class="summary"><div class="stat info"><b>20.0%</b>정답률</div><div class="stat good"><b>4</b>정답</div><div class="stat bad"><b>16</b>오답</div><div class="stat info"><b>11/50</b>원점수</div><div class="stat"><b>128.1s</b>총 시간</div><div class="stat"><b>6.4s</b>문항 평균</div></div>
 <div class="filters">
-  <button class="fbtn active" onclick="filterAll()">전체</button>
-  <button class="fbtn" onclick="filterWrong()">오답만</button>
-  <button class="fbtn" onclick="filterCorrect()">정답만</button>
+  <button class="fbtn active" onclick="setFilter('all',this)">전체</button>
+  <button class="fbtn" onclick="setFilter('wrong',this)">오답만</button>
+  <button class="fbtn" onclick="setFilter('correct',this)">정답만</button>
 </div>
 <div id="items"><div class="item wrong"><div class="item-header"><span class="qnum">1번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">6.2s</span><span class="mark ng">✗</span></div><div class="question-text">(가)～(다) 지도에 대한 설명으로 옳은 것은? (단, (가)～(다)는
 각각 곤여만국전도, 알 이드리시 세계 지도, 혼일강리역대국도지도
@@ -293,15 +298,11 @@ D
 ◦답안지의 해당란에 필요한 내용을 정확히 기입(표기)했는지 확인
 하시오.</div><div><div class="conf-bar"><div class="conf-fill" style="width:4%"></div></div><div class="conf-label">4.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ④</span><span><b>AI:</b> ②</span></div><div class="reasoning">지문 분석:\n(가) 지역: 전자산업에 중요한 '물질'과 '계곡'이 있고, 조선 및 제철 산업이 발달했으며, 전자 및 반도체 기업이 입주하면서 명칭이 변경된 지역. 이는 영국의 북동부 지역(타인-위어 강 유역) 또는 일본의 공업지역 특성을 보임. 지도상 위치와 산업구조로 볼 때 일본의 공업지역으로 추정되며, A(홋카이도 북부) 또는 B(긴키-주부 중부) 지역이 가능.\n\n(나) 지역: 여관의 대표적 휴양도시(카, 니스), 대학과 다양한 연구기관이 입지하며, 전문인력 확보가 유리한 환경. 산·학·연이 조화를 이루는 첨단산업 클러스터로 발전. 이는 프랑스의 코트다주르(Côte d'Azur) 지역, 특히 소피아 앙티폴리스의 특성과 일치. 지도상 E 지역(지중해 연안).\n\n결론: (가)=A, (나)=E의 조합인 ②번이 정답.</div></div></div>
 <script>
-function filterAll(){setFilter('all')}
-function filterWrong(){setFilter('wrong')}
-function filterCorrect(){setFilter('correct')}
-function setFilter(f){
+function setFilter(f,btn){
   document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active'));
-  event.target.classList.add('active');
+  btn.classList.add('active');
   document.querySelectorAll('.item').forEach(el=>{
-    const ok=el.classList.contains('correct');
-    el.style.display=(f==='all'||(f==='correct'&&ok)||(f==='wrong'&&!ok))?'':'none';
+    el.style.display=(f==='all'||el.classList.contains(f))?'':'none';
   });
 }
 document.querySelectorAll('.question-text').forEach(el=>{
