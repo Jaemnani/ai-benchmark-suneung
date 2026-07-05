@@ -30,8 +30,9 @@ function buildModelSummaries(m: Manifest): ModelSummary[] {
 }
 
 function fmtMin(sec: number): string {
-  const m = Math.floor(sec / 60);
-  const s = Math.round(sec % 60);
+  const total = Math.round(sec);
+  const m = Math.floor(total / 60);
+  const s = total % 60;
   return m > 0 ? `${m}분 ${s}초` : `${s}초`;
 }
 
@@ -43,8 +44,8 @@ export default function Home() {
     <main className="wrap">
       <h1>AI 수능 벤치마크</h1>
       <p className="intro">
-        2025학년도 수능을 AI 모델이 <b>이미지 모드</b>로 풀고 채점한 결과를
-        과목·모델·모드별로 비교합니다. 행의 <b>상세</b> 링크로 문항별 풀이 리포트를 볼 수 있습니다.
+        2025학년도 수능을 AI 모델이 <b>이미지/텍스트 모드</b>로 풀고 채점한 결과를
+        과목·모델·모드별로 비교합니다. API 오류·미지원 문항(영어 듣기 등)은 채점에서 제외됩니다. 행의 <b>상세</b> 링크로 문항별 풀이 리포트를 볼 수 있습니다.
         {' '}총 {data.rows.length}건 · 모델 {data.models.length}종 · 과목 {data.subjects.length}종.
       </p>
 

@@ -53,8 +53,10 @@ h1{font-size:1.3rem;border-bottom:2px solid #222;padding-bottom:8px}
 .choices.no-conf li{grid-template-columns:1fr}
 .ai-pick-tag{font-size:.72rem;background:#1a56db;color:#fff;padding:2px 10px;border-radius:10px;font-weight:600;justify-self:end}
 .item.skipped{border-left:4px solid #aaa;background:#fafafa;opacity:.85}
+.item.error{border-left:4px solid #e08b00;background:#fffdf5}
 .skipped-msg{color:#666;font-size:.8rem;margin-top:6px;font-style:italic}
 .mark.skip{color:#888}
+.mark.err{color:#e08b00}
 </style>
 </head>
 <body>
@@ -62,9 +64,9 @@ h1{font-size:1.3rem;border-bottom:2px solid #222;padding-bottom:8px}
 <p class="meta">모델: claude-haiku-4-5 · 모드: image · 2026-04-25T20:35:25</p>
 <div class="summary"><div class="stat info"><b>15.0%</b>정답률</div><div class="stat good"><b>3</b>정답</div><div class="stat bad"><b>17</b>오답</div><div class="stat info"><b>7/50</b>원점수</div><div class="stat"><b>121.2s</b>총 시간</div><div class="stat"><b>6.1s</b>문항 평균</div></div>
 <div class="filters">
-  <button class="fbtn active" onclick="filterAll()">전체</button>
-  <button class="fbtn" onclick="filterWrong()">오답만</button>
-  <button class="fbtn" onclick="filterCorrect()">정답만</button>
+  <button class="fbtn active" onclick="setFilter('all',this)">전체</button>
+  <button class="fbtn" onclick="setFilter('wrong',this)">오답만</button>
+  <button class="fbtn" onclick="setFilter('correct',this)">정답만</button>
 </div>
 <div id="items"><div class="item wrong"><div class="item-header"><span class="qnum">1번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">5.7s</span><span class="mark ng">✗</span></div><div class="question-text">다음은 두 해양 자원에 대해 학생 A, B, C가 대화를 나누는 모습이다.
 
@@ -214,15 +216,11 @@ $\mathrm{H}$: 고도 $\Delta \mathrm{H}$: 고도차 $\mathrm{d}$: 거리
 ㄴ. $h_1 &lt; h_2$이다.
 ㄷ. B가 (가)를 지날 때 해수면의 물 입자는 타원 운동을 한다.</div><ul class="choices"><li class="correct-choice"><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:3%"></div></div><div class="conf-label">3.0%</div></div></li><li class=""><div>② ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>③ ㄱ, ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>④ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:12%"></div></div><div class="conf-label">12.0%</div></div></li><li class="ai-pick wrong-pick"><div>⑤ ㄱ, ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:70%"></div></div><div class="conf-label">70.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ①</span><span><b>AI:</b> ⑤</span></div><div class="reasoning">주어진 조건을 정리하면:\n- 해역 (가)와 (나)의 수심이 각각 h₁과 h₂\n- λ₂ &gt; 2h₀보다 크다\n- 표에서 해역 (가): 주기 T, 파장 λ₁과 64λ₁\n- 표에서 해역 (나): 주기 T, 파장 λ₂와 16λ₂\n\n파장과 수심의 관계 분석:\n- 깊은 수역(심해파)에서는 파장이 크고, 얕은 수역(천해파)에서는 파장이 작다\n- A 해역: λ₁ &lt; 64λ₁이므로, 주기가 T일 때 두 파장이 다르다\n- B 해역: λ₂ &gt; 16λ₂는 모순이므로, λ₂ &lt; 16λ₂가 맞다\n\n조건 검토:\n- ㄱ. λ₁ = λ₂: 같은 주기 T에서 해역 A와 B의 파장 비교. 표에서 A의 64λ₁과 B의 16λ₂가 주어졌으므로, 실제 파장은 다를 가능성이 높다. (거짓일 가능성)\n- ㄴ. h₁ &lt; h₂: A에서 λ₁이 작고, B에서 λ₂가 크므로, h₁ &lt; h₂일 가능성이 높다. (참)\n- ㄷ. B가 (가)를 지날 때 해수면의 물 입자는 다른 운동을 한다: 수심이 다르면 파동의 특성이 달라지므로 참. (참)\n\n따라서 ㄱ, ㄴ, ㄷ 모두 검토 필요하지만, 주로 ㄴ과 ㄷ이 참으로 판단된다.</div></div></div>
 <script>
-function filterAll(){setFilter('all')}
-function filterWrong(){setFilter('wrong')}
-function filterCorrect(){setFilter('correct')}
-function setFilter(f){
+function setFilter(f,btn){
   document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active'));
-  event.target.classList.add('active');
+  btn.classList.add('active');
   document.querySelectorAll('.item').forEach(el=>{
-    const ok=el.classList.contains('correct');
-    el.style.display=(f==='all'||(f==='correct'&&ok)||(f==='wrong'&&!ok))?'':'none';
+    el.style.display=(f==='all'||el.classList.contains(f))?'':'none';
   });
 }
 document.querySelectorAll('.question-text').forEach(el=>{

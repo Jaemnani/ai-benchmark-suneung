@@ -52,6 +52,11 @@ h1{font-size:1.3rem;border-bottom:2px solid #222;padding-bottom:8px}
 .short-conf{font-size:.78rem;color:#666;font-family:monospace}
 .choices.no-conf li{grid-template-columns:1fr}
 .ai-pick-tag{font-size:.72rem;background:#1a56db;color:#fff;padding:2px 10px;border-radius:10px;font-weight:600;justify-self:end}
+.item.skipped{border-left:4px solid #aaa;background:#fafafa;opacity:.85}
+.item.error{border-left:4px solid #e08b00;background:#fffdf5}
+.skipped-msg{color:#666;font-size:.8rem;margin-top:6px;font-style:italic}
+.mark.skip{color:#888}
+.mark.err{color:#e08b00}
 </style>
 </head>
 <body>
@@ -59,9 +64,9 @@ h1{font-size:1.3rem;border-bottom:2px solid #222;padding-bottom:8px}
 <p class="meta">모델: claude-haiku-4-5 · 모드: image · 2026-04-23T03:59:38</p>
 <div class="summary"><div class="stat info"><b>15.0%</b>정답률</div><div class="stat good"><b>3</b>정답</div><div class="stat bad"><b>17</b>오답</div><div class="stat info"><b>8/50</b>원점수</div><div class="stat"><b>128.2s</b>총 시간</div><div class="stat"><b>6.4s</b>문항 평균</div></div>
 <div class="filters">
-  <button class="fbtn active" onclick="filterAll()">전체</button>
-  <button class="fbtn" onclick="filterWrong()">오답만</button>
-  <button class="fbtn" onclick="filterCorrect()">정답만</button>
+  <button class="fbtn active" onclick="setFilter('all',this)">전체</button>
+  <button class="fbtn" onclick="setFilter('wrong',this)">오답만</button>
+  <button class="fbtn" onclick="setFilter('correct',this)">정답만</button>
 </div>
 <div id="items"><div class="item wrong"><div class="item-header"><span class="qnum">1번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">6.1s</span><span class="mark ng">✗</span></div><div class="question-text">다음 자료에 대한 설명으로 옳은 것은? (단, A, B는 각각 가계,
 기업 중 하나임.)
@@ -470,15 +475,11 @@ Y재 1/2개 이하
 ◦답안지의 해당란에 필요한 내용을 정확히 기입(표기)했는지 확인
 하시오.</div><div><div class="conf-bar"><div class="conf-fill" style="width:65%"></div></div><div class="conf-label">65.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ③</span><span><b>AI:</b> ⑤</span></div><div class="reasoning">주어진 조건들을 정리하면:\n\n&lt;표 1&gt;에서:\n- 갑국: X재 최대 생산가능량 ①, Y재 60개\n- 을국: X재 140개, Y재 ㄴ개\n\n&lt;표 2&gt; 분석:\n- Y재 1개 이상: 갑국(×), 을국(○)\n- Y재 1/2개 초과 1개 미만: 둘 다(○)\n- Y재 1/2개 이하: 갑국(○), 을국(×)\n\n이는 교환 범위를 나타냅니다.\n\n조건 ①: ①은 '30', ㄴ은 '140'\n→ 갑국 X재 최대 30개, 을국 Y재 140개\n\n조건 ②: 갑국은 X재 생산에 특화\n→ 을국은 Y재 생산에 특화\n\n조건 ③, ④, ⑤ 검증:\n- 을국이 Y재 생산에 특화하고 교역으로 Y재 1개당 X재 1/6개 이상을 얻으면, 을국이 Y재 생산에 유리합니다.\n- 조건 ⑤: Y재 1개당 X재 1/6개의 교환비는 을국의 기회비용(Y재 1개 = X재 1/6개)과 정확히 일치하므로, 을국은 자급자족과 동일한 이득을 얻습니다.\n\n따라서 정답은 ⑤입니다.</div></div></div>
 <script>
-function filterAll(){setFilter('all')}
-function filterWrong(){setFilter('wrong')}
-function filterCorrect(){setFilter('correct')}
-function setFilter(f){
+function setFilter(f,btn){
   document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active'));
-  event.target.classList.add('active');
+  btn.classList.add('active');
   document.querySelectorAll('.item').forEach(el=>{
-    const ok=el.classList.contains('correct');
-    el.style.display=(f==='all'||(f==='correct'&&ok)||(f==='wrong'&&!ok))?'':'none';
+    el.style.display=(f==='all'||el.classList.contains(f))?'':'none';
   });
 }
 document.querySelectorAll('.question-text').forEach(el=>{

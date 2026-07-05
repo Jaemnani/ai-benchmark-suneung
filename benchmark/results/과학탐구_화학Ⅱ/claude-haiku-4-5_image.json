@@ -7,6 +7,7 @@
     "total_questions": 20,
     "graded_questions": 20,
     "skipped": 0,
+    "errors": 0,
     "correct": 1,
     "score": 2,
     "max_score": 50,

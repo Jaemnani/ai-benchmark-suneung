@@ -53,8 +53,10 @@ h1{font-size:1.3rem;border-bottom:2px solid #222;padding-bottom:8px}
 .choices.no-conf li{grid-template-columns:1fr}
 .ai-pick-tag{font-size:.72rem;background:#1a56db;color:#fff;padding:2px 10px;border-radius:10px;font-weight:600;justify-self:end}
 .item.skipped{border-left:4px solid #aaa;background:#fafafa;opacity:.85}
+.item.error{border-left:4px solid #e08b00;background:#fffdf5}
 .skipped-msg{color:#666;font-size:.8rem;margin-top:6px;font-style:italic}
 .mark.skip{color:#888}
+.mark.err{color:#e08b00}
 </style>
 </head>
 <body>
@@ -62,9 +64,9 @@ h1{font-size:1.3rem;border-bottom:2px solid #222;padding-bottom:8px}
 <p class="meta">모델: claude-haiku-4-5 · 모드: image · 2026-04-25T20:40:35</p>
 <div class="summary"><div class="stat info"><b>5.0%</b>정답률</div><div class="stat good"><b>1</b>정답</div><div class="stat bad"><b>19</b>오답</div><div class="stat info"><b>2/50</b>원점수</div><div class="stat"><b>149.8s</b>총 시간</div><div class="stat"><b>7.5s</b>문항 평균</div></div>
 <div class="filters">
-  <button class="fbtn active" onclick="filterAll()">전체</button>
-  <button class="fbtn" onclick="filterWrong()">오답만</button>
-  <button class="fbtn" onclick="filterCorrect()">정답만</button>
+  <button class="fbtn active" onclick="setFilter('all',this)">전체</button>
+  <button class="fbtn" onclick="setFilter('wrong',this)">오답만</button>
+  <button class="fbtn" onclick="setFilter('correct',this)">정답만</button>
 </div>
 <div id="items"><div class="item wrong"><div class="item-header"><span class="qnum">1번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">4.2s</span><span class="mark ng">✗</span></div><div class="question-text">다음 중 화학 에너지를 전기 에너지로 전환시키는 장치로 가장 적절한 것은?</div><ul class="choices"><li class="correct-choice"><div>① 아연판, 구리판, 묽은 황산으로 구성된 전지 (백열전구 연결)</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② 뷰렛을 이용한 수산화 나트륨 수용액과 식초의 중화 적정</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>③ 반투막으로 분리된 U자관의 물과 설탕 수용액</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>④ 온도계가 꽂힌 단열컵 안의 수용액 (열량계)</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="ai-pick wrong-pick"><div>⑤ 전원에 연결된 물과 전해질 용액을 이용한 전기분해</div><div><div class="conf-bar"><div class="conf-fill" style="width:60%"></div></div><div class="conf-label">60.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ①</span><span><b>AI:</b> ⑤</span></div><div class="reasoning">화학 에너지를 전기 에너지로 전환시키는 장치는 갈바니 전지(전기화학 전지)입니다. ①은 물의 전기분해 장치, ②는 화학반응 실험장치, ③은 기체 수집 장치, ④는 열량계로 열에너지를 측정하는 장치입니다. ⑤번 그림은 물과 전해질을 포함하는 용액에 전극(양극, 음극)을 삽입하고 전원과 연결된 형태로, 화학반응(산화-환원)에 의해 전자가 이동하면서 전기에너지가 발생하는 갈바니 전지의 구조입니다. 따라서 정답은 ⑤입니다.</div></div>
 <div class="item wrong"><div class="item-header"><span class="qnum">2번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">4.8s</span><span class="mark ng">✗</span></div><div class="question-text">다음은 강철 용기 내 $2	ext{X}(g) 	o 2	ext{Y}(g) + 	ext{Z}(g)$ 반응의 반응 속도식 $v=k[	ext{X}]$에 대한 학생들의 대화이다. $k$는 반응 속도 상수이다.
@@ -228,15 +230,11 @@ $2SO_3(g) \rightleftharpoons 2SO_2(g) + O_2(g) \quad \Delta H &gt; 0, K$
 (다) $T_2K, P_{SO_3}=0.4atm$
 $V_1$과 $V_2$의 크기 비교($\neg$)와 $T_1$과 $T_2$의 크기 비교($\llcorner$)로 옳은 것은? (단, 대기압은 $1atm$으로 일정하고, 피스톤의 질량과 마찰은 무시하며, 제시된 반응 이외의 반응은 고려하지 않는다.)</div><ul class="choices"><li class=""><div>① $3V_1 &lt; V_2 \quad T_1 &lt; T_2$</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>② $3V_1 &lt; V_2 \quad T_1 &gt; T_2$</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>③ $3V_1 = V_2 \quad T_1 &lt; T_2$</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class="correct-choice ai-pick"><div>④ $3V_1 &gt; V_2 \quad T_1 &lt; T_2$</div><div><div class="conf-bar"><div class="conf-fill top" style="width:72%"></div></div><div class="conf-label">72.0%</div></div></li><li class=""><div>⑤ $3V_1 &gt; V_2 \quad T_1 &gt; T_2$</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ④</span><span><b>AI:</b> ④</span></div><div class="reasoning">초기 상태(가): T₁K, V₁L에서 SO₃ 몰분율 x_SO₃=0.5, P_SO₃=0.4atm → 전체압=0.8atm\n\n반응식: 2SO₃(g) ⇌ 2SO₂(g) + O₂(g), ΔH&gt;0 (흡열반응)\n\n상태(나): T₁K, V₂L에서 P_SO₃=0.4atm (같은 온도)\n- 같은 온도에서 P_SO₃가 일정 → n_SO₃가 같음\n- V₂ &gt; V₁이므로 전체 기체 분자수는 변하지 않았음 (반응 진행 없음)\n- 따라서 3V₁ &lt; V₂ (피스톤이 아래로 내려옴, 외부압력이 1atm 유지)\n\n상태(다): T₂K, P_SO₃=0.4atm (새로운 평형)\n- T₁에서 T₂로 온도 변화\n- 흡열반응이므로 온도 증가 시 K 증가 → 반응이 우측 진행\n- P_SO₃ = 0.4atm으로 유지되려면: 초기보다 온도가 낮아야 함\n- 따라서 T₁ &lt; T₂는 불가능\n\n다시 분석: 상태(나)에서 압력 변화 없이 부피만 변했으므로, 반응이 진행되지 않음.\n상태(다)에서 새로운 평형 도달: T₂에서 온도 변화\n- 흡열반응(ΔH&gt;0)에서 T 증가 시 평형이 우측으로 이동\n- P_SO₃=0.4atm 유지 조건에서: T₂ &lt; T₁ (온도 감소)\n- 부피는 피스톤 조건(1atm, T₂K)에서 결정됨\n- T 감소 시 V 감소 → V₂ &gt; V₁ 가능\n\n결론: 3V₁ &gt; V₂, T₁ &lt; T₂는 모순. \n올바른 해석: 3V₁ &gt; V₂이고 T₁ &lt; T₂일 수 없으므로\n3V₁ &gt; V₂, T₁ &gt; T₂도 아님.\n\n정확한 판단: (나)→(다)에서 온도 증가 시 흡열반응 진행, 평형 우측 이동\n결과적으로 V₂ 감소 가능 → 3V₁ &gt; V₂, T₁ &lt; T₂가 성립</div></div></div>
 <script>
-function filterAll(){setFilter('all')}
-function filterWrong(){setFilter('wrong')}
-function filterCorrect(){setFilter('correct')}
-function setFilter(f){
+function setFilter(f,btn){
   document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active'));
-  event.target.classList.add('active');
+  btn.classList.add('active');
   document.querySelectorAll('.item').forEach(el=>{
-    const ok=el.classList.contains('correct');
-    el.style.display=(f==='all'||(f==='correct'&&ok)||(f==='wrong'&&!ok))?'':'none';
+    el.style.display=(f==='all'||el.classList.contains(f))?'':'none';
   });
 }
 document.querySelectorAll('.question-text').forEach(el=>{

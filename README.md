@@ -27,9 +27,8 @@ A pipeline that parses the 2025 Korean SAT PDFs into per-question structured JSO
 | `parser/` | 수능 PDF → 문항 단위 구조화 JSON + 문제 이미지 파싱 파이프라인 |
 | `benchmark/` | AI 풀이 러너(`solver_image.py`/`solver_text.py`)·채점·HTML 리포트(`solver_viewer.py`)·결과(`results/`) |
 | `web/` | 결과를 집계해 보여주는 Next.js 정적 리더보드 대시보드 |
-| `outputs/` | 파싱 산출물(과목별 JSON·정답표·문항 이미지) — gitignore |
+| `outputs/` | 파싱 산출물(과목별 JSON·정답표·문항 이미지) — git 추적 (벤치마크 재현용) |
 | `raw_datas/` | 원본 수능 PDF·영어 듣기 음원 |
-| `docs/` | 운영 문서 |
 
 ## 웹 대시보드 (`web/`)
 

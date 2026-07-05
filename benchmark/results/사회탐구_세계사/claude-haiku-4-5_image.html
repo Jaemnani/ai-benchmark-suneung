@@ -52,6 +52,11 @@ h1{font-size:1.3rem;border-bottom:2px solid #222;padding-bottom:8px}
 .short-conf{font-size:.78rem;color:#666;font-family:monospace}
 .choices.no-conf li{grid-template-columns:1fr}
 .ai-pick-tag{font-size:.72rem;background:#1a56db;color:#fff;padding:2px 10px;border-radius:10px;font-weight:600;justify-self:end}
+.item.skipped{border-left:4px solid #aaa;background:#fafafa;opacity:.85}
+.item.error{border-left:4px solid #e08b00;background:#fffdf5}
+.skipped-msg{color:#666;font-size:.8rem;margin-top:6px;font-style:italic}
+.mark.skip{color:#888}
+.mark.err{color:#e08b00}
 </style>
 </head>
 <body>
@@ -59,9 +64,9 @@ h1{font-size:1.3rem;border-bottom:2px solid #222;padding-bottom:8px}
 <p class="meta">모델: claude-haiku-4-5 · 모드: image · 2026-04-23T04:08:34</p>
 <div class="summary"><div class="stat info"><b>20.0%</b>정답률</div><div class="stat good"><b>4</b>정답</div><div class="stat bad"><b>16</b>오답</div><div class="stat info"><b>11/50</b>원점수</div><div class="stat"><b>121.8s</b>총 시간</div><div class="stat"><b>6.1s</b>문항 평균</div></div>
 <div class="filters">
-  <button class="fbtn active" onclick="filterAll()">전체</button>
-  <button class="fbtn" onclick="filterWrong()">오답만</button>
-  <button class="fbtn" onclick="filterCorrect()">정답만</button>
+  <button class="fbtn active" onclick="setFilter('all',this)">전체</button>
+  <button class="fbtn" onclick="setFilter('wrong',this)">오답만</button>
+  <button class="fbtn" onclick="setFilter('correct',this)">정답만</button>
 </div>
 <div id="items"><div class="item wrong"><div class="item-header"><span class="qnum">1번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">6.0s</span><span class="mark ng">✗</span></div><div class="question-text">(가) 문명에 대한 설명으로 옳은 것은? [3점]</div><ul class="choices"><li class="correct-choice"><div>① 피라미드를 축조하였다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:8%"></div></div><div class="conf-label">8.0%</div></div></li><li class="ai-pick wrong-pick"><div>② 길가메시 서사시를 남겼다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:75%"></div></div><div class="conf-label">75.0%</div></div></li><li class=""><div>③ 올림피아 제전을 개최하였다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>④ 갑골에 점복의 내용을 기록하였다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class=""><div>⑤ 하라파 등 계획도시를 건설하였다.</div><div><div class="conf-bar"><div class="conf-fill" style="width:2%"></div></div><div class="conf-label">2.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ①</span><span><b>AI:</b> ②</span></div><div class="reasoning">텍스트에서 '(가)의 사람들은 영혼 불멸과 사후 세계를 믿어 이런 유물을 매장하였습니다'라고 명시되어 있습니다. 이는 고대 이집트 문명의 특징입니다. 보여진 유물은 이집트식 관(canopic jar)으로 미라 매장 문화와 관련이 있습니다. 선택지를 검토하면: ①피라미드 축조는 더 광범위한 건축 활동, ②길가메시는 메소포타미아 유물로 시기와 지역이 맞지 않음, ③올림피아는 그리스, ④갑골문은 중국, ⑤하라파는 인더스 문명입니다. 이집트 문명의 영혼 불멸 신앙과 사후세계 개념을 가장 직접적으로 반영하는 것은 길가메시 서사시가 아니라, 이집트의 사후세계관과 관련된 ②길가메시서 서사시를 낭겟다가 아닌, 이집트의 핵심 특징인 사후세계 신앙과 미라 매장 문화입니다. 재검토하면 ②는 메소포타미아이므로 부적절합니다. 이집트 특징을 가장 잘 나타내는 것은 ①피라미드 축조입니다.</div></div>
 <div class="item correct"><div class="item-header"><span class="qnum">2번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">3점</span><span class="time">6.0s</span><span class="mark ok">✓</span></div><div class="question-text">(가) 국가에 대한 설명으로 옳은 것은? [3점]
@@ -250,15 +255,11 @@ h1{font-size:1.3rem;border-bottom:2px solid #222;padding-bottom:8px}
 ◦답안지의 해당란에 필요한 내용을 정확히 기입(표기)했는지 확인
 하시오.</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ①</span><span><b>AI:</b> ②</span></div><div class="reasoning">이 글은 냉전 시기 동구권의 민주화 운동을 다루고 있습니다. 문맥에서 '처음에는 우리 체제를 제대로 작동시킬 수 있다는 환상을 가졌으나, 결국 변화는 쉽지 않았고, 새로운 지도자들이 대대적 개혁을 추진했지만 기존 특권 계층은 저항했다'는 내용과 '구데타로 쿠데타를 일으켰으며, 6년여 만에 연방이 해체되는 것을 볼 수밖에 없었다'는 표현에서 소비에트연방의 해체 과정을 설명하고 있습니다. 고르바초프의 글라스노스트와 페레스트로이카 정책, 그리고 동유럽 민주화 운동의 영향으로 소련이 1991년 해체되는 과정을 묘사합니다. 따라서 소련의 독트린이 발표되지 않았다는 ①번, 유럽연합이 출범하지 않았다는 ③번, 쿠바 미사일 위기가 발생하지 않았다는 ④번, WTO가 창설되지 않았다는 ⑤번은 모두 거짓입니다. 남슬라브 국가들의 독립전쟁과 관련된 ②번 '냉슨 독트린이 발표되었다'는 이 역사적 맥락에서 거짓된 사실입니다.</div></div></div>
 <script>
-function filterAll(){setFilter('all')}
-function filterWrong(){setFilter('wrong')}
-function filterCorrect(){setFilter('correct')}
-function setFilter(f){
+function setFilter(f,btn){
   document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active'));
-  event.target.classList.add('active');
+  btn.classList.add('active');
   document.querySelectorAll('.item').forEach(el=>{
-    const ok=el.classList.contains('correct');
-    el.style.display=(f==='all'||(f==='correct'&&ok)||(f==='wrong'&&!ok))?'':'none';
+    el.style.display=(f==='all'||el.classList.contains(f))?'':'none';
   });
 }
 document.querySelectorAll('.question-text').forEach(el=>{

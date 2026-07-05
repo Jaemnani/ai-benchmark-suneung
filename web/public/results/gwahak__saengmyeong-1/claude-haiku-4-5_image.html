@@ -53,8 +53,10 @@ h1{font-size:1.3rem;border-bottom:2px solid #222;padding-bottom:8px}
 .choices.no-conf li{grid-template-columns:1fr}
 .ai-pick-tag{font-size:.72rem;background:#1a56db;color:#fff;padding:2px 10px;border-radius:10px;font-weight:600;justify-self:end}
 .item.skipped{border-left:4px solid #aaa;background:#fafafa;opacity:.85}
+.item.error{border-left:4px solid #e08b00;background:#fffdf5}
 .skipped-msg{color:#666;font-size:.8rem;margin-top:6px;font-style:italic}
 .mark.skip{color:#888}
+.mark.err{color:#e08b00}
 </style>
 </head>
 <body>
@@ -62,9 +64,9 @@ h1{font-size:1.3rem;border-bottom:2px solid #222;padding-bottom:8px}
 <p class="meta">모델: claude-haiku-4-5 · 모드: image · 2026-04-25T20:28:40</p>
 <div class="summary"><div class="stat info"><b>25.0%</b>정답률</div><div class="stat good"><b>5</b>정답</div><div class="stat bad"><b>15</b>오답</div><div class="stat info"><b>13/50</b>원점수</div><div class="stat"><b>149.4s</b>총 시간</div><div class="stat"><b>7.5s</b>문항 평균</div></div>
 <div class="filters">
-  <button class="fbtn active" onclick="filterAll()">전체</button>
-  <button class="fbtn" onclick="filterWrong()">오답만</button>
-  <button class="fbtn" onclick="filterCorrect()">정답만</button>
+  <button class="fbtn active" onclick="setFilter('all',this)">전체</button>
+  <button class="fbtn" onclick="setFilter('wrong',this)">오답만</button>
+  <button class="fbtn" onclick="setFilter('correct',this)">정답만</button>
 </div>
 <div id="items"><div class="item correct"><div class="item-header"><span class="qnum">1번</span><span class="badge" style="background:#f0f4ff;color:#1a56db">2점</span><span class="time">6.0s</span><span class="mark ok">✓</span></div><div class="question-text">다음은 쏙독새 A에 대한 자료이다.
 (가) A의 주둥이는 크고 가장자리에 긴 털이 있어 비행 중에 곤충을 잡기에 적합하다.
@@ -305,15 +307,11 @@ R+t | ⑦ | ? | ㉡)
 ㄴ. 소장은 소화계에 속한다.
 ㄷ. 흡수된 철분의 양은 Ⅱ에서가 Ⅰ에서보다 많다.</div><ul class="choices"><li class=""><div>① ㄱ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li><li class="correct-choice"><div>② ㄴ</div><div><div class="conf-bar"><div class="conf-fill" style="width:10%"></div></div><div class="conf-label">10.0%</div></div></li><li class=""><div>③ ㄱ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:15%"></div></div><div class="conf-label">15.0%</div></div></li><li class="ai-pick wrong-pick"><div>④ ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:65%"></div></div><div class="conf-label">65.0%</div></div></li><li class=""><div>⑤ ㄱ, ㄴ, ㄷ</div><div><div class="conf-bar"><div class="conf-fill" style="width:5%"></div></div><div class="conf-label">5.0%</div></div></li></ul><div class="ans-row"><span><b>정답:</b> ②</span><span><b>AI:</b> ④</span></div><div class="reasoning">문제 분석: 비타민 C가 소장에서 철분 흡수에 미치는 영향에 대한 실험 문제입니다.\n\n조건 분석:\n(가) 동일한 조건에서 I과 II의 내부 공간에 칠분을 각각 넣고, I에만 비타민 C를 추가했습니다.\n(나) 시간이 지난 후 I과 II의 내부 공간에 남아있는 철분의 양을 측정한 결과, 그림과 같이 II에서 I보다 많습니다.\n(다) 비타민 C는 소장에서 철분 흡수를 촉진한다는 결론을 내렸습니다.\n\n보기 검토:\n그. ①는 조작 변인이다 → (가)에서 비타민 C 추가 여부가 조작 변인이므로 참\n\nㄴ. 소장은 소화계에 속한다 → 참\n\nㄷ. 흡수된 철분의 양은 II에서가 I에서보다 많다 → (나)에서 I이 내부 공간에 남은 철분이 적다는 것은 더 많이 흡수되었다는 뜻이므로, I에서 흡수량이 더 많습니다. 따라서 거짓입니다.\n\n결론: 그(참), ㄴ(참), ㄷ(거짓) → 그와 ㄴ이 참이므로 답은 ④번</div></div></div>
 <script>
-function filterAll(){setFilter('all')}
-function filterWrong(){setFilter('wrong')}
-function filterCorrect(){setFilter('correct')}
-function setFilter(f){
+function setFilter(f,btn){
   document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active'));
-  event.target.classList.add('active');
+  btn.classList.add('active');
   document.querySelectorAll('.item').forEach(el=>{
-    const ok=el.classList.contains('correct');
-    el.style.display=(f==='all'||(f==='correct'&&ok)||(f==='wrong'&&!ok))?'':'none';
+    el.style.display=(f==='all'||el.classList.contains(f))?'':'none';
   });
 }
 document.querySelectorAll('.question-text').forEach(el=>{
