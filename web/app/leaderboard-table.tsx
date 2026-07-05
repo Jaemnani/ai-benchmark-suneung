@@ -98,13 +98,14 @@ export function LeaderboardTable({
       <div className="controls">
         <div className="chips">
           {chipList.map((c) => (
-            <span
+            <button
               key={c}
+              type="button"
               className={`chip ${category === c ? 'active' : ''}`}
               onClick={() => setCategory(c)}
             >
               {c}
-            </span>
+            </button>
           ))}
         </div>
         <div className="select-group">
@@ -144,8 +145,10 @@ export function LeaderboardTable({
                   onClick={() => toggleSort(col.key)}
                 >
                   {col.label}
-                  {col.key === sortKey && (
+                  {col.key === sortKey ? (
                     <span className="arrow"> {sortDir === 'asc' ? '▲' : '▼'}</span>
+                  ) : (
+                    col.key !== null && <span className="sort-hint"> ⇅</span>
                   )}
                 </th>
               ))}
