@@ -12,6 +12,7 @@ export interface ResultRow {
   totalQuestions: number;
   gradedQuestions: number;
   skipped: number;
+  errors: number;
   correct: number;
   score: number;
   maxScore: number;

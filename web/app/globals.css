@@ -257,6 +257,12 @@ tbody tr:hover {
   font-size: 0.78rem;
 }
 
+.err-tag {
+  color: #b45309;
+  font-size: 0.78rem;
+  white-space: nowrap;
+}
+
 .detail-link {
   color: var(--info);
   font-weight: 600;

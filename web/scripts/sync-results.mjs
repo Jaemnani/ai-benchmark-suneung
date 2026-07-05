@@ -51,6 +51,7 @@ function normalizeSummary(s) {
     totalQuestions: total,
     gradedQuestions: s.graded_questions ?? total,
     skipped: s.skipped ?? 0,
+    errors: s.errors ?? 0,
     correct: s.correct ?? 0,
     score: s.score ?? 0,
     maxScore: s.max_score ?? 0,
@@ -85,7 +86,7 @@ function main() {
   mkdirSync(PUBLIC_OUT, { recursive: true });
   mkdirSync(dirname(DATA_OUT), { recursive: true });
 
-  const rows = [];
+  const rowsByKey = new Map(); // (subject|model|mode) 중복 시 최신 timestamp 우선
   const unknownSubjects = new Set();
 
   for (const jsonPath of listJsonFiles(RESULTS_DIR)) {
@@ -108,6 +109,14 @@ function main() {
       continue;
     }
 
+    const key = `${subject}|${model}|${mode}`;
+    const prev = rowsByKey.get(key);
+    if (prev && (prev.timestamp ?? '') >= (timestamp ?? '')) {
+      console.warn(`[sync] 중복 결과(더 오래됨) 건너뜀: ${jsonPath}`);
+      continue;
+    }
+    if (prev) console.warn(`[sync] 중복 결과 대체(더 최신): ${jsonPath}`);
+
     // 형제 HTML 복사
     const htmlSrc = jsonPath.replace(/\.json$/, '.html');
     let detailHref = null;
@@ -121,7 +130,7 @@ function main() {
       console.warn(`[sync] 상세 HTML 없음: ${htmlSrc}`);
     }
 
-    rows.push({
+    rowsByKey.set(key, {
       subject,
       subjectSlug,
       subjectShort: subjectShortOf(subject),
@@ -133,6 +142,7 @@ function main() {
       detailHref,
     });
   }
+  const rows = [...rowsByKey.values()];
 
   if (unknownSubjects.size > 0) {
     throw new Error(

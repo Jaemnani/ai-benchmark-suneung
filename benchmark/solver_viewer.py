@@ -59,8 +59,10 @@ h1{font-size:1.3rem;border-bottom:2px solid #222;padding-bottom:8px}
 .choices.no-conf li{grid-template-columns:1fr}
 .ai-pick-tag{font-size:.72rem;background:#1a56db;color:#fff;padding:2px 10px;border-radius:10px;font-weight:600;justify-self:end}
 .item.skipped{border-left:4px solid #aaa;background:#fafafa;opacity:.85}
+.item.error{border-left:4px solid #e08b00;background:#fffdf5}
 .skipped-msg{color:#666;font-size:.8rem;margin-top:6px;font-style:italic}
 .mark.skip{color:#888}
+.mark.err{color:#e08b00}
 </style>
 </head>
 <body>
@@ -68,21 +70,17 @@ h1{font-size:1.3rem;border-bottom:2px solid #222;padding-bottom:8px}
 <p class="meta">__META__</p>
 <div class="summary">__SUMMARY__</div>
 <div class="filters">
-  <button class="fbtn active" onclick="filterAll()">전체</button>
-  <button class="fbtn" onclick="filterWrong()">오답만</button>
-  <button class="fbtn" onclick="filterCorrect()">정답만</button>
+  <button class="fbtn active" onclick="setFilter('all',this)">전체</button>
+  <button class="fbtn" onclick="setFilter('wrong',this)">오답만</button>
+  <button class="fbtn" onclick="setFilter('correct',this)">정답만</button>
 </div>
 <div id="items">__ITEMS__</div>
 <script>
-function filterAll(){setFilter('all')}
-function filterWrong(){setFilter('wrong')}
-function filterCorrect(){setFilter('correct')}
-function setFilter(f){
+function setFilter(f,btn){
   document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active'));
-  event.target.classList.add('active');
+  btn.classList.add('active');
   document.querySelectorAll('.item').forEach(el=>{
-    const ok=el.classList.contains('correct');
-    el.style.display=(f==='all'||(f==='correct'&&ok)||(f==='wrong'&&!ok))?'':'none';
+    el.style.display=(f==='all'||el.classList.contains(f))?'':'none';
   });
 }
 document.querySelectorAll('.question-text').forEach(el=>{
@@ -100,12 +98,22 @@ def _esc(s):
     return str(s).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
+def _to_float(v) -> float:
+    try:
+        return float(v)
+    except (TypeError, ValueError):
+        return 0.0
+
+
 def _render_item(item: dict) -> str:
     is_skipped = bool(item.get("skipped"))
+    is_error = bool(item.get("error")) and not is_skipped
     is_correct = item.get("is_correct", False)
     is_short = not item.get("choices")
     if is_skipped:
         cls = "skipped"
+    elif is_error:
+        cls = "error"
     else:
         cls = "correct" if is_correct else "wrong"
 
@@ -117,9 +125,11 @@ def _render_item(item: dict) -> str:
         html += f'<span class="badge badge-sec">{_esc(sec)}</span>'
     pts = item.get("points", 0)
     html += f'<span class="badge" style="background:#f0f4ff;color:#1a56db">{pts}점</span>'
-    html += f'<span class="time">{item.get("elapsed_sec", 0):.1f}s</span>'
+    html += f'<span class="time">{_to_float(item.get("elapsed_sec")):.1f}s</span>'
     if is_skipped:
         html += '<span class="mark skip">⊘</span>'
+    elif is_error:
+        html += '<span class="mark err">⚠</span>'
     else:
         mark_cls = "ok" if is_correct else "ng"
         mark_txt = "✓" if is_correct else "✗"
@@ -148,8 +158,8 @@ def _render_item(item: dict) -> str:
             html += f'<li class="{" ".join(li_cls)}">'
             html += f'<div>{_esc(mark)} {_esc(c)}</div>'
             if has_conf:
-                v = conf.get(mark, 0)
-                pct = max(0, min(100, round(float(v) * 100)))
+                v = _to_float(conf.get(mark, 0))
+                pct = max(0, min(100, round(v * 100)))
                 fill_cls = "conf-fill top" if mark == ai_ans and is_correct else "conf-fill"
                 html += f'<div><div class="conf-bar"><div class="{fill_cls}" style="width:{pct}%"></div></div>'
                 html += f'<div class="conf-label">{v*100:.1f}%</div></div>'
@@ -162,7 +172,7 @@ def _render_item(item: dict) -> str:
     html += f'<span><b>정답:</b> {_esc(str(item.get("correct_answer", "")))}</span>'
     html += f'<span><b>AI:</b> {_esc(str(item.get("answer", "")))}</span>'
     if is_short and item.get("confidence") is not None:
-        html += f'<span class="short-conf">confidence: {float(item.get("confidence", 0))*100:.1f}%</span>'
+        html += f'<span class="short-conf">confidence: {_to_float(item.get("confidence"))*100:.1f}%</span>'
     html += '</div>'
 
     reasoning = item.get("reasoning", "")
@@ -185,6 +195,7 @@ def generate_html(data: dict, out_path: Path) -> None:
 
     graded = summary.get("graded_questions", summary.get("total_questions", 0))
     skipped = summary.get("skipped", 0)
+    errors = summary.get("errors", 0)
     wrong = max(graded - summary.get("correct", 0), 0)
     summary_html = (
         f'<div class="stat info"><b>{summary.get("accuracy", 0)}%</b>정답률</div>'
@@ -193,6 +204,8 @@ def generate_html(data: dict, out_path: Path) -> None:
     )
     if skipped:
         summary_html += f'<div class="stat"><b>{skipped}</b>제외</div>'
+    if errors:
+        summary_html += f'<div class="stat"><b>⚠ {errors}</b>오류</div>'
     summary_html += (
         f'<div class="stat info"><b>{summary.get("score", 0)}/{summary.get("max_score", 0)}</b>원점수</div>'
         f'<div class="stat"><b>{summary.get("total_time_sec", 0)}s</b>총 시간</div>'

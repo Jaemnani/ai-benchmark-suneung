@@ -10,6 +10,7 @@ type SortKey =
   | 'accuracy'
   | 'score'
   | 'skipped'
+  | 'errors'
   | 'avgTime';
 
 const COLUMNS: { key: SortKey | null; label: string }[] = [
@@ -19,6 +20,7 @@ const COLUMNS: { key: SortKey | null; label: string }[] = [
   { key: 'accuracy', label: '정답률' },
   { key: 'score', label: '원점수' },
   { key: 'skipped', label: '제외' },
+  { key: 'errors', label: '오류' },
   { key: 'avgTime', label: '평균시간' },
   { key: null, label: '상세' },
 ];
@@ -68,6 +70,8 @@ export function LeaderboardTable({
           return (a.score - b.score) * dir;
         case 'skipped':
           return (a.skipped - b.skipped) * dir;
+        case 'errors':
+          return ((a.errors ?? 0) - (b.errors ?? 0)) * dir;
         case 'avgTime':
           return (a.avgTimeSec - b.avgTimeSec) * dir;
         default:
@@ -188,6 +192,13 @@ export function LeaderboardTable({
                   </td>
                   <td className="num">
                     {r.skipped > 0 ? <span className="skip-tag">{r.skipped}</span> : '–'}
+                  </td>
+                  <td className="num">
+                    {(r.errors ?? 0) > 0 ? (
+                      <span className="err-tag">⚠ {r.errors}</span>
+                    ) : (
+                      '–'
+                    )}
                   </td>
                   <td className="num">{r.avgTimeSec.toFixed(1)}s</td>
                   <td>

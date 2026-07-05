@@ -18,7 +18,7 @@ import time
 
 from solver_common import (
     DEFAULT_MODEL, OUTPUTS, SYSTEM_PROMPT,
-    client, get_claude, is_claude, load_image_bytes, parse_response, run_benchmark,
+    get_claude, get_gemini, is_claude, load_image_bytes, parse_response, run_benchmark,
 )
 
 SUBJECT_LABEL = {"국어", "영어", "수학"}
@@ -122,7 +122,7 @@ def _gather_images(question: dict, paper: dict) -> list[bytes]:
 
 def _solve_gemini(question: dict, paper: dict, model: str, subject: str):
     contents = _build_contents(question, paper, subject)
-    resp = client.models.generate_content(
+    resp = get_gemini().models.generate_content(
         model=model,
         contents=[SYSTEM_PROMPT] + contents,
     )

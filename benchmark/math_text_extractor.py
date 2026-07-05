@@ -12,22 +12,13 @@ from __future__ import annotations
 
 import argparse
 import json
-import os
 import re
 import time
 from pathlib import Path
 
-from dotenv import load_dotenv
-from google import genai
-from google.genai import types
+from solver_common import OUTPUTS, fix_bad_escapes, get_gemini
 
-ROOT = Path(__file__).resolve().parents[1]
-load_dotenv(ROOT / ".env")
-GEMINI_API_KEY = os.environ["GEMINI_API_KEY"]
 MODEL = "gemini-2.5-flash"
-OUTPUTS = ROOT / "outputs" / "2025"
-
-client = genai.Client(api_key=GEMINI_API_KEY)
 
 
 def _subject_label(subject: str) -> str:
@@ -56,31 +47,6 @@ def _build_prompt(subject: str) -> str:
 """
 
 _JSON_FENCE_RE = re.compile(r"^```(?:json)?\s*|\s*```$", re.MULTILINE)
-_VALID_ESCAPE = set('"\\/bfnrtu')
-
-
-def _fix_bad_escapes(s: str) -> str:
-    """LaTeX `\\{`, `\\sum` 등 JSON 표준이 아닌 단일 backslash 를 `\\\\` 로 보정.
-    이미 valid 한 `\\\\X` 시퀀스는 한 쌍씩 건너뛰어 손상시키지 않는다."""
-    out: list[str] = []
-    i = 0
-    n = len(s)
-    while i < n:
-        c = s[i]
-        if c == "\\" and i + 1 < n:
-            nxt = s[i + 1]
-            if nxt in _VALID_ESCAPE:
-                out.append(c)
-                out.append(nxt)
-                i += 2
-                continue
-            out.append("\\\\")
-            out.append(nxt)
-            i += 2
-            continue
-        out.append(c)
-        i += 1
-    return "".join(out)
 
 
 def _parse_response(text: str) -> tuple[str, list[str]] | None:
@@ -89,7 +55,7 @@ def _parse_response(text: str) -> tuple[str, list[str]] | None:
         obj = json.loads(cleaned)
     except json.JSONDecodeError:
         try:
-            obj = json.loads(_fix_bad_escapes(cleaned))
+            obj = json.loads(fix_bad_escapes(cleaned))
         except json.JSONDecodeError:
             return None
     q = obj.get("question")
@@ -100,6 +66,8 @@ def _parse_response(text: str) -> tuple[str, list[str]] | None:
 
 
 def extract_question_text(img_path: Path, prompt: str) -> tuple[str, list[str]] | None:
+    from google.genai import types
+
     img_bytes = img_path.read_bytes()
     contents = [
         types.Part.from_bytes(data=img_bytes, mime_type="image/png"),
@@ -108,7 +76,7 @@ def extract_question_text(img_path: Path, prompt: str) -> tuple[str, list[str]] 
     config = types.GenerateContentConfig(response_mime_type="application/json")
     for attempt in range(3):
         try:
-            resp = client.models.generate_content(
+            resp = get_gemini().models.generate_content(
                 model=MODEL, contents=contents, config=config
             )
             parsed = _parse_response(resp.text or "")

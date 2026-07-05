@@ -12,7 +12,7 @@ import time
 
 from solver_common import (
     CHOICE_MARKS, DEFAULT_MODEL, SYSTEM_PROMPT,
-    client, parse_response, run_benchmark,
+    get_gemini, parse_response, run_benchmark,
 )
 
 
@@ -46,7 +46,7 @@ def solve_text(question: dict, paper: dict, model: str, subject: str = "") -> di
                     passage_text = p.get("text", "")
                     break
         prompt = _build_prompt(question, passage_text)
-        resp = client.models.generate_content(
+        resp = get_gemini().models.generate_content(
             model=model,
             contents=[SYSTEM_PROMPT + "\n\n" + prompt],
         )
